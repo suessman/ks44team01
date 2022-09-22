@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.aco-title h3{
+	font-size:1.5rem;
+	color:#343a40;
+	text-align:left;
+}
+
+.img-body{	
+	height:calc(60vh - 64px) !important;
+}
+
+.img-body .img-list{
+	height:100%;
+}
+
+.img-body .img-list img{
+	height:100%;
+	overflow:hidden;
+	vertical-align:bottom;	
+	object-fit:cover;
+}
+
+.img-body .img-list img.half-height{
+	height:calc(50%);
+}
