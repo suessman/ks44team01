@@ -54,9 +54,20 @@
                             <li><a href="">#숙소상세</a></li>
                             <li><a href="">#숙소예약</a></li>
                             <li><a href="">#숙소결제</a></li>                            
-                            <li><a href="">#상품목록</a></li>
+                            <li><a href="">#상품</a>
+                           	 <ul class="header__menu__dropdown">
+                                    <li><a th:href="@{/goods/goodsInsert}">#상품등록</a></li>
+                                    <li><a th:href="@{/goods/goodsModify}">#상품수정</a></li>
+                                    <li><a href="">#상품삭제</a></li>
+                                    <li><a th:href="@{/goods/goodsList}">#상품목록</a></li>
+                                    <li><a th:href="@{/goods/goodsListUser}">#상품목록_구매자</a></li>
+                                    <li><a th:href="@{/goods/goodsShippingInfoInsert}">#배송정보등록</a></li>
+                                    <li><a th:href="@{/goods/goodsShippingInfoModify}">#배송정보수정</a></li>
+                                    <li><a href="">#배송정보삭제</a></li>
+                                </ul>
+                            </li>
                             <li><a href="">#상품상세</a></li>
-                            <li><a href="">#장바구니</a></li>
+                            <li><a th:href="@{/goods/goodsCartList}">#장바구니</a></li>
                             <li><a href="">#상품결제</a></li>
                             
                            <li><a href="#">#계정관련</a>

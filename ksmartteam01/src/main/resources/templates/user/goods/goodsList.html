@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>상품목록</title>
+	</th:block>
+	
+	<th:block layout:fragment="customTopJs">
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	</th:block>
+	<th:block layout:fragment="customCss">
+		<style>
+			
+    	</style>
+    </th:block>
+	<th:block layout:fragment="customContents">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+		<div class="container">
+		    <div class="row col-md-6 col-md-offset-2 custyle">
+		    <table class="table table-striped custab">
+		    <thead>
+		    <a th:href="@{/goods/goodsInsert}" class="btn btn-primary btn-xs pull-right"><b>+</b> 상품등록</a>
+					<tr>
+			            <th>상품코드</th>
+			            <th>아이디</th>
+			            <th>사업자코드</th>
+			            <th>중분류코드</th>
+			            <th>상품명</th>
+			            <th>가격</th>
+			            <th>등록시각</th>
+			            <th>상품사진</th>
+			            <th>재고수량</th>
+			            <th class="text-center">수정/삭제</th>
+			        </tr>
+		    </thead>
+		            <tr>
+		                <td>145123141324</td>
+		                <td>News</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td>News Cate</td>
+		                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> 수정</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 삭제</a></td>
+		            </tr>
+		            <tr>
+		                <td>2</td>
+		                <td>Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td>Main Products</td>
+		                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> 수정</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 삭제</a></td>
+		            </tr>
+		            <tr>
+		                <td>3</td>
+		                <td>Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td>Parent Blogs</td>
+		                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> 수정</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> 삭제</a></td>
+		            </tr>
+		    </table>
+		    </div>
+		</div>
+	</th:block>
+</html> 
