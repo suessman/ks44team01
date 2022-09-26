@@ -314,12 +314,16 @@
 	$(function(){	
 		let dropdownToggle = $('.dropdown-toggle');
 		let dropdownGroup = $('.dropdown-group');
-	   	/* let dropdownGroupEl = $('.dropdown-group')[0]; */
-		console.log(dropdownGroup);
-		
-		$(document).on('click', function(event){			
-				
+	   	
+		dropdownToggle.click(function(){
+			console.log('gggg');
+			if(dropdownGroup.hasClass('show')){
+				dropdownGroup.removeClass('show');
+			}else{
+				dropdownGroup.addClass('show');
+			}
 		})
+	
 	})
 	
 	</script>
