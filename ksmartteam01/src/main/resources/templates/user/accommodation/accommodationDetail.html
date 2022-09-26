@@ -9,15 +9,22 @@
 	
 	<th:block layout:fragment="customContents">
 	
-	    <!-- Breadcrumb Section Begin -->
+    <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section" data-setbg="/img/breadcrumb.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text aco-title">
                         <h3>sharma springs 5 bds 럭셔리한 대나무 저택 수영장</h3>
-                       	<div class="text-left">
-                       		<span>5.0</span>
+                       	<div class="text-left mt-2">
+                       		
+                       		<span>
+                       		<i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                       		</span>
                        		<span><u>후기53개</u></span>
                        		<span>전주시 완산구 평화동</span>
                        	</div>
@@ -29,19 +36,45 @@
                     </div>
                 </div>                
             </div>
-            <div class="row img-body">            	
-                <div class="col-lg-6 img-list">                	
-               		<img src="/img/accommodation/room1.jpg">
-                </div>	
-                <div class="col-lg-3 img-list">                	
-               		<img class="half-height" src="/img/accommodation/room1.jpg">    
-               		<img class="half-height" src="/img/accommodation/room1.jpg">    
-                </div>	
-                <div class="col-lg-3 img-list">                	
-               		<img class="half-height" src="/img/accommodation/room1.jpg">    
-               		<img class="half-height" src="/img/accommodation/room1.jpg">    
-                </div>	
-            </div>
+            
+            <!-- pc -->
+            <div class="accommo-img-pc parentel-radius">
+            	<div class="row img-body">            	
+	                <div class="col-6 img-list">                	
+	               		<img src="/img/accommodation/room1.jpg">
+	                </div>	
+	                <div class="col-3 img-list">                	
+	               		<img class="half-height" src="/img/accommodation/room1.jpg">    
+	               		<img class="half-height bottom" src="/img/accommodation/room2.jpg">    
+	                </div>	
+	                <div class="col-3 img-list">                	
+	               		<img class="half-height" src="/img/accommodation/room3.jpg">    
+	               		<img class="half-height bottom" src="/img/accommodation/room4.jpg">    
+	                </div>	
+            	</div>            
+            </div>           
+            
+            <!-- 모바일 -->
+            <section class="product-details spad pt-0 pb-0">
+				<div class="accommo-img-mobile col-12">
+				     <div class="product__details__pic">
+				         <div class="product__details__pic__item">
+				             <img class="product__details__pic__item--large"
+				                 src="/img/accommodation/room1.jpg" alt="">
+				         </div>
+				         <div class="product__details__pic__slider owl-carousel">
+				             <img data-imgbigurl="/img/accommodation/room1.jpg"
+				                 src="/img/accommodation/room1.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room2.jpg"
+				                 src="/img/accommodation/room2.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room3.jpg"
+				                 src="/img/accommodation/room3.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room4.jpg"
+				                 src="/img/accommodation/room4.jpg" alt="">
+				         </div>
+				     </div>
+				 </div>
+            </section>            
         </div>
     </section>
     <!-- Breadcrumb Section End -->
@@ -49,49 +82,56 @@
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__pic">
-                        <div class="product__details__pic__item">
-                            <img class="product__details__pic__item--large"
-                                src="/img/product/details/product-details-1.jpg" alt="">
+            <div class="row">      
+            	<div class="col-lg-8">
+            		<div class="aco-title">
+            			<h3>sharma springs 5 bds 럭셔리한 대나무 저택 수영장</h3>
+            			<div class="mt-2">
+	            			<span>최대인원4명</span>
+	            			<span>침실1개</span>	
+            			</div>
+            		</div>
+            	</div>          
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="product__details__text"> 
+                        <div class="product__details__price">
+                        <del>₩186,500</del>₩116,500
                         </div>
-                        <div class="product__details__pic__slider owl-carousel">
-                            <img data-imgbigurl="/img/product/details/product-details-2.jpg"
-                                src="/img/product/details/thumb-1.jpg" alt="">
-                            <img data-imgbigurl="/img/product/details/product-details-3.jpg"
-                                src="/img/product/details/thumb-2.jpg" alt="">
-                            <img data-imgbigurl="/img/product/details/product-details-5.jpg"
-                                src="/img/product/details/thumb-3.jpg" alt="">
-                            <img data-imgbigurl="/img/product/details/product-details-4.jpg"
-                                src="/img/product/details/thumb-4.jpg" alt="">
+                        
+                        <!-- 체크인체크아웃 -->
+                        <div>
+                        	<div></div>
+                        	<div></div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="product__details__text">
-                        <h3>Vetgetable’s Package</h3>
-                        <div class="product__details__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-half-o"></i>
-                            <span>(18 reviews)</span>
-                        </div>
-                        <div class="product__details__price">$50.00</div>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
-                        <div class="product__details__quantity">
-                            <div class="quantity">
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="primary-btn">ADD TO CARD</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        
+                 		<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle toggle-custom">
+						   	게스트1명
+							</button>
+							<div class="dropdown-group item-list">
+								<div class="dropdown-list item-list">									
+									<div class="product__details__quantity  item-list">
+			                            	성인
+			                            <div class="quantity">
+			                                <div class="pro-qty">
+			                                    <input type="text" value="1">
+			                                </div>
+			                            </div>
+			                        </div>
+								</div>
+								<div class="dropdown-list item-list">									
+									<div class="product__details__quantity item-list">
+			                            	어린이
+			                            <div class="quantity">
+			                                <div class="pro-qty">
+			                                    <input type="text" value="1">
+			                                </div>
+			                            </div>
+			                        </div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary mt-2">예약하기</button>
                         <ul>
                             <li><b>Availability</b> <span>In Stock</span></li>
                             <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
@@ -107,6 +147,8 @@
                         </ul>
                     </div>
                 </div>
+                
+                
                 <div class="col-lg-12">
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
@@ -266,7 +308,28 @@
             </div>
         </div>
     </section>
-    <!-- Related Product Section End -->
+    
+   	<script>
+   	
+	$(function(){	
+		let dropdownToggle = $('.dropdown-toggle');
+		let dropdownGroup = $('.dropdown-group');
+	   	
+		dropdownToggle.click(function(){
+			console.log('gggg');
+			if(dropdownGroup.hasClass('show')){
+				dropdownGroup.removeClass('show');
+			}else{
+				dropdownGroup.addClass('show');
+			}
+		})
 	
+	})
+	
+	</script>
+    <!-- Related Product Section End -->	
 	</th:block>
+	
+
+	
 </html> 
