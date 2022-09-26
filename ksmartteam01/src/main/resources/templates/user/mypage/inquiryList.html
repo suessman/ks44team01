@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>문의내역</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	<!-- 문의내역 bg start -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/mypage/mypage_bg3.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>문의내역</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Mypage</a>
+                            <span>문의내역</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- 문의내역 bg end -->
+	
+    <!-- 문의내역 Section Begin -->
+    <section class="checkout spad" style="padding-bottom: 0px;">
+		<div class="container">
+			<div class="checkout__form" align="center">
+                <h4>문의내역</h4>
+            </div>
+        </div>
+    </section>
+    <section class="shoping-cart spad" style="padding-top: 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table"> 
+                        <!-- 문의내역 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th style="font-size: medium; padding-top: 30px; padding-bottom: 10px;">문의일자</th>                        	
+                                    <th style="font-size: medium; padding-top: 30px; padding-bottom: 10px;">제목</th>                        	
+                                    <th style="font-size: medium; padding-top: 30px; padding-bottom: 10px;">답변여부</th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="25%">
+                                        2022.05.15
+                                    </td>
+                                    <td width="50%">
+                                    	<h5><a href="#">배송문의</a></h5>
+                                    </td>
+                                    <td>
+                                    	<h5>Yes</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#">삭제</a>
+                                    </td>
+                            	</tr>
+                            	<tr>
+                            		<td colspan="4" style="text-align: left;">
+                            			<h5>Q. 배송은 언제되나요?</h5>
+                            			<br>
+                            			<h5>A. 배송은 3~4일 후 발송될 예정입니다.</h5>
+                            		</td>
+                            	</tr>                                 
+                            	<tr>
+									<td width="25%">
+                                        2022.06.20
+                                    </td>
+                                    <td width="50%">
+                                    	<h5><a href="#">상품문의</a></h5>
+                                    </td>
+                                    <td>
+                                    	<h5>No</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#">삭제</a>
+                                    </td>
+                            	</tr>                                 
+                            	<tr>
+                            		<td colspan="4" style="text-align: left;">
+                            			<h5>Q. 말티즈가 입기에는 많이 클까요?</h5>
+                            			<br>
+                            			<h5></h5>
+                            		</td>
+                            	</tr>     
+                            	<tr>
+									<td width="25%">
+                                        2022.06.28
+                                    </td>
+                                    <td width="50%">
+                                    	<h5><a href="#">숙소문의</a></h5>
+                                    </td>
+                                    <td>
+                                    	<h5>No</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#">삭제</a>
+                                    </td>
+                            	</tr>    
+                            	<tr>
+                            		<td colspan="4" style="text-align: left;">
+                            			<h5>Q. 강아지가 총 두마리인데 디럭스룸 이용 가능한가요?</h5>
+                            			<br>
+                            			<h5></h5>
+                            		</td>
+                            	</tr>                              
+                            </tbody> 
+                        </table>
+                        <!-- 문의 내역 table end -->
+              		</div>
+            	</div>
+        	</div>
+   		</div>
+    </section>
+    <!-- 문의내역 Section End -->
+	</th:block>
+	
+</html>
