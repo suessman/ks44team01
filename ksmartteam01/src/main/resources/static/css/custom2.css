@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+.full-select .nice-select{
+	width:100%;
+}
+
+.full-select .nice-select .list{
+	width:100%;
+}
+
+.checkout__input .memberInfo{
+	text-align: center;
+}
+
+.locationButton{
+	border-style: none;
+	border-radius: 10%;
+	height: 46px;
+	width: 180px;	
+}
+
+.infoButton{
+	border-style: none;
+	border-radius: 10%;
+	height: 30px;
+	width: 80px;
+	color: white; 
+	background-color: black;	
+}
+
+#accommodationSection {
+	padding-top: 0px;
+}
+
+.order_thA{
+	text-align:left; 
+	font-size: medium; 
+	padding-top: 30px; 
+	padding-bottom: 10px;
+}
+
+.order_thB{
+	text-align: right; 
+	padding-top: 30px; 
+	padding-bottom: 10px;
+}
+
+.order_thB a{
+	font-size: medium;
+}
+
+.accom_tdA{
+	text-align: left;
+}
+
+.accom_tdA h6{
+	color: graytext;
+}
