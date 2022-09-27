@@ -8,32 +8,59 @@
 	</th:block>
 	
 	<th:block layout:fragment="customContents">
+	<!-- 
+	<div style="border: 1px;">
+	<div src="/img/hero/dog.jpg" style="vertical-align:middle;" >
+	<span style="margin-top:20px;font-size:18px;" >1111 - IDMANGO</span>
+	</div>
+	
+	<p><img src="/img/hero/dog.jpg" align="top">align="top"</p>
+ 	-->
 	
     <!-- Hero Section Begin -->
     <section class="hero">
-        <div class="container">
-			<div class="col-lg-9">
-				<div class="hero__item set-bg" data-setbg="/img/hero/dog.jpg" float:left;></div>
-				<div class="r" float:left;>
-					<div class="tit" style="margin-bottom: 30px; font-weight: 500; font-size:20px;">
+        <div class="row">
+			<div class="row col-12 justify-content-center">
+				<div class="col-5">
+					<!-- 상품 이미지 영역 -->
+					<div class="hero__item set-bg ml-auto" data-setbg="/img/hero/dog.jpg"></div>	
+				</div>
+				<div class="col-5">
+					<!-- 상품명 -->
+					<div class="tit" style="font-weight: 700; font-size:24px;">
 						안경
 					</div>
-					<div class="tit" style="margin-bottom: 30px; font-weight: 900; font-size: 30px; ">
+					<!-- 가격 -->
+					<div class="tit" style="font-weight: 600; font-size: 32px; font-weight: bolder;">
 				    	15,000원
 					</div>
-					<div class="tit" style=" margin-bottom: 30px; font-size: 25px;'">
+					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					<!-- 배송정보 -->
+					<div class="tit" style="font-size: 14px; font-weight: 700;">
 						배송정보
 					</div>
-						
-						<button type="button" style="background-color: #FAFAFA">
-								<a href="#"></a>
-							장바구니
-						</button><br/>
-						<button type="button" style="background-color: 	#D56A44">
-								<a href="#"></a>
-							구매하기
-						</button>
+					<div class="ctn">
+						<p>
+							<span style="font-size: 14px">배송비 3,000원</span>
+							<span style="font-size: 14px">(30,000원 이상 배송비 무료)</span>
+						</p>
+					</div>
+					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					<div class="tit" style="font-size: 14px">
+						취소  |  교환  |  환불
+					</div>
+					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
 					
+					<div class="groupBtn">
+							<button class="btn btn-block" type="button" style="background-color: #FAFAFA">
+								장바구니
+							</button><br/>
+					</div>
+					<div class="groupBtn">
+							<button class="btn btn-block" type="button" style="background-color: #D56A44">
+								구매하기
+							</button>
+					</div>
 				</div>
 			</div>
         </div>
@@ -43,36 +70,87 @@
     	/* 사진 모서리 */
 		.hero__item{
 			width:650px;
-			height:350px;
-			border-radius: 2%
+			height:450px;
+			border-radius: 2%;
 		}
 		
     	/* 버튼 */
-    	.col-lg-9 button{
+    	.btn.btn-block{
 			border: 1px solid #000;
-			margin-bottom: 30px;
-			padding: 7px 100px;
+			margin-bottom:30px;
+			margin-right: 10px;
+			margin-left: 15px;
+		}
+
+		.groupBtn{
+			width: 250px;
+			clear: both;
 		}
 		
-		.col-lg-9{
+		.col-lg-5{
 			
 			text-align: right;
 			width: 1000px;
 		}
 		
 		.tit{
-			
+			margin-bottom: 30px;
 		}
 		
 		.r{
 			margin-bottom: 60px;
 			margin-top: 60px;
 		}
+		
+		#ul, ol li{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		#ul .groupMenu{
+			
+		}
+		.groupMenu > li{
+			display: inline-block;
+			width: 80px;
+			padding: 5px 10px;
+			background:#FFFFFF;
+			text-align:center;
+			font-weight: 700;
+		}
+		
+		 .menu1 li::after {
+			position: absolute; 
+			content:""; 
+			display: block; 
+			border-bottom: 3px solid #000; 
+			transition: all 250ms ease-out; 
+			left: 50%; 
+			width: 0;
+		}
+		
     </style>
     <!-- Hero Section End -->
 
 	<hr style="margin-bottom: 60px; margin-top: 60px;" size="10px">
-
+	
+	<div class="row">
+		<div class="col-lg-4">
+			<ul class="groupMenu" >
+				<li class="menu3">
+					<a class="bt"><span class="tt">상품정보</span>
+				</li>
+				<li class="menu3">
+					<a class="bt"><span class="tt">후기</span>
+				</li>
+				<li class="menu3">
+					<a class="bt"><span class="tt">Q&A</span>
+				</li>	
+			</ul>
+		</div>
+	</div>
+	
+	
 	<!-- Featured Section Begin -->
     <section class="featured spad">
         <div class="container">
