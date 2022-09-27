@@ -259,74 +259,79 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
+                    <div class="product__item card">
                         <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room1.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room4.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room3.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
+                    <div class="product__item card">
                         <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room2.jpg">
-                            <ul class="product__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room3.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room4.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
     
    	<script>   	
+   	
 	$(function(){	
 		
 		let dropdownToggle = $('.dropdown-toggle');
 		let dropdownGroup = $('.dropdown-group');
+		
+		//auto input calendar click
+		
 		
 		/* dropdown button toggle */
 		dropdownToggle.on('click', function (event) {
@@ -340,8 +345,11 @@
 		    }
 		});
 		
-		$('.date-range-open').show();
-
+		$('.close-line-btn').click(function(){
+			dropdownGroup.removeClass('show');
+		})
+		
+	
 		$('.date-range,.date-range-open').daterangepicker({
 			"alwaysShowCalendars": true,
 			"locale": {
