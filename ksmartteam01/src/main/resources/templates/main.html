@@ -255,26 +255,94 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>숙소</h2>
-                    </div>                  
-                    <div class="btn_group" style="padd">
-                    	<button type="button" class="btn btn-outline-primary">목적지</button>
-                    	<button type="button" class="btn btn-outline-primary">날짜 선택</button>
-                    	<button type="button" class="btn btn-outline-primary">날짜 선택</button>
-                    	<button type="button" class="btn btn-outline-primary">인원 수</button>
-                    	<button type="submit" class="btn btn-primary">검색</button>
-                    </div>
-                    <br>
-                    <!-- <div class="featured__controls">
+                    </div>          
+                    <div class="featured__controls">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
+                            <li class="active" data-filter="condo">콘도</li>
+                            <li data-filter=".pension">펜션</li>
+                            <li data-filter=".hotel">호텔</li>
+                            <li data-filter=".glamping">글램핑</li>
+                            <li data-filter=".resort">리조트</li>
+                            <li data-filter=".poolvilla">풀빌라</li>
                         </ul>
-                    </div> -->
-                </div>
+                    </div>       
+                    <div class="select-region">
+                    	<select>
+							<option>지역 선택</option>
+				            <option>강원</option>
+				            <option>경기</option>
+				            <option>경상</option>
+				            <option>전라</option>
+				            <option>제주</option>
+				            <option>충청</option>
+				            <option>광주</option>
+				            <option>대구</option>
+				            <option>대전</option>
+				            <option>부산</option>
+				            <option>서울</option>
+				            <option>세종</option>
+				            <option>인천</option>
+				            <option>울산</option>
+				       </select>
+                    </div>
+                    <div class="total-number">		            	
+		                <input type="text" id="num1" placeholder="성인  인원 수 입력">
+		                <span>명</span>     		               
+		                <input type="text" id="num2" placeholder="아동  인원 수 입력">
+		                <span>명</span>			           		            	
+		            	<input type="text" id="num3" placeholder="총 인원 수" readonly="readonly">
+		            	<span>명</span>			        	
+			        </div>
+                    <div class="date-picker">
+                   		<input type="text" id="datepicker1" placeholder="체크인 날짜 선택">
+                    	<input type="text" id="datepicker2" placeholder="체크아웃 날짜 선택">
+                    	<button class="btn btn-outline-primary" type="submit">검색</button>                    	
+                   	</div>
+            	</div>
             </div>
+            <br>
+                    <!-- JS 날짜 구하기 시작 -->
+                    <script>
+					   $(function() {
+					       //input을 datepicker로 선언
+					       $("#datepicker1, #datepicker2").datepicker({
+					           dateFormat: 'yy-mm-dd' //달력 날짜 형태
+					           ,showOtherMonths: true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+					           ,showMonthAfterYear:true // 월- 년 순서가아닌 년도 - 월 순서
+					           ,changeYear: true //option값 년 선택 가능
+					           ,changeMonth: true //option값  월 선택 가능                
+					           ,showOn: "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+					           ,buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+					           ,buttonImageOnly: true //버튼 이미지만 깔끔하게 보이게함
+					           ,buttonText: "선택" //버튼 호버 텍스트              
+					           ,yearSuffix: "년" //달력의 년도 부분 뒤 텍스트
+					           ,monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 텍스트
+					           ,monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'] //달력의 월 부분 Tooltip
+					           ,dayNamesMin: ['일','월','화','수','목','금','토'] //달력의 요일 텍스트
+					           ,dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+					           ,minDate: "-5Y" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+					           ,maxDate: "+5y" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)  
+					       });                    
+					       
+					       //초기값을 오늘 날짜로 설정해줘야 합니다.
+					       $('#datepicker').datepicker('setDate', 'today'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)            
+					   });
+					</script>
+					<!-- 날짜 구하기 끝 -->
+										
+					<!-- JS 인원 수 구하기 시작 -->
+					<script>						
+						/* 인원수 숫자 더하기 */
+						$('.total-number > input').on("propertychange change keyup paste input", function() {
+						    var num1 = 0;
+						    var num2 = 0;
+						    num1 = Number($('#num1').val());
+						    num2 = Number($('#num2').val());
+						    $('#num3').val(num1 + num2);
+						});
+					</script>
+					<!-- 인원 수 구하기 끝 -->
+
             <div class="row featured__filter">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
@@ -410,7 +478,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>short form(짧은 영상)</h2>
+                        <h2>short form</h2>
                     </div>
                 </div>
             </div>
@@ -418,7 +486,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">                       
-						<video width="320" height="240" controls="controls" poster="img/accommodationList/hotel1.jpg">
+						<video width="320" height="240" controls="controls" poster="img/goodsList/goods01.jpg">
 						  <source src="movie.mp4" type="video/mp4">
 						  <source src="movie.ogg" type="video/ogg">
 						</video>
@@ -433,7 +501,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
-						<video width="320" height="240" controls="controls" poster="img/accommodationList/hotel1.jpg">
+						<video width="320" height="240" controls="controls" poster="img/goodsList/goods02.jpg">
 						  <source src="movie.mp4" type="video/mp4">
 						  <source src="movie.ogg" type="video/ogg">
 						</video>
@@ -448,7 +516,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
-						<video width="320" height="240" controls="controls" poster="img/accommodationList/hotel1.jpg">
+						<video width="320" height="240" controls="controls" poster="img/goodsList/goods04.jpg">
 						  <source src="movie.mp4" type="video/mp4">
 						  <source src="movie.ogg" type="video/ogg">
 						</video>

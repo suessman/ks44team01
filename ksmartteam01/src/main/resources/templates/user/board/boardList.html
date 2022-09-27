@@ -1,101 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>board</title>
-</head>
-	<div style="text-align: center;">
-		<h1>게시판</h1>
-	</div>
-<body>
-    <table border="3" style="display: flex; justify-content: center;">
-        <tr>
-            <th colspan="2">제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회</th>
-            <th>좋아요</th>
-        </tr>
-        <tr>
-		    <td>공지</td>
-		    <td><a href="#">[모바일] 8월 넷째 주 : 금주의 대학생 공모전 리스트</a></td>
-		    <td>캐미언니</td>
-		    <td>2018.08.20.</td>
-		    <td>99</td>
-		    <td>0</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		<tr>
-		    <td>533931</td>
-		    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-		    <td>씽굿씽굿</td>
-		    <td>13:49</td>
-		    <td>0</td>
-		    <td>1</td>
-		</tr>
-		
-    </table>
-  	
-  	<div>
-    	<button><a href="/board/addBoard">글쓰기</a></button>
-	</div>
-    <div style="text-align: center;">
-	    <a href="#">1</a> 
-	    <a href="#">2</a> 
-	    <a href="#">3</a> 
-	    <a href="#">4</a> 
-	    <a href="#">5</a> 
-	    <a href="#">▶</a>
-	</div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
@@ -107,88 +9,125 @@
         </th:block>
     </head>
     <th:block layout:fragment="customContents">
-    	<div style="text-align: center;">
-			<h3>게시판 목록</h3>
+    	<div class="menu-title">
+			<h3>게시판</h3>
 		</div>
     <body>
-        <table border="1" align=center>
-            <tr align=center>
-                <th>번호</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일</th>
-                <th>조회수</th>
-            </tr>
-            <tr>
-			    <td>533931</td>
-			    <td><a href="/board/readBoard">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>    
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr>
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr> 
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr> 
-			<tr>
-			    <td>533931</td>
-			    <td><a href="#">[추천공모전] 2018 생명나눔 아이디어 공모전 (~9/9)</a></td>
-			    <td>씽굿씽굿</td>
-			    <td>13:49</td>
-			    <td>0</td>
-			</tr> 
-			 
-        </table>
-        <div style="text-align: center; margin: 30px 30px;">
+    	<!-- <table class="table">
+    		<tbody>
+	    		<tr>
+		    		<td>공지사항</td>
+		    		<td>Q & A</td>
+		    		<td>F A Q</td>
+		    		<td>숏 폼</td>
+		    		<td>자유게시판</td>
+		    		<td>상담문의</td>
+		    	</tr>
+    		</tbody>
+	    </table> -->
+	    	<div class="featured__controls">
+                <ul>
+                    <li class="active" data-filter="notice">공지 사항</li>
+                    <li data-filter=".inform">정보 공유</li>
+                    <li data-filter=".free">자유</li>
+                    <li data-filter=".shortform">숏폼</li>
+                    <li data-filter=".mantoman">1:1 상담</li>                    
+                    <li data-filter=".qna">Q & A</li>
+                    <li data-filter=".faq">F A Q</li>
+                </ul>
+            </div>
+	    <table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			    	<th scope="col">번호</th>
+			      	<th scope="col">제목</th>
+			      	<th scope="col">작성자</th>
+			      	<th scope="col">작성일</th>
+			      	<th scope="col">조회수</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+					<th scope="row">1</th>
+			      	<td><a href="/board/readBoard">[공지 사항] 우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			    </tr>
+			    <tr>
+					<th scope="row">2</th>
+			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
+			      	<td>애견인02</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			    </tr>
+			  	<tr>
+					<th scope="row">3</th>
+			      	<td><a href="/board/readBoard">[숏폼] 우리 강아지와의 하루</a></td>
+			      	<td>애견인03</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">4</th>
+			      	<td><a href="/board/readBoard">[1:1 상담] 우리 강아지와의 하루</a></td>
+			      	<td>애견인04</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">5</th>
+			      	<td><a href="/board/readBoard">[Q & A] 우리 강아지와의 하루</a></td>
+			      	<td>애견인05	</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">6</th>
+			      	<td><a href="/board/readBoard">[F A Q] 우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">7</th>
+			      	<td><a href="/board/readBoard">[정보 공유] 우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">8</th>
+			      	<td><a href="/board/readBoard">[자유]우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">9</th>
+			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  	<tr>
+					<th scope="row">10</th>
+			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
+			      	<td>애견인01</td>
+			      	<td>22.09.27</td>
+			      	<td>1</td>
+			  	</tr>
+			  </tbody>
+		</table>
+		
+		<div class="board-add">
+			<a href="/board/addBoard"><button>글 쓰기</button></a>
+		</div>
+        <div class="board-order">
         	<a href="#">◀이전</a>
 		    <a href="#">1</a> 
 		    <a href="#">2</a> 
-		    <a href="#">3</a> 
+		    <a href="#">3</a> 	
 		    <a href="#">4</a> 
 		    <a href="#">5</a> 
 		    <a href="#">6</a> 
@@ -197,12 +136,13 @@
 		    <a href="#">9</a> 
 		    <a href="#">10</a> 
 		    <a href="#">다음▶</a>
-		    <a href="/board/addBoard"><button>글 쓰기</button></a>
 		</div>
-		<div style="text-align: center; align-items: center; display: flex; height: 100px">
+
+		<div class="search-group">
 			<select>
 			    <option>--검색 옵션--</option>
 			    <option>제목</option>
+			    <option>내용</option>
 			    <option>작성자</option>
 			</select>
 			<input type="text" placeholder="검색어 입력">
