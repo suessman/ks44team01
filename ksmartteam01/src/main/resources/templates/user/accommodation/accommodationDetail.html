@@ -324,24 +324,24 @@
     
    	<script>   	
 	$(function(){	
+		
 		let dropdownToggle = $('.dropdown-toggle');
-		let dropdownGroup = $('.dropdownGroup');
+		let dropdownGroup = $('.dropdown-group');
 		
 		/* dropdown button toggle */
 		dropdownToggle.on('click', function (event) {
 			$(this).next().toggleClass('show');
 		});	
 		
-		$('body').on('click', function (e) {
-		    if (!dropdownToggle.is(e.target) 
-		        && dropdownGroup.has(e.target).length === 0 
-		    ) {
+		$('body').on('click', function (e) {			
+		    if (!dropdownToggle.is(e.target) && 
+		    		dropdownGroup.has(e.target).length === 0) {
 		    	dropdownGroup.removeClass('show');
 		    }
 		});
 		
 		$('.date-range-open').show();
-		
+
 		$('.date-range,.date-range-open').daterangepicker({
 			"alwaysShowCalendars": true,
 			"locale": {
