@@ -13,13 +13,21 @@
 	
 	<th:block layout:fragment="customCss">
 		<style>
+			/*
 			 InsertTable{
 			 	 height: 100%;
+				 vertical-align: middle;
 				 text-align: center;
 				 display: flex;
+				 justify-content: center;
+				 width: unset;
+				 
 			 }
+			 */
+			 
 			 table{
-				 display:table-cell;;
+				 display:table-cell;
+				 vertical-align:middle;
 				 table-layout:fixed;
 			     border: 1px solid #444444;
 			 }
@@ -48,30 +56,27 @@
 
 	
     <section class="shoping-cart spad ">
-	   <div class="d-flex flex-row-reverse"><button type="button">+ 등록하기</button></div>
-	    <div class="InsertTable d-flex justify-content-center">
-	     <table class="table text-center">
+	    <div class="row">
+	     <table class="table text-center w-50 mx-auto ">
 		   <thead class="thead-dark">
 		    <tr>
-		      <th scope="col" class="align-middle">상품코드</th>
-		      <th scope="col" class="align-middle">사업자코드</th>
-		      <th scope="col" class="align-middle">중분류코드</th>
-		      <th scope="col" class="align-middle">아이디</th>
-		      <th scope="col" class="align-middle">상품</th>
-	          <th scope="col" class="align-middle">가격</th>
-			  <th scope="col" class="align-middle">재고수량</th>
-			  <th scope="col" class="align-middle">등록시각</th>
-			  <th scope="col" class="align-middle">수정/삭제</th>
+		      <th scope="col" class="col-1 align-middle">상품코드</th>
+		      <th scope="col" class="col-2 align-middle">중분류코드</th>
+		      <th scope="col" class="col-2 align-middle">상품</th>
+	          <th scope="col" class="col-1 align-middle">가격</th>
+			  <th scope="col" class="col-1 align-middle">수량</th>
+			  <th scope="col" class="col-1 align-middle">등록시각</th>
+		      <th scope="col" class="col-1 align-middle">운송장번호</th>
+			  <th scope="col" class="col-1 align-middle">배송상태</th>
+			  <th scope="col" class="col-1 align-middle">반품/결제취소</th>
 	   		</tr>
 	  	  </thead>
 		  <tbody>
 		    <tr>
 		      <td class="align-middle">1</td>
 		      <td class="align-middle">Mark</td>
-		      <td class="align-middle">Otto</td>
-		      <td class="align-middle">@mdo</td>
 		      <td class="align-middle">
-	          <img style="width:100px; height:auto;" src="/img/categories/petToy2.jpg" alt=""><br>
+	          <img src="/img/categories/petToy2.jpg" alt=""><br>
 	       		   장난감공
 	          </td>
 	          <td class="align-middle">
@@ -84,38 +89,38 @@
 	            </div>
 	          </div>
 	          </td>
+		      <td class="align-middle">Otto</td>
+		      <td class="align-middle">@mdo</td>
 	          <td class="align-middle">
 	          </td>                      
-	          <td class="align-middle"><button class="buttonMoDel" type="button">수정</button><button class="buttonMoDel" type="button">삭제</button></td>
+	          <td class="align-middle"><button class="buttonMoDel" type="button">반품</button><button class="buttonMoDel" type="button">결제취소</button></td>
 		    </tr>
 		    <tr>
 		      <td class="align-middle">2</td>
 		      <td class="align-middle">Jacob</td>
-		      <td class="align-middle">Thornton</td>
-		      <td class="align-middle">@fat</td>
-		      <td class="align-middle">
+	          <td class="align-middle">
 	          <img src="/img/cart/cart-2.jpg" alt=""><br>
 	           Organic Bananas
 	          </td>
 	          <td class="align-middle">
 	          $69.00
 	          </td>
-	          <td class="align-middle">
+		      <td class="align-middle">
 	          <div class="quantity">
 	          	<div class="pro-qty">
 	          		<input type="text" value="1">
 	            </div>
 	          </div>
 	          </td>
+		      <td class="align-middle">Thornton</td>
+		      <td class="align-middle">@fat</td>
 	          <td class="align-middle">
 	          </td>                      
-	          <td class="align-middle"><button class="buttonMoDel" type="button">수정</button><button class="buttonMoDel" type="button">삭제</button></td>
+	          <td class="align-middle"><button class="buttonMoDel" type="button">반품</button><button class="buttonMoDel" type="button">결제취소</button></td>
 		    </tr>
 		    <tr>
 		      <td class="align-middle">3</td>
 		      <td class="align-middle">Larry</td>
-		      <td class="align-middle">the Bird</td>
-		      <td class="align-middle">@twitter</td>
 		      <td class="align-middle">
 	          <img src="/img/cart/cart-3.jpg" alt=""><br>
 	           Organic Bananas
@@ -130,9 +135,11 @@
 	            </div>
 	          </div>
 	          </td>
+		      <td class="align-middle">the Bird</td>
+		      <td class="align-middle">@twitter</td>
 	          <td class="align-middle">
 	          </td>                      
-	          <td class="align-middle"><button class="buttonMoDel" type="button">수정</button><button class="buttonMoDel" type="button">삭제</button></td>
+	          <td class="align-middle"><button class="buttonMoDel" type="button">반품</button><button class="buttonMoDel" type="button">결제취소</button></td>
 		    </tr>
 		   </tbody>
 		  </table>

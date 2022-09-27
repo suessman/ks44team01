@@ -9,11 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/goods")
 public class GoodsListController {
-
 	@GetMapping("/goodsInsert")
-	public String goodsInsert() {
+	public String goodsInsertForm() {
 	
 		return "/user/goods/goodsInsert";
+	}
+	@PostMapping("/goodsInsert")
+	public String goodsInsert() {
+	
+		return "redirect:/user/goods/goodsList";
+	}
+	@GetMapping("/goodsPaymentListSearch")
+	public String goodsPaymentListSearch(){	
+		return "/user/goods/goodsPaymentListSearch";			
 	}
 	@GetMapping("/goodsList")
 	public String goodList() {
