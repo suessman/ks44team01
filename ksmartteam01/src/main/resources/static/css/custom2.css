@@ -28,7 +28,26 @@
 	background-color: black;	
 }
 
+.infoButtonB{
+	border-style: none; 
+	border-radius: 10%; 
+	height: 46px;
+}
+
+#infoDiv{
+	padding-top: 10px;
+}
+
+#infoDivB{
+	padding: 50px;
+}
+
 #accommodationSection {
+	padding-top: 0px;
+}
+
+#orderSection{
+	padding-bottom: 0px; 
 	padding-top: 0px;
 }
 
@@ -56,3 +75,50 @@
 .accom_tdA h6{
 	color: graytext;
 }
+
+.goods_thA{
+	font-size: medium; 
+	padding-top: 30px; 
+	padding-bottom: 10px;
+}
+
+.inquiry_tr th{
+	font-size: small; 
+	padding-top: 30px; 
+	padding-bottom: 10px;
+}
+
+.goods_span{
+	font-size: medium; 
+	font-weight: normal;
+}
+
+#goldA{
+	padding-bottom: 0px;
+}
+
+#goldB{
+	padding-top: 0px;
+}
+
+.goods_thB{
+	font-size: medium; 
+	padding-top: 60px; 
+	padding-bottom: 10px;
+}
+
+.goods_tr{
+	border-bottom-style: double;
+}
+
+.goods_tdA{
+	font-weight: bold; 
+	font-size: medium;
+}
+
+.goods_tdB{
+	font-weight: bold; 
+	font-size: large; 
+	color: red;
+}
+	
