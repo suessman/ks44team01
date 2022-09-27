@@ -5,13 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class MainController {
+public class GoodsDetailController {
 	@GetMapping("/")
-	public String main(Model model) {
-		return "main";
+	public String goodsDetail(Model model) {
+		return "goodsDetail";
 	}
 }
-
-
-
-

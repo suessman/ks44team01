@@ -727,7 +727,8 @@ ol {
 }
 
 .hero__item {
-	height: 431px;
+	height: 800px;
+	width: 1000px;
 	display: flex;
 	align-items: center;
 	padding-left: 75px;
@@ -2912,7 +2913,7 @@ ol {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.header__menu ul li {
-		margin-right: 45px;
+		margin-right: 45px;	
 	}
 	.hero__search__form {
 		width: 490px;
@@ -3465,4 +3466,11 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+	
+	/* 장바구니 / 구매하기 버튼 */
+	.col-lg-9 button{
+			border: 1px solid #000;
+			margin-bottom: 30px;
+			padding: 7px 100px;
+		}
 }
