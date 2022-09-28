@@ -98,13 +98,14 @@ a:hover,
 a:focus {
 	text-decoration: none;
 	outline: none;
-	color: #ffffff;
+	color: #0000FF;
 }
 
 ul,
 ol {
 	padding: 0;
 	margin: 0;
+	list-style:none;
 }
 
 /*---------------------
@@ -155,7 +156,7 @@ ol {
 .text-white span,
 .text-white li,
 .text-white a {
-	color: #fff;
+	color: #000000;
 }
 
 /* buttons */
@@ -180,6 +181,10 @@ ol {
 	padding: 13px 30px 12px;
 	background: #7fad39;
 	border: none;
+}
+.btn-list{
+	width:calc(50% - 4px);
+	border:1px solid #868e96;
 }
 
 /* Preloder */
