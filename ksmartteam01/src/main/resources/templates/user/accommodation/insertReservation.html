@@ -10,57 +10,200 @@
 	<th:block layout:fragment="customContents">
 	
     <!-- Hero Section Begin -->
-    <section class="hero" style="text-align:center">
+    <section class="hero mt-3" style="background-color: #E6E6E6;">
         <div class="container">
-            
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">강아지</a></li>
-                            <li><a href="#">고양이</a></li>
-                            <li><a href="#">곰</a></li>
-                            <li><a href="#">호랑이</a></li>
-                            <li><a href="#">북극곰</a></li>
-                            <li><a href="#">사자</a></li>
-                            <li><a href="#">독수리</a></li>
-                            <li><a href="#">상어</a></li>
-                            <li><a href="#">고래</a></li>
-                            <li><a href="#">흰수염</a></li>
-                            <li><a href="#">에이스</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align:center; margin-left:470px; margin-bottom:300px">
-                <div class="col-lg-9">
-                    <div class="hero__search" style="text-align:center">
+            <div class="row">  
+                <div class="col-lg-9 section-body" style="background-color: #ffffff; margin:0 auto;" >
+                    <div class="hero__search" >
                         <div >
-                            <h2 style="margin-bottom:30px">숙소 예약</h2>
+                            <h2 style="text-align:center;margin-bottom:30px">숙소 예약</h2>
                         </div>
-                    <div style="text-align:statrt">
-                    	<h4>상품 정보 1건</h4>
-                    </div>
-                    	
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+	                    <div>
+	                    	<h4>상품 정보 1건</h4><br><br>
+	                    		숙소
+	                    	<h5 style="margin-top:10px">경주 파파야펜션(애견놀이터,야외수영장 오픈)</h5>
+	                    		1층-103호(애견동반 가능)
+	                    		2022.10.06(목) ~ 2022.10.07(금) | 1박<br>
+	                    		체크인 15:00 | 체크아웃 11:00<br>
+	                    	<div style="text-align:right">
+	                    		숙박<h5>89,000원</h5>
+	                    		무료취소
+	                    		2022.10.01(토) 00:00 전까지
+	                    	</div>
+	                    </div>
+	                    <div>
+	                    	<div>
+		                    	<button class="btn btn-list" style="width:calc(50% - 4px); border:1px solid #868e96; background-color: #FFFFFF;">대중교통</button>
+		                    	<button class="btn btn-list"  style="width:calc(50% - 4px); border:1px solid #868e96;">차량</button>
+	                    	</div>                    	
+	                    </div>               
+                	</div>               
+            	</div>
+            
+	            <div class="col-lg-9 mt-3" style="background-color: #ffffff; margin:0 auto;" >            	
+	                <div class="hero__search">
+	               		<h4 style="margin-top:10px; margin-bottom:10px">예약자 정보</h4>
+	               		성명*<br>
+	               		<input type="text" placeholder="성명을 입력해 주세요." style="margin-top:10px; margin-bottom:10px;width:calc(100% - 4px);"><br>
+	               		휴대폰번호*<br>
+	               		<button class="btn btn-list"style="width:calc(100% - 4px); border:1px solid #868e96;margin-top:10px;">인증하기</button>
+	               	</div>
+	            </div>
+	            <div class="col-lg-9 mt-3" style="background-color: #ffffff; margin:0 auto;" >
+	            	<h4  style="margin-top:10px; margin-bottom:10px">이용자 정보*</h4>
+	            	<div style="margin-bottom:15px;">
+	            		상품 이용 시 필요한 필수 정보입니다.
+	            	</div>
+	            	<div>
+	            		<input type="checkbox" style="margin-bottom:15px;">예약자 정보와 동일합니다.
+	            	</div>
+	            	<div>
+	            		성명*<br>
+	            		<input type="text" placeholder="성명을 입력해주세요." style="margin-bottom:15px;margin-top:15px;width:calc(100% - 4px);"><br>
+	            		휴대폰 번호*<br>
+	            		<input type="text" placeholder="휴대폰 번호를 입력해주세요." style="margin-bottom:15px;margin-top:15px;width:calc(100% - 4px);">
+	            	</div>
+	            	<div style="margin-bottom:15px">
+	            		입력하신 번호는 안심 번호로 변경되어 숙소에 전달됩니다. 단, 안심번호로 처리가 어려운 경우에 한해 제한적으로 <br>개인정보 제공 동의에근거하여 실제 휴대폰 번호가 전달 될 수 있습니다.
+	            	</div>
+	            </div>
+	            <div class="col-lg-9 mt-3" style="background-color: #ffffff; margin:0 auto;">
+	            	<h4 style="margin-top:10px; margin-bottom:10px">금액 및 할인 정보</h4>
+	            	<div style="padding-right: 11px 0 10px;">
+	            		총 예약 금액
+	            	</div>
+	            	<div style="text-align:right">
+	            		<b >89,000</b>원
+	            	</div>
+	            	<div>
+	            		<button class="btn btn-list"style="width:calc(100% - 4px); border:1px solid #868e96;margin-top:10px;">로그인 후 할인 혜택 받기</button>
+	            	</div>
+	            	<div>
+	            	-------------------------------------------------------------------------------------------------------------------------
+	            	</div>
+	            	<div>
+		            		<b>결제 금액</b>
+	            	</div>
+	            	<div style="text-align: right;font-color:red">
+		            		<b>89,000</b>원            		
+	            	</div>
+	            </div>
+	            <div  class="col-lg-9 mt-3" style="background-color: #ffffff; margin:0 auto;">
+	            	<div style="border:1px solid; border-radius:10px / 10px; margin-top:15px;margin-bottom:15px">
+	            
+			            <div style="border:1px solid;border-left:0px;border-right:0px;border-top:0px;">
+			            	<div>
+			            		<h4 style=" margin-top:10px;">결제 수단 선택</h4>
+			            	</div>
+			            	<div style="font-size: 8px">
+			            		은행 점검시간인  23:00~00:30 까지 이용 불가한 계좌이체 결제수단이 포함되어 있습니다.
+			            	</div>
+			            </div>
+		            	<div style="margin-left:18px;margin-top:10px">
+		            		<ul class="row">
+			            		<div style="text-aling:center;">
+			            			<li>
+			            				<div style="margin-bottom:">
+				            				<input type="checkbox" name="check" id="check" style="display:none; background-image: url("./img/reservation/kakao.png");" >
+				            					<!-- <label for="check">
+				            						<svg width="30" height="15" xmlns="http://w3.org/2000/svg">
+				            							
+				            						</svg>
+				            					</label> -->
+				            				<img alt="" src="/img/reservation/kakao.png" style="width:25px; height:25px;">카카오페이
+			            				</div>
+			            			</li>
+			            			<li>
+			            				<div style="margin-bottom:10px;">
+				            				<input type="checkbox" style="display:none"><img alt="" src="/img/reservation/card.png" style="width:25px; height:25px;">카드
+			            				</div>
+			            			</li>
+			            			<li>
+			            				<div>
+				            				<input type="checkbox" style="display:none"><img alt="" src="/img/reservation/payco.png" style="width:25px; height:25px;">페이코
+			            				</div>
+			            			</li>
+			            		</div>
+			            		<div style="margin-left:15px;">
+			            			<li>
+			            				<div style="margin-bottom:10px;">			            				
+			            					<input type="checkbox" style="display:none"><img alt="" src="/img/reservation/toss.png" style="width:25px; height:25px;">토스페이
+			            				</div>
+			            			</li>
+			            			<li>
+			            				<div style="margin-bottom:10px;">
+				            				<input type="checkbox" style="display:none"><img alt="" src="/img/reservation/npay.png" style="width:25px; height:25px;">네이버페이
+			            				</div>
+			            			</li>
+			            			<li>
+			            				<div style="margin-bottom:5px;">
+				            				<input type="checkbox" style="display:none"><img alt="" src="/img/reservation/lpay.png" style="width:25px; height:25px;">엘페이
+			            				</div>
+			            			</li>
+			            		</div>
+			            	</ul>
+		            	</div>
+	            	</div>
+	            </div>
+	            <div class="col-lg-9 mt-3" style="background-color: #ffffff; margin:0 auto;" >
+	            	<div>
+		            	<ul style="background-color: #F3E2A9">
+		            		<li>
+		            			<h5 style="font-color:#FF8000;  margin-top:10px;">현장결제</h5>
+		            			<div style="font-size: 13px;">추가인원 비용등의 현장결제 발생 상품을 확인하세요.</div>
+		            		</li>
+		            		<li>
+		            			<h5>취소불가 및 수수로</h5>
+		            			<div style="font-size: 13px;">취소 및 환불규정에 따라 취소불가,수수료가 발생 할 수 있습니다.</div>
+		            		</li>
+		            		<li>
+		            			<h5>미성년자 및 법정대리인 필수</h5>
+		            			<div style="font-size: 13px;">미성년자는 법정대리인 동행 없이 투숙이 불가능합니다.</div>
+		            		</li>
+		            	</ul>
+	            	</div>
+	            	<div style="margin-bottom:20px;">
+	            		<input type="checkbox">
+	            		<span >전체동의하기</span>
+	            	</div>
+	            	<div>
+		            	<div>
+		            		<input type="checkbox" style="margin-bottom:10px;">
+		            		<span>[필수]만 14세 이상 이용 동의</span>
+		            	</div>
+		            	<div>
+		            		<input type="checkbox" style="margin-bottom:10px;">
+		            		<span>[필수]이벤트, 혜택 정보 수신 동의</span>
+		            	</div>
+		            	<div>
+		            		<input type="checkbox" style="margin-bottom:10px;">
+		            		<span>[선택]이벤트, 혜택 정보 전송을 위한 개인정보 수집 및 이용 동의</span>
+		            	</div>
+	            	</div>
+	            	<div>
+	            		<span>
+	            			<a href="#">이용규칙</a>,
+	            		</span>
+	            		<span>
+	            			<a href="#">취소 및 환불 규칙</a>,
+	            		</span>
+	            		<span>
+	            			<a href="#">개인정보 수집 및 이용</a>및
+	            		</span>
+	            		<span>
+	            			<a href="#">개인정보 제3자 제공</a>
+	            		</span>
+	            		<span>에 동의하실 경우 결제하기를 클릭해주세요.</span>
+	            	</div>
+	            	<div>
+	            		<button  class="btn btn-list"style="width:calc(100% - 4px); border:1px solid #868e96;margin-top:10px; margin-bottom:50px;">89,000원 결제하기</button>
+	            	</div>
+	            </div>
+        	</div>
+    	</div>
     </section>
-    <!-- Hero Section End -->
 
-    <!-- Categories Section Begin -->
-    
-    <!-- Categories Section End -->
-
-    <!-- Featured Section Begin -->
-    
-    <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
+   
     <div class="banner">
         <div class="container">
             <div class="row">
@@ -77,14 +220,6 @@
             </div>
         </div>
     </div>
-    <!-- Banner End -->
 
-    <!-- Latest Product Section Begin -->
-   
-    <!-- Latest Product Section End -->
-
-    <!-- Blog Section Begin -->
-    
-    <!-- Blog Section End -->
 	</th:block>
 </html> 
