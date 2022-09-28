@@ -9,12 +9,12 @@
     </th:block>
 </head>
     <th:block layout:fragment="customContents">
-   	<div style="text-align: center;">
-		<h3>게시글 열람</h3>
+   	<div class="menu-title">
+		<h3>게시글 열람</h3> 
 	</div>
 <body>
 	<div>
-		<div style="text-align: center;">
+		<div class="title-group" id="top">
 			<h5>[말머리]게시글 제목</h5>
 		</div>
 		<div style="text-align: center;">
@@ -39,6 +39,7 @@
 		<a href="/board/modifyBoard"><button>수정하기</button></a>
 		<a href="/board/boardList"><button>삭제하기</button></a>
 		<a href="/board/boardList"><button>목록 이동</button></a>
+		<a href="#top"><button>맨 위로 가기</button></a>
 	</div>
 </body>
 </th:block>
