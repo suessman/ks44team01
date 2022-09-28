@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/head :: headFragment">
+</head>
+<body>
+	<div id="wrapper">
+		<!-- start header -->
+		<div th:replace="fragments/header :: headerFragment">
+		</div>
+		<!-- end header -->
+		
+		<!-- start aside -->
+		<!-- <div th:replace="fragments/asideMenu :: asideFragment">
+		</div> -->
+		<!-- end aside -->
+		
+		<!-- start contents -->
+		
+		<div>
+			<!-- 사용자 정의 contents -->
+			<th:block layout:fragment="customContents">			
+			</th:block>
+		</div>
+		<!-- end contents -->
+		
+		<!-- start footer -->		
+		<div th:replace="fragments/footer :: footerFragment" >
+		</div>
+		<!-- end footer -->
+	</div>
+	
+	<!-- 사용자 정의 JS 하단 -->
+	<th:block layout:fragment="customFootJs">
+	<script th:src="@{/js/mixitup.min.js}"></script>
+    <script th:src="@{/js/owl.carousel.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+	</th:block>
+</body>
+</html>
