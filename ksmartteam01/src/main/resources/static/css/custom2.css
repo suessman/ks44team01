@@ -121,4 +121,78 @@
 	font-size: large; 
 	color: red;
 }
-	
+
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.orderList_popup{
+    background-color: white;
+    border: thick solid #0f72e5;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none; 
+    text-align: center;
+}
+.orderList_popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+    background: #0f72e5;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.orderList_popup h2{
+  margin-top: -20px;
+}
+.orderList_popup p{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+    text-align: center;
+}
+.orderList_a{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin-top : 100px;
+    margin-left: 28%;
+    text-align: center;
+    background-color: #0f72e5;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.orderList_popup .nice-select{
+    margin: 10px 30px;
+    text-align: center;
+    width: 80%; 
+    height: 30px;
+    border-color: black;
+    padding: auto;
+    padding-bottom: 40px;
+}
+
+.orderList_popup .nice-select .list{
+    width: 100%; 
+    text-align: center;
+}
