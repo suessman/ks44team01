@@ -87,31 +87,84 @@
             		<div class="aco-title">
             			<h3>sharma springs 5 bds 럭셔리한 대나무 저택 수영장</h3>
             			<div class="mt-2">
-	            			<span>최대인원4명</span>
-	            			<span>침실1개</span>	
+            				<ul class="accom-info">
+            					<li class="border-after">최대인원 4명</li>
+            					<li class="border-after">침실1개</li>
+            				</ul>            			
             			</div>
             		</div>
+            		
+            		<!-- 숙소편의시설 -->
+            		<div class="accom-info-group">            			
+            			<div class="list">
+            				<h3>숙소 편의시설</h3>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/wifi.png" class="sm-icon">
+	            					무선인터넷
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/swim.png" class="sm-icon">
+	            					수영장
+	            				</div> 
+            				</div>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/tv.png" class="sm-icon">
+	            					TV
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/aircon.png" class="sm-icon">
+	            					에어컨
+	            				</div> 
+            				</div>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="">
+	            					헤어드라이어
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/breakfast.png" class="sm-icon">
+	            					아침식사
+	            				</div> 
+            				</div>
+            			</div>
+            			<div class="list">
+            				<h3>체크인 날짜를 선택해주세요.</h3>
+            				<div class="row mt-3">
+            					<div class="col-lg-12">
+            						<input type="text" class="date-range-open" name="daterange" value="01/01/2018 - 01/15/2018" />
+            					</div>	            				
+            				</div>            
+            			</div>  
+            			
+            			<div class="list">
+            				<h3>숙소 위치</h3>
+            				<div class="row mt-3">
+	            				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25893.173794004906!2d127.09134037910155!3d35.784053400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357025913b5394bf%3A0xad9f883be8cd91ad!2z7KCE7KO87Y-J7ZmUM-ywqOqzqOuTnO2BtOuemOyKpOyVhO2MjO2KuA!5e0!3m2!1sko!2skr!4v1664266482080!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            				</div>            
+            			</div>            			
+            		</div>
             	</div>          
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="product__details__text"> 
+                <div class="col-lg-4 col-md-6 col-12 position-relative">
+                    <div class="product__details__text box"> 
                         <div class="product__details__price">
-                        <del>₩186,500</del>₩116,500
+                        	<del>₩186,500</del>₩116,500
                         </div>
                         
-                        <!-- 체크인체크아웃 -->
-                        <div>
-                        	<div></div>
-                        	<div></div>
-                        </div>
-                        
+                        <!-- 체크인체크아웃 -->                                              
+                        <input type="text" class="date-range" name="daterange" value="01/01/2018 - 01/15/2018" />
                  		<div class="dropdown">
 							<button class="btn btn-secondary dropdown-toggle toggle-custom">
 						   	게스트1명
 							</button>
-							<div class="dropdown-group item-list">
+							<div class="dropdown-group">
 								<div class="dropdown-list item-list">									
-									<div class="product__details__quantity  item-list">
-			                            	성인
+									<div class="product__details__quantity">
+			                            <div>
+			                            	<p>성인</p>
+			                            	<p class="text-gray-sm">만13세이상</p>			                            	
+			                            </div>
 			                            <div class="quantity">
 			                                <div class="pro-qty">
 			                                    <input type="text" value="1">
@@ -119,9 +172,12 @@
 			                            </div>
 			                        </div>
 								</div>
-								<div class="dropdown-list item-list">									
-									<div class="product__details__quantity item-list">
-			                            	어린이
+								<div class="dropdown-list">									
+									<div class="product__details__quantity">
+		                            	<div>
+			                            	<p>어린이</p>
+			                            	<p class="text-gray-sm">만2~12세</p>			                            	
+			                            </div>
 			                            <div class="quantity">
 			                                <div class="pro-qty">
 			                                    <input type="text" value="1">
@@ -129,6 +185,13 @@
 			                            </div>
 			                        </div>
 								</div>
+								
+								<div class="text-right">
+									<button type="button" class="close-line-btn">
+										<ins>닫기</ins>
+									</button>
+								</div>
+								
 							</div>
 						</div>
 						<button type="button" class="btn btn-primary mt-2">예약하기</button>
@@ -154,78 +217,28 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                                    aria-selected="true">Description</a>
+                                    aria-selected="true">문의하기</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                                    aria-selected="false">Information</a>
+                                    aria-selected="false">리뷰(30)</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                                    aria-selected="false">Reviews <span>(1)</span></a>
-                            </li>
+                    
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
-                                        suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
-                                        vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
-                                        accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
-                                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
-                                        elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
-                                        et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
-                                        vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
-                                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
-                                        porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
-                                        sed sit amet dui. Proin eget tortor risus.</p>
+                                    <h6>문의하기</h6>
+                                    <p>문의내용과답변.</p>
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
-                                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
-                                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
-                                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                                    <h6>숙소 리뷰</h6>
+                                    <p>리뷰내용</p>                                    
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tabs-3" role="tabpanel">
-                                <div class="product__details__tab__desc">
-                                    <h6>Products Infomation</h6>
-                                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
-                                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
-                                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
-                                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
-                                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
-                                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
-                                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
-                                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
-                                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                                        Proin eget tortor risus.</p>
-                                </div>
-                            </div>
+                         
                         </div>
                     </div>
                 </div>
@@ -239,15 +252,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title related__product__title">
-                        <h2>Related Product</h2>
+                    <div class="aco-title section-title related__product__title">
+                        <h3>다른 숙소 둘러보기</h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/product/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room1.jpg">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -262,7 +275,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/product/product-2.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room4.jpg">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -277,7 +290,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/product/product-3.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room3.jpg">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -292,7 +305,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="/img/product/product-7.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room2.jpg">
                             <ul class="product__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -309,27 +322,69 @@
         </div>
     </section>
     
-   	<script>
-   	
+   	<script>   	
 	$(function(){	
+		
 		let dropdownToggle = $('.dropdown-toggle');
 		let dropdownGroup = $('.dropdown-group');
-	   	
-		dropdownToggle.click(function(){
-			console.log('gggg');
-			if(dropdownGroup.hasClass('show')){
-				dropdownGroup.removeClass('show');
-			}else{
-				dropdownGroup.addClass('show');
-			}
-		})
-	
+		
+		/* dropdown button toggle */
+		dropdownToggle.on('click', function (event) {
+			$(this).next().toggleClass('show');
+		});	
+		
+		$('body').on('click', function (e) {			
+		    if (!dropdownToggle.is(e.target) && 
+		    		dropdownGroup.has(e.target).length === 0) {
+		    	dropdownGroup.removeClass('show');
+		    }
+		});
+		
+		$('.date-range-open').show();
+
+		$('.date-range,.date-range-open').daterangepicker({
+			"alwaysShowCalendars": true,
+			"locale": {
+		        "format": "MM/DD/YYYY",
+		        "separator": " - ",
+		        "applyLabel": "적용",
+		        "cancelLabel": "취소",
+		        "fromLabel": "From",
+		        "toLabel": "To",
+		        "customRangeLabel": "Custom",
+		        "weekLabel": "W",
+		        "daysOfWeek": [
+		            "일",
+		            "월",
+		            "화",
+		            "수",
+		            "목",
+		            "금",
+		            "토"
+		        ],
+		        "monthNames": [
+		            "1월",
+		            "2월",
+		            "3월",
+		            "4월",
+		            "5월",
+		            "6월",
+		            "7월",
+		            "8월",
+		            "9월",
+		            "10월",
+		            "11월",
+		            "12월"
+		        ],
+		        "firstDay": 1
+		    },		    
+		    "minDate": new Date()
+		}, function(start, end, label) {
+		  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+		});	
 	})
 	
 	</script>
     <!-- Related Product Section End -->	
 	</th:block>
-	
-
-	
 </html> 
