@@ -1,11 +1,29 @@
 @charset "UTF-8";
 
+/* footer default margin  */
+footer{
+	margin-top:40px;
+}
+
 ul li{
 	list-style:none;
 }
 
 p{
 	margin:0;
+}
+
+label{
+	font-size:14px;
+	font-weight:600;
+}
+
+input.date-range{
+	padding-left:12px;
+}
+
+h5{
+	font-size:1.2rem;
 }
 
 .aco-title h3{
@@ -97,8 +115,16 @@ button.btn.btn-primary{
 	width:100%;
 }
 
+button.btn.btn-primary.text{
+	background:none;
+	border:none;
+	color:#ff8123;
+	width:auto;
+}
+
+
 button.btn.btn-apply{
-	background-color:#E1306C;
+	background-color:#ff8123;
 	border:none;
 	width:45px;
 	border-radius:8px;
@@ -124,12 +150,34 @@ button.btn.btn-apply{
 	}
 }
 
+.product-details.half{
+	padding-top:40px;	
+}
+
 .product__details__text.box{
     border: 1px solid #eee;
     box-shadow: #ddd 0px 6px 16px;
     padding: 24px;
     border-radius: 12px;
+}
 
+.product__details__text.pay_box{
+    border: 1px solid #eee;
+    box-shadow: #ddd 0px 6px 16px;
+    padding: 24px;
+    border-radius: 12px;
+    padding-bottom:36px;
+}
+
+.product__details__text.pay_box .info span{
+    font-size:14px;
+    color:#868e96;
+    font-weight:400;
+}
+
+
+.product__details__text.pay_box h3{
+ 	font-size: 18px;
 }
 
 .product__details__text .product__details__price{
@@ -192,6 +240,16 @@ ul.accom-info li:last-child::after{
 	height:14px;
 }
 
+.border-bottom-between{
+	border-bottom:1px solid #f1f3f5;
+	padding-bottom:16px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	
+}
+
+
 .product__details__text p{
 	margin-bottom:4px;
 }
@@ -212,6 +270,38 @@ ul.accom-info li:last-child::after{
 	padding-top:24px;
 	margin-top:24px;	
 }
+
+.accom-info-group .list.review:first-child{
+	margin-top:0;
+}
+
+
+.accom-info-group .list.review .userid{
+	font-size:14px;
+}
+
+.accom-info-group .list.review .date{
+	font-size:12px;
+	color:#868e96;
+}
+
+.accom-info-group .list.review .content{
+}
+
+.accom-info.question-option{
+	font-size:12px;
+	margin-top:4px;
+}
+
+/*text*/
+.text-primary{
+	color:#ff8123 !important;
+}
+
+span.text-primary.md-text{
+	font-size:18px;	
+}
+
 
 /*icon*/
 .sm-icon{
@@ -272,4 +362,23 @@ ul.accom-info li:last-child::after{
 	color:#ff8123;
 	margin-right: 4px;
 	font-size: 16px;
+}
+
+.select-option .nice-select{
+	display:flex;
+	align-items:center;
+}
+
+.select-option .nice-select .list{
+	width:100%;
+}
+
+/* 결제페이지 */
+.pay-btn{
+	position:absolute;
+	width:100%;
+	bottom:0;
+	left:0;
+	
+	
 }
