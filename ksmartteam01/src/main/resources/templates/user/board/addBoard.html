@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <th:block layout:fragment="customTitle">
+    <title>addBoard</title>
+    </th:block>
+</head>
+    <th:block layout:fragment="customContents">
+   	<div class="menu-title">
+		<h3>게시글 작성</h3>
+	</div>
+<body>
+	<div class="title-group">
+		<select>
+			<option>말머리 선택</option>
+			<option>정보 공유</option>
+            <option>자유</option>
+            <option>숏폼</option>
+            <option>1:1 상담</option>
+            <option>Q & A</option>
+            <option>F A Q</option>
+       </select>
+       <input type="text" placeholder="제목을 입력해 주세요." maxlength=50>
+	</div>		
+	
+	<div style="text-align: center;">
+		<textarea rows="30" cols="100" placeholder="내용을 입력해 주세요."></textarea>
+	</div>
+	
+	<div class="attach">
+     	<input type="file" name="profile">
+	</div>
+	
+	<div class="btn-group">
+		<a href="/board/boardList"><button type="submit">등록하기</button></a>
+		<a href="/board/boardList"><button>목록 이동</button></a>
+	</div>
+</body>
+</th:block>
+</html>

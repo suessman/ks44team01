@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>메인화면 </title>
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+	
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section" data-setbg="/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text aco-title">
+                        <h3>sharma springs 5 bds 럭셔리한 대나무 저택 수영장</h3>
+                       	<div class="text-left mt-2">                       		
+                       		<span>
+	                       		<i class="fa fa-star"></i>
+	                            <i class="fa fa-star"></i>
+	                            <i class="fa fa-star"></i>
+	                            <i class="fa fa-star"></i>
+	                            <i class="fa fa-star-o"></i>
+                       		</span>
+                       		<span><u>후기53개</u></span>
+                       		<span>전주시 완산구 평화동</span>
+                       	</div>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <a href="./index.html">Vegetables</a>
+                            <span>Vegetable’s Package</span>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+            
+            <!-- pc -->
+            <div class="accommo-img-pc parentel-radius">
+            	<div class="row img-body">            	
+	                <div class="col-6 img-list">                	
+	               		<img src="/img/accommodation/room1.jpg">
+	                </div>	
+	                <div class="col-3 img-list">                	
+	               		<img class="half-height" src="/img/accommodation/room1.jpg">    
+	               		<img class="half-height bottom" src="/img/accommodation/room2.jpg">    
+	                </div>	
+	                <div class="col-3 img-list">                	
+	               		<img class="half-height" src="/img/accommodation/room3.jpg">    
+	               		<img class="half-height bottom" src="/img/accommodation/room4.jpg">    
+	                </div>	
+            	</div>            
+            </div>           
+            
+            <!-- 모바일 -->
+            <section class="product-details spad pt-0 pb-0">
+				<div class="accommo-img-mobile col-12">
+				     <div class="product__details__pic">
+				         <div class="product__details__pic__item">
+				             <img class="product__details__pic__item--large"
+				                 src="/img/accommodation/room1.jpg" alt="">
+				         </div>
+				         <div class="product__details__pic__slider owl-carousel">
+				             <img data-imgbigurl="/img/accommodation/room1.jpg"
+				                 src="/img/accommodation/room1.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room2.jpg"
+				                 src="/img/accommodation/room2.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room3.jpg"
+				                 src="/img/accommodation/room3.jpg" alt="">
+				             <img data-imgbigurl="/img/accommodation/room4.jpg"
+				                 src="/img/accommodation/room4.jpg" alt="">
+				         </div>
+				     </div>
+				 </div>
+            </section>            
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">      
+            	<div class="col-lg-8">
+            		<div class="aco-title">
+            			<h3>sharma springs 5 bds 럭셔리한 대나무 저택 수영장</h3>
+            			<div class="mt-2">
+            				<ul class="accom-info">
+            					<li class="border-after">최대인원 4명</li>
+            					<li class="border-after">침실1개</li>
+            				</ul>            			
+            			</div>
+            		</div>
+            		
+            		<!-- 숙소편의시설 -->
+            		<div class="accom-info-group">            			
+            			<div class="list">
+            				<h3>숙소 편의시설</h3>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/wifi.png" class="sm-icon">
+	            					무선인터넷
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/swim.png" class="sm-icon">
+	            					수영장
+	            				</div> 
+            				</div>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/tv.png" class="sm-icon">
+	            					TV
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/aircon.png" class="sm-icon">
+	            					에어컨
+	            				</div> 
+            				</div>
+            				<div class="row mt-3">
+	            				<div class="col-lg-6">
+	            					<img src="">
+	            					헤어드라이어
+	            				</div> 
+	            				<div class="col-lg-6">
+	            					<img src="/img/icon/breakfast.png" class="sm-icon">
+	            					아침식사
+	            				</div> 
+            				</div>
+            			</div>
+            			<div class="list">
+            				<h3>체크인 날짜를 선택해주세요.</h3>
+            				<div class="row mt-3">
+            					<div class="col-lg-12">
+            						<input type="text" class="date-range-open" name="daterange" value="01/01/2018 - 01/15/2018" />
+            					</div>	            				
+            				</div>            
+            			</div>  
+            			
+            			<div class="list">
+            				<h3>숙소 위치</h3>
+            				<div class="row mt-3">
+	            				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25893.173794004906!2d127.09134037910155!3d35.784053400000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357025913b5394bf%3A0xad9f883be8cd91ad!2z7KCE7KO87Y-J7ZmUM-ywqOqzqOuTnO2BtOuemOyKpOyVhO2MjO2KuA!5e0!3m2!1sko!2skr!4v1664266482080!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            				</div>            
+            			</div>            			
+            		</div>
+            	</div>          
+                <div class="col-lg-4 col-md-6 col-12 position-relative">
+                    <div class="product__details__text box"> 
+                        <div class="product__details__price">
+                        	<del>₩186,500</del>₩116,500
+                        </div>
+                        
+                        <!-- 체크인체크아웃 -->                                              
+                        <input type="text" class="date-range" name="daterange" value="01/01/2018 - 01/15/2018" />
+                 		<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle toggle-custom">
+						   	게스트1명
+							</button>
+							<div class="dropdown-group">
+								<div class="dropdown-list item-list">									
+									<div class="product__details__quantity">
+			                            <div>
+			                            	<p>성인</p>
+			                            	<p class="text-gray-sm">만13세이상</p>			                            	
+			                            </div>
+			                            <div class="quantity">
+			                                <div class="pro-qty">
+			                                    <input type="text" value="1">
+			                                </div>
+			                            </div>
+			                        </div>
+								</div>
+								<div class="dropdown-list">									
+									<div class="product__details__quantity">
+		                            	<div>
+			                            	<p>어린이</p>
+			                            	<p class="text-gray-sm">만2~12세</p>			                            	
+			                            </div>
+			                            <div class="quantity">
+			                                <div class="pro-qty">
+			                                    <input type="text" value="1">
+			                                </div>
+			                            </div>
+			                        </div>
+								</div>
+								
+								<div class="text-right">
+									<button type="button" class="close-line-btn">
+										<ins>닫기</ins>
+									</button>
+								</div>
+								
+							</div>
+						</div>
+						<button type="button" class="btn btn-primary mt-2">예약하기</button>
+                        <ul>
+                            <li><b>Availability</b> <span>In Stock</span></li>
+                            <li><b>Shipping</b> <span>01 day shipping. <samp>Free pickup today</samp></span></li>
+                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>Share on</b>
+                                <div class="share">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                    aria-selected="true">리뷰(992)</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                    aria-selected="false">문의하기</a>
+                            </li>
+                    
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>리뷰 992</h6>
+                                   	<div class="accom-info-group">
+                                   		<div class="review list">
+                                   			<span class="userid">suessman</span>
+                                   			<span class="date">2022.09.28</span>
+                                   			<span>
+					                       		<i class="fa fa-star"></i>
+					                            <i class="fa fa-star"></i>
+					                            <i class="fa fa-star"></i>
+					                            <i class="fa fa-star"></i>
+					                            <i class="fa fa-star-o"></i>
+				                       		</span>
+                                   		</div>
+                                   	</div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>숙소 리뷰</h6>
+                                    <p>리뷰내용</p>                                    
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+
+    <!-- Related Product Section Begin -->
+    <section class="related-product">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="aco-title section-title related__product__title">
+                        <h3>다른 숙소 둘러보기</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room1.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room2.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room3.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item card">
+                        <div class="product__item__pic set-bg" data-setbg="/img/accommodation/room4.jpg">
+                        </div>
+                        <div class="product__item__text">
+                            <h6 class="room-address">경기도가평</h6>
+                            <h5 class="room-title">가평노팅힐계곡</h5>
+                            
+                            <div class="product__details__price room-price">
+                        		<del class="origin-price">₩186,500</del>
+                        		<h5 class="discount-price"><span class="discount-percent">1%</span>167,310원</h5>  
+                        	</div>           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+   	<script>   	
+   	
+	$(function(){	
+		
+		let dropdownToggle = $('.dropdown-toggle');
+		let dropdownGroup = $('.dropdown-group');
+		
+		//auto input calendar click
+		
+		
+		/* dropdown button toggle */
+		dropdownToggle.on('click', function (event) {
+			$(this).next().toggleClass('show');
+		});	
+		
+		$('body').on('click', function (e) {			
+		    if (!dropdownToggle.is(e.target) && 
+		    		dropdownGroup.has(e.target).length === 0) {
+		    	dropdownGroup.removeClass('show');
+		    }
+		});
+		
+		$('.close-line-btn').click(function(){
+			dropdownGroup.removeClass('show');
+		})
+		
+	
+		$('.date-range,.date-range-open').daterangepicker({
+			"alwaysShowCalendars": true,
+			"locale": {
+		        "format": "MM/DD/YYYY",
+		        "separator": " - ",
+		        "applyLabel": "적용",
+		        "cancelLabel": "취소",
+		        "fromLabel": "From",
+		        "toLabel": "To",
+		        "customRangeLabel": "Custom",
+		        "weekLabel": "W",
+		        "daysOfWeek": [
+		            "일",
+		            "월",
+		            "화",
+		            "수",
+		            "목",
+		            "금",
+		            "토"
+		        ],
+		        "monthNames": [
+		            "1월",
+		            "2월",
+		            "3월",
+		            "4월",
+		            "5월",
+		            "6월",
+		            "7월",
+		            "8월",
+		            "9월",
+		            "10월",
+		            "11월",
+		            "12월"
+		        ],
+		        "firstDay": 1
+		    },		    
+		    "minDate": new Date()
+		}, function(start, end, label) {
+		  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+		});	
+	})
+	
+	</script>
+    <!-- Related Product Section End -->	
+	</th:block>
+</html> 

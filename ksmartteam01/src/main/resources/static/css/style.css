@@ -33,7 +33,7 @@
 html,
 body {
 	height: 100%;
-	font-family: "Cairo", sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
 }
@@ -47,7 +47,7 @@ h6 {
 	margin: 0;
 	color: #111111;
 	font-weight: 400;
-	font-family: "Cairo", sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 h1 {
@@ -76,7 +76,7 @@ h6 {
 
 p {
 	font-size: 16px;
-	font-family: "Cairo", sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	color: #6f6f6f;
 	font-weight: 400;
 	line-height: 26px;
@@ -615,7 +615,7 @@ ol {
 	right: 18px;
 	top: 9px;
 	content: "3";
-	font-family: "ElegantIcons";
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 18px;
 	color: #ffffff;
 }
@@ -1131,7 +1131,7 @@ ol {
 
 .price-range-wrap .range-slider .price-input:after {
 	position: absolute;
-	left: 38px;
+	left: 95px;
 	top: 13px;
 	height: 1px;
 	width: 5px;
@@ -1143,7 +1143,7 @@ ol {
 	font-size: 16px;
 	color: #dd2222;
 	font-weight: 700;
-	max-width: 20%;
+	max-width: 47%;
 	border: none;
 	display: inline-block;
 }
@@ -2625,7 +2625,13 @@ ol {
 }
 
 .footer__about {
-	margin-bottom: 30px;
+	margin-bottom: 30px;	
+}
+
+.footer__about h6 {
+	color: #1c1c1c;
+	font-weight: 700;
+	margin-bottom: 10px;
 }
 
 .footer__about ul li {
@@ -2660,6 +2666,9 @@ ol {
 }
 
 .footer__widget ul li {
+	font-size: 16px;
+	color: #1c1c1c;
+	line-height: 36px;
 	list-style: none;
 }
 
@@ -3470,4 +3479,5 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">
+    <th:block layout:fragment="customTitle">
+    <title>readBoard</title>
+    </th:block>
+</head>
+    <th:block layout:fragment="customContents">
+   	<div class="menu-title">
+		<h3>게시글 열람</h3> 
+	</div>
+<body>
+	<div>
+		<div class="title-group" id="top">
+			<h5>[말머리]게시글 제목</h5>
+		</div>
+		<div style="text-align: center;">
+			<a href="#">작성자</a>
+			<span>작성 시간</span>
+			<span>조회수</span>
+		</div>
+	</div>
+	
+	<div style="text-align: center;">
+		<textarea rows="30" cols="70" disabled="disabled">작성자가 작성한 내용</textarea>
+	</div>
+
+	<div style="text-align: center;">
+		<div>
+			<input placeholder="댓글을 남겨주세요." maxlength="100" style="width:400px; margin:10px;">
+			<button type="submit">댓글 등록</button>
+		</div>
+	</div>
+	
+	<div style="text-align: center;">
+		<a href="/board/modifyBoard"><button>수정하기</button></a>
+		<a href="/board/boardList"><button>삭제하기</button></a>
+		<a href="/board/boardList"><button>목록 이동</button></a>
+		<a href="#top"><button>맨 위로 가기</button></a>
+	</div>
+</body>
+</th:block>
+</html>

@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.menu-title {
+	text-align: center;
+	margin: auto;
+	padding: auto;
+}
+
+.title-group {
+	text-align: center; 
+	align-items: center; 
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.title-group input {
+	width: auto;
+	font-weight: bold;
+}
+
+.search-group {
+	text-align: center; 
+	align-items: center; 
+	display: flex;
+	justify-content: center;
+}
+
+.attach {
+	text-align: center; 
+	align-items: center; 
+	display: flex;
+	justify-content: center;
+}
+
+.btn-group {
+	text-align: center; 
+	align-items: center; 
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.board-add {
+	text-align: right;
+	align-items: center;
+}
+
+.board-order {
+	text-align: center; 
+	margin: 30px 30px;
+}
+
+.total-number span {
+	padding-right: 15px;
+}
+
+.date-picker button {
+	width: 7.5cm;
+	height: 1cm;
+}
