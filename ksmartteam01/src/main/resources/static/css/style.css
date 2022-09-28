@@ -30,34 +30,157 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-html,
-body {
-	height: 100%;
-	font-family: 'Noto Sans KR', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-}
+	html,
+	body {
+		height: 100%;
+		font-family: 'Noto Sans KR', sans-serif;
+		-webkit-font-smoothing: antialiased;
+		font-smoothing: antialiased;
+	}
+	
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 0;
+		color: #111111;
+		font-weight: 400;
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+	
+	h1 {
+		font-size: 70px;
+	}
+	
+	h2 {
+		font-size: 36px;
+	}
+	
+	h3 {
+		font-size: 30px;
+	}
+	
+	h4 {
+		font-size: 24px;
+	}
+	
+	h5 {
+		font-size: 18px;
+	}
+	
+	h6 {
+		font-size: 16px;
+	}
+	
+	p {
+		font-size: 16px;
+		font-family: 'Noto Sans KR', sans-serif;
+		color: #6f6f6f;
+		font-weight: 400;
+		line-height: 26px;
+		margin: 0 0 15px 0;
+	}
+	
+	img {
+		max-width: 100%;
+	}
+	
+	input:focus,
+	select:focus,
+	button:focus,
+	textarea:focus {
+		outline: none;
+	}
+	
+	a:hover,
+	a:focus {
+		text-decoration: none;
+		outline: none;
+		color: #ffffff;
+	}
+	
+	/* 사진 모서리 */
+	.hero__item{
+			width:650px;
+			height:450px;
+			border-radius: 2%;
+	}
+	
+   	
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
-	color: #111111;
-	font-weight: 400;
-	font-family: 'Noto Sans KR', sans-serif;
-}
+	/* .r{
+		margin-bottom: 60px;
+		margin-top: 60px;
+	} */
 
-h1 {
-	font-size: 70px;
-}
+	#ul ol li{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	ul, ol {
+		padding: 0;
+		margin: 0;
+	}
+	
+	.groupMenu > li{
+		display: inline-block;
+		width: 80px;
+		padding: 5px 10px;
+		background:#FFFFFF;
+		text-align:center;
+		font-weight: 700;
+	}
 
-h2 {
-	font-size: 36px;
-}
+	 /* .menu1 li::after {
+		position: absolute; 
+		content:""; 
+		display: block; 
+		border-bottom: 3px solid #000; 
+		transition: all 250ms ease-out; 
+		left: 50%; 
+		width: 0;
+	}
+	 */
+	 
+	.groupMenu {
+		overflow: hidden;
+		background: #ffffff;
+		list-style: none;
+		position: sticky;
+		top: 5px;
+		margin: 0;
+		padding: 0;
+	}
+	 
+	 .menu {
+		color: #000000;
+		padding: 10px;
+		border-right: 1px solid #fff;
+		float: left;
+		text-align: center;
+	}
+	
+	.menu:hover {
+		
+		background: #c0c0c0;
+		color: #313540;
+		font-weight: bold;
+	} 
+	
+	/* .row{
+		border: 1px solid red;
+	} */
 
+<<<<<<< HEAD
+	.col-5{
+		margin: 30px;
+		
+	}
+=======
 h3 {
 	font-size: 30px;
 }
@@ -107,6 +230,7 @@ ol {
 	margin: 0;
 	list-style:none;
 }
+>>>>>>> refs/remotes/origin/develop
 
 /*---------------------
   Helper CSS
@@ -3479,5 +3603,61 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+	
+		/* 사진 모서리 */
+	.hero__item{
+			width:650px;
+			height:450px;
+			border-radius: 2%;
+	}
+	
+   	/* 버튼 */
+   	.btn.btn-block{
+		border: 1px solid #000;
+		margin-bottom:30px;
+		margin-right: 10px;
+		margin-left: 15px;
+	}
 
+	.groupBtn{
+		width: 250px;
+		clear: both;
+	}
+	
+	.tit{
+		margin-bottom: 30px;
+	}
+
+	.r{
+		margin-bottom: 60px;
+		margin-top: 60px;
+	}
+
+	#ul ol li{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#ul .groupMenu{
+
+	}
+	
+	/* 버튼 */
+   	.btn.btn-block{
+		border: 1px solid #000;
+		margin-bottom:30px;
+		margin-right: 10px;
+		margin-left: 150px;
+	}
+
+	.groupBtn{
+		width: 250px;
+		clear: both;
+	}
+	
+	.tit{
+		margin-bottom: 30px;
+	}
+	
 }
