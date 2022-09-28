@@ -27,7 +27,7 @@
 	<!-- 주문목록 bg end -->
 	
     <!-- 숙소 Section Begin -->
-    <section class="checkout spad" style="padding-bottom: 0px;">
+    <section class="checkout spad" id="goldA">
 		<div class="container">
 			<div class="checkout__form" align="center">
                 <h4>예약 목록</h4>
@@ -52,7 +52,9 @@
                             <tbody>
                                 <tr>
                                     <td width="25%">
-                                        <img src="/img/latest-product/hotel1.jpg" alt="">
+                                    	<a href="#">
+	                                        <img src="/img/latest-product/hotel1.jpg" alt="hotelPhoto">
+                                    	</a>
                                     </td>
                                     <td class="accom_tdA" width="50%">
                                     	<h5><a href="#">호텔1</a></h5>
@@ -63,7 +65,7 @@
                                     	<h5>&#8361;240,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">예약 취소</a>
+                                    	<a  href="#" class="reservation_cancel">예약 취소</a>
                                     </td>
                                 </tr>                 
                             </tbody>
@@ -77,14 +79,14 @@
 	<!-- 숙소 Section End -->
 	
 	<!-- 상품 Section Begin --> 
-	<section class="checkout spad" style="padding-bottom: 0px; padding-top: 0px;">
+	<section class="checkout spad" id="orderSection">
 		<div class="container">
 			<div class="checkout__form" align="center">
 	        	<h4>주문 목록</h4>
 	    	</div>
 		</div>
 	</section>
-    <section class="shoping-cart spad" style="padding-top: 0px;">
+    <section class="shoping-cart spad" id="accommodationSection">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -101,7 +103,9 @@
                             <tbody>
                             	<tr>
 									<td width="25%">
-                                        <img src="/img/orderList/order1.jpg" alt="">
+										<a href="#">
+                                       		<img src="/img/orderList/order1.jpg" alt="goodsPhoto">
+                                       	</a>
                                     </td>
                                     <td class="accom_tdA" width="50%">
                                     	<h5><a href="#">상품1</a></h5>
@@ -112,12 +116,14 @@
                                     	<h5>&#8361;30,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">주문 취소</a>
+                                    	<a class="order_cancel" href="#">주문 취소</a>
                                     </td>
                             	</tr>                            
                             	<tr>
 									<td width="25%">
-                                        <img src="/img/orderList/order2.jpg" alt="">
+                                        <a href="#">
+                                       		<img src="/img/orderList/order2.jpg" alt="goodsPhoto">
+                                       	</a>
                                     </td>
                                     <td class="accom_tdA" width="50%">
                                     	<h5><a href="#">상품2</a></h5>
@@ -133,7 +139,9 @@
                             	</tr>                            
                             	<tr>
 									<td width="25%">
-                                        <img src="/img/orderList/order3.jpg" alt="">
+                                        <a href="#">
+                                       		<img src="/img/orderList/order3.jpg" alt="goodsPhoto">
+                                       	</a>
                                     </td>
                                     <td class="accom_tdA" width="50%">
                                     	<h5><a href="#">상품3</a></h5>
@@ -156,5 +164,71 @@
         </div>
     </section>
     <!-- 상품 Section End --> 
+    
+    <!-- 예약 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>예약 취소</h2>
+        <p style="text-align: center;">
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>예약 취소 후 다시 예약 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >예약취소</a>
+    </div>
+    <!-- 예약 취소 팝업 Section End -->
+   
+    <div class="orderList_popup">
+        <button id="close">&times;</button>      
+        <h2 id="passcheck">예약 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>예약 취소 후 다시 예약 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >예약취소</a>
+    </div>
+    <!-- 환불 접수 팝업 Section End -->
+    
+    <script type="text/javascript">
+    
+   $(".reservation_cancel").click(function(){
+		document.querySelector(".orderList_popup").style.display = "block";
+		$(".orderList_a").click(function(){
+			Swal.fire({
+				  text: '예약이 취소되었습니다.',
+				})
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+    });
+	document.querySelector("#close").addEventListener("click", function(){
+		document.querySelector(".orderList_popup").style.display = "none";
+	});
+    
+	$(".order_cancel").click(function(){
+		var passcheck = $('#passcheck');
+		if(passcheck.text() == '예약 취소'){
+			console.log("1");
+		
+		}
+		document.querySelector(".orderList_popup").style.display = "block";
+		$(".orderList_a").click(function(){
+			Swal.fire({
+				  text: '주문이 취소되었습니다.',
+				})
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+	});
+	document.querySelector("#close").addEventListener("click", function(){
+		document.querySelector(".orderList_popup").style.display = "none";
+	});
+  
+	</script>
 	</th:block>
 </html>

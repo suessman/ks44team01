@@ -175,10 +175,62 @@
 		border: 1px solid red;
 	} */
 
+<<<<<<< HEAD
 	.col-5{
 		margin: 30px;
 		
 	}
+=======
+h3 {
+	font-size: 30px;
+}
+
+h4 {
+	font-size: 24px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+p {
+	font-size: 16px;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: #6f6f6f;
+	font-weight: 400;
+	line-height: 26px;
+	margin: 0 0 15px 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+input:focus,
+select:focus,
+button:focus,
+textarea:focus {
+	outline: none;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+	outline: none;
+	color: #0000FF;
+}
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+	list-style:none;
+}
+>>>>>>> refs/remotes/origin/develop
 
 /*---------------------
   Helper CSS
@@ -228,7 +280,7 @@
 .text-white span,
 .text-white li,
 .text-white a {
-	color: #fff;
+	color: #000000;
 }
 
 /* buttons */
@@ -253,6 +305,10 @@
 	padding: 13px 30px 12px;
 	background: #7fad39;
 	border: none;
+}
+.btn-list{
+	width:calc(50% - 4px);
+	border:1px solid #868e96;
 }
 
 /* Preloder */
@@ -1199,7 +1255,7 @@
 
 .price-range-wrap .range-slider .price-input:after {
 	position: absolute;
-	left: 38px;
+	left: 95px;
 	top: 13px;
 	height: 1px;
 	width: 5px;
@@ -1211,7 +1267,7 @@
 	font-size: 16px;
 	color: #dd2222;
 	font-weight: 700;
-	max-width: 20%;
+	max-width: 47%;
 	border: none;
 	display: inline-block;
 }
