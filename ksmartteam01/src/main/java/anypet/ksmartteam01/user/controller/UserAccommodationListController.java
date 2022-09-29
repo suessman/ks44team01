@@ -17,4 +17,11 @@ public class UserAccommodationListController {
 	public String accommodationPay() {
 		return "/user/accommodation/accommodationPay";
 	}
+	
+	//숙소예약
+	@GetMapping("/insertReservation")
+	public String insertReservation() {
+		return "/user/accommodation/insertReservation";
+	}
 }
+
