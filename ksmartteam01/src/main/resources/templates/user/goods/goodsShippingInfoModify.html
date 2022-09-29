@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>배송정보수정</title>
+	</th:block>
+	<th:block layout:fragment="customTopJs">
+		<script src="https://cdn02.jotfor.ms/static/prototype.forms.js?3.3.35961" type="text/javascript"></script>
+		<script src="https://cdn03.jotfor.ms/static/jotform.forms.js?3.3.35961" type="text/javascript"></script>
+		<script src="https://cdn01.jotfor.ms/js/vendor/imageinfo.js?v=3.3.35961" type="text/javascript"></script>
+		<script type="text/javascript">	JotForm.newDefaultTheme = false;
+			JotForm.extendsNewTheme = false;
+			JotForm.singleProduct = false;
+			JotForm.newPaymentUIForNewCreatedForms = false;
+		
+			JotForm.init(function(){
+			/*INIT-START*/
+		if (window.JotForm && JotForm.accessible) $('input_4').setAttribute('tabindex',0);
+		      setTimeout(function() {
+		          $('input_12').hint('예)  5000원');
+		       }, 20);
+		      setTimeout(function() {
+		          $('input_8').hint('예) 10개');
+		       }, 20);
+		if (window.JotForm && JotForm.accessible) $('input_6').setAttribute('tabindex',0);
+		      JotForm.setCustomHint( 'input_6', '\uc0c1\ud488\uc0c1\uc138\uc124\uba85\uc744 \uc801\uc5b4\uc8fc\uc138\uc694.' );
+			/*INIT-END*/
+			});
+		
+		   JotForm.prepareCalculationsOnTheFly([null,{"name":"clickTo","qid":"1","text":"상품등록","type":"control_head"},{"name":"input2","qid":"2","text":"등록하기","type":"control_button"},{"name":"goodsInsertCategory","qid":"3","text":"상품카테고리","type":"control_dropdown"},{"name":"input4","qid":"4","subLabel":"","text":"상품명","type":"control_textbox"},null,{"name":"input6","qid":"6","text":"상품상세설명","type":"control_textarea"},{"name":"input7","qid":"7","text":"상품사진","type":"control_fileupload"},{"name":"input8","qid":"8","text":"재고수량","type":"control_number"},null,null,null,{"description":"","name":"input12","qid":"12","subLabel":"","text":"상품가격","type":"control_number"}]);
+		   setTimeout(function() {
+		JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"상품등록","type":"control_head"},{"name":"input2","qid":"2","text":"등록하기","type":"control_button"},{"name":"goodsInsertCategory","qid":"3","text":"상품카테고리","type":"control_dropdown"},{"name":"input4","qid":"4","subLabel":"","text":"상품명","type":"control_textbox"},null,{"name":"input6","qid":"6","text":"상품상세설명","type":"control_textarea"},{"name":"input7","qid":"7","text":"상품사진","type":"control_fileupload"},{"name":"input8","qid":"8","text":"재고수량","type":"control_number"},null,null,null,{"description":"","name":"input12","qid":"12","subLabel":"","text":"상품가격","type":"control_number"}]);}, 20); 
+		</script>
+		<!-- 주소등록 자바스크립트 시작 -->
+		<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+		<script>
+		    function sample6_execDaumPostcode() {
+		        new daum.Postcode({
+		            oncomplete: function(data) {
+		                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+		
+		                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+		                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+		                var addr = ''; // 주소 변수
+		                var extraAddr = ''; // 참고항목 변수
+		
+		                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+		                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+		                    addr = data.roadAddress;
+		                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+		                    addr = data.jibunAddress;
+		                }
+		
+		                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+		                if(data.userSelectedType === 'R'){
+		                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+		                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+		                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+		                        extraAddr += data.bname;
+		                    }
+		                    // 건물명이 있고, 공동주택일 경우 추가한다.
+		                    if(data.buildingName !== '' && data.apartment === 'Y'){
+		                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+		                    }
+		                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+		                    if(extraAddr !== ''){
+		                        extraAddr = ' (' + extraAddr + ')';
+		                    }
+		                    // 조합된 참고항목을 해당 필드에 넣는다.
+		                    document.getElementById("sample6_extraAddress").value = extraAddr;
+		                
+		                } else {
+		                    document.getElementById("sample6_extraAddress").value = '';
+		                }
+		
+		                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+		                document.getElementById('sample6_postcode').value = data.zonecode;
+		                document.getElementById("sample6_address").value = addr;
+		                // 커서를 상세주소 필드로 이동한다.
+		                document.getElementById("sample6_detailAddress").focus();
+		            }
+		        }).open();
+		    }
+	</script>
+	<!-- 주소등록 자바스크립트 끝 -->
+	
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F222640871019453" title="oEmbed Form">
+		<link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F222640871019453" title="oEmbed Form">
+		<link rel="shortcut icon" href="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021.svg">
+		<link rel="canonical" href="https://form.jotform.com/222640871019453" />
+		<link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.35961" rel="stylesheet" type="text/css" />
+		<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/nova.css?3.3.35961" />
+		<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?themeRevisionID=5f6c4c83346ec05354558fe8"/>
+		<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.35961" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta property="og:title" content="상품등록" >
+		<meta property="og:url" content="https://form.jotform.com/222640871019453" >
+		<meta property="og:description" content="Please click the link to complete this form." >
+		<meta name="slack-app-id" content="AHNMASS8M">
+		<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+		<meta name="HandheldFriendly" content="true" />
+		
+		
+		<style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+		<style type="text/css">
+		   	.form-input-wide jf-required goodsInsertCategory{
+		   	width:150px;
+		   	}
+		    .form-label-left{
+		        width:150px;
+		    }
+		    .form-line{
+		        padding-top:12px;
+		        padding-bottom:12px;
+		    }
+		    .form-label-right{
+		        width:150px;
+		    }
+		    body, html{
+		        margin:0;
+		        padding:0;
+		        background:#fff;
+		    }
+		
+		    .form-all{
+		        margin:0px auto;
+		        padding-top:0px;
+		        width:690px;
+		        color:#555 !important;
+		        font-family:'Inter';
+		        font-size:14px;
+		    }
+		    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+		        color: false;
+		    }
+		    
+		
+		</style>
+		
+		<style type="text/css" id="form-designer-style">
+		    /* Injected CSS Code */
+		/*PREFERENCES STYLE*/
+		    .form-all {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-all .qq-upload-button,
+		    .form-all .form-submit-button,
+		    .form-all .form-submit-reset,
+		    .form-all .form-submit-print {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-all .form-pagebreak-back-container,
+		    .form-all .form-pagebreak-next-container {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-header-group {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-label {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		  
+		    .form-label.form-label-auto {
+		      
+		    display: inline-block;
+		    float: left;
+		    text-align: left;
+		  
+		    }
+		  
+		    .form-line {
+		      margin-top: 12px 36px 12px 36px px;
+		      margin-bottom: 12px 36px 12px 36px px;
+		    }
+		  
+		    .form-all {
+		      max-width: 690px;
+		      width: 100%;
+		    }
+		  
+		    .form-label.form-label-left,
+		    .form-label.form-label-right,
+		    .form-label.form-label-left.form-label-auto,
+		    .form-label.form-label-right.form-label-auto {
+		      width: 150px;
+		    }
+		  
+		    .form-all {
+		      font-size: 14pxpx
+		    }
+		    .form-all .qq-upload-button,
+		    .form-all .qq-upload-button,
+		    .form-all .form-submit-button,
+		    .form-all .form-submit-reset,
+		    .form-all .form-submit-print {
+		      font-size: 14pxpx
+		    }
+		    .form-all .form-pagebreak-back-container,
+		    .form-all .form-pagebreak-next-container {
+		      font-size: 14pxpx
+		    }
+		  
+		    .supernova .form-all, .form-all {
+		      background-color: #FFFFFF;
+		    }
+		  
+		    .form-all {
+		      color: #555;
+		    }
+		    .form-header-group .form-header {
+		      color: #555;
+		    }
+		    .form-header-group .form-subHeader {
+		      color: #555;
+		    }
+		    .form-label-top,
+		    .form-label-left,
+		    .form-label-right,
+		    .form-html,
+		    .form-checkbox-item label,
+		    .form-radio-item label,
+		    span.FITB .qb-checkbox-label,
+		    span.FITB .qb-radiobox-label,
+		    span.FITB .form-radio label,
+		    span.FITB .form-checkbox label,
+		    [data-blotid][data-type=checkbox] [data-labelid],
+		    [data-blotid][data-type=radiobox] [data-labelid],
+		    span.FITB-inptCont[data-type=checkbox] label,
+		    span.FITB-inptCont[data-type=radiobox] label {
+		      color: #555;
+		    }
+		    .form-sub-label {
+		      color: #6f6f6f;
+		    }
+		  
+		    .supernova {
+		      background-color: undefined;
+		    }
+		    .supernova body {
+		      background: transparent;
+		    }
+		  
+		    .form-textbox,
+		    .form-textarea,
+		    .form-dropdown,
+		    .form-radio-other-input,
+		    .form-checkbox-other-input,
+		    .form-captcha input,
+		    .form-spinner input {
+		      background-color: undefined;
+		    }
+		  
+		    .supernova {
+		      background-image: none;
+		    }
+		    #stage {
+		      background-image: none;
+		    }
+		  
+		    .form-all {
+		      background-image: none;
+		    }
+		  
+		  .ie-8 .form-all:before { display: none; }
+		  .ie-8 {
+		    margin-top: auto;
+		    margin-top: initial;
+		  }
+		  
+		  /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+		    /* Injected CSS Code */
+		</style>
+		
+
+
+		<form class="jotform-form" action="https://submit.jotform.com/submit/222640871019453/" method="post" enctype="multipart/form-data" name="form_222640871019453" id="222640871019453" accept-charset="utf-8" autocomplete="on">
+		  <input type="hidden" name="formID" value="222640871019453" />
+		  <input type="hidden" id="JWTContainer" value="" />
+		  <input type="hidden" id="cardinalOrderNumber" value="" />
+		  <div role="main" class="form-all">
+		    <ul class="form-section page-section">
+		      <li id="cid_1" class="form-input-wide" data-type="control_head">
+		        <div class="form-header-group  header-large">
+		          <div class="header-text httal htvam">
+		            <h1 id="header_1" class="form-header" data-component="header">
+		             	배송지 수정
+		            </h1>
+		          </div>
+		        </div>
+		      </li>
+		      <!-- 주소등록 폼 시작 -->
+		      <div>
+				<input type="text" id="sample6_postcode" placeholder="우편번호" value="13536">
+				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+				<input type="text" id="sample6_address" placeholder="주소" value="경기 성남시 분당구 판교역로2번길 1"><br>
+				<input type="text" id="sample6_detailAddress" placeholder="상세주소" value="2층">
+				<input type="text" id="sample6_extraAddress" placeholder="참고항목" value=" (백현동)">
+		     </div>
+		     <!-- 주소등록 폼 끝 -->
+		       <li class="form-line" data-type="control_button" id="id_2">
+		        <div id="cid_2" class="form-input-wide">
+		          <div style="text-align:center" data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
+		            <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+		             	 수정하기
+
+		            </button>
+		          </div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+
+</form>
+	</th:block>
+</html> 
