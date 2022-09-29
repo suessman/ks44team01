@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layout/default}">
-	<!-- 사용자 정의 타이틀 설정 -->
-	<th:block layout:fragment="customTitle">
-		<title>메인화면 </title>
-	</th:block>
-	
-	<th:block layout:fragment="customContents">
-	
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/default}">
+   <!-- 사용자 정의 타이틀 설정 -->
+   <th:block layout:fragment="customTitle">
+      <title>메인화면 </title>
+   </th:block>
+   
+   <th:block layout:fragment="customContents">
+   
     <!-- Hero Section Begin -->
 <!--     <section class="hero">
         <div class="container">
@@ -73,8 +73,8 @@
     <!-- Event Section Begin -->
     <section class="categories">
         <div class="container">
-        	<div class="section-title">
-            	<h2>EVENT</h2>
+           <div class="section-title">
+               <h2>EVENT</h2>
             </div>
             <div class="row">
                 <div class="categories__slider owl-carousel">
@@ -242,7 +242,7 @@
                 </div>              
             </div>
             <div style="text-align: center;">
-               	<a class="btn btn-primary" href="#" role="button">더 보기</a>
+                  <a class="btn btn-primary" href="#" role="button">더 보기</a>
             </div>
         </div>
     </section>
@@ -268,173 +268,173 @@
                     </div>
                     
                     <div class=reservation-group>
-	                    <span class="mr-2">
-	                    <div class="reservation-group-select">
-	                    	<select>
-								<option>지역 선택</option>
-					            <option>강원</option>
-					            <option>경기</option>
-					            <option>경상</option>
-					            <option>전라</option>
-					            <option>제주</option>
-					            <option>충청</option>
-					            <option>광주</option>
-					            <option>대구</option>
-					            <option>대전</option>
-					            <option>부산</option>
-					            <option>서울</option>
-					            <option>세종</option>
-					            <option>인천</option>
-					            <option>울산</option>
-					       </select>
-	                    </div>
-	                    </span>
-	                    <span class="mr-2">
-							<input type="text" class="date-range mb-0" name="daterange" value="01/01/2018 - 01/15/2018"/>
-						</span>
-	                    <span class="mr-2">
-	                    	<div class="reservation-group-dropdown position-relative">
-								<button class="btn btn-secondary dropdown-toggle toggle-custom main-filter-dropdown">
-							   	게스트 1명
-								</button>
-								<div class="dropdown-group main-filter">
-									<div class="dropdown-list item-list">									
-										<div class="product__details__quantity">
-				                            <div>
-				                            	<p>성인</p>
-				                            	<p class="text-gray-sm">만13세이상</p>			                            	
-				                            </div>
-				                            <div class="quantity">
-				                                <div class="pro-qty">
-				                                    <input type="text" value="1">
-				                                </div>
-				                            </div>
-				                        </div>
-									</div>
-									<div class="dropdown-list">									
-										<div class="product__details__quantity">
-			                            	<div>
-				                            	<p>어린이</p>
-				                            	<p class="text-gray-sm">만2~12세</p>			                            	
-				                            </div>
-				                            <div class="quantity">
-				                                <div class="pro-qty">
-				                                    <input type="text" value="1">
-				                                </div>
-				                            </div>
-				                        </div>
-									</div>
-									
-									<div class="text-right">
-										<button type="button" class="close-line-btn">
-											<ins>닫기</ins>
-										</button>
-									</div>
-									
-								</div>
-							</div>
-	                    </span>
-					    <span>
-					    	<button class="btn btn-outline-primary" type="submit">검색</button>
-					    </span> 
+                       <span class="mr-2">
+                       <div class="reservation-group-select">
+                          <select>
+                        <option>지역 선택</option>
+                           <option>강원</option>
+                           <option>경기</option>
+                           <option>경상</option>
+                           <option>전라</option>
+                           <option>제주</option>
+                           <option>충청</option>
+                           <option>광주</option>
+                           <option>대구</option>
+                           <option>대전</option>
+                           <option>부산</option>
+                           <option>서울</option>
+                           <option>세종</option>
+                           <option>인천</option>
+                           <option>울산</option>
+                      </select>
+                       </div>
+                       </span>
+                       <span class="mr-2">
+                     <input type="text" class="date-range mb-0" name="daterange" value="01/01/2018 - 01/15/2018"/>
+                  </span>
+                       <span class="mr-2">
+                          <div class="reservation-group-dropdown position-relative">
+                        <button class="btn btn-secondary dropdown-toggle toggle-custom main-filter-dropdown">
+                           게스트 1명
+                        </button>
+                        <div class="dropdown-group main-filter">
+                           <div class="dropdown-list item-list">                           
+                              <div class="product__details__quantity">
+                                        <div>
+                                           <p>성인</p>
+                                           <p class="text-gray-sm">만13세이상</p>                                        
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                           </div>
+                           <div class="dropdown-list">                           
+                              <div class="product__details__quantity">
+                                        <div>
+                                           <p>어린이</p>
+                                           <p class="text-gray-sm">만2~12세</p>                                        
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                           </div>
+                           
+                           <div class="text-right">
+                              <button type="button" class="close-line-btn">
+                                 <ins>닫기</ins>
+                              </button>
+                           </div>
+                           
+                        </div>
+                     </div>
+                       </span>
+                   <span>
+                      <button class="btn btn-outline-primary" type="submit">검색</button>
+                   </span> 
                     </div>
-            	</div>
+               </div>
             </div>
             <br>
             
-           	<!-- JS 인원 수 및 날짜 구하기 시작 -->
+              <!-- JS 인원 수 및 날짜 구하기 시작 -->
                   <script type="text/javascript">
                  
-                  $(function(){	
-                	  
-                	let dropdownToggle = $('.dropdown-toggle');
-              		let dropdownGroup = $('.dropdown-group');
-              		
-              		//auto input calendar click
-              		
-              		
-              		/* dropdown button toggle */
-              		dropdownToggle.on('click', function (event) {
-              			$(this).next().toggleClass('show');
-              		});	
-              		
-              		$('body').on('click', function (e) {			
-              		    if (!dropdownToggle.is(e.target) && 
-              		    		dropdownGroup.has(e.target).length === 0) {
-              		    	dropdownGroup.removeClass('show');
-              		    }
-              		});
-              		
-              		$('.close-line-btn').click(function(){
-              			dropdownGroup.removeClass('show');
-              		})
-                	  
-				$('.date-range,.date-range-open').daterangepicker({
-					"alwaysShowCalendars": true,
-					"locale": {
-				        "format": "MM/DD/YYYY",
-				        "separator": " - ",
-				        "applyLabel": "적용",
-				        "cancelLabel": "취소",
-				        "fromLabel": "From",
-				        "toLabel": "To",
-				        "customRangeLabel": "Custom",
-				        "weekLabel": "W",
-				        "daysOfWeek": [
-				            "일",
-				            "월",
-				            "화",
-				            "수",
-				            "목",
-				            "금",
-				            "토"
-				        ],
-				        "monthNames": [
-				            "1월",
-				            "2월",
-				            "3월",
-				            "4월",
-				            "5월",
-				            "6월",
-				            "7월",
-				            "8월",
-				            "9월",
-				            "10월",
-				            "11월",
-				            "12월"
-				        ],
-				        "firstDay": 1
-				    },		    
-				    "minDate": new Date()
-				}, function(start, end, label) {
-				  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-				});	
-			})
-			
-			</script>
-		<!-- 인원 수 및 날짜 구하기 끝 -->
-										
-					<!-- JS 인원 수 구하기 시작 -->
-					<!-- <script>						
-						/* 인원수 숫자 더하기  시작*/
-						 $('.total-number > input').on("propertychange change keyup paste input", function() {
-						    var num1 = 0;
-						    var num2 = 0;
-						    num1 = Number($('#num1').val());
-						    num2 = Number($('#num2').val());
-						    $('#num3').val(num1 + num2);
-						});
-					</script>
-					
-					<div class="total-number">		            	
-		                <input type="text" id="num1" placeholder="성인  인원 수 입력">
-		                <span>명</span>     		               
-		                <input type="text" id="num2" placeholder="아동  인원 수 입력">
-		                <span>명</span>			           		            	
-		            	<input type="text" id="num3" placeholder="총 인원 수" readonly="readonly">
-		            	<span>명</span>			        	
-			        </div> -->
-					<!-- 인원 수 구하기 끝 -->
+                  $(function(){   
+                     
+                   let dropdownToggle = $('.dropdown-toggle');
+                    let dropdownGroup = $('.dropdown-group');
+                    
+                    //auto input calendar click
+                    
+                    
+                    /* dropdown button toggle */
+                    dropdownToggle.on('click', function (event) {
+                       $(this).next().toggleClass('show');
+                    });   
+                    
+                    $('body').on('click', function (e) {         
+                        if (!dropdownToggle.is(e.target) && 
+                              dropdownGroup.has(e.target).length === 0) {
+                           dropdownGroup.removeClass('show');
+                        }
+                    });
+                    
+                    $('.close-line-btn').click(function(){
+                       dropdownGroup.removeClass('show');
+                    })
+                     
+            $('.date-range,.date-range-open').daterangepicker({
+               "alwaysShowCalendars": true,
+               "locale": {
+                    "format": "MM/DD/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "적용",
+                    "cancelLabel": "취소",
+                    "fromLabel": "From",
+                    "toLabel": "To",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "W",
+                    "daysOfWeek": [
+                        "일",
+                        "월",
+                        "화",
+                        "수",
+                        "목",
+                        "금",
+                        "토"
+                    ],
+                    "monthNames": [
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월"
+                    ],
+                    "firstDay": 1
+                },          
+                "minDate": new Date()
+            }, function(start, end, label) {
+              console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+            });   
+         })
+         
+         </script>
+      <!-- 인원 수 및 날짜 구하기 끝 -->
+                              
+               <!-- JS 인원 수 구하기 시작 -->
+               <!-- <script>                  
+                  /* 인원수 숫자 더하기  시작*/
+                   $('.total-number > input').on("propertychange change keyup paste input", function() {
+                      var num1 = 0;
+                      var num2 = 0;
+                      num1 = Number($('#num1').val());
+                      num2 = Number($('#num2').val());
+                      $('#num3').val(num1 + num2);
+                  });
+               </script>
+               
+               <div class="total-number">                     
+                      <input type="text" id="num1" placeholder="성인  인원 수 입력">
+                      <span>명</span>                          
+                      <input type="text" id="num2" placeholder="아동  인원 수 입력">
+                      <span>명</span>                                         
+                     <input type="text" id="num3" placeholder="총 인원 수" readonly="readonly">
+                     <span>명</span>                    
+                 </div> -->
+               <!-- 인원 수 구하기 끝 -->
 
             <div class="row featured__filter">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
@@ -559,7 +559,7 @@
                 </div>              
             </div>
             <div style="text-align: center;">
-            	<a class="btn btn-primary" href="#" role="button">더 보기</a>
+               <a class="btn btn-primary" href="#" role="button">더 보기</a>
             </div>
         </div>
     </section>
@@ -579,10 +579,10 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">                       
-						<video width="320" height="240" controls="controls" poster="img/goodsList/goods01.jpg">
-						  <source src="movie.mp4" type="video/mp4">
-						  <source src="movie.ogg" type="video/ogg">
-						</video>
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods01.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
                         <div class="blog__item__text">
                             <ul>
                                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
@@ -594,10 +594,10 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
-						<video width="320" height="240" controls="controls" poster="img/goodsList/goods02.jpg">
-						  <source src="movie.mp4" type="video/mp4">
-						  <source src="movie.ogg" type="video/ogg">
-						</video>
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods02.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
                         <div class="blog__item__text">
                             <ul>
                                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
@@ -609,10 +609,10 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="blog__item">
-						<video width="320" height="240" controls="controls" poster="img/goodsList/goods04.jpg">
-						  <source src="movie.mp4" type="video/mp4">
-						  <source src="movie.ogg" type="video/ogg">
-						</video>
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods04.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
                         <div class="blog__item__text">
                             <ul>
                                 <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
@@ -624,7 +624,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-            	<a class="btn btn-primary" href="#" role="button">더 보기</a>
+               <a class="btn btn-primary" href="#" role="button">더 보기</a>
             </div>
         </div>
     </section>
@@ -633,16 +633,16 @@
     <!-- Banner Begin -->
     <div class="banner">
         <div class="container">
-         	<div class="row">
-         		<div class="col-lg-12">
-           			<div class="section-title">
-           				<h2>홍보 배너</h2>
-           			</div>
-           		</div>
-           	</div>
+            <div class="row">
+               <div class="col-lg-12">
+                    <div class="section-title">
+                       <h2>홍보 배너</h2>
+                    </div>
+                 </div>
+              </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                	
+                   
                     <div class="banner__pic">
                         <img src="img/banner/banner-1.jpg" alt="">
                     </div>
@@ -654,8 +654,8 @@
                 </div>
             </div>
         </div>
-    </div>	
+    </div>   
     <!-- Banner End -->
     
-	</th:block>
+   </th:block>
 </html> 
