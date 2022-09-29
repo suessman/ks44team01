@@ -63,7 +63,7 @@
                                     	<h5>&#8361;240,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">예약 취소</a>
+                                    	<a href="#" class="reservation_cancel">예약 취소</a>
                                     </td>
                                 </tr>                                             	
                             </tbody> 
@@ -174,6 +174,37 @@
    		</div>
     </section>
     <!-- 주문 상세 내역 Section End -->
-	</th:block>
+    
+    <!-- 예약 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>예약 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>예약 취소 후 다시 예약 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >예약취소</a>
+    </div>
+    <!-- 예약 취소 팝업 Section End -->
+    
+	<script type="text/javascript">
+		$(".reservation_cancel").click(function(){
+			document.querySelector(".orderList_popup").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '예약이 취소되었습니다.',
+					})
+				document.querySelector(".orderList_popup").style.display = "none";
+			});
+	    });
+		document.querySelector("#close").addEventListener("click", function(){
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+	</script>
 	
+	</th:block>
 </html>
