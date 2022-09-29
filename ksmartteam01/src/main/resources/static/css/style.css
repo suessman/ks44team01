@@ -168,6 +168,8 @@ ol {
 	color: #1c1c1c;
 	font-weight: 700;
 	position: relative;
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 .section-title h2:after {

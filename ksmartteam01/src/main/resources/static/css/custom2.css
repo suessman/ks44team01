@@ -122,13 +122,13 @@
 	color: red;
 }
 
-*,
+/* *,
 *:before,
 *:after{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-}
+} */
 
 .orderList_popup{
     background-color: white;
@@ -144,6 +144,7 @@
     display: none; 
     text-align: center;
 }
+
 .orderList_popup button{
     display: block;
     margin:  0 0 20px auto;
@@ -195,4 +196,12 @@
 .orderList_popup .nice-select .list{
     width: 100%; 
     text-align: center;
+}
+
+#accom_main{
+	padding-bottom: 0px;
+}
+
+#datepicker{
+	padding-bottom: 20px;
 }
