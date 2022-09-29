@@ -205,3 +205,18 @@
 #datepicker{
 	padding-bottom: 20px;
 }
+
+.accomSearch_Btn{
+	margin-left: 10px; 
+	border: none; 
+	border-radius: 20%; 
+	padding: 4px 8px;
+}
+
+.accomList_align{
+	text-align: center;
+}
+
+.accomList_alignB{
+	text-align: left;
+}
