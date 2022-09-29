@@ -38,10 +38,10 @@
                     <nav class="header__menu">
                         <ul>
                             <li class="active"><a href="/">#메인페이지</a></li>
-                            <li><a href="">#숙소목록</a></li>
-                            <li><a href="">#숙소상세</a></li>
+                            <li><a th:href="@{/accommodation/accommodationList}">#숙소목록</a></li>
+                            <li><a th:href="@{/user/accommodation/accommodationDetail}">#숙소상세</a></li>
                             <li><a href="/accommodation/insertReservation">#숙소예약</a></li>
-                            <li><a href="">#숙소결제</a></li>                            
+                            <li><a th:href="@{/user/accommodation/accommodationPay}">#숙소결제</a></li>                            
                             <li><a href="">#상품</a>
                            	 <ul class="header__menu__dropdown">
                                     <li><a th:href="@{/goods/goodsInsert}">#상품등록</a></li>
@@ -55,7 +55,7 @@
                                     <li><a th:href="@{/goods/goodsPaymentListSearch}">#결제내역검색</a></li>
                                 </ul>
                             </li>
-                            <li><a href="">#상품상세</a></li>
+                            <li><a th:href="@{/goods/goodsDetail}">#상품상세</a></li>
                             <li><a th:href="@{/goods/goodsCartList}">#장바구니</a></li>
                             <li><a href="">#상품결제</a></li>
                             

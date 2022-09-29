@@ -4,7 +4,7 @@
 	  layout:decorate="~{layout/default}">
 	<!-- 사용자 정의 타이틀 설정 -->
 	<th:block layout:fragment="customTitle">
-		<title>상품목록</title>
+		<title>상품카테고리목록</title>
 	</th:block>
 	
 	<th:block layout:fragment="customTopJs">
@@ -13,21 +13,13 @@
 	
 	<th:block layout:fragment="customCss">
 		<style>
-			/*
 			 InsertTable{
 			 	 height: 100%;
-				 vertical-align: middle;
 				 text-align: center;
 				 display: flex;
-				 justify-content: center;
-				 width: unset;
-				 
 			 }
-			 */
-			 
 			 table{
-				 display:table-cell;
-				 vertical-align:middle;
+				 display:table-cell;;
 				 table-layout:fixed;
 			     border: 1px solid #444444;
 			 }
@@ -51,25 +43,22 @@
     </th:block>
     
 	<th:block layout:fragment="customContents">
-	 <!-- 상품목록 테이블 시작 -->
-	 <!-- Shoping Cart Section Begin -->
-
-	
+	 <!-- 상품 카테고리목록 시작 -->
     <section class="shoping-cart spad ">
-	    <div class="d-flex flex-row-reverse"><button type="button">+ 등록하기</button></div>
-	    <div class="row">
-	     <table class="table text-center w-50 mx-auto ">
+	   <div class="d-flex flex-row-reverse"><button type="button">+ 등록하기</button></div>
+	    <div class="InsertTable d-flex justify-content-center">
+	     <table class="table text-center">
 		   <thead class="thead-dark">
 		    <tr>
-		      <th scope="col" class="col-1 align-middle">상품코드</th>
-		      <th scope="col" class="col-2 align-middle">사업자코드</th>
-		      <th scope="col" class="col-2 align-middle">중분류코드</th>
-		      <th scope="col" class="col-1 align-middle">아이디</th>
-		      <th scope="col" class="col-2 align-middle">상품</th>
-	          <th scope="col" class="col-1 align-middle">가격</th>
-			  <th scope="col" class="col-1 align-middle">재고수량</th>
-			  <th scope="col" class="col-1 align-middle">등록시각</th>
-			  <th scope="col" class="col-1 align-middle">수정/삭제</th>
+		      <th scope="col" class="align-middle">대분류코드</th>
+		      <th scope="col" class="align-middle">대분류이름</th>
+		      <th scope="col" class="align-middle">대분류등록</th>
+		      <th scope="col" class="align-middle">대분류수정/삭제</th>
+		      <th scope="col" class="align-middle">상품</th>
+	          <th scope="col" class="align-middle">가격</th>
+			  <th scope="col" class="align-middle">재고수량</th>
+			  <th scope="col" class="align-middle">등록시각</th>
+			  <th scope="col" class="align-middle">수정/삭제</th>
 	   		</tr>
 	  	  </thead>
 		  <tbody>
@@ -79,7 +68,7 @@
 		      <td class="align-middle">Otto</td>
 		      <td class="align-middle">@mdo</td>
 		      <td class="align-middle">
-	          <img src="/img/categories/petToy2.jpg" alt=""><br>
+	          <img style="width:100px; height:auto;" src="/img/categories/petToy2.jpg" alt=""><br>
 	       		   장난감공
 	          </td>
 	          <td class="align-middle">
@@ -145,9 +134,10 @@
 		   </tbody>
 		  </table>
 		 </div>
-    <!-- 상품목록 테이블 끝 -->
+    <!-- 상품 카테고리목록 끝 -->
 	</section>
 	</th:block>
+	<!-- Js Plugins -->
 	<th:block layout:fragment="customFootJs">
 	    <script src="/js/jquery-3.3.1.min.js"></script>
 	    <script src="/js/bootstrap.min.js"></script>

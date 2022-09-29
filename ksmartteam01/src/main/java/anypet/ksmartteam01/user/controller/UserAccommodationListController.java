@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user/accommodation")
 public class UserAccommodationListController {
+	
 	@GetMapping("/accommodationDetail")
 	public String accommodationDetail() {
 		return "/user/accommodation/accommodationDetail";
