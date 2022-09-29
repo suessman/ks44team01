@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+
+
+	/* 사진 모서리 */
+	.hero__item{
+			width:auto;
+			height:450px;
+			border-radius: 2%;
+	}
+	
+   	/* 버튼 */
+   	.btn.btn-block{
+		border: 1px solid #000;
+		
+	}
+
+	.groupBtn{
+		clear: both;
+	}
+	
+	.tit{
+		margin-bottom: 30px;
+	}
+	
+	.tit1{
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	.r{
+		margin-bottom: 60px;
+		margin-top: 60px;
+	}
+
+	#ul ol li{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	
+	ul, ol {
+		padding: 0;
+		margin: 0;
+	}
+	
+	
+	#ul .groupMenu{
+
+	}
+	
+	/* 버튼 */
+   	.btn.btn-block{
+		border: 1px solid #000;
+
+	}
+
+	.groupBtn{
+		clear: both;
+	}
+	
+	
+	
+	
+	.menu {
+		color: #000000;
+		padding: 10px;
+		border-right: 1px solid #fff;
+		float: left;
+		text-align: center;
+	}
+	
+	.menu:hover {
+		
+		background: #c0c0c0;
+		color: #313540;
+		font-weight: bold;
+	} 
+	
+	.tit{
+		margin-bottom: 30px;
+	}
+	
+	/* 상품정보/후기/Q&A */
+	.groupMenu > li{
+		display: inline-block;
+		width: 80px;
+		padding: 5px 10px;
+		background:#FFFFFF;
+		text-align:center;
+		font-weight: 700;
+	}
+	
+	.groupMenu {
+		overflow: hidden;
+		background: #ffffff;
+		list-style: none;
+		position: sticky;
+		top: 5px;
+		margin: 0;
+		padding: 0;
+	}
+	 

@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layout/default}">
-	<!-- 사용자 정의 타이틀 설정 -->
-	<th:block layout:fragment="customTitle">
-		<title>상품등록 </title>
-	</th:block>
-	<th:block layout:fragment="customCss">
-    
-	</th:block>
-	
-	<th:block layout:fragment="customContents">
-	
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/default}">
+   <!-- 사용자 정의 타이틀 설정 -->
+   <th:block layout:fragment="customTitle">
+      <title>메인화면 </title>
+   </th:block>
+   
+   <th:block layout:fragment="customContents">
+   
     <!-- Hero Section Begin -->
-    <section class="hero">
+<!--     <section class="hero">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -45,7 +42,7 @@
                                     All Categories
                                     <span class="arrow_carrot-down"></span>
                                 </div>
-                                <input type="text" placeholder="What do yo u need?">
+                                <input type="text" placeholder="What do you need?">
                                 <button type="submit" class="site-btn">SEARCH</button>
                             </form>
                         </div>
@@ -70,36 +67,39 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- Hero Section End -->
 
-    <!-- Categories Section Begin -->
+    <!-- Event Section Begin -->
     <section class="categories">
         <div class="container">
+           <div class="section-title">
+               <h2>EVENT</h2>
+            </div>
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-1.jpg">
+                        <div class="categories__item set-bg card-radius" data-setbg="/img/categories/cat-1.jpg">
                             <h5><a href="#">Fresh Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-2.jpg">
+                        <div class="categories__item set-bg card-radius" data-setbg="img/categories/cat-2.jpg">
                             <h5><a href="#">Dried Fruit</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-3.jpg">
+                        <div class="categories__item set-bg card-radius" data-setbg="img/categories/cat-3.jpg">
                             <h5><a href="#">Vegetables</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-4.jpg">
+                        <div class="categories__item set-bg card-radius" data-setbg="img/categories/cat-4.jpg">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="categories__item set-bg" data-setbg="img/categories/cat-5.jpg">
+                        <div class="categories__item set-bg card-radius" data-setbg="img/categories/cat-5.jpg">
                             <h5><a href="#">drink fruits</a></h5>
                         </div>
                     </div>
@@ -107,32 +107,22 @@
             </div>
         </div>
     </section>
-    <!-- Categories Section End -->
+    <!-- Event Section End -->
 
-    <!-- Featured Section Begin -->
+    <!-- Goods Section Begin -->
     <section class="featured spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Featured Product</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
+                        <h2>상품</h2>
                     </div>
                 </div>
             </div>
             <div class="row featured__filter">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
                     <div class="featured__item">
-						<div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                        
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods01.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -141,13 +131,13 @@
                         </div>
                         <div class="featured__item__text">
                             <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$10-220923_test</h5>
+                            <h5>$30.00</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods02.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -162,7 +152,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods03.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -177,7 +167,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods04.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -192,7 +182,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods05.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -207,7 +197,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods06.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -222,7 +212,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods07.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -237,7 +227,234 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
                     <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/goodsList/goods08.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+            <div style="text-align: center;">
+                  <a class="btn btn-primary" href="#" role="button">더 보기</a>
+            </div>
+        </div>
+    </section>
+    <!-- Goods Section End -->
+
+    <!-- accommodation Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>숙소</h2>
+                    </div>          
+                    <div class="featured__controls">
+                        <ul>
+                            <li class="active" data-filter="condo">콘도</li>
+                            <li data-filter=".pension">펜션</li>
+                            <li data-filter=".hotel">호텔</li>
+                            <li data-filter=".glamping">글램핑</li>
+                            <li data-filter=".resort">리조트</li>
+                            <li data-filter=".poolvilla">풀빌라</li>
+                        </ul>
+                    </div>
+                    
+                    <div class=reservation-group>
+                       <span class="mr-2">
+                       <div class="reservation-group-select">
+                          <select>
+                        <option>지역 선택</option>
+                           <option>강원</option>
+                           <option>경기</option>
+                           <option>경상</option>
+                           <option>전라</option>
+                           <option>제주</option>
+                           <option>충청</option>
+                           <option>광주</option>
+                           <option>대구</option>
+                           <option>대전</option>
+                           <option>부산</option>
+                           <option>서울</option>
+                           <option>세종</option>
+                           <option>인천</option>
+                           <option>울산</option>
+                      </select>
+                       </div>
+                       </span>
+                       <span class="mr-2">
+                     <input type="text" class="date-range mb-0" name="daterange" value="01/01/2018 - 01/15/2018"/>
+                  </span>
+                       <span class="mr-2">
+                          <div class="reservation-group-dropdown position-relative">
+                        <button class="btn btn-secondary dropdown-toggle toggle-custom main-filter-dropdown">
+                           게스트 1명
+                        </button>
+                        <div class="dropdown-group main-filter">
+                           <div class="dropdown-list item-list">                           
+                              <div class="product__details__quantity">
+                                        <div>
+                                           <p>성인</p>
+                                           <p class="text-gray-sm">만13세이상</p>                                        
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                           </div>
+                           <div class="dropdown-list">                           
+                              <div class="product__details__quantity">
+                                        <div>
+                                           <p>어린이</p>
+                                           <p class="text-gray-sm">만2~12세</p>                                        
+                                        </div>
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                           </div>
+                           
+                           <div class="text-right">
+                              <button type="button" class="close-line-btn">
+                                 <ins>닫기</ins>
+                              </button>
+                           </div>
+                           
+                        </div>
+                     </div>
+                       </span>
+                   <span>
+                      <button class="btn btn-outline-primary" type="submit">검색</button>
+                   </span> 
+                    </div>
+               </div>
+            </div>
+            <br>
+            
+              <!-- JS 인원 수 및 날짜 구하기 시작 -->
+                  <script type="text/javascript">
+                 
+                  $(function(){   
+                     
+                   let dropdownToggle = $('.dropdown-toggle');
+                    let dropdownGroup = $('.dropdown-group');
+                    
+                    //auto input calendar click
+                    
+                    
+                    /* dropdown button toggle */
+                    dropdownToggle.on('click', function (event) {
+                       $(this).next().toggleClass('show');
+                    });   
+                    
+                    $('body').on('click', function (e) {         
+                        if (!dropdownToggle.is(e.target) && 
+                              dropdownGroup.has(e.target).length === 0) {
+                           dropdownGroup.removeClass('show');
+                        }
+                    });
+                    
+                    $('.close-line-btn').click(function(){
+                       dropdownGroup.removeClass('show');
+                    })
+                     
+            $('.date-range,.date-range-open').daterangepicker({
+               "alwaysShowCalendars": true,
+               "locale": {
+                    "format": "MM/DD/YYYY",
+                    "separator": " - ",
+                    "applyLabel": "적용",
+                    "cancelLabel": "취소",
+                    "fromLabel": "From",
+                    "toLabel": "To",
+                    "customRangeLabel": "Custom",
+                    "weekLabel": "W",
+                    "daysOfWeek": [
+                        "일",
+                        "월",
+                        "화",
+                        "수",
+                        "목",
+                        "금",
+                        "토"
+                    ],
+                    "monthNames": [
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월"
+                    ],
+                    "firstDay": 1
+                },          
+                "minDate": new Date()
+            }, function(start, end, label) {
+              console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+            });   
+         })
+         
+         </script>
+      <!-- 인원 수 및 날짜 구하기 끝 -->
+                              
+               <!-- JS 인원 수 구하기 시작 -->
+               <!-- <script>                  
+                  /* 인원수 숫자 더하기  시작*/
+                   $('.total-number > input').on("propertychange change keyup paste input", function() {
+                      var num1 = 0;
+                      var num2 = 0;
+                      num1 = Number($('#num1').val());
+                      num2 = Number($('#num2').val());
+                      $('#num3').val(num1 + num2);
+                  });
+               </script>
+               
+               <div class="total-number">                     
+                      <input type="text" id="num1" placeholder="성인  인원 수 입력">
+                      <span>명</span>                          
+                      <input type="text" id="num2" placeholder="아동  인원 수 입력">
+                      <span>명</span>                                         
+                     <input type="text" id="num3" placeholder="총 인원 수" readonly="readonly">
+                     <span>명</span>                    
+                 </div> -->
+               <!-- 인원 수 구하기 끝 -->
+
+            <div class="row featured__filter">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel1.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30..00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel2.jpg">
                             <ul class="featured__item__pic__hover">
                                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
                                 <li><a href="#"><i class="fa fa-retweet"></i></a></li>
@@ -250,16 +467,182 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel3.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel4.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel5.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel6.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel7.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg card-radius" data-setbg="img/accommodationList/hotel8.jpg">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">Crab Pool Security</a></h6>
+                            <h5>$30.00</h5>
+                        </div>
+                    </div>
+                </div>              
+            </div>
+            <div style="text-align: center;">
+               <a class="btn btn-primary" href="#" role="button">더 보기</a>
             </div>
         </div>
     </section>
-    <!-- Featured Section End -->
+    <!-- accommodation Section End -->
 
+    <!-- short form Begin -->
+    <section class="from-blog spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title from-blog__title">
+                        <h2>short form</h2>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">                       
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods01.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Cooking tips make cooking simple</a></h5>
+                         </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods02.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="blog__item">
+                  <video width="320" height="240" controls="controls" poster="img/goodsList/goods04.jpg">
+                    <source src="movie.mp4" type="video/mp4">
+                    <source src="movie.ogg" type="video/ogg">
+                  </video>
+                        <div class="blog__item__text">
+                            <ul>
+                                <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                <li><i class="fa fa-comment-o"></i> 5</li>
+                            </ul>
+                            <h5><a href="#">Visit the clean farm in the US</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+               <a class="btn btn-primary" href="#" role="button">더 보기</a>
+            </div>
+        </div>
+    </section>
+    <!-- short form End -->
+    
     <!-- Banner Begin -->
     <div class="banner">
         <div class="container">
             <div class="row">
+               <div class="col-lg-12">
+                    <div class="section-title">
+                       <h2>홍보 배너</h2>
+                    </div>
+                 </div>
+              </div>
+            <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
+                   
                     <div class="banner__pic">
                         <img src="img/banner/banner-1.jpg" alt="">
                     </div>
@@ -271,7 +654,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
     <!-- Banner End -->
-	</th:block>
+    
+   </th:block>
 </html> 
