@@ -63,7 +63,7 @@
                                     	<h5>&#8361;30,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">주문 취소</a>
+                                    	<a href="#" class="order_cancel">주문 취소</a>
                                     </td>
                             	</tr>                            
                             	<tr>
@@ -79,7 +79,7 @@
                                     	<h5>&#8361;18,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">환불 접수</a>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
                                     </td>
                             	</tr>                            
                             	<tr>
@@ -95,7 +95,7 @@
                                     	<h5>&#8361;100,000</h5>
                                     </td>
                                     <td>
-                                    	<a href="#">환불 접수</a>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
                                     </td>
                             	</tr>                            
                             </tbody> 
@@ -206,6 +206,71 @@
    		</div>
     </section>
     <!-- 주문 상세 내역 Section End -->
-	</th:block>
+    
+    <!-- 주문 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>주문 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>주문 취소 후 다시 주문 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >주문취소</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    <!-- 환불 신청 팝업 Section Start -->
+    <div class="orderList_popup" id="refund">
+        <button id="closeB">&times;</button>
+        <h2>환불 신청</h2>
+        <p>
+            	환불사유를 선택해주세요.
+        </p>
+        <select>
+            <option>사이즈 착오</option>
+            <option>상품 불량</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >환불신청</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    <script type="text/javascript">
+    	
+	    $(".order_cancel").click(function(){
+			document.querySelector(".orderList_popup").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '주문이 취소되었습니다.',
+					})
+				document.querySelector(".orderList_popup").style.display = "none";
+			});
+		});
+	    
+		 document.querySelector("#close").addEventListener("click", function(){
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+
+	    $(".refund_cancel").click(function(){
+			document.querySelector("#refund").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '환불신청이 접수되었습니다.',
+					})
+				document.querySelector("#refund").style.display = "none";
+			});
+		});
+		
+	    document.querySelector("#closeB").addEventListener('click',function(){
+			let close = document.querySelector("#closeB").parentNode;
+			close.style.display = "none";
+		});
+ 
+    </script>
+    </th:block>
 	
 </html>
