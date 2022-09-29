@@ -197,3 +197,11 @@
     width: 100%; 
     text-align: center;
 }
+
+#accom_main{
+	padding-bottom: 0px;
+}
+
+#datepicker{
+	padding-bottom: 20px;
+}
