@@ -13,46 +13,37 @@
 			<h3>게시판</h3>
 		</div> -->
 		<!-- 숙소 목록 bg  -->
-	<section class="breadcrumb-section set-bg" data-setbg="/img/board/boardBg.jpg">
-    	<div class="container">
-        	<div class="row">
-            	<div class="col-lg-12 text-center">
-                	<div class="breadcrumb__text">
-                    	<h2>게시판</h2>
-                        <div class="breadcrumb__option">
-                           	<a href="#">공지사항</a>
-                           	<span>게시판</span>
-                       	</div>
-                    </div>
-                </div>
-          	</div>
-		</div>
-	</section>
-    <body>
-    	<!-- <table class="table">
-    		<tbody>
-	    		<tr>
-		    		<td>공지사항</td>
-		    		<td>Q & A</td>
-		    		<td>F A Q</td>
-		    		<td>숏 폼</td>
-		    		<td>자유게시판</td>
-		    		<td>상담문의</td>
-		    	</tr>
-    		</tbody>
-	    </table> -->
-	    	<div class="featured__controls">
-                <ul>
-                    <li class="active" data-filter="notice">공지 사항</li>
-                    <li data-filter=".inform">정보 공유</li>
-                    <li data-filter=".free">자유</li>
-                    <li data-filter=".shortform">숏폼</li>
-                    <li data-filter=".mantoman">1:1 상담</li>                    
-                    <li data-filter=".qna">Q & A</li>
-                    <li data-filter=".faq">F A Q</li>
-                </ul>
-            </div>
-	    <table class="table">
+		<section class="breadcrumb-section set-bg" data-setbg="/img/board/boardBg.jpg">
+		   	<div class="container">
+		       	<div class="row">
+		           	<div class="col-lg-12 text-center">
+		               	<div class="breadcrumb__text">
+		                   	<h2>게시판</h2>
+		                       <div class="breadcrumb__option">
+		                          	<a href="#">공지사항</a>
+		                          	<span>게시판</span>
+		                      	</div>
+		                   </div>
+		               </div>
+		         	</div>
+			</div>
+		</section>
+
+    	<div class="featured__controls">
+               <ul>
+                   <li class="active" data-filter="notice">공지 사항</li>
+                   <li data-filter=".inform">정보 공유</li>
+                   <li data-filter=".free">자유</li>
+                   <li data-filter=".shortform">숏폼</li>
+                   <li data-filter=".mantoman">1:1 상담</li>                    
+                   <li data-filter=".qna">Q & A</li>
+                   <li data-filter=".faq">F A Q</li>
+               </ul>
+           </div>
+           
+           <div class="container">
+			<div class="row">
+				<table class="table col-12">
 			  <thead class="thead-dark">
 			    <tr>
 			    	<th scope="col">번호</th>
@@ -135,6 +126,9 @@
 			  	</tr>
 			  </tbody>
 		</table>
+			</div>
+           </div>
+	    
 		
 		<div class="board-add">
 			<a href="/board/addBoard"><button>글 쓰기</button></a>
@@ -164,6 +158,6 @@
 			<input type="text" placeholder="검색어 입력">
 			<button>검색</button>
 		</div>
-    </body>
+
     </th:block>
 </html>
