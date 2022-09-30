@@ -100,87 +100,10 @@
 		outline: none;
 		color: #ffffff;
 	}
-	
-	/* 사진 모서리 */
-	.hero__item{
-			width:650px;
-			height:450px;
-			border-radius: 2%;
-	}
-	
-   	
 
-	/* .r{
-		margin-bottom: 60px;
-		margin-top: 60px;
-	} */
 
-	#ul ol li{
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	ul, ol {
-		padding: 0;
-		margin: 0;
-	}
-	
-	.groupMenu > li{
-		display: inline-block;
-		width: 80px;
-		padding: 5px 10px;
-		background:#FFFFFF;
-		text-align:center;
-		font-weight: 700;
-	}
 
-	 /* .menu1 li::after {
-		position: absolute; 
-		content:""; 
-		display: block; 
-		border-bottom: 3px solid #000; 
-		transition: all 250ms ease-out; 
-		left: 50%; 
-		width: 0;
-	}
-	 */
-	 
-	.groupMenu {
-		overflow: hidden;
-		background: #ffffff;
-		list-style: none;
-		position: sticky;
-		top: 5px;
-		margin: 0;
-		padding: 0;
-	}
-	 
-	 .menu {
-		color: #000000;
-		padding: 10px;
-		border-right: 1px solid #fff;
-		float: left;
-		text-align: center;
-	}
-	
-	.menu:hover {
-		
-		background: #c0c0c0;
-		color: #313540;
-		font-weight: bold;
-	} 
-	
-	/* .row{
-		border: 1px solid red;
-	} */
 
-<<<<<<< HEAD
-	.col-5{
-		margin: 30px;
-		
-	}
-=======
 h3 {
 	font-size: 30px;
 }
@@ -245,6 +168,8 @@ ol {
 	color: #1c1c1c;
 	font-weight: 700;
 	position: relative;
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 .section-title h2:after {
@@ -335,6 +260,12 @@ ol {
 	animation: loader 0.8s linear infinite;
 	-webkit-animation: loader 0.8s linear infinite;
 }
+
+.tit1{
+	style="font-weight: 700;
+	font-size:24px;
+}
+
 
 @keyframes loader {
 	0% {
@@ -859,7 +790,6 @@ ol {
 	height: 431px;
 	display: flex;
 	align-items: center;
-	padding-left: 75px;
 }
 
 .hero__text span {
@@ -3604,60 +3534,6 @@ ol {
 		font-size: 24px;
 	}
 	
-		/* 사진 모서리 */
-	.hero__item{
-			width:650px;
-			height:450px;
-			border-radius: 2%;
-	}
 	
-   	/* 버튼 */
-   	.btn.btn-block{
-		border: 1px solid #000;
-		margin-bottom:30px;
-		margin-right: 10px;
-		margin-left: 15px;
-	}
-
-	.groupBtn{
-		width: 250px;
-		clear: both;
-	}
-	
-	.tit{
-		margin-bottom: 30px;
-	}
-
-	.r{
-		margin-bottom: 60px;
-		margin-top: 60px;
-	}
-
-	#ul ol li{
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	
-	#ul .groupMenu{
-
-	}
-	
-	/* 버튼 */
-   	.btn.btn-block{
-		border: 1px solid #000;
-		margin-bottom:30px;
-		margin-right: 10px;
-		margin-left: 150px;
-	}
-
-	.groupBtn{
-		width: 250px;
-		clear: both;
-	}
-	
-	.tit{
-		margin-bottom: 30px;
-	}
 	
 }
