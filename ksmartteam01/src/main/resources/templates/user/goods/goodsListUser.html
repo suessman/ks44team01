@@ -8,7 +8,9 @@
 	</th:block>
 	<th:block layout:fragment="customCss">
     <style>
-
+		.breadcrumb-section{
+		margin-bottom: 50px;
+		}
     	#goodsSerarchBtn{
     	height:42px;
     	}
@@ -24,24 +26,25 @@
 	
 	<th:block layout:fragment="customContents">
 	
-    <!-- Hero Section Begin -->
-    <section class="hero">
-          <form action="#" >
-          <div id="goodsSearchForm">
-			<select id="goodsSerachSelect">
-				<option value="all">전체</option>
-				<option value="goodsName">상품명</option>
-				<option value="goodsLargeCate">대분류</option>
-				<option value="goodsMediumCate">중분류</option>
-			</select>
-            <input type="text" placeholder="검색어를 입력하세요" style="height:42px;">
-            <button type="submit" class="site-btn" id="goodsSerarchBtn">검색</button>
-          </div>
-          </form>
-    </section>
-    <!-- Hero Section End -->
 
-		
+	<!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="/img/petG1.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>반려용품</h2>
+                        <div class="breadcrumb__option">
+                            <a href="#">상품</a>
+                            <!--<a th:href="@{/templates/main.html}">홈</a>  -->
+                            <span>반려용품</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
@@ -257,6 +260,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
@@ -400,6 +404,22 @@
                             </div>
                         </div>
                     </div>
+                     <!-- Hero Section Begin -->
+					<section class="hero">
+						<form action="#" >
+							<div id="goodsSearchForm">
+								<select id="goodsSerachSelect">
+									<option value="all">전체</option>
+									<option value="goodsName">상품명</option>
+									<option value="goodsLargeCate">대분류</option>
+									<option value="goodsMediumCate">중분류</option>
+								</select>
+							    <input type="text" placeholder="검색어를 입력하세요" style="height:42px;">
+							    <button type="submit" class="site-btn" id="goodsSerarchBtn">검색</button>
+							 </div>
+						</form>
+					 </section>
+					<!-- Hero Section End -->
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
@@ -532,7 +552,7 @@
                                 </div>
                                 <div class="product__item__text">
                                     <h6><a href="#">Crab Pool Security</a></h6>
-                                    <h5>$30.00</h5>
+                                    <h5>$30.00</h5> 
                                 </div>
                             </div>
                         </div>
