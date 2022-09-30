@@ -26,6 +26,27 @@ h5{
 	font-size:1.2rem;
 }
 
+select{
+	height:42px;
+}
+
+.custom-select{
+	border:solid 1px #e8e8e8;
+	border-radius:4px;
+}
+
+/* badge */
+.border-badge{
+	border:1px solid #ff8123;	
+	color:#ff8123;
+	font-size:12px;
+	border-radius:12px;
+	padding:4px 0;
+	min-width:70px;
+	text-align:center;
+	display:inline-block;
+}
+
 .aco-title h3{
 	font-size:1.5rem;
 	color:#343a40;
@@ -241,7 +262,7 @@ ul.accom-info li:last-child::after{
 }
 
 .border-bottom-between{
-	border-bottom:1px solid #f1f3f5;
+	border-bottom:1px solid #ddd;
 	padding-bottom:16px;
 	display:flex;
 	justify-content:space-between;
