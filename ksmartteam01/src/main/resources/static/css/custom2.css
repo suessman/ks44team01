@@ -202,6 +202,10 @@
 	padding-bottom: 0px;
 }
 
+.accomList_align{
+	text-align: center;
+}
+
 #datepicker{
 	padding-bottom: 20px;
 }
@@ -213,10 +217,77 @@
 	padding: 4px 8px;
 }
 
-.accomList_align{
-	text-align: center;
+.checkinDate{
+	cursor:pointer; 
+	display: flex; 
+	flex-wrap: nowrap; 
+	align-items:center; 
+	flex: 1; 
+	box-sizing: border-box; 
+	border-radius: 4px; 
+	height: 54px; 
+	background-color: #f0f2f5;
 }
 
-.accomList_alignB{
-	text-align: left;
+.checkinDate input{
+	border-width:thin; 
+	background: none;
+}
+
+.checkin_padding{
+	padding-right: 10px;
+}
+
+.checkinPeople{
+	margin-left:10px;
+	cursor:pointer; 
+	display:flex;
+	flex-wrap: nowrap; 
+	align-items:center; 
+	flex: 1; 
+	box-sizing: border-box; 
+	border-radius: 4px; 
+	height: 54px; 
+	background-color: #f0f2f5;
+}
+
+.checkinPeople span{
+	cursor:pointer; 
+	border:none; 
+	background: none; 
+	padding-left: 20px;
+}
+
+.dropdown{
+	position: relative; 
+	display: inline-block
+}
+
+.dropdown-content{
+	position: absolute;
+	z-index: 2; 
+	display: none;
+}
+
+.dropdown:hover .dropdown-content{
+	  display: block;
+}
+
+.dropdown-content li{
+	background-color: white;
+}
+
+.dropdown-content li div{
+	padding: 10px;
+}
+
+.dropdownBtn{
+	width: 28px; 
+	border: none; 
+	background-color: #f0f2f5;
+}
+
+.dropdownInput{
+	width: 30px; 
+	border: none;
 }
