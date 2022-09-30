@@ -10,74 +10,39 @@
 	<th:block layout:fragment="customContents">
 	
     <!-- Hero Section Begin -->
-    <section class="hero">
-        <div class="container">
-            
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">강아지</a></li>
-                            <li><a href="#">고양이</a></li>
-                            <li><a href="#">곰</a></li>
-                            <li><a href="#">호랑이</a></li>
-                            <li><a href="#">북극곰</a></li>
-                            <li><a href="#">사자</a></li>
-                            <li><a href="#">독수리</a></li>
-                            <li><a href="#">상어</a></li>
-                            <li><a href="#">고래</a></li>
-                            <li><a href="#">흰수염</a></li>
-                            <li><a href="#">에이스</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div style="text-align:center; margin-left:470px; margin-top:-300px">
-                <div class="col-lg-9" style="text-align:center">
-                    <div class="hero__search" >
-                        <div style="text-align:center">
-                            <h2>로그인</h2>
-                        </div>
-                    <div style="text-align:center">
-                    	<div style="margin-top: 4px">
-							<input type="text" placeholder="아이디를 입력해 주세요">
-                   		</div>	
-                  		<div style="margin-top: 4px" >
-							<input type="password" placeholder="비밀번호를 입력해 주세요" >				
-                    	</div>
-                    	<div>
-                    		<input type="radio">관리회원
-                    		<input type="radio">판매회원
-                    		<input type="radio">일반회원
-                    		
-                    	
-                    	</div>
-                    	<div style="margin-top: 8px">
-							<button type="button">로그인</button>                   
-                    	</div>
-                    	<div style="margin-top: 8px">
-                    	<a href="#">아이디찾기	</a>	|	<a href="#">비밀번호찾기  </a>	|	<a href="#">회원가입</a>
-                    	</div>
-                    </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
+	<section class="hero mt-3">
+		<div class="container">
+			<div class="col-lg-9 mt-3" style="margin:0 auto;" >            	
+				<div class="hero__search" style="text-align:center">
+					<div style="font-size: 40px;margin-bottom:15px;"><center><img alt="" src="/img/reservation/anypet.png"></center></div>
+					<div>
+						<div  style="margin-bottom:10px;margin-top:-100px;">
+							<input type="text" placeholder="아이디"  style="width : 222px">							
+						</div>
+						<div  style="margin-bottom:10px;">
+							<input type="password" placeholder="비밀번호" style="width : 222px">							
+						</div>
+						<div style="margin-bottom:10px;">
+							<input type="button" value="로그인" style="width : 111px">
+						</div>
+						<div>
+							<span>
+								<a href="/member/searchId">아이디찾기</a>
+							</span> | 							
+							<span>
+								<a href="/member/searchPw">비밀번호찾기</a>
+							</span>	 | 						
+							<span>
+								<a href="/member/addMember">회원가입</a>
+							</span>							
+						</div>
+					</div>	                
+				</div>	            
+			</div>
+		</div>
+	</section>
 
-    <!-- Categories Section Begin -->
-    
-    <!-- Categories Section End -->
-
-    <!-- Featured Section Begin -->
-    
-    <!-- Featured Section End -->
-
-    <!-- Banner Begin -->
+   
     <div class="banner">
         <div class="container">
             <div class="row">
@@ -94,14 +59,6 @@
             </div>
         </div>
     </div>
-    <!-- Banner End -->
 
-    <!-- Latest Product Section Begin -->
-   
-    <!-- Latest Product Section End -->
-
-    <!-- Blog Section Begin -->
-    
-    <!-- Blog Section End -->s
 	</th:block>
 </html> 

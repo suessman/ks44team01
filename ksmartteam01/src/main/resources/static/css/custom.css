@@ -380,5 +380,10 @@ span.text-primary.md-text{
 	bottom:0;
 	left:0;
 	
-	
+}
+
+/*범준*/
+
+.input-height{
+	height:42px;
 }
