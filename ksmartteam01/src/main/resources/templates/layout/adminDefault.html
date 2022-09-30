@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/admin/head :: headFragment">
+</head>
+ <body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<!-- start header -->
+			<div th:replace="fragments/admin/leftSide :: leftSideFragment">				
+			</div>
+			<!-- end header -->	
+			
+			<!-- 사용자 정의 contents -->
+			<th:block layout:fragment="customContents">
+			내용 들어가는부분	
+			</th:block>		
+			<!-- end contents -->
+		
+			<!-- start footer -->		
+			<div th:replace="fragments/admin/footer :: footerFragment" >
+			</div>
+			<!-- end footer -->
+		</div>		
+	</div>
+	
+	<!-- 사용자 정의 JS 하단 -->
+	<th:block layout:fragment="customFootJs">		
+	    <!-- jQuery -->
+	    <script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+	    <!-- Bootstrap -->
+	    <script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+	    <script th:src="@{/build/js/custom.min.js}"></script>  
+	    <!-- FastClick -->
+		<script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
+	    <!-- NProgress -->
+	    <script th:src="@{/vendors/nprogress/nprogress.js}"></script>
+	    <!-- Chart.js -->
+	    <script th:src="@{/vendors/Chart.js/dist/Chart.min.js}"></script>
+	    <!-- gauge.js -->
+	    <script th:src="@{/vendors/gauge.js/dist/gauge.min.js}"></script>
+	    <!-- bootstrap-progressbar -->
+	    <script th:src="@{/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+	    <!-- iCheck -->
+	    <script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+	    <!-- Skycons -->
+	    <script th:src="@{/vendors/skycons/skycons.js}"></script>
+	    
+	    <script th:src="@{/vendors/Flot/jquery.flot.resize.js}"></script>
+	    <!-- Flot plugins -->
+	    <script th:src="@{/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+	    <script th:src="@{/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+	  	<script th:src="@{/vendors/flot.curvedlines/curvedLines.js}"></script>	    
+	    <script th:src="@{/vendors/DateJS/build/date.js}"></script>
+	    <!-- JQVMap -->
+	    <script th:src="@{/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+	    <script th:src="@{/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+	    <script th:src="@{/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+	    <!-- bootstrap-daterangepicker -->
+	    <script th:src="@{/vendors/moment/min/moment.min.js}"></script>
+	    <script th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	    
+	    <!-- Flot 충돌나는부분이라 주석 처리 해둠 -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.pie.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.time.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.stack.js}"></script> -->
+	</th:block>
+</body>
+</html>
