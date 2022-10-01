@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>주문 목록</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	
+	<!-- 주문목록 bg start -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/mypage/mypage_bg3.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>주문 목록</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Mypage</a>
+                            <span>주문 목록</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- 주문목록 bg end -->
+	
+    <!-- 숙소 Section Begin -->
+    <section class="checkout spad" id="goldA">
+		<div class="container">
+			<div class="checkout__form" align="center">
+                <h4>예약 목록</h4>
+            </div>
+        </div>
+    </section>
+    <section class="shoping-cart spad" id="accommodationSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                    	<!-- 숙소 영역 table Begin -->
+                        <table>
+                        	<thead>
+	                        	<tr>
+                                    <th class="order_thA" colspan="2">2022. 09. 26</th>
+                                    <th class="order_thB" colspan="4">
+                                    	<a href="/user/mypage/accommodationOrderListDetail"> 예약내역 상세보기 > </a> 
+                                    </th>	                        	                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                                <tr>
+                                    <td width="25%">
+                                    	<a href="#">
+	                                        <img src="/img/latest-product/hotel1.jpg" alt="hotelPhoto">
+                                    	</a>
+                                    </td>
+                                    <td class="accom_tdA" width="50%">
+                                    	<h5><a href="#">호텔1</a></h5>
+                                        <h6>2022.10.01 ~ 2022.10.02</h6>
+                                        <h6>디럭스룸 / 성인 2명</h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;240,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a  href="#" class="reservation_cancel">예약 취소</a>
+                                    </td>
+                                </tr>                 
+                            </tbody>
+                        </table>
+                        <!-- 숙소 영역 table End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- 숙소 Section End -->
+	
+	<!-- 상품 Section Begin --> 
+	<section class="checkout spad" id="orderSection">
+		<div class="container">
+			<div class="checkout__form" align="center">
+	        	<h4>주문 목록</h4>
+	    	</div>
+		</div>
+	</section>
+    <section class="shoping-cart spad" id="accommodationSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">	    
+                        <!-- 상품 영역 table Begin -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th class="order_thA" colspan="2">2022. 09. 24</th>
+                                    <th class="order_thB" colspan="4">
+                                    	<a href="/user/mypage/goodsOrderListDetail"> 주문 상세보기 > </a> </th>	                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="25%">
+										<a href="#">
+                                       		<img src="/img/orderList/order1.jpg" alt="goodsPhoto">
+                                       	</a>
+                                    </td>
+                                    <td class="accom_tdA" width="50%">
+                                    	<h5><a href="#">상품1</a></h5>
+                                        <h6>상품 준비중</h6>
+                                        <h6> </h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;30,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a class="order_cancel" href="#">주문 취소</a>
+                                    </td>
+                            	</tr>                            
+                            	<tr>
+									<td width="25%">
+                                        <a href="#">
+                                       		<img src="/img/orderList/order2.jpg" alt="goodsPhoto">
+                                       	</a>
+                                    </td>
+                                    <td class="accom_tdA" width="50%">
+                                    	<h5><a href="#">상품2</a></h5>
+                                        <h6>배송중</h6>
+                                        <h6>CJ대한통운 <a href="#">123456789</a></h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;18,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
+                                    </td>
+                            	</tr>                            
+                            	<tr>
+									<td width="25%">
+                                        <a href="#">
+                                       		<img src="/img/orderList/order3.jpg" alt="goodsPhoto">
+                                       	</a>
+                                    </td>
+                                    <td class="accom_tdA" width="50%">
+                                    	<h5><a href="#">상품3</a></h5>
+                                        <h6>배송완료</h6>
+                                        <h6>CJ대한통운 <a href="#">123456789</a></h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;100,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
+                                    </td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+						<!-- 상품 영역 table End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 상품 Section End --> 
+    
+    <!-- 예약 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>예약 취소</h2>
+        <p style="text-align: center;">
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>예약 취소 후 다시 예약 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >예약취소</a>
+    </div>
+    <!-- 예약 취소 팝업 Section End -->
+    
+    <!-- 주문 취소 팝업 Section Start -->
+    <div class="orderList_popup" id="order_cancel">
+        <button id="closeC">&times;</button>
+        <h2>주문 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>주문 취소 후 다시 주문 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >주문취소</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    <!-- 환불 신청 팝업 Section Start -->
+    <div class="orderList_popup" id="refund">
+        <button id="closeB">&times;</button>
+        <h2>환불 신청</h2>
+        <p>
+            	환불사유를 선택해주세요.
+        </p>
+        <select>
+            <option>사이즈 착오</option>
+            <option>상품 불량</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >환불신청</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    
+   <script type="text/javascript">
+    
+   /* 예약 취소 팝업 */
+   $(".reservation_cancel").click(function(){
+		document.querySelector(".orderList_popup").style.display = "block";
+		$(".orderList_a").click(function(){
+			Swal.fire({
+				  text: '예약이 취소되었습니다.',
+				})
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+    });
+
+   document.querySelector("#close").addEventListener("click", function(){
+		document.querySelector(".orderList_popup").style.display = "none";
+	});
+   
+   
+	
+	/* 주문 취소 팝업 */
+	$(".order_cancel").click(function(){
+		var passcheck = $('#passcheck');
+		passcheck.replaceWith('<h2>주문 취소</h2>');
+		console.log(passcheck.text());
+		document.querySelector("#order_cancel").style.display = "block";
+		$(".orderList_a").click(function(){
+			Swal.fire({
+				  text: '주문이 취소되었습니다.',
+				})
+			document.querySelector("#order_cancel").style.display = "none";
+		});
+	});
+	
+	document.querySelector("#closeC").addEventListener('click',function(){
+		let close = document.querySelector("#closeC").parentNode;
+		close.style.display = "none";
+	});
+	
+	/* 환불 신청 팝업 */
+	$(".refund_cancel").click(function(){
+		var passcheck = $('#passcheck');
+		passcheck.replaceWith('<h2>환불 신청</h2>');
+		console.log(passcheck.text());
+		document.querySelector("#refund").style.display = "block";
+		$(".orderList_a").click(function(){
+			Swal.fire({
+				  text: '환불신청이 접수되었습니다.',
+				})
+			document.querySelector("#refund").style.display = "none";
+		});
+	});
+	
+	document.querySelector("#closeB").addEventListener('click',function(){
+		let close = document.querySelector("#closeB").parentNode;
+		close.style.display = "none";
+	});
+	
+	</script>
+	</th:block>
+</html>

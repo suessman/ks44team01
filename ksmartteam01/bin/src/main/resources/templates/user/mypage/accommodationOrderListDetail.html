@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>예약 상세 내역</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	<!-- 예약 상세 내역 bg start -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/mypage/mypage_bg3.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>예약 상세 내역</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Mypage</a>
+                            <span>예약 상세 내역</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- 예약 상세 내역 bg end -->
+	
+    <!-- 예약 상세 내역 Section Begin -->
+    <section class="checkout spad" id="goldA">
+		<div class="container">
+			<div class="checkout__form" align="center">
+                <h4>예약 상세 내역</h4>
+            </div>
+        </div>
+    </section>
+    <section class="shoping-cart spad" id="goldB">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table"> 
+                        <!-- 주문 내역 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thA">
+                                    	<div>숙소예약번호 
+                                    	<span class="goods_span">arn001</span>
+                                    	</div>
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+                                    <td width="25%">
+                                        <img src="/img/latest-product/hotel1.jpg" alt="">
+                                    </td>
+                                    <td width="50%" class="accom_tdA">
+                                    	<h5><a href="#">호텔1</a></h5>
+                                        <h6>2022.10.01 ~ 2022.10.02</h6>
+                                        <h6>디럭스룸 / 성인 2명</h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;240,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="reservation_cancel">예약 취소</a>
+                                    </td>
+                                </tr>                                             	
+                            </tbody> 
+                        </table>
+                        <!-- 주문 내역 table end -->
+                        
+                        <!-- 구매자 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	구매자 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="50%">주문자</td>
+                                    <td>홍길동</td>
+                            	</tr>                            
+                            	<tr>
+									<td>휴대폰 번호</td>
+                                    <td>010-0000-0000</td>
+                            	</tr>                            
+                            	<tr>
+									<td>주문자 이메일</td>
+                                    <td>email@email.com</td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 구매자 정보 table end -->
+                   
+                        <!-- 결제 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	결제 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td>상품금액</td>
+                                    <td>240,000원</td>
+                            	</tr>                                                    
+                            	<tr class="goods_tr">
+									<td width="50%">주문금액</td>
+                                    <td class="goods_tdA"> 240,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>적립금 사용금액</td>
+                                    <td class="good_tdA">(-) 10,000원</td>
+                            	</tr>                            
+                            	<tr class="goods_tr">
+									<td>결제금액</td>
+                                    <td class="goods_tdB">230,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>카카오페이</td>
+                                    <td>230,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>결제일시</td>
+                                    <td>2022.09.26 15:17</td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 결제 정보 table end -->
+                        
+                        
+                        <!-- 예약 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	예약 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="50%">예약자</td>
+                                    <td>홍길동</td>
+                            	</tr>                            
+                            	<tr>
+									<td>휴대폰 번호</td>
+                                    <td>010-0000-0000</td>
+                            	</tr>                            
+                            	<tr>
+									<td>이용날짜</td>
+                                    <td>2022.10.01 ~ 2022.10.02</td>
+                            	</tr>                            
+                            	<tr>
+									<td>예약인원</td>
+                                    <td>성인 2명</td>
+                            	</tr>                            
+                            	<tr>
+									<td>요청사항</td>
+                                    <td></td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 배송지 정보 table end -->
+              		</div>
+            	</div>
+        	</div>
+   		</div>
+    </section>
+    <!-- 주문 상세 내역 Section End -->
+    
+    <!-- 예약 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>예약 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>예약 취소 후 다시 예약 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >예약취소</a>
+    </div>
+    <!-- 예약 취소 팝업 Section End -->
+    
+	<script type="text/javascript">
+		$(".reservation_cancel").click(function(){
+			document.querySelector(".orderList_popup").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '예약이 취소되었습니다.',
+					})
+				document.querySelector(".orderList_popup").style.display = "none";
+			});
+	    });
+		document.querySelector("#close").addEventListener("click", function(){
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+	</script>
+	
+	</th:block>
+</html>
