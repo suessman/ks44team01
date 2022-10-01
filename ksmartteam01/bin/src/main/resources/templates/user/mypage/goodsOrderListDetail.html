@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>주문 상세 내역</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	<!-- 주문 상세 내역 bg start -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/mypage/mypage_bg3.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>주문 상세 내역</h2>
+                        <div class="breadcrumb__option">
+                            <a href="./index.html">Mypage</a>
+                            <span>주문 상세 내역</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<!-- 주문 상세 내역 bg end -->
+	
+    <!-- 주문 상세 내역 Section Begin -->
+    <section class="checkout spad" id="goldA">
+		<div class="container">
+			<div class="checkout__form" align="center">
+                <h4>주문 상세 내역</h4>
+            </div>
+        </div>
+    </section>
+    <section class="shoping-cart spad" id="goldB">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table"> 
+                        <!-- 주문 내역 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th class="goods_thA" colspan="6">
+                                    	<div>주문번호 
+                                    	<span class="goods_span">goc001</span>
+                                    	</div>
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="25%">
+                                        <img src="/img/orderList/order1.jpg" alt="">
+                                    </td>
+                                    <td width="50%" class="accom_tdA">
+                                    	<h5><a href="#">상품1</a></h5>
+                                        <h6>상품 준비중</h6>
+                                        <h6> </h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;30,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="order_cancel">주문 취소</a>
+                                    </td>
+                            	</tr>                            
+                            	<tr>
+									<td width="25%">
+                                        <img src="/img/orderList/order2.jpg" alt="">
+                                    </td>
+                                    <td width="50%" class="accom_tdA">
+                                    	<h5><a href="#">상품2</a></h5>
+                                        <h6>배송중</h6>
+                                        <h6>CJ대한통운 <a href="#">123456789</a></h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;18,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
+                                    </td>
+                            	</tr>                            
+                            	<tr>
+									<td width="25%">
+                                        <img src="/img/orderList/order3.jpg" alt="">
+                                    </td>
+                                    <td width="50%" class="accom_tdA">
+                                    	<h5><a href="#">상품3</a></h5>
+                                        <h6>배송완료</h6>
+                                        <h6>CJ대한통운 <a href="#">123456789</a></h6>
+                                    </td>
+                                    <td>
+                                    	<h5>&#8361;100,000</h5>
+                                    </td>
+                                    <td>
+                                    	<a href="#" class="refund_cancel">환불 접수</a>
+                                    </td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 주문 내역 table end -->
+                        
+                        <!-- 구매자 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	구매자 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="50%">주문자</td>
+                                    <td>홍길동</td>
+                            	</tr>                            
+                            	<tr>
+									<td>휴대폰 번호</td>
+                                    <td>010-0000-0000</td>
+                            	</tr>                            
+                            	<tr>
+									<td>주문자 이메일</td>
+                                    <td>email@email.com</td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 구매자 정보 table end -->
+                   
+                        <!-- 결제 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	결제 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td>상품금액</td>
+                                    <td>148,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>배송비</td>
+                                    <td>(+) 2,000원</td>
+                            	</tr>                            
+                            	<tr class="goods_tr">
+									<td width="50%">주문금액</td>
+                                    <td class="goods_tdA">= 150,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>적립금 사용금액</td>
+                                    <td class="goods_tdA">(-) 10,000원</td>
+                            	</tr>                            
+                            	<tr class="goods_tr">
+									<td>결제금액</td>
+                                    <td class="goods_tdB">140,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>현대카드</td>
+                                    <td>140,000원</td>
+                            	</tr>                            
+                            	<tr>
+									<td>결제일시</td>
+                                    <td>2022.09.25 15:17</td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 결제 정보 table end -->
+                        
+                        
+                        <!-- 배송지 정보 table start -->
+                        <table>
+							<thead>
+	                        	<tr>
+                                    <th colspan="6" class="goods_thB">
+                                    	배송지 정보
+                                    </th>                        	
+	                        	</tr>                        	
+                        	</thead>
+                            <tbody>
+                            	<tr>
+									<td width="50%">받는 사람</td>
+                                    <td>홍길동</td>
+                            	</tr>                            
+                            	<tr>
+									<td>휴대폰 번호</td>
+                                    <td>010-0000-0000</td>
+                            	</tr>                            
+                            	<tr>
+									<td>주소</td>
+                                    <td>전라북도 전주시 덕진구 덕진동 100</td>
+                            	</tr>                            
+                            	<tr>
+									<td>배송요청사항</td>
+                                    <td></td>
+                            	</tr>                            
+                            </tbody> 
+                        </table>
+                        <!-- 배송지 정보 table end -->
+              		</div>
+            	</div>
+        	</div>
+   		</div>
+    </section>
+    <!-- 주문 상세 내역 Section End -->
+    
+    <!-- 주문 취소 팝업 Section Start -->
+    <div class="orderList_popup">
+        <button id="close">&times;</button>
+        <h2>주문 취소</h2>
+        <p>
+            	취소사유를 선택해주세요.
+        </p>
+        <select>
+            <option>정보를 잘못 기입</option>
+            <option>주문 취소 후 다시 주문 예정</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >주문취소</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    <!-- 환불 신청 팝업 Section Start -->
+    <div class="orderList_popup" id="refund">
+        <button id="closeB">&times;</button>
+        <h2>환불 신청</h2>
+        <p>
+            	환불사유를 선택해주세요.
+        </p>
+        <select>
+            <option>사이즈 착오</option>
+            <option>상품 불량</option>
+            <option>단순 변심</option>
+        </select>
+        <a class="orderList_a" href="#" >환불신청</a>
+    </div>
+    <!-- 주문 취소 팝업 Section End -->
+    
+    <script type="text/javascript">
+    	
+	    $(".order_cancel").click(function(){
+			document.querySelector(".orderList_popup").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '주문이 취소되었습니다.',
+					})
+				document.querySelector(".orderList_popup").style.display = "none";
+			});
+		});
+	    
+		 document.querySelector("#close").addEventListener("click", function(){
+			document.querySelector(".orderList_popup").style.display = "none";
+		});
+
+	    $(".refund_cancel").click(function(){
+			document.querySelector("#refund").style.display = "block";
+			$(".orderList_a").click(function(){
+				Swal.fire({
+					  text: '환불신청이 접수되었습니다.',
+					})
+				document.querySelector("#refund").style.display = "none";
+			});
+		});
+		
+	    document.querySelector("#closeB").addEventListener('click',function(){
+			let close = document.querySelector("#closeB").parentNode;
+			close.style.display = "none";
+		});
+ 
+    </script>
+    </th:block>
+	
+</html>
