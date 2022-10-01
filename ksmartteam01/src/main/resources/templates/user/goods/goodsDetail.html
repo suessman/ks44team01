@@ -33,31 +33,45 @@
 				<div class="col-lg-6">
 					<!-- 상품명 -->
 					<div class="tit1">
-						안경
+						애완동물 안경
 					</div>
+					<!-- 평점 -->
+					<div class="allStar">
+                       		<i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <a>4.0</a>
+                      </div>
 					<!-- 가격 -->
-					<div class="tit2" style="font-weight: 600; font-size: 32px; font-weight: bolder;">
+					<div class="tit2">
 				    	15,000원
 					</div>
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					
+					<hr size="10px">
+					
+					
 					<!-- 배송정보 -->
-					<div class="tit3" style="font-size: 14px; font-weight: 700;">
-						배송정보
+					<div class="tit3">
+						<div class="ctn">
+							<p>
+								<span class="tit3-1">배송정보</span>
+								<span class="tit3-2">배송비 3,000원</span>
+								<span class="tit3-3">(30,000원 이상 배송비 무료)</span>
+							</p>
+						</div>
 					</div>
-					<div class="ctn">
-						<p>
-							<span style="font-size: 14px">배송비 3,000원</span>
-							<span style="font-size: 14px">(30,000원 이상 배송비 무료)</span>
-						</p>
-					</div>
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					
+					<hr size="10px">
+					
 					
 					<div class="gifts return_info">
 						<div class="tit">
 							취소  |  교환  |  환불
-							
 						</div>
-						
 						<!-- 레이아웃 팝업창 -->
 						<div class="container"></div>
 						<div style="height: 300px;"></div>
@@ -77,12 +91,11 @@
 							        </div>
 							    </div>
 							</div>
-							
-						
-						
 					</div>
 					
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					<hr size="10px">
+					
 					
 					<div class="groupBtn">
 						<button th:onclick="|location.href='@{/goods/goodsCartList}'|" class="btn btn-block" type="button" style="background-color: #FAFAFA">
@@ -101,23 +114,25 @@
     </section>
     
     
+    <hr size="10px">
+    
     
     <!-- Hero Section End -->
-
-	<hr style="margin-bottom: 60px; margin-top: 60px;" size="10px">
-	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
 				<ul class="groupMenu" >
 					<li class="menu">
-						<a class="submenu"><span class="tt">상품정보</span>
+						<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">
+							리뷰
+							<span class="text-primary">(24)</span>
+						</a>
 					</li>
 					<li class="menu">
-						<a class="submenu"><span class="tt">후기</span>
-					</li>
-					<li class="menu">
-						<a class="submenu"><span class="tt">Q&A</span>
+						<a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="true">
+							Q&A
+							<span class="text-primary">(7)</span>
+						</a>
 					</li>
 				</ul>
 			</div>

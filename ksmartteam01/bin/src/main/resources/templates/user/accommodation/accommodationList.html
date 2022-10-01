@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>숙소 목록</title>
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+	<!-- 숙소 목록 bg  -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/accommodationList/accommodationList_bg.jpg">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-lg-12 text-center">
+                	<div class="breadcrumb__text">
+                    	<h2>숙소 목록</h2>
+                        <div class="breadcrumb__option">
+                           	<a href="./index.html">Home</a>
+                           	<span>숙소 목록</span>
+                       	</div>
+                    </div>
+                </div>
+          	</div>
+		</div>
+	</section>
+    <!-- 숙소 목록 시작  -->
+    <section class="accommodationList spad">
+        <div class="container">
+			<div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Department</h4>
+                            <ul>
+                                <li><a href="#">호텔</a></li>
+                                <li><a href="#">펜션</a></li>
+                                <li><a href="#">풀빌라</a></li>
+                                <li><a href="#">콘도</a></li>
+                                <li><a href="#">리조트</a></li>
+                                <li><a href="#">글램핑</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar__item">
+                        	<h4>Price</h4>
+                            	<div class="price-range-wrap">
+                                	<div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                                     data-min="0" data-max="10000000">
+	                                    <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+	                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+	                                    <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                    </div>
+                                <div class="range-slider">
+                                    <div class="price-input">
+                                        <input type="text" id="minamount">
+                                        <input type="text" id="maxamount" size="10">
+                                    </div>
+                                </div>
+                                </div>
+                        </div>
+                        <div class="sidebar__item sidebar__item__color--option">
+                              <h4>Region</h4>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="seoul">
+                                      	서울
+                                      <input type="radio" id="seoul">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="incheon">
+                                      	인천
+                                      <input type="radio" id="incheon">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="busan">
+                                      	부산
+                                      <input type="radio" id="busan">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="daegu">
+                                      	대구	
+                                      <input type="radio" id="daegu">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="ulsan">
+                                      	울산
+                                      <input type="radio" id="ulsan">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="daejeon">
+                                      	대전
+                                      <input type="radio" id="daejeon">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="gwangju">
+                                      	광주
+                                      <input type="radio" id="gwangju">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="jeju">
+                                      	제주도
+                                      <input type="radio" id="jeju">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="gangwon">
+                                      	강원도
+                                      <input type="radio" id="gangwon">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="gyeonggi">
+                                      	경기도
+                                      <input type="radio" id="gyeonggi">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="gyeongsang">
+                                      	경상도
+                                      <input type="radio" id="gyeongsang">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="jeolla">
+                                      	전라도
+                                      <input type="radio" id="jeolla">
+                                  </label>
+                              </div>
+                              <div class="sidebar__item__color sidebar__item__color--red">
+                                  <label for="chungcheong">
+                                      	충청도
+                                      <input type="radio" id="chungcheong">
+                                  </label>
+                              </div>
+                        </div>
+                        <div class="sidebar__item">
+                        	<div class="latest-product__text">
+                            	<h4>Latest</h4>
+                                  	<div class="latest-product__slider owl-carousel">
+                                      	<div class="latest-prdouct__slider__item">
+                                          	<a href="#" class="latest-product__item">
+                                            	<div class="latest-product__item__pic">
+                                                	<img src="/img/latest-product/hotel1.jpg" alt="">
+                                              	</div>
+                                              	<div class="latest-product__item__text">
+                                                  	<h6>호텔1</h6>
+                                                  	<span>240,000</span>
+                                              	</div>
+                                          	</a>
+                                          	<a href="#" class="latest-product__item">
+                                              	<div class="latest-product__item__pic">
+                                                  	<img src="/img/latest-product/hotel2.jpg" alt="">
+                                              	</div>
+                                              	<div class="latest-product__item__text">
+                                                  	<h6>호텔2</h6>
+                                                  	<span>300,000</span>
+                                              	</div>
+                                          	</a>
+                                          	<a href="#" class="latest-product__item">
+                                              	<div class="latest-product__item__pic">
+                                                  	<img src="/img/latest-product/hotel3.jpg" alt="">
+                                              	</div>
+                                              	<div class="latest-product__item__text">
+                                                  	<h6>호텔3</h6>
+                                                  	<span>150,000</span>
+                                              	</div>
+                                          	</a>
+                                      	</div>
+                                    <div class="latest-prdouct__slider__item">
+                                    	<a href="#" class="latest-product__item">
+                                        	<div class="latest-product__item__pic">
+                                            	<img src="/img/latest-product/hotel4.jpg" alt="">
+                                            </div>
+                                            <div class="latest-product__item__text">
+                                                <h6>호텔4</h6>
+                                                <span>200,000</span>
+                                            </div>
+                                         </a>
+                                         <a href="#" class="latest-product__item">
+                                         	<div class="latest-product__item__pic">
+                                                <img src="/img/latest-product/hotel5.jpg" alt="">
+                                            </div>
+                                         	<div class="latest-product__item__text">
+                                                <h6>호텔5</h6>
+                                                <span>700,000</span>
+                                            </div>
+                                         </a>
+                                         <a href="#" class="latest-product__item">
+                                         	<div class="latest-product__item__pic">
+                                            	<img src="/img/latest-product/hotel6.jpg" alt="">
+                                            </div>
+                                         	<div class="latest-product__item__text">
+                                            	<h6>호텔6</h6>
+                                            	<span>250,000</span>
+                                            </div>
+                                          </a>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                	<div class="product__discount" id="accom_main">
+                    	<div class="section-title product__discount__title">
+                        	<h2>HOT</h2>
+                        </div>
+                        <div class="row">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel1.jpg">
+                                        	<div class="product__discount__percent">-20%</div>
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>서울</span>
+                                            <h5><a href="#">호텔1</a></h5>
+                                            <div class="product__item__price">&#8361;240,000 <span>&#8361;300,000</span></div>
+                                        </div>
+                                	</div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel2.jpg">   
+                                        	<ul class="product__item__pic__hover">
+                                            	<li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                        	<span>부산</span>
+                                            <h5><a href="#">호텔2</a></h5>
+                                            <div class="product__item__price">&#8361;300,000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                	<div class="product__discount__item">
+                                    	<div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel3.jpg">
+                                        	<div class="product__discount__percent">-50%</div>
+                                        	<ul class="product__item__pic__hover">
+                                            	<li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            	<li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                           		<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                           	</ul>
+                                        </div>
+                                    	<div class="product__discount__item__text">
+                                        	<span>제주도</span>
+                                         	<h5><a href="#">호텔3</a></h5>
+                                         	<div class="product__item__price">&#8361;150,000 <span>300,000</span></div>
+										</div>
+                                	</div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel4.jpg">
+                                        	<ul class="product__item__pic__hover">
+                                            	<li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+										</div>
+                                        <div class="product__discount__item__text">
+                                        	<span>전라도</span>
+                                            <h5><a href="#">호텔4</a></h5>
+                                            <div class="product__item__price">&#8361;200,000</div>
+                                        </div>
+                                	</div>
+                                 </div>
+                                <div class="col-lg-4">
+                                	<div class="product__discount__item">
+                                    	<div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel5.jpg">
+                                        	<div class="product__discount__percent">-30%</div>
+                                            <ul class="product__item__pic__hover">
+                                            	<li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                            	<li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                            	<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                        	<span>서울</span>
+                                            <h5><a href="#">호텔5</a></h5>
+                                            <div class="product__item__price">&#8361;700,000 <span>&#8361;1,000,000</span></div>
+                                        </div>
+                                  	</div>
+                                </div>
+                                <div class="col-lg-4">
+                                	<div class="product__discount__item">
+                                  		<div class="product__discount__item__pic set-bg"
+                                             data-setbg="/img/accommodationList/hotel6.jpg">
+                                             <ul class="product__item__pic__hover">
+                                             	<li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                         	 </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                        	<span>강원도</span>
+                                            <h5><a href="#">호텔6</a></h5>
+                                            <div class="product__item__price">&#8361;250,000</div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-5">
+                                <div class="filter__sort">
+                                    <span>Sort By</span>
+                                    <select>
+                                        <option value="0">최신순</option>
+                                        <option value="0">인기순</option>
+                                        <option value="0">가격 높은 순</option>
+                                        <option value="0">가격 낮은 순</option>
+                                        <option value="0">오래된순</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-4">
+                            	<div class="accomList_align">
+                            		<h6><input type="text"><span><button class="accomSearch_Btn">검색</button></span></h6>
+                            	</div>
+                            </div>
+                            <div class="col-lg-3 col-md-4">
+                                <div class="filter__found" style="text-align: right;">
+                                    <h6><span>9</span> Products found</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   	<div class="row" id="datepicker">
+                       	<div class="col-lg-6 col-md-3">
+                         	<div class="filter__option accomList_align" >
+                              	<p>체크인 날짜: <input type="text" class="datepicker"></p>
+                            </div>
+                        </div>
+                       	<div class="col-lg-6 col-md-3">
+                         	<div class="filter__option accomList_alignB">
+                               	<p>체크아웃 날짜: <input type="text" class="datepicker"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel1.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>서울</span>
+                                	</div>
+                                    <h6><a href="#">호텔1</a></h6>
+                                    <h5>&#8361;240,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel2.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>부산</span>
+                                	</div>
+                                    <h6><a href="#">호텔2</a></h6>
+                                    <h5>&#8361;300,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel3.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>제주도</span>
+                                	</div>
+                                    <h6><a href="#">호텔3</a></h6>
+                                    <h5>&#8361;150,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel4.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>전라도</span>
+                                	</div>
+                                    <h6><a href="#">호텔4</a></h6>
+                                    <h5>&#8361;200,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel5.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>서울</span>
+                                	</div>
+                                    <h6><a href="#">호텔5</a></h6>
+                                    <h5>&#8361;700,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel6.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>강원도</span>
+                                	</div>
+                                    <h6><a href="#">호텔6</a></h6>
+                                    <h5>&#8361;250,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel7.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>경상도</span>
+                                	</div>
+                                    <h6><a href="#">호텔7</a></h6>
+                                    <h5>&#8361;600,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel8.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>충청도</span>
+                                	</div>
+                                    <h6><a href="#">호텔8</a></h6>
+                                    <h5>&#8361;350,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="/img/accommodationList/hotel9.jpg">
+                                    <ul class="product__item__pic__hover">
+                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                	<div class="product__discount__item__text">
+                                		<span>서울</span>
+                                	</div>
+                                    <h6><a href="#">호텔9</a></h6>
+                                    <h5>&#8361;450,000</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__pagination" align="center">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                    </div>                
+                </div>
+			</div>	
+    	</div>
+    	
+
+    </section>
+	
+	<script type="text/javascript">
+	$( function() {
+		    $( ".datepicker" ).datepicker();
+		  } );
+
+	
+	( function( factory ) {
+		if ( typeof define === "function" && define.amd ) {
+
+			// AMD. Register as an anonymous module.
+			define( [ "../widgets/datepicker" ], factory );
+		} else {
+
+			// Browser globals
+			factory( jQuery.datepicker );
+		}
+	}( function( datepicker ) {
+
+	datepicker.regional.ko = {
+		closeText: "닫기",
+		prevText: "이전달",
+		nextText: "다음달",
+		currentText: "오늘",
+		monthNames: [ "1월","2월","3월","4월","5월","6월",
+		"7월","8월","9월","10월","11월","12월" ],
+		monthNamesShort: [ "1월","2월","3월","4월","5월","6월",
+		"7월","8월","9월","10월","11월","12월" ],
+		dayNames: [ "일요일","월요일","화요일","수요일","목요일","금요일","토요일" ],
+		dayNamesShort: [ "일","월","화","수","목","금","토" ],
+		dayNamesMin: [ "일","월","화","수","목","금","토" ],
+		weekHeader: "주",
+		dateFormat: "yy-mm-dd",
+		firstDay: 0,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: "년" };
+	datepicker.setDefaults( datepicker.regional.ko );
+
+	return datepicker.regional.ko;
+
+	} ) ); 
+
+	
+	</script>
+	</th:block>
+</html> 
