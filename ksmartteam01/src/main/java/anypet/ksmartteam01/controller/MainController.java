@@ -10,4 +10,9 @@ public class MainController {
 	public String main(Model model) {
 		return"main";
 	}
+	
+	@GetMapping("index")
+	public String home(Model model) {
+		return"admin/index";
+	}
 }

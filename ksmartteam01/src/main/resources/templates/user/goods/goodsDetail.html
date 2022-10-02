@@ -3,46 +3,8 @@
 	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
 	  layout:decorate="~{layout/default}">
 	
-	<!-- 레이아웃 팝업창 -->
-	<script type="text/javascript">
-		$('.btn-example').click(function(){
-	        var $href = $(this).attr('href');
-	        layer_popup($href);
-	    });
-	    function layer_popup(el){
 	
-	        var $el = $(el);    //레이어의 id를 $el 변수에 저장
-	        var isDim = $el.prev().hasClass('dimBg'); //dimmed 레이어를 감지하기 위한 boolean 변수
-	
-	        isDim ? $('.dim-layer').fadeIn() : $el.fadeIn();
-	
-	        var $elWidth = ~~($el.outerWidth()),
-	            $elHeight = ~~($el.outerHeight()),
-	            docWidth = $(document).width(),
-	            docHeight = $(document).height();
-	
-	        // 화면의 중앙에 레이어를 띄운다.
-	        if ($elHeight < docHeight || $elWidth < docWidth) {
-	            $el.css({
-	                marginTop: -$elHeight /2,
-	                marginLeft: -$elWidth/2
-	            })
-	        } else {
-	            $el.css({top: 0, left: 0});
-	        }
-	
-	        $el.find('a.btn-layerClose').click(function(){
-	            isDim ? $('.dim-layer').fadeOut() : $el.fadeOut(); // 닫기 버튼을 클릭하면 레이어가 닫힌다.
-	            return false;
-	        });
-	
-	        $('.layer .dimBg').click(function(){
-	            $('.dim-layer').fadeOut();
-	            return false;
-	        });
-	
-	    }
-	</script>
+
 	
 	<!-- 사용자 정의 타이틀 설정 -->
 	<th:block layout:fragment="customTitle">
@@ -71,31 +33,45 @@
 				<div class="col-lg-6">
 					<!-- 상품명 -->
 					<div class="tit1">
-						안경
+						애완동물 안경
 					</div>
+					<!-- 평점 -->
+					<div class="allStar">
+                       		<i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <a>4.0</a>
+                      </div>
 					<!-- 가격 -->
-					<div class="tit2" style="font-weight: 600; font-size: 32px; font-weight: bolder;">
+					<div class="tit2">
 				    	15,000원
 					</div>
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					
+					<hr size="10px">
+					
+					
 					<!-- 배송정보 -->
-					<div class="tit3" style="font-size: 14px; font-weight: 700;">
-						배송정보
+					<div class="tit3">
+						<div class="ctn">
+							<p>
+								<span class="tit3-1">배송정보</span>
+								<span class="tit3-2">배송비 3,000원</span>
+								<span class="tit3-3">(30,000원 이상 배송비 무료)</span>
+							</p>
+						</div>
 					</div>
-					<div class="ctn">
-						<p>
-							<span style="font-size: 14px">배송비 3,000원</span>
-							<span style="font-size: 14px">(30,000원 이상 배송비 무료)</span>
-						</p>
-					</div>
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					
+					<hr size="10px">
+					
 					
 					<div class="gifts return_info">
 						<div class="tit">
 							취소  |  교환  |  환불
-							
 						</div>
-						
 						<!-- 레이아웃 팝업창 -->
 						<div class="container"></div>
 						<div style="height: 300px;"></div>
@@ -115,15 +91,14 @@
 							        </div>
 							    </div>
 							</div>
-							
-						
-						
 					</div>
 					
-					<hr style="margin-bottom: 30px; margin-top: 30px;" size="10px">
+					
+					<hr size="10px">
+					
 					
 					<div class="groupBtn">
-						<button th:onclick="|location.href='@{/goods/goodsCartList}'|" class="btn btn-block" type="button" style="background-color: #FAFAFA">
+						<button th:onclick="|location.href='@{/user/goods/goodsCartList}'|" class="btn btn-block" type="button" style="background-color: #FAFAFA">
 							장바구니
 						</button><br/>
 					</div>
@@ -139,23 +114,25 @@
     </section>
     
     
+    <hr size="10px">
+    
     
     <!-- Hero Section End -->
-
-	<hr style="margin-bottom: 60px; margin-top: 60px;" size="10px">
-	
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-4">
 				<ul class="groupMenu" >
 					<li class="menu">
-						<a class="submenu"><span class="tt">상품정보</span>
+						<a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">
+							리뷰
+							<span class="text-primary">(24)</span>
+						</a>
 					</li>
 					<li class="menu">
-						<a class="submenu"><span class="tt">후기</span>
-					</li>
-					<li class="menu">
-						<a class="submenu"><span class="tt">Q&A</span>
+						<a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab" aria-selected="true">
+							Q&A
+							<span class="text-primary">(7)</span>
+						</a>
 					</li>
 				</ul>
 			</div>

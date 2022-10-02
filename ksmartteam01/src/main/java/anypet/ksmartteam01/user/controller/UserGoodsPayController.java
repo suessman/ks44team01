@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user/goods")
 public class UserGoodsPayController {
+
 	@GetMapping("/goodsPay")
 	public String goodsPay() {
 		return "/user/goods/goodsPay";

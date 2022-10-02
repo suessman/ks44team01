@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	  
+  	
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>회원정보</title>
+	</th:block>
+
+	<th:block layout:fragment="customContents">
+	<!-- 회원정보 bg  -->
+	<section class="breadcrumb-section set-bg" data-setbg="/img/mypage/mypage_bg.jpg">
+    	<div class="container">
+        	<div class="row">
+            	<div class="col-lg-12 text-center">
+                	<div class="breadcrumb__text">
+                    	<h2>회원정보</h2>
+                        <div class="breadcrumb__option">
+                           	<a href="./index.html">Mypage</a>
+                           	<span>회원정보</span>
+                       	</div>
+                    </div>
+                </div>
+          	</div>
+		</div>
+	</section>
+	<!-- 회원정보 시작 -->
+	<section class="checkout spad">
+		<div class="container">
+			<div class="checkout__form" align="center">
+                <h4>회원 정보</h4>
+                <form action="#">
+                	<div class="col-lg-8">
+                    	<div class="checkout__input">
+                       		<p>아이디</p>
+                            <input class="memberInfo" type="text" value="id001" readonly="readonly">
+                        </div>
+                     	<div class="checkout__input">
+                        	<p>비밀번호<span>*</span></p>
+                        	<div>                        	
+                        	<input class="memberInfo" id="psCheck2" type="password" value="pw001">
+                        	<p class="passcheck2" style="font-size: small;"></p>
+                        	</div>
+                  		</div>
+                		<div class="checkout__input">
+                         	<p>비밀번호 확인<span>*</span></p>
+                       		<input class="memberInfo" id="psCheck" type="password">
+                         	<p class="passcheck" style="font-size: small;"></p>
+                  		</div>
+                    	<div class="checkout__input">
+                       		<p>이름</p>
+                          	<input class="memberInfo" type="text" value="홍길동" readonly="readonly">
+                      	</div>
+                       	<div class="checkout__input">
+                          	<p>전화번호<span>*</span></p>
+	                       	<div class="row">
+	                          	<div class="col-lg-2">
+	                              	<input id="numCheckA" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="010">
+	                           	</div>
+	                           	<div class="col-lg-4">
+	                               	<input id="numCheckB" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="1234">
+	                           	</div>
+	                           	<div class="col-lg-4">
+	                               	<input id="numCheckC" type="text" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');" value="5678">
+	                           	</div>   
+	                      	<div class="col-lg-2" align="right">
+	                          	<button class="infoButtonB" type="submit">본인인증</button>
+	                      	</div>
+	                      	</div>
+                        </div>
+                       	<div class="checkout__input">
+                        	<p>E-mail<span>*</span></p>
+	                      	<div class="row">
+	                          	<div class="col-lg-6">
+	                               	<input type="text" value="E-mail" id="emailCheck">
+	                           	</div>
+	                          	<div class="col-lg-6 full-select">
+	                              	<select>
+	                                  	<option id="emailCheckB">@naver.com</option>
+	                                  	<option id="emailCheckB">@gmail.com</option>
+	                                   	<option>직접입력</option>
+	                                </select>
+	                          	</div>
+	                        </div>
+                        </div>
+                        <div class="checkout__input">
+                         	<p>주소정보<span>*</span></p>
+	                       	<div class="row">
+	                          	<div class="col-lg-8">
+	                               	<input id="postCheck" type="text" value="12345">
+	                            </div>
+	                            <div class="col-lg-4">
+	                              	<button class="locationButton" id="postBtn" type="submit">우편번호 검색</button>
+	                            </div>
+	                        </div>
+	                        <div id="accommodationSection">
+	                          	<input id="addressCheck" type="text" value="전라북도 전주시 덕진구 덕진동">
+	                     	</div>
+	                        <div id="infoDiv">
+	                          	<input name="addressDetailCheck" type="text">
+	                        </div>
+                       	</div>
+                	</div>
+		            <div class="row" align="center" id="infoDivB">
+			    		<div class="col-lg-6" align="right">
+			    	       	<button class="infoButton" id="modifyBtn" type="submit">수정</button>				
+			   			</div>
+			    		<div class="col-lg-6" align="left">
+				           	<button class="infoButton" id="removeBtn" type="submit">탈퇴</button>				
+			    		</div>
+		        	</div>
+                </form>
+            </div>
+        </div>                  
+    </section>
+    <!-- 회원정보 끝 -->
+ 
+    <script type="text/javascript">
+    
+    $(document).ready(function(){
+    	$('#psCheck2').keyup(function(){
+    	var psCheck2 = document.querySelector('#psCheck2').value;
+		var psCheck = document.querySelector('#psCheck').value;		    
+    		if(psCheck2.length < 5){    			
+    			$(".passcheck2").html('5자리 이상 입력해주세요.');
+    			$(".passcheck2").css("color", "red");
+    			if(psCheck2 != psCheck && psCheck.length < 5){
+    				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+    				$(".passcheck").css("color", "red");
+    			}else if(psCheck2 != psCheck && psCheck.length >= 5){
+    				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+    				$(".passcheck").css("color", "red");
+    			}else if(psCheck2 == psCheck && psCheck.length < 5){
+    				$(".passcheck").html('5자리 이상 입력해주세요.');
+    				$(".passcheck").css("color", "red");
+    			}
+    		}else if(psCheck2.length >= 5){
+    			$(".passcheck2").html('올바른 비밀번호입니다.');
+    			$(".passcheck2").css("color", "green");
+    			if(psCheck2 != psCheck){
+    				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+    				$(".passcheck").css("color", "red");
+    			}else if(psCheck2 == psCheck){
+    				$(".passcheck").html('비밀번호가 일치합니다.');
+    				$(".passcheck").css("color", "green");
+    			} 
+    		}
+        });
+    	
+    	$('#psCheck').keyup(function(){
+    	var psCheck2 = document.querySelector('#psCheck2').value;
+    	var psCheck = document.querySelector('#psCheck').value;			
+			if(psCheck2 != psCheck && psCheck2.length >= 5){    			
+				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+				$(".passcheck").css("color", "red");
+			}else if(psCheck2 == psCheck && psCheck2.length >= 5){
+				$(".passcheck").html('비밀번호가 일치합니다.');
+				$(".passcheck").css("color", "green");
+			}else if(psCheck2 == psCheck && psCheck2.length < 5){
+				$(".passcheck").html('5자리 이상 입력해주세요.');
+				$(".passcheck").css("color", "red");
+			}else if(psCheck2 != psCheck && psCheck.length < 5){
+				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+				$(".passcheck").css("color", "red");
+			}else if(psCheck2 != psCheck && psCheck.length >= 5){
+				$(".passcheck").html('비밀번호가 일치하지 않습니다.');
+				$(".passcheck").css("color", "red");
+			}
+		});
+    	
+    	$(".list .option").click(function(){     
+            if($(this).text() == '직접입력'){
+            	 $(".full-select").replaceWith( '<input type="text" id="emailCheckB" style="width:48%;" value="@">' );
+            }else{
+            	return;
+            }
+        }); 	
+    	
+    	$('#postBtn').click(function(){
+            new daum.Postcode({
+                oncomplete: function(data) {
+                	document.getElementById("postCheck").value = data.zonecode;
+                    document.getElementById("addressCheck").value = data.address; // 주소 넣기
+                    document.querySelector("input[name=addressDetailCheck]").focus(); //상세입력 포커싱
+                }
+            }).open();    		
+    	});
+    });
+    
+    $("#modifyBtn").on('click', function(){
+ 
+    	var psCheck2 = document.querySelector('#psCheck2').value;
+		var psCheck = document.querySelector('#psCheck').value;
+		var numCheckA = document.querySelector('#numCheckA').value;
+		var numCheckB = document.querySelector('#numCheckB').value;
+		var numCheckC = document.querySelector('#numCheckC').value;
+		var emailCheck = document.querySelector('#emailCheck').value;
+		var emailCheckB = document.querySelector('#emailCheckB').value;
+		var postCheck = document.querySelector('#postCheck').value;
+		var addressCheck = document.querySelector('#addressCheck').value;
+		
+		if(psCheck.length == 0){
+			Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+			
+		}else if(psCheck2.length < 5){
+			Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(psCheck2 != psCheck){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(psCheck2 != psCheck){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckA.length != 3){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckB.length != 4){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckC.length != 4){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(emailCheck.length == 0){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '이메일을 정확히 입력해주세요.',
+				})
+    	}else if(emailCheckB == '@'){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '이메일을 정확히 입력해주세요.',
+    			})
+    	}else if(emailCheckB.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '이메일을 정확히 입력해주세요.',
+            	})	
+    	}else if(postCheck.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '우편번호를 정확히 입력해주세요.',
+            	})	
+    	}else if(addressCheck.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '주소를 정확히 입력해주세요.',
+            	})	
+    	}else{
+    	Swal.fire({
+    		  title: '회원정보를 수정하시겠습니까?',
+    		  text: "정보를 정확히 기재했는지 확인해주세요.",
+    		  icon: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Yes'
+    		}).then((result) => {
+    		  if (result.isConfirmed) {
+    		    Swal.fire(
+    		      '회원수정이 완료되었습니다.',
+    		      '이용해 주셔서 감사합니다.'
+    		  )
+    		}
+    	});
+			
+		}
+		
+    });
+    
+    $("#removeBtn").on('click', function(){
+ 
+    	var psCheck2 = document.querySelector('#psCheck2').value;
+		var psCheck = document.querySelector('#psCheck').value;
+		var numCheckA = document.querySelector('#numCheckA').value;
+		var numCheckB = document.querySelector('#numCheckB').value;
+		var numCheckC = document.querySelector('#numCheckC').value;
+		var emailCheck = document.querySelector('#emailCheck').value;
+		var emailCheckB = document.querySelector('#emailCheckB').value;
+		var postCheck = document.querySelector('#postCheck').value;
+		var addressCheck = document.querySelector('#addressCheck').value;
+		
+		if(psCheck.length == 0){
+			Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+			
+		}else if(psCheck2.length < 5){
+			Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(psCheck2 != psCheck){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(psCheck2 != psCheck){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '비밀번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckA.length != 3){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckB.length != 4){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(numCheckC.length != 4){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '전화번호를 정확히 입력해주세요.',
+				})
+    	}else if(emailCheck.length == 0){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '이메일을 정확히 입력해주세요.',
+				})
+    	}else if(emailCheckB == '@'){
+    		Swal.fire({
+				  icon: 'error',
+				  text: '이메일을 정확히 입력해주세요.',
+    			})
+    	}else if(emailCheckB.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '이메일을 정확히 입력해주세요.',
+            	})	
+    	}else if(postCheck.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '우편번호를 정확히 입력해주세요.',
+            	})	
+    	}else if(addressCheck.length == 0){
+             Swal.fire({
+            		icon: 'error',
+            		text: '주소를 정확히 입력해주세요.',
+            	})	
+    	}else{
+    	Swal.fire({
+    		  title: '정말로 탈퇴하시겠습니까?',
+    		  text: "탈퇴한 후에는 다시 복구할 수 없습니다.",
+    		  icon: 'warning',
+    		  showCancelButton: true,
+    		  confirmButtonColor: '#3085d6',
+    		  cancelButtonColor: '#d33',
+    		  confirmButtonText: 'Yes'
+    		}).then((result) => {
+    		  if (result.isConfirmed) {
+    		    Swal.fire(
+    		      '회원탈퇴가 완료되었습니다.',
+    		      '이용해 주셔서 감사합니다.'
+    		  )
+    		}
+    	});
+			
+		}
+		
+    });
+
+	</script>
+	</th:block>
+</html>

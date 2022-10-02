@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>상품등록</title>
+	</th:block>
+	<th:block layout:fragment="customCss">
+	<link rel="alternate" type="application/json+oembed" href="https://www.jotform.com/oembed/?format=json&amp;url=https%3A%2F%2Fform.jotform.com%2F222640871019453" title="oEmbed Form">
+		<link rel="alternate" type="text/xml+oembed" href="https://www.jotform.com/oembed/?format=xml&amp;url=https%3A%2F%2Fform.jotform.com%2F222640871019453" title="oEmbed Form">
+		<link rel="shortcut icon" href="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021.svg">
+		<link rel="canonical" href="https://form.jotform.com/222640871019453" />
+		<link href="https://cdn01.jotfor.ms/static/formCss.css?3.3.35961" rel="stylesheet" type="text/css" />
+		<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/nova.css?3.3.35961" />
+		<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?themeRevisionID=5f6c4c83346ec05354558fe8"/>
+		<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/css/styles/payment/payment_feature.css?3.3.35961" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta property="og:title" content="상품등록" >
+		<meta property="og:url" content="https://form.jotform.com/222640871019453" >
+		<meta property="og:description" content="Please click the link to complete this form." >
+		<meta name="slack-app-id" content="AHNMASS8M">
+		<meta property="og:image" content="https://cdn.jotfor.ms/assets/img/favicons/favicon-2021.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=1" />
+		<meta name="HandheldFriendly" content="true" />
+		<style type="text/css">@media print{.form-section{display:inline!important}.form-pagebreak{display:none!important}.form-section-closed{height:auto!important}.page-section{position:initial!important}}</style>
+		<style type="text/css">
+		   	.form-input-wide jf-required goodsInsertCategory{
+		   	width:150px;
+		   	}
+		    .form-label-left{
+		        width:150px;
+		    }
+		    .form-line{
+		        padding-top:12px;
+		        padding-bottom:12px;
+		    }
+		    .form-label-right{
+		        width:150px;
+		    }
+		    body, html{
+		        margin:0;
+		        padding:0;
+		        background:#fff;
+		    }
+		
+		    .form-all{
+		        margin:0px auto;
+		        padding-top:0px;
+		        width:690px;
+		        color:#555 !important;
+		        font-family:'Inter';
+		        font-size:14px;
+		    }
+		    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+		        color: false;
+		    }
+		    
+		
+		</style>
+		
+		<style type="text/css" id="form-designer-style">
+		    /* Injected CSS Code */
+		/*PREFERENCES STYLE*/
+		    .form-all {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-all .qq-upload-button,
+		    .form-all .form-submit-button,
+		    .form-all .form-submit-reset,
+		    .form-all .form-submit-print {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-all .form-pagebreak-back-container,
+		    .form-all .form-pagebreak-next-container {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-header-group {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		    .form-label {
+		      font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Verdana, Tahoma, sans-serif, sans-serif;
+		    }
+		  
+		    .form-label.form-label-auto {
+		      
+		    display: inline-block;
+		    float: left;
+		    text-align: left;
+		  
+		    }
+		  
+		    .form-line {
+		      margin-top: 12px 36px 12px 36px px;
+		      margin-bottom: 12px 36px 12px 36px px;
+		    }
+		  
+		    .form-all {
+		      max-width: 690px;
+		      width: 100%;
+		    }
+		  
+		    .form-label.form-label-left,
+		    .form-label.form-label-right,
+		    .form-label.form-label-left.form-label-auto,
+		    .form-label.form-label-right.form-label-auto {
+		      width: 150px;
+		    }
+		  
+		    .form-all {
+		      font-size: 14pxpx
+		    }
+		    .form-all .qq-upload-button,
+		    .form-all .qq-upload-button,
+		    .form-all .form-submit-button,
+		    .form-all .form-submit-reset,
+		    .form-all .form-submit-print {
+		      font-size: 14pxpx
+		    }
+		    .form-all .form-pagebreak-back-container,
+		    .form-all .form-pagebreak-next-container {
+		      font-size: 14pxpx
+		    }
+		  
+		    .supernova .form-all, .form-all {
+		      background-color: #FFFFFF;
+		    }
+		  
+		    .form-all {
+		      color: #555;
+		    }
+		    .form-header-group .form-header {
+		      color: #555;
+		    }
+		    .form-header-group .form-subHeader {
+		      color: #555;
+		    }
+		    .form-label-top,
+		    .form-label-left,
+		    .form-label-right,
+		    .form-html,
+		    .form-checkbox-item label,
+		    .form-radio-item label,
+		    span.FITB .qb-checkbox-label,
+		    span.FITB .qb-radiobox-label,
+		    span.FITB .form-radio label,
+		    span.FITB .form-checkbox label,
+		    [data-blotid][data-type=checkbox] [data-labelid],
+		    [data-blotid][data-type=radiobox] [data-labelid],
+		    span.FITB-inptCont[data-type=checkbox] label,
+		    span.FITB-inptCont[data-type=radiobox] label {
+		      color: #555;
+		    }
+		    .form-sub-label {
+		      color: #6f6f6f;
+		    }
+		  
+		    .supernova {
+		      background-color: undefined;
+		    }
+		    .supernova body {
+		      background: transparent;
+		    }
+		  
+		    .form-textbox,
+		    .form-textarea,
+		    .form-dropdown,
+		    .form-radio-other-input,
+		    .form-checkbox-other-input,
+		    .form-captcha input,
+		    .form-spinner input {
+		      background-color: undefined;
+		    }
+		  
+		    .supernova {
+		      background-image: none;
+		    }
+		    #stage {
+		      background-image: none;
+		    }
+		  
+		    .form-all {
+		      background-image: none;
+		    }
+		  
+		  .ie-8 .form-all:before { display: none; }
+		  .ie-8 {
+		    margin-top: auto;
+		    margin-top: initial;
+		  }
+		  
+		  /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
+		    /* Injected CSS Code */
+		</style>
+	</th:block>
+	<th:block layout:fragment="customTopJs">
+		<script src="https://cdn02.jotfor.ms/static/prototype.forms.js?3.3.35961" type="text/javascript"></script>
+		<script src="https://cdn03.jotfor.ms/static/jotform.forms.js?3.3.35961" type="text/javascript"></script>
+		<script src="https://cdn01.jotfor.ms/js/vendor/imageinfo.js?v=3.3.35961" type="text/javascript"></script>
+		<script type="text/javascript">	JotForm.newDefaultTheme = false;
+			JotForm.extendsNewTheme = false;
+			JotForm.singleProduct = false;
+			JotForm.newPaymentUIForNewCreatedForms = false;
+		
+			JotForm.init(function(){
+			/*INIT-START*/
+		if (window.JotForm && JotForm.accessible) $('input_4').setAttribute('tabindex',0);
+		      setTimeout(function() {
+		          $('input_12').hint('예)  5000원');
+		       }, 20);
+		      setTimeout(function() {
+		          $('input_8').hint('예) 10개');
+		       }, 20);
+		if (window.JotForm && JotForm.accessible) $('input_6').setAttribute('tabindex',0);
+		      JotForm.setCustomHint( 'input_6', '\uc0c1\ud488\uc0c1\uc138\uc124\uba85\uc744 \uc801\uc5b4\uc8fc\uc138\uc694.' );
+			/*INIT-END*/
+			});
+		
+		   JotForm.prepareCalculationsOnTheFly([null,{"name":"clickTo","qid":"1","text":"상품등록","type":"control_head"},{"name":"input2","qid":"2","text":"등록하기","type":"control_button"},{"name":"goodsInsertCategory","qid":"3","text":"상품카테고리","type":"control_dropdown"},{"name":"input4","qid":"4","subLabel":"","text":"상품명","type":"control_textbox"},null,{"name":"input6","qid":"6","text":"상품상세설명","type":"control_textarea"},{"name":"input7","qid":"7","text":"상품사진","type":"control_fileupload"},{"name":"input8","qid":"8","text":"재고수량","type":"control_number"},null,null,null,{"description":"","name":"input12","qid":"12","subLabel":"","text":"상품가격","type":"control_number"}]);
+		   setTimeout(function() {
+		JotForm.paymentExtrasOnTheFly([null,{"name":"clickTo","qid":"1","text":"상품등록","type":"control_head"},{"name":"input2","qid":"2","text":"등록하기","type":"control_button"},{"name":"goodsInsertCategory","qid":"3","text":"상품카테고리","type":"control_dropdown"},{"name":"input4","qid":"4","subLabel":"","text":"상품명","type":"control_textbox"},null,{"name":"input6","qid":"6","text":"상품상세설명","type":"control_textarea"},{"name":"input7","qid":"7","text":"상품사진","type":"control_fileupload"},{"name":"input8","qid":"8","text":"재고수량","type":"control_number"},null,null,null,{"description":"","name":"input12","qid":"12","subLabel":"","text":"상품가격","type":"control_number"}]);}, 20); 
+		</script>
+	</th:block>
+	<th:block layout:fragment="customContents">
+	   
+		<form class="jotform-form" action="https://submit.jotform.com/submit/222640871019453/" method="post" enctype="multipart/form-data" name="form_222640871019453" id="222640871019453" accept-charset="utf-8" autocomplete="on">
+		  <input type="hidden" name="formID" value="222640871019453" />
+		  <input type="hidden" id="JWTContainer" value="" />
+		  <input type="hidden" id="cardinalOrderNumber" value="" />
+
+		  <div role="main" class="form-all">
+		    <ul class="form-section page-section">
+		      <li id="cid_1" class="form-input-wide" data-type="control_head">
+		        <div class="form-header-group  header-large">
+		          <div class="header-text httal htvam">
+		            <h1 id="header_1" class="form-header" data-component="header">
+		            	  상품등록
+		            </h1>
+		          </div>
+		        </div>
+		      </li>
+		      <li class="form-line jf-required" data-type="control_textbox" id="id_4">
+		        <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
+		          	상품명
+		          <span class="form-required">
+		            *
+		          </span>
+		        </label>
+		        <div id="cid_4" class="form-input-wide jf-required">
+		          <input type="text" id="input_4" name="q4_input4" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" size="24" value="" placeholder=" " data-component="textbox" aria-labelledby="label_4" />
+		        </div>
+		      </li>
+		      <li class="form-line jf-required" data-type="control_dropdown" id="id_3">
+		        <label class="form-label form-label-top form-label-auto" id="label_3" for="input_3">
+		          	상품카테고리
+		          <span class="form-required">
+		            *
+		          </span>
+		        </label>
+		        <div id="cid_3" class="form-input-wide jf-required goodsInsertCategory">
+		          <select class="form-dropdown validate[required]" id="input_3" name="q3_goodsInsertCategory" style="width: 150px" data-component="dropdown" >
+		            <option value="">  </option>
+		            <option value="사료"> 사료 </option>
+		            <option value="간식"> 간식 </option>
+		            <option value="건강관리"> 건강관리 </option>
+		            <option value="위생/배변"> 위생/배변 </option>
+		            <option value="미용/목욕"> 미용/목욕 </option>
+		            <option value="급식/급수기"> 급식/급수기 </option>
+		            <option value="장난감/훈련"> 장난감/훈련 </option>
+		            <option value="하우스"> 하우스 </option>
+		            <option value="이동장"> 이동장 </option>
+		            <option value="패션/의류"> 패션/의류 </option>
+		            <option value="목줄/하네스"> 목줄/하네스 </option>
+		            <option selected="" value="기타"> 기타 </option>
+		          </select>
+		          <select class="form-dropdown validate[required]" id="input_3" name="q3_goodsInsertCategory" style="width: 150px" data-component="dropdown" >
+		            <option value="">  </option>
+		            <option value="건식"> 건식 </option>
+		            <option value="소프트"> 소프트 </option>
+		            <option value="습식"> 습식 </option>
+		            <option value="자연식"> 자연식 </option>
+		            <option value="건조생식"> 건조생식 </option>
+		            <option value="분유/우유"> 분유/우유 </option>
+		            <option value="사료기타"> 사료기타 </option>
+		            <option value="캔/파투치"> 캔/파투치 </option>
+		            <option value="비스킷/쿠키"> 비스킷/쿠키</option>
+		            <option value="덴탈껌"> 덴탈껌 </option>
+		            <option value="동결/건조간식"> 동결/건조간식 </option>
+		            <option value="통살/소시지"> 통살/소시지 </option>
+		            <option value="수제간식"> 수제간식 </option>
+		            <option value="파우더"> 파우더 </option>
+		            <option value="음료"> 음료 </option>
+		            <option value="간식기타"> 간식기타 </option>
+		            <option value="종합영양제"> 종합영양제 </option>
+		            <option selected="" value="기타"> 기타 </option>
+		          </select>
+		        </div>
+		      </li>
+		      <li class="form-line jf-required" data-type="control_number" id="id_12">
+		        <label class="form-label form-label-top form-label-auto" id="label_12" for="input_12">
+		          	상품가격
+		          <span class="form-required">
+		            *
+		          </span>
+		        </label>
+		        <div id="cid_12" class="form-input-wide jf-required">
+		          <input type="number" id="input_12" name="q12_input12" data-type="input-number" class=" form-number-input form-textbox validate[required, Numeric]" data-defaultvalue="" style="width:100px" size="10" value="" placeholder="예)  5000원" data-component="number" aria-labelledby="label_12" step="any" />
+		        </div>
+		      </li>
+		      <li class="form-line jf-required" data-type="control_number" id="id_8">
+		        <label class="form-label form-label-top form-label-auto" id="label_8" for="input_8">
+		         	 재고수량
+		          <span class="form-required">
+		            *
+		          </span>
+		        </label>
+		        <div id="cid_8" class="form-input-wide jf-required">
+		          <input type="number" id="input_8" name="q8_input8" data-type="input-number" class=" form-number-input form-textbox validate[required, Numeric]" data-defaultvalue="" style="width:100px" size="10" value="" placeholder="예) 10개" data-component="number" aria-labelledby="label_8" step="any" />
+		        </div>
+		      </li>
+		      <li class="form-line jf-required" data-type="control_fileupload" id="id_7">
+		        <label class="form-label form-label-top form-label-auto" id="label_7" for="input_7">
+		         	 상품사진
+		          <span class="form-required">
+		            *
+		          </span>
+		        </label>
+		        <div id="cid_7" class="form-input-wide jf-required">
+		          <input type="file" id="input_7" name="q7_input7" class="form-upload validate[required]" data-imagevalidate="yes" data-file-accept="pdf, doc, docx, xls, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif" data-file-maxsize="10240" data-file-minsize="0" data-file-limit="" data-component="fileupload" required="" />
+		        </div>
+		      </li>
+		      <li class="form-line" data-type="control_textarea" id="id_6">
+		        <label class="form-label form-label-top form-label-auto" id="label_6" for="input_6"> 
+		        	상품상세설명 
+		        <span class="form-required">
+		            
+		        </span>
+		        </label>
+		        <div id="cid_6" class="form-input-wide">
+		          <textarea id="input_6" class="form-textarea" name="q6_input6" cols="40" rows="6" data-component="textarea" aria-labelledby="label_6"></textarea>
+		        </div>
+		      </li>
+		      <li class="form-line" data-type="control_button" id="id_2">
+		        <div id="cid_2" class="form-input-wide">
+		          <div style="text-align:center" data-align="center" class="form-buttons-wrapper form-buttons-center   jsTest-button-wrapperField">
+		            <button th:onclick="|location.href='@{/goods/goodsList}'|" id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+		              	등록하기
+		            </button>
+		          </div>
+		        </div>
+		      </li>
+		    </ul>
+		  </div>
+		</form>
+	</th:block>
+</html> 
