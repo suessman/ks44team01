@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserGoodsPayController {
 
 	@GetMapping("/goodsPay")
-	public String goodsPay(){	
-		
-		return "/user/goods/goodsPay";			
+	public String goodsPay() {
+		return "/user/goods/goodsPay";
 	}
 }
