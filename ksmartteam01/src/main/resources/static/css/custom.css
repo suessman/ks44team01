@@ -419,7 +419,7 @@ span.text-primary.md-text{
 		display:block !important;
 	}
 	
-	.form-display-layout input.ml-3{
+	.form-display-layout .form-el.ml-3{
 		margin-left:0 !important;
 		margin-top: 16px;
 	}
