@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/adminDefault}">
+   <!-- 사용자 정의 타이틀 설정 -->
+   <th:block layout:fragment="customTitle">
+      <title>숙소카테고리</title>
+   </th:block>
+   
+   <th:block layout:fragment="customContents">
+	<div class="right_col" role="main">
+		<div>
+			<div class="page-title">
+				<div class="title_left">
+                	<h3>숙소 카테고리 등록</h3>
+              	</div>
+	            <div class="title_right">
+	            	<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+	                	<div class="input-group">
+	                   		<input type="text" class="form-control" placeholder="Search for...">
+	                    	<span class="input-group-btn">
+	                     		<button class="btn btn-secondary" type="button">검색</button>
+	                    	</span>
+	                  	</div>
+	                </div>
+				</div>
+			</div>
+	    	<div class="row">
+	        	<div class="col-md-12 col-sm-12 ">
+	            	<div class="x_panel">
+	                	<div>
+	                    	<h2>숙소 카테고리 등록</h2>
+	                    	<ul class="nav navbar-right panel_toolbox">
+	                      		<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+	                      		</li>
+	                    	</ul>
+	                  	</div>
+			        	<div class="x_content">
+							<br />
+							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+								<div class="item form-group">
+									<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">카테고리명<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" id="first-name" required="required" class="form-control">
+									</div>
+								</div>
+								<div class="item form-group">
+									<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">등록 ID<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" id="last-name" name="last-name" required="required" class="form-control" value="id001" readonly>
+									</div>
+								</div>
+								<div class="item form-group">
+									<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">등록일자</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input id="middle-name" class="form-control" type="datetime-local" name="middle-name">
+									</div>
+								</div>
+								
+								<div class="item form-group" align="center">
+									<div class="col-md-6 col-sm-6 offset-md-3">
+										<button class="btn btn-primary" type="button">등록</button>
+										<button class="btn btn-primary" type="reset">취소</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+     		</div>
+		</div>
+	</div>      	
+	</th:block>
+</html> 
