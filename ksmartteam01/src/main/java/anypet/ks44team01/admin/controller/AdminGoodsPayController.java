@@ -20,15 +20,51 @@ public class AdminGoodsPayController {
 			
 			return "/admin/goods/goodsLargeCategoryInsert";
 		}
+		
 		@GetMapping("/goodsMediumCategoryInsert")
 		public String goodsMediumCategoryInsert() {
 			
 			return "/admin/goods/goodsMediumCategoryInsert";
 		}
 		
-		@GetMapping("/goodsCategoryList")
-		public String goodsCategoryList() {
+		@GetMapping("/goodsLargeCategoryModify")
+		public String goodsLargeCategoryModify() {
 			
-			return "/admin/goods/goodsCategoryList";
+			return "/admin/goods/goodsLargeCategoryModify";
+		}
+		
+		@GetMapping("/goodsMediumCategoryModify")
+		public String goodsMediumCategoryModify() {
+			
+			return "/admin/goods/goodsMediumCategoryModify";
+		}
+		
+		@GetMapping("/goodsLargeCategoryList")
+		public String goodsLargeCategoryList() {
+			
+			return "/admin/goods/goodsLargeCategoryList";
+		}
+		
+		@GetMapping("/goodsMediumCategoryList")
+		public String goodsMediumCategoryList() {
+			
+			return "/admin/goods/goodsMediumCategoryList";
+		}
+		@GetMapping("/goodsReviewList")
+		public String goodsReviewList() {
+			
+			return "/admin/goods/goodsReviewList";
+		}
+		
+		@GetMapping("/goodsPaymentCancle")
+		public String goodsPaymentCancle() {
+			
+			return "/admin/goods/goodsPaymentCancle";
+		}
+		
+		@GetMapping("/goodsReturn")
+		public String goodsReturn() {
+			
+			return "/admin/goods/goodsReturn";
 		}
 	}
