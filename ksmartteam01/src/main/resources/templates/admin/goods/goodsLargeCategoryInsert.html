@@ -10,50 +10,36 @@
 
 			<th:block layout:fragment="customCss">
 				<!-- Bootstrap -->
-				<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+				<link th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
 				<!-- Font Awesome -->
-				<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+				<link th:href="@{/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
 				<!-- NProgress -->
-				<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+				<link th:href="@{/vendors/nprogress/nprogress.css" rel="stylesheet}">
 				<!-- iCheck -->
-				<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+				<link th:href="@{/vendors/iCheck/skins/flat/green.css" rel="stylesheet}">
 				<!-- bootstrap-wysiwyg -->
-				<link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+				<link th:href="@{/vendors/google-code-prettify/bin/prettify.min.css}" rel="stylesheet">
 				<!-- Select2 -->
-				<link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+				<link th:href="@{/vendors/select2/dist/css/select2.min.css}" rel="stylesheet">
 				<!-- Switchery -->
-				<link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+				<link th:href="@{/vendors/switchery/dist/switchery.min.css}" rel="stylesheet">
 				<!-- starrr -->
-				<link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+				<link th:href="@{/vendors/starrr/dist/starrr.css}" rel="stylesheet">
 				<!-- bootstrap-daterangepicker -->
-				<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+				<link th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
 			
 				<!-- Custom Theme Style -->
-				<link href="../build/css/custom.min.css" rel="stylesheet">	<!-- Bootstrap -->
-				<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-				<!-- Font Awesome -->
-				<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-				<!-- NProgress -->
-				<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-				<!-- iCheck -->
-				<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-				<!-- bootstrap-wysiwyg -->
-				<link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-				<!-- Select2 -->
-				<link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
-				<!-- Switchery -->
-				<link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
-				<!-- starrr -->
-				<link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
-				<!-- bootstrap-daterangepicker -->
-				<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-			
-				<!-- Custom Theme Style -->
-				<link href="../build/css/custom.min.css" rel="stylesheet">
+				<link th:href="@{/build/css/custom.min.css}" rel="stylesheet">
 			</th:block>	
 				
 			<!-- 사용자 정의 contents -->
 			<th:block layout:fragment="customContents">
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>Form Elements</h3>
+						</div>
 				<div class="clearfix"></div>
 					<div class="row">
 						<div class="col-md-12 col-sm-12 ">
@@ -80,7 +66,6 @@
 								<div class="x_content">
 									<br />
 									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
 										<div class="item form-group">
 											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">대분류코드 <span class="required">*</span>
 											</label>
@@ -96,12 +81,11 @@
 											</div>
 										</div>
 										<div class="item form-group">
-											<label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">등록시간</label>
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">업데이트시간 <span class="required">*</span>
+											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input id="middle-name" class="form-control" type="text" name="middle-name">
+												<input type="date" id="last-name" name="last-name" required="required" class="form-control">
 											</div>
-										</div>
-										
 										</div>
 										<div class="ln_solid"></div>
 										<div class="item form-group">
@@ -111,44 +95,52 @@
 												<button type="submit" class="btn btn-success">Submit</button>
 											</div>
 										</div>
-
 									</form>
 								</div>
 							</div>
 						</div>
 					</div>
-			</th:block>		
-			<!-- end contents -->
+				</div>
+			</div>
+		</div>
+		</th:block>		
+		<!-- end contents -->
 	<!-- 사용자 정의 JS 하단 -->
 	<th:block layout:fragment="customFootJs">	
-		<!-- jQuery -->
-		    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-		    <!-- Bootstrap -->
-		    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-		    <!-- FastClick -->
-		    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-		    <!-- NProgress -->
-		    <script src="../vendors/nprogress/nprogress.js"></script>
-		    <!-- iCheck -->
-		    <script src="../vendors/iCheck/icheck.min.js"></script>
-		    <!-- Datatables -->
-		    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-		    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-		    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-		    <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-		    <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-		    <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-		    <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-		    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-		    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-		    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-		    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-		    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-		    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-		    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-		    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
-		
-		 <!-- Custom Theme Scripts -->
-		    <script src="../build/js/custom.min.js"></script>
+	<!-- jQuery -->
+	<script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+	<!-- Bootstrap -->
+	<script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+	<!-- FastClick -->
+	<script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
+	<!-- NProgress -->
+	<script th:src="@{/vendors/nprogress/nprogress.js}"></script>
+	<!-- bootstrap-progressbar -->
+	<script th:src="@{/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+	<!-- iCheck -->
+	<script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+	<!-- bootstrap-daterangepicker -->
+	<script th:src="@{/vendors/moment/min/moment.min.js}"></script>
+	<script th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	<!-- bootstrap-wysiwyg -->
+	<script th:src="@{/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js}"></script>
+	<script th:src="@{/vendors/jquery.hotkeys/jquery.hotkeys.js}"></script>
+	<script th:src="@{/vendors/google-code-prettify/src/prettify.js}"></script>
+	<!-- jQuery Tags Input -->
+	<script th:src="@{/vendors/jquery.tagsinput/src/jquery.tagsinput.js}"></script>
+	<!-- Switchery -->
+	<script th:src="@{/vendors/switchery/dist/switchery.min.js}"></script>
+	<!-- Select2 -->
+	<script th:src="@{/vendors/select2/dist/js/select2.full.min.js}"></script>
+	<!-- Parsley -->
+	<script th:src="@{/vendors/parsleyjs/dist/parsley.min.js}"></script>
+	<!-- Autosize -->
+	<script th:src="@{/vendors/autosize/dist/autosize.min.js}"></script>
+	<!-- jQuery autocomplete -->
+	<script th:src="@{/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js}"></script>
+	<!-- starrr -->
+	<script th:src="@{/vendors/starrr/dist/starrr.js}"></script>
+	<!-- Custom Theme Scripts -->
+	<script th:src="@{/build/js/custom.min.js}"></script>
 	</th:block> 
 </html>
