@@ -32,6 +32,11 @@ select{
 	height:42px;
 }
 
+.nice-select{
+	display:flex;
+	align-items:center;
+}
+
 .custom-select{
 	border:solid 1px #e8e8e8;
 	border-radius:4px;
@@ -136,6 +141,13 @@ button.btn.btn-primary{
 	background-color:#ff8123;
 	border:none;
 	width:100%;
+}
+
+button.btn.btn-primary.md{
+	/*background-color:#E1306C;*/
+	background-color:#ff8123;
+	border:none;
+	width:120px;
 }
 
 button.btn.btn-primary.text{
@@ -419,7 +431,7 @@ span.text-primary.md-text{
 		display:block !important;
 	}
 	
-	.form-display-layout .form-el.ml-3{
+	.form-display-layout .form-el{
 		margin-left:0 !important;
 		margin-top: 16px;
 	}
@@ -432,4 +444,32 @@ span.text-primary.md-text{
 
 .form-display-layout label{
 	min-width: 90px;
+}
+
+.modal.z-index{
+	z-index:1050;
+}
+
+/*주문상품 영역 박스*/
+.order-product-box{
+	border:1px solid #ddd;
+	border-radius:4px;
+}
+
+.order-product-box .top{
+	background-color:#f1f3f5;
+	padding:8px;
+}
+
+.order-product-box .product-list li{
+	padding:8px;
+	display:flex;
+	align-items:top;
+}
+
+.order-product-box .product-list li img{
+	border-radius:8px;
+	object-fit:cover;
+	width:80px;
+	height:80px;
 }

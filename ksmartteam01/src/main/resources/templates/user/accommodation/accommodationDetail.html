@@ -132,7 +132,7 @@
             				<h3>체크인 날짜를 선택해주세요.</h3>
             				<div class="row mt-3">
             					<div class="col-lg-12">
-            						<input type="text" class="date-range-open" name="daterange" value="01/01/2018 - 01/15/2018" />
+            					달력들어가는위치 
             					</div>	            				
             				</div>            
             			</div>  
@@ -217,12 +217,12 @@
                                 	<div class="d-flex justify-content-between align-items-center">
                                 		<h6 class="mb-0">리뷰 <span class="text-primary">992</span></h6>
                                 		<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary text" data-toggle="modal" data-target="#exampleModal">
+										<button type="button" class="btn btn-primary text" data-toggle="modal" data-target="#reviewModal">
 										리뷰쓰기
 										</button>
 										
 										<!-- Modal -->
-										<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade z-index" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -235,7 +235,7 @@
 														<div class="form-group">
 															<label>별점평가</label>
 															<div class="row">
-																<div class="col-12 col-md-6" style="font-size: 2em;">
+																<div class="col-12" style="font-size: 2em;">
 															    	<div id="review"></div>
 																</div>
 															
@@ -512,7 +512,7 @@
                 </div>
             </div>
         </div>
-
+		
     </section>
     
    	<script>   	
@@ -521,17 +521,6 @@
 		
 		let dropdownToggle = $('.dropdown-toggle');
 		let dropdownGroup = $('.dropdown-group');
-		
-		//auto input calendar click
-		
-		$('.date-range-open').on('click', function(){
-			console.log('clicked');
-		})
-		
-		setTimeout(function(){
-			$('.date-range-open').trigger('click');
-		})
-
 		
 		//$('.date-range-open').click();
 		
