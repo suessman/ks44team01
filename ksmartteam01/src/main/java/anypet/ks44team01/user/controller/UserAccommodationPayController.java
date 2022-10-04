@@ -17,4 +17,9 @@ public class UserAccommodationPayController {
 		return "/user/accommodation/accommodationList";
 	}
 
+	
+	@GetMapping("/accommodationPay")
+	public String accommodationPay(Model model) {
+		return "/user/accommodation/accommodationPay";
+	}
 }

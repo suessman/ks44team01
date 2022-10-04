@@ -9,26 +9,37 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin/goods")
 public class AdminGoodsPayController {
 	
-		@GetMapping("/goodsOrderList")
-		public String goodsOrderList() {
-			
-			return "/admin/goods/goodsOrderList";
-		}
+	@GetMapping("/goodsOrderList")
+	public String goodsOrderList() {
 		
-		@GetMapping("/goodsLargeCategoryInsert")
-		public String goodsLargeCategoryInsert() {
-			
-			return "/admin/goods/goodsLargeCategoryInsert";
-		}
-		@GetMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsert() {
-			
-			return "/admin/goods/goodsMediumCategoryInsert";
-		}
+		return "/admin/goods/goodsOrderList";
+	}
+	
+	@GetMapping("/goodsLargeCategoryInsert")
+	public String goodsLargeCategoryInsert() {
 		
-		@GetMapping("/goodsCategoryList")
-		public String goodsCategoryList() {
-			
-			return "/admin/goods/goodsCategoryList";
-		}
+		return "/admin/goods/goodsLargeCategoryInsert";
+	}
+	@GetMapping("/goodsMediumCategoryInsert")
+	public String goodsMediumCategoryInsert() {
+		
+		return "/admin/goods/goodsMediumCategoryInsert";
+	}
+	
+	@GetMapping("/goodsLargeCategoryList")
+	public String goodsLargeCategoryList() {
+		
+		return "/admin/goods/goodsLargeCategoryList";
+	}
+	
+	@GetMapping("/goodsMediumCategoryList")
+	public String goodsMediumCategoryList() {
+		
+		return "/admin/goods/goodsMediumCategoryList";
+	}
+	@GetMapping("/goodsReviewList")
+	public String goodsReviewList() {
+		
+		return "/admin/goods/goodsReviewList";
+	}
 	}
