@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/admin/head :: headFragment">
+</head>
+ <body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<!-- start header -->
+			<div th:replace="fragments/admin/leftSide :: leftSideFragment">				
+			</div>
+			<!-- end header -->	
+			
+			<!-- 사용자 정의 contents -->
+			<th:block layout:fragment="customContents">
+				<div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>주문내역목록</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                    <p class="text-muted font-13 m-b-30">
+                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                    </p>
+                    <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </th>
+                          <th>상품주문코드</th>
+                          <th>상품명</th>
+                          <th>수량</th>
+                          <th>총주문금액</th>
+                          <th>사용적립금</th>
+                          <th>총결제금액</th>
+                          <th>상품주문시각</th>
+                          <th>구매자아이디</th>
+                          <th>주문자연락처</th>
+                          <th>받는주소</th>
+                          <th>받는사람연락처</th>
+                          <th>받는사람이름</th>
+                          <th>기타</th>
+                          <th>택배사전달여부</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </td>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                          <td>2011/04/25</td>
+                          <td>$320,800</td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  </div>
+                  </div>
+              </div>
+            </div>
+                </div>
+              </div>
+			</th:block>
+			<div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>배송 전 결제취소</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                    <p class="text-muted font-13 m-b-30">
+                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                    </p>
+                    <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </th>
+                          <th>결제취소코드</th>
+                          <th>상품</th>
+                          <th>아이디</th>
+                          <th>취소일자</th>
+                          <th>취소사유</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </td>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                          <td>2011/04/25</td>
+                          <td>$320,800</td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  </div>
+                  </div>
+              </div>
+            </div>
+           </div>
+         </div>
+		</th:block>
+			  <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>반품</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <div class="row">
+                          <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                    <p class="text-muted font-13 m-b-30">
+                      DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
+                    </p>
+                    <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </th>
+                          <th>반품번호</th>
+                          <th>상품</th>
+                          <th>수량</th>
+                          <th>총주문금액</th>
+                          <th>사용적립금</th>
+                          <th>총결제금액</th>
+                          <th>구매자아이디</th>
+                          <th>구매자연락처</th>
+                          <th>반품신청시각</th>
+                          <th>반품사유</th>
+                          <th>반품유형</th>
+                          <th>반품승인여부</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+							 <th><input type="checkbox" id="check-all" ></th>
+						  </td>
+                          <td>Tiger Nixon</td>
+                          <td>System Architect</td>
+                          <td>Edinburgh</td>
+                          <td>61</td>
+                          <td>2011/04/25</td>
+                          <td>$320,800</td>
+                        </tr>
+                       </tbody>
+                    </table>
+                  </div>
+                  </div>
+              </div>
+            </div>
+           </div>
+         </div>
+		</th:block>				
+		<!-- end contents -->
+			
+			<!-- start footer -->		
+			<div th:replace="fragments/admin/footer :: footerFragment" >
+			</div>
+			<!-- end footer -->
+		</div>		
+	</div>
+	
+	<!-- 사용자 정의 JS 하단 -->
+	<th:block layout:fragment="customFootJs">		
+	    <!-- jQuery -->
+	    <script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script>
+	    <!-- Bootstrap -->
+	    <script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+	    <script th:src="@{/build/js/custom.min.js}"></script>  
+	    <!-- FastClick -->
+		<script th:src="@{/vendors/fastclick/lib/fastclick.js}"></script>
+	    <!-- NProgress -->
+	    <script th:src="@{/vendors/nprogress/nprogress.js}"></script>
+	    <!-- Chart.js -->
+	    <script th:src="@{/vendors/Chart.js/dist/Chart.min.js}"></script>
+	    <!-- gauge.js -->
+	    <script th:src="@{/vendors/gauge.js/dist/gauge.min.js}"></script>
+	    <!-- bootstrap-progressbar -->
+	    <script th:src="@{/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js}"></script>
+	    <!-- iCheck -->
+	    <script th:src="@{/vendors/iCheck/icheck.min.js}"></script>
+	    <!-- Skycons -->
+	    <script th:src="@{/vendors/skycons/skycons.js}"></script>
+	    
+	    <script th:src="@{/vendors/Flot/jquery.flot.resize.js}"></script>
+	    <!-- Flot plugins -->
+	    <script th:src="@{/vendors/flot.orderbars/js/jquery.flot.orderBars.js}"></script>
+	    <script th:src="@{/vendors/flot-spline/js/jquery.flot.spline.min.js}"></script>
+	  	<script th:src="@{/vendors/flot.curvedlines/curvedLines.js}"></script>	    
+	    <script th:src="@{/vendors/DateJS/build/date.js}"></script>
+	    <!-- JQVMap -->
+	    <script th:src="@{/vendors/jqvmap/dist/jquery.vmap.js}"></script>
+	    <script th:src="@{/vendors/jqvmap/dist/maps/jquery.vmap.world.js}"></script>
+	    <script th:src="@{/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js}"></script>
+	    <!-- bootstrap-daterangepicker -->
+	    <script th:src="@{/vendors/moment/min/moment.min.js}"></script>
+	    <script th:src="@{/vendors/bootstrap-daterangepicker/daterangepicker.js}"></script>
+	    
+	    <!-- Flot 충돌나는부분이라 주석 처리 해둠 -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.pie.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.time.js}"></script> -->
+	    <!-- <script th:src="@{/vendors/Flot/jquery.flot.stack.js}"></script> -->
+	</th:block>
+</body>
+</html>
