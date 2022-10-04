@@ -465,6 +465,11 @@ span.text-primary.md-text{
 	padding:8px;
 	display:flex;
 	align-items:top;
+	border-bottom:1px solid #eee;
+}
+
+.order-product-box .product-list li:last-child{
+	border-bottom:none;
 }
 
 .order-product-box .product-list li img{
