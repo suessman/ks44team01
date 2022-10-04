@@ -12,4 +12,8 @@ public class AdminAccommodationListController {
 		return "/admin/accommodation_/accommodationList";
 
 	}
+	@GetMapping("/insertAccommodation")
+	public String insertAccommodation() {
+		return "/admin/accommodation/insertAccommodation";
+	}	
 }
