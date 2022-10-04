@@ -33,7 +33,7 @@
                     	<ul class="nav navbar-right panel_toolbox">
                       		<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       		</li>
-                      		<li><a href="#"><button type="submit">등록</button></a></li>
+                      		<li><a href="/admin/accommodation/accommodationCategoryInsert"><button class="accomInquiryBtn" type="submit">등록</button></a></li>
                     	</ul>
                   	</div>
 	        	<div class="x_content">
@@ -61,8 +61,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="/admin/accommodation/accommodationCategoryModify"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 			                        	</tr>
 			                        	<tr>
@@ -71,8 +71,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 			                        	</tr>
 				                        <tr>
@@ -81,8 +81,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 				                        </tr>
 				                        <tr>
@@ -91,8 +91,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 				                        </tr>
 				                        <tr>
@@ -101,8 +101,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 				                        </tr>
 				                        <tr>
@@ -111,8 +111,8 @@
 				                          	<td>id001</td>
 				                          	<td>2022-09-28</td>
 				                          	<td>
-				                          		<a href="#"><button type="submit">수정</button></a>
-				                          		<a href="#"><button type="submit">삭제</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 				                        </tr>
 			                      	</tbody>
@@ -126,5 +126,52 @@
       	</div>
 		</div>
     </div>
+    <!-- 삭제 모달 -->
+<div id="modalRemove" class="removeModal">
+    <div class="removeModal-window">
+        <div class="modal-content">
+	        <div class="modal-title">
+	            <h3>카테고리 삭제</h3>
+	        </div>
+            <div class="row">
+				<div class="x_content">
+					<br/>
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+						<div class="item form-group">
+							<div class="col-md-6 col-sm-6 ">
+								<h6 class="modal_style">해당 카테고리를 삭제하시겠습니까?</h6>
+							</div>
+						</div>
+						<div class="item form-group" align="center" style="margin-top: 30px;">
+							<div class="col-md-6 col-sm-6 offset-md-3">
+								<span class="row">
+									<button class="btn btn-primary" type="reset">삭제</button>								
+									<button class="btn btn-primary" type="reset">취소</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+
+  	$('.accomInquiryBtn').click(function() {
+        $('#modalRemove').css({
+            display: 'flex',
+        });
+    })
+     $('.btn').click(function() {
+        $('#modalRemove').css({
+             display: 'none',
+        });
+    })
+</script>
+	
 	</th:block>
 </html> 
