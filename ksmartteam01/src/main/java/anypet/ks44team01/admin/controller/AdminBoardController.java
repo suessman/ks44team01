@@ -1,4 +1,4 @@
-package anypet.ks44tteam01.admin.controller;
+package anypet.ks44team01.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ public class AdminBoardController {
 	
 	@GetMapping("/boardList")
 	public String boardList() {
-		return "/Admin/board/boardList";
+		return "/admin/board/boardList";
 	}
 	
 	@GetMapping("/addBoard")
