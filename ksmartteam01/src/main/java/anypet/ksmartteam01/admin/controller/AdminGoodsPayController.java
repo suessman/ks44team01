@@ -26,9 +26,20 @@ public class AdminGoodsPayController {
 			return "/admin/goods/goodsMediumCategoryInsert";
 		}
 		
-		@GetMapping("/goodsCategoryList")
-		public String goodsCategoryList() {
+		@GetMapping("/goodsLargeCategoryList")
+		public String goodsLargeCategoryList() {
 			
-			return "/admin/goods/goodsCategoryList";
+			return "/admin/goods/goodsLargeCategoryList";
+		}
+		
+		@GetMapping("/goodsMediumCategoryList")
+		public String goodsMediumCategoryList() {
+			
+			return "/admin/goods/goodsMediumCategoryList";
+		}
+		@GetMapping("/goodsReviewList")
+		public String goodsReviewList() {
+			
+			return "/admin/goods/goodsReviewList";
 		}
 	}
