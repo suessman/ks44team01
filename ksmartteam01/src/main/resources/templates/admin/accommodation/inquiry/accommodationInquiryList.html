@@ -128,9 +128,11 @@
 		
 		let inquiryArea = document.querySelector('.inquiryAnswer');
 		let accomModifyBtn = document.querySelector('#accomModifyBtn');
+		let accomRemoveBtn = document.querySelector('#accomRemoveBtn');
 		$(accomModifyBtn).click(function(){
 			inquiryArea.innerHTML = "<textarea class='accomTextarea'>A.</textarea>";
 			accomModifyBtn.innerHTML = "<button class='accomInquiryBtn' type='submit'>등록</button>"
+			accomRemoveBtn.innerHTML = "<button class='accomInquiryBtn' type='submit'>취소</button>"
 		})
 	</script>
    </th:block>
