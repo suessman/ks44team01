@@ -10,7 +10,6 @@ public class AdminAccommodationListController {
 	@GetMapping("/accommodationList")
 	public String accommodationList() {
 		return "/admin/accommodation/accommodationList";
-
 	}
 	
 	@GetMapping("/insertAccommodation")
