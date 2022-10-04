@@ -5,11 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/admin/goods")
 public class AdminGoodsPayController {
-	@Controller
-	@RequestMapping("/admin/goods")
-	public class AdminGoodsListController {
-		
+	
 		@GetMapping("/goodsOrderList")
 		public String goodsOrderList() {
 			
@@ -33,4 +32,3 @@ public class AdminGoodsPayController {
 			return "/admin/goods/goodsCategoryList";
 		}
 	}
-}
