@@ -1,4 +1,4 @@
-package anypet.ks44tteam01.admin.controller;
+package anypet.ks44team01.admin.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
