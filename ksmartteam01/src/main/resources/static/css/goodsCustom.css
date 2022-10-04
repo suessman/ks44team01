@@ -212,4 +212,21 @@
 		outline: 0;
 	}
 	
+	/* 상품 등록 페이지 파일 업로드 */
+	#previewId{
+		width: 100px; 
+		height: 100px; 
+		color: black; font-size: 9pt;
+	}
+
+	.fileSelect{
+		margin-top: 120px;
+	}
+	
+	.flieupload-body{
+		border:1px solid #eee; 
+		border-radius:4px; 
+		padding:8px; 
+		min-height:120px;
+	}
 	

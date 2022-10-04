@@ -1,383 +1,270 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-     layout:decorate="~{layout/adminDefault}">
-   <!-- 사용자 정의 타이틀 설정 -->
-   <th:block layout:fragment="customTitle">
-      <title>상품등록</title>
-   </th:block>
-   
-   <th:block layout:fragment="customContents">
-	상품등록
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/adminDefault}">
+
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>상품등록</title>
+	</th:block>
 	
-		<!-- page content -->
-        <div class="right_col" role="main">
-
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>상품 등록 페이지</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5  form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12 ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>E-commerce page design</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div class="col-md-7 col-sm-7 ">
-                      <div class="product-image">
-                        <img src="/img/featured/feature-4.jpg" alt="..." />
-                      </div>
-                      <div class="product_gallery">
-                        <a>
-                          <img src="/img/featured/feature-2.jpg" alt="..." />
-                        </a>
-                        <a>
-                          <img src="/img/featured/feature-3.jpg" alt="..." />
-                        </a>
-                        <a>
-                          <img src="/img/featured/feature-1.jpg" alt="..." />
-                        </a>
-                        <a>
-                          <img src="/img/featured/feature-5.jpg" alt="..." />
-                        </a>
-                      </div>
-                    </div>
-
- 					<!-- 상품 등록 -->
-					<div class="col-md-5 ">
-							<div class="x_panel">
-								<div class="x_title">
-									<h2>Form Basic Elements <small>different form elements</small></h2>
-									<ul class="nav navbar-right panel_toolbox">
-										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-										</li>
-										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item" href="#">Settings 1</a>
-												<a class="dropdown-item" href="#">Settings 2</a>
-											</div>
-										</li>
-										<li><a class="close-link"><i class="fa fa-close"></i></a>
-										</li>
-									</ul>
-									<div class="clearfix"></div>
-								</div>
-								<div class="x_content">
-									<br />
-									<form class="form-horizontal form-label-left">
-
-										<div class="form-group row ">
-											<label class="control-label col-md-3 col-sm-3 ">Default Input</label>
-											<div class="col-md-9 col-sm-9 ">
-												<input type="text" class="form-control" placeholder="Default Input">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Disabled Input </label>
-											<div class="col-md-9 col-sm-9 ">
-												<input type="text" class="form-control" disabled="disabled" placeholder="Disabled Input">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Read-Only Input</label>
-											<div class="col-md-9 col-sm-9 ">
-												<input type="text" class="form-control" readonly="readonly" placeholder="Read-Only Input">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Date Of Birth <span class="required">*</span>
-											</label>
-											<div class="col-md-9 col-sm-9 ">
-												<textarea class="form-control" rows="3" placeholder="Date Of Birth"></textarea>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Password</label>
-											<div class="col-md-9 col-sm-9 ">
-												<input type="password" class="form-control" value="passwordonetwo">
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">AutoComplete</label>
-											<div class="col-md-9 col-sm-9 ">
-												<input type="text" name="country" id="autocomplete-custom-append" class="form-control col-md-10" />
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Select</label>
-											<div class="col-md-9 col-sm-9 ">
-												<select class="form-control">
-													<option>Choose option</option>
-													<option>Option one</option>
-													<option>Option two</option>
-													<option>Option three</option>
-													<option>Option four</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Select Custom</label>
-											<div class="col-md-9 col-sm-9 ">
-												<select class="select2_single form-control" tabindex="-1">
-													<option></option>
-													<option value="AK">Alaska</option>
-													<option value="HI">Hawaii</option>
-													<option value="CA">California</option>
-													<option value="NV">Nevada</option>
-													<option value="OR">Oregon</option>
-													<option value="WA">Washington</option>
-													<option value="AZ">Arizona</option>
-													<option value="CO">Colorado</option>
-													<option value="ID">Idaho</option>
-													<option value="MT">Montana</option>
-													<option value="NE">Nebraska</option>
-													<option value="NM">New Mexico</option>
-													<option value="ND">North Dakota</option>
-													<option value="UT">Utah</option>
-													<option value="WY">Wyoming</option>
-													<option value="AR">Arkansas</option>
-													<option value="IL">Illinois</option>
-													<option value="IA">Iowa</option>
-													<option value="KS">Kansas</option>
-													<option value="KY">Kentucky</option>
-													<option value="LA">Louisiana</option>
-													<option value="MN">Minnesota</option>
-													<option value="MS">Mississippi</option>
-													<option value="MO">Missouri</option>
-													<option value="OK">Oklahoma</option>
-													<option value="SD">South Dakota</option>
-													<option value="TX">Texas</option>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Select Grouped</label>
-											<div class="col-md-9 col-sm-9 ">
-												<select class="select2_group form-control">
-													<optgroup label="Alaskan/Hawaiian Time Zone">
-														<option value="AK">Alaska</option>
-														<option value="HI">Hawaii</option>
-													</optgroup>
-													<optgroup label="Pacific Time Zone">
-														<option value="CA">California</option>
-														<option value="NV">Nevada</option>
-														<option value="OR">Oregon</option>
-														<option value="WA">Washington</option>
-													</optgroup>
-													<optgroup label="Mountain Time Zone">
-														<option value="AZ">Arizona</option>
-														<option value="CO">Colorado</option>
-														<option value="ID">Idaho</option>
-														<option value="MT">Montana</option>
-														<option value="NE">Nebraska</option>
-														<option value="NM">New Mexico</option>
-														<option value="ND">North Dakota</option>
-														<option value="UT">Utah</option>
-														<option value="WY">Wyoming</option>
-													</optgroup>
-													<optgroup label="Central Time Zone">
-														<option value="AL">Alabama</option>
-														<option value="AR">Arkansas</option>
-														<option value="IL">Illinois</option>
-														<option value="IA">Iowa</option>
-														<option value="KS">Kansas</option>
-														<option value="KY">Kentucky</option>
-														<option value="LA">Louisiana</option>
-														<option value="MN">Minnesota</option>
-														<option value="MS">Mississippi</option>
-														<option value="MO">Missouri</option>
-														<option value="OK">Oklahoma</option>
-														<option value="SD">South Dakota</option>
-														<option value="TX">Texas</option>
-														<option value="TN">Tennessee</option>
-														<option value="WI">Wisconsin</option>
-													</optgroup>
-													<optgroup label="Eastern Time Zone">
-														<option value="CT">Connecticut</option>
-														<option value="DE">Delaware</option>
-														<option value="FL">Florida</option>
-														<option value="GA">Georgia</option>
-														<option value="IN">Indiana</option>
-														<option value="ME">Maine</option>
-														<option value="MD">Maryland</option>
-														<option value="MA">Massachusetts</option>
-														<option value="MI">Michigan</option>
-														<option value="NH">New Hampshire</option>
-														<option value="NJ">New Jersey</option>
-														<option value="NY">New York</option>
-														<option value="NC">North Carolina</option>
-														<option value="OH">Ohio</option>
-														<option value="PA">Pennsylvania</option>
-														<option value="RI">Rhode Island</option>
-														<option value="SC">South Carolina</option>
-														<option value="VT">Vermont</option>
-														<option value="VA">Virginia</option>
-														<option value="WV">West Virginia</option>
-													</optgroup>
-												</select>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Select Multiple</label>
-											<div class="col-md-9 col-sm-9 ">
-												<select class="select2_multiple form-control" multiple="multiple">
-													<option>Choose option</option>
-													<option>Option one</option>
-													<option>Option two</option>
-													<option>Option three</option>
-													<option>Option four</option>
-													<option>Option five</option>
-													<option>Option six</option>
-												</select>
-											</div>
-										</div>
-
-										<div class="control-group row">
-											<label class="control-label col-md-3 col-sm-3 ">Input Tags</label>
-											<div class="col-md-9 col-sm-9 ">
-												<input id="tags_1" type="text" class="tags form-control" value="social, adverts, sales" />
-												<div id="suggestions-container" style="position: relative; float: left; width: 250px; margin: 10px;"></div>
-											</div>
-										</div>
-										<div class="form-group row">
-											<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-												<br>
-												<small class="text-navy">Normal Bootstrap elements</small>
-											</label>
-
-											<div class="col-md-9 col-sm-9 ">
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" value=""> Option one. select more than one options
-													</label>
-												</div>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" value=""> Option two. select more than one options
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
-													</label>
-												</div>
-											</div>
-										</div>
-
-										<div class="form-group row">
-											<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-												<br>
-												<small class="text-navy">Normal Bootstrap elements</small>
-											</label>
-
-											<div class="col-md-9 col-sm-9 ">
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" class="flat" checked="checked"> Checked
-													</label>
-												</div>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" class="flat"> Unchecked
-													</label>
-												</div>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" class="flat" disabled="disabled"> Disabled
-													</label>
-												</div>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" class="flat" checked name="iCheck"> Checked
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" class="flat" name="iCheck"> Unchecked
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" class="flat" name="iCheck" disabled="disabled"> Disabled
-													</label>
-												</div>
-												<div class="radio">
-													<label>
-														<input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
-													</label>
-												</div>
-											</div>
-										</div>
-
-										<div class="ln_solid"></div>
-										<div class="form-group">
-											<div class="col-md-9 col-sm-9  offset-md-3">
-												<button type="button" class="btn btn-primary">Cancel</button>
-												<button type="reset" class="btn btn-primary">Reset</button>
-												<button type="submit" class="btn btn-success">Submit</button>
-											</div>
-										</div>
-
-									</form>
-								</div>
+	<th:block layout:fragment="customContents">
+		상품등록
+	
+			<!-- page content -->
+		<div class="right_col" role="main">
+	
+			<div class="">
+				<div class="page-title">
+					<div class="title_left">
+						<h3>상품 등록 페이지</h3>
+					</div>
+	
+					<div class="title_right">
+						<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+							<div class="input-group">
+								<input type="text" class="form-control"
+									placeholder="Search for..."> <span
+									class="input-group-btn">
+									<button class="btn btn-default" type="button">Go!</button>
+								</span>
 							</div>
 						</div>
-  
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
-        
-        
-      <!--  <script th:src="/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script> -->
-        
-        
+					</div>
+				</div>
 	
-   </th:block>
-</html> 
+				<div class="clearfix"></div>
+	
+				<div class="row">
+					<div class="col-md-12 col-sm-12 ">
+						<div class="x_panel">
+							<div class="x_title">
+								<h2>insert</h2>
+								<ul class="nav navbar-right panel_toolbox">
+									<li><a class="collapse-link"><i
+											class="fa fa-chevron-up"></i></a></li>
+									<li class="dropdown"><a href="#" class="dropdown-toggle"
+										data-toggle="dropdown" role="button" aria-expanded="false"><i
+											class="fa fa-wrench"></i></a>
+										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+											<a class="dropdown-item" href="#">Settings 1</a> <a
+												class="dropdown-item" href="#">Settings 2</a>
+										</div></li>
+									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+							<div class="col-md-6 col-sm-6 ">
+								<div class="product-image">
+									<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
+									<div class="flieupload-body">
+										<div id='previewId'></div>
+									</div>
+									
+									<input class="fileSelect" type="file" onchange="previewImage(this,'previewId')">
+								</div>
+								
+							<div class="x_content">
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">상품명</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" class="form-control" placeholder="상품명">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="control-label col-md-3 col-sm-3 ">상품 카테고리</label>
+									<div class="col-md-9 col-sm-9 ">
+										<select class="form-control">
+											<option>- 대분류 -</option>
+											<option>사료</option>
+											<option>간식</option>
+											<option>건강관리</option>
+											<option>위생/배변</option>
+											<option>미용/목욕</option>
+											<option>급식/급수기</option>
+											<option>장난감/훈련</option>
+											<option>하우스</option>
+											<option>이동장</option>
+											<option>패션/의류</option>
+											<option>사목줄/하네스료</option>
+											<option>기타</option>
+	
+	
+										</select> <select class="select2_single form-control" tabindex="-1"
+											onchange="onChangeEvent();">
+											<option>- 중분류 -</option>
+											<option value="0">건식</option>
+											<option value="1">소프트</option>
+											<option value="2">습식</option>
+											<option value="3">건조생식</option>
+											<option value="3">분유/우유</option>
+											<option value="3">사료기타</option>
+											<option value="3">캔/파우치</option>
+											<option value="3">져키/트릿</option>
+											<option value="3">비스킷/쿠키</option>
+											<option value="3">사사미</option>
+											<option value="3">동결/건조간식</option>
+											<option value="3">통살/소시지</option>
+											<option value="3">수제간식</option>
+											<option value="3">파우더</option>
+											<option value="3">음료</option>
+											<option value="3">종합영양제</option>
+											<option value="3">피부/모질</option>
+											<option value="3">눈/귀</option>
+											<option value="3">치아/구강</option>
+											<option value="3">뼈/관절</option>
+											<option value="3">신장/요로</option>
+											<option value="3">장유산균</option>
+											<option value="3">면역/스트레스</option>
+											<option value="3">해충방지</option>
+											<option value="3">의약부외품</option>
+											<option value="3">건강관리 기타</option>
+											<option value="3">배변패드</option>
+											<option value="3">배변판</option>
+											<option value="3">기저귀/팬티</option>
+											<option value="3">탈취/소독</option>
+											<option value="3">배변봉투/집게</option>
+											<option value="3">배변유도제</option>
+											<option value="3">위생/배변 기타</option>
+											<option value="3">샴푸/린스/비누</option>
+											<option value="3">에센스/향수/스파</option>
+											<option value="3">브러쉬/빗</option>
+											<option value="3">미용가위/클리퍼</option>
+											<option value="3">발톱/발관리</option>
+											<option value="3">드라이기/타올</option>
+											<option value="3">물티슈/크리너</option>
+											<option value="3">미용/목욕 기타</option>
+	
+										</select>
+									</div>
+								</div>
+	
+	
+								<div class="form-group row ">
+									<label class="control-label col-md-3 col-sm-3 ">가격</label>
+									<div class="col-md-9 col-sm-9 ">
+										<input type="text" class="form-control" placeholder="가격">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="control-label col-md-3 col-sm-3 ">상품 상세 설명<span
+										class="required">*</span>
+									</label>
+									<div class="col-md-9 col-sm-9 ">
+										<textarea class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+									</div>
+								</div>
+	
+	
+	
+	
+	
+	
+	
+	
+								<!-- <div class="form-group row">
+												<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
+													<br>
+													<small class="text-navy">Normal Bootstrap elements</small>
+												</label>
+	
+												<div class="col-md-9 col-sm-9 ">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value=""> Option one. select more than one options
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value=""> Option two. select more than one options
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
+														</label>
+													</div>
+												</div>
+											</div>
+	
+											<div class="form-group row">
+												<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
+													<br>
+													<small class="text-navy">Normal Bootstrap elements</small>
+												</label>
+	
+												<div class="col-md-9 col-sm-9 ">
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" class="flat" checked="checked"> Checked
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" class="flat"> Unchecked
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" class="flat" disabled="disabled"> Disabled
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" class="flat" checked name="iCheck"> Checked
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" class="flat" name="iCheck"> Unchecked
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" class="flat" name="iCheck" disabled="disabled"> Disabled
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
+														</label>
+													</div>
+												</div>
+											</div> -->
+	
+								<div class="ln_solid"></div>
+								<div class="form-group">
+									<div class="col-md-9 col-sm-9  offset-md-3">
+										<button type="button" class="btn btn-primary">취소</button>
+										<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
+										<button type="submit" class="btn btn-success">등록</button>
+									</div>
+								</div>
+	
+								
+							</div>
+						</div>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+		<!-- /page content -->
+	
+	
+		<!--  <script th:src="/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script> -->
+
+
+
+	</th:block>
+</html>
