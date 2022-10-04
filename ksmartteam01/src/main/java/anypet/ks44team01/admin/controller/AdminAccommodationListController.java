@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminAccommodationListController {
 	@GetMapping("/accommodationList")
 	public String accommodationList() {
-		return "/admin/accommodation/accommodationList";
+		return "/admin/accommodation_/accommodationList";
+
 	}
 	@GetMapping("/insertAccommodation")
 	public String insertAccommodation() {

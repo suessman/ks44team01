@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/admin/board")
-
 public class AdminBoardController {
 	
 	@GetMapping("/boardList")
