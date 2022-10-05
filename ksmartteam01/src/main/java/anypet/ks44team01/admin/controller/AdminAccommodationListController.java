@@ -20,5 +20,20 @@ public class AdminAccommodationListController {
 	@GetMapping("/updateAccommodation")
 	public String updateAccommodation() {
 		return "/admin/accommodation/updateAccommodation";
-	}	
+	}
+	
+	@GetMapping("/accommodationDetail")
+	public String accommodationDetail() {
+		return "/admin/accommodation/accommodationDetail";
+	}
+	
+	@GetMapping("/reviewList")
+	public String reviewList() {
+		return "/admin/accommodation/review/reviewList";
+	}
+	
+	@GetMapping("/reviewDetail")
+	public String reviewDetail() {
+		return "/admin/accommodation/review/reviewDetail";
+	}
 }
