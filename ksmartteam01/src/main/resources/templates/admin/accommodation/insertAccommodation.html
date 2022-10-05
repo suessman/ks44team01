@@ -139,7 +139,7 @@
 												<!-- Modal -->
 												<div class="modal fade z-index" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 													<div class="modal-dialog">
-														<div class="modal-content">
+														<div class="modal-content block">
 															<div class="modal-header">
 																<h5 class="modal-title text-center" id="exampleModalLabel">숙소옵션추가</h5>
 																<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -147,10 +147,20 @@
 																</button>
 															</div>
 															<div class="modal-body">																
-																<div class="form-group">
-																	<label for="exampleFormControlTextarea1">리뷰쓰기</label>
-																	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-																</div>
+																<div class="item form-group">
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">방이름</span>
+									                                </label>
+									                                <div class="col-md-6 col-sm-6 ">
+									                                    <input type="text" class="date-picker form-control" >											
+									                                </div>
+									                            </div>
+									                            <div class="item form-group">
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">기준인원수</span>
+									                                </label>
+									                                <div class="col-md-6 col-sm-6 ">
+									                                    <input type="text" class="date-picker form-control" >											
+									                                </div>
+									                            </div>
 															</div>
 															<div class="modal-footer">
 																<button type="button" class="btn btn-primary w-100">완료</button>
