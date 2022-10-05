@@ -4,7 +4,7 @@
 	  layout:decorate="~{layout/adminDefault}">
     <!-- 사용자 정의 타이틀 설정 -->
 	<th:block layout:fragment="customTitle">
-	   <title>관리자메인화면</title>
+	   <title>상품주문내역</title>
 	</th:block>
 	
 	<!-- 사용자 정의 contents -->
@@ -16,7 +16,7 @@
 		     <h3>주문내역목록</h3>
 		    </div>
 		    <div class="clearfix"></div>
-			 <div class="row">
+			<div class="row">
 			   <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
@@ -40,23 +40,26 @@
                   <div class="row">
                    <div class="col-sm-12">
                     <div class="card-box table-responsive">
-                     <button class="buttonMoDel" type="button">등록</button>
                       <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
                        <thead>
                         <tr>
                           <th>
 							 <th><input type="checkbox" id="check-all" ></th>
 						  </th>
-						  <th>상품코드</th>
-					      <th>상품명</th>
-						  <th>리뷰코드</th>
-						  <th>상품결제코드</th>
-					      <th>배송번호</th>
-					      <th>아이디</th>
-					      <th>등록일자</th>
-					      <th>제목</th>
-					      <th>내용</th>
-					      <th>사진</th>
+                          <th>상품주문코드</th>
+                          <th>상품명</th>
+                          <th>수량</th>
+                          <th>총주문금액</th>
+                          <th>사용적립금</th>
+                          <th>총결제금액</th>
+                          <th>결제시각</th>
+                          <th>구매자아이디</th>
+                          <th>구매자연락처</th>
+                          <th>받는주소</th>
+                          <th>받는사람연락처</th>
+                          <th>받는사람이름</th>
+                          <th>기타</th>
+                          <th>택배사전달여부</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -64,6 +67,10 @@
                           <td>
 							 <th><input type="checkbox" id="check-all" ></th>
 						  </td>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>1</td>
+                          <td>1</td>
                           <td>1</td>
                           <td>1</td>
                           <td>1</td>
@@ -87,13 +94,8 @@
           </div>
          </div>
         </div>
+		</th:block>
+	<!-- end contents -->
+	
 
-	
-			<!-- end footer -->
-	
-	<!-- 사용자 정의 JS 하단 -->
-	<th:block layout:fragment="customFootJs">		
-	
-	</th:block>
-</body>
 </html>

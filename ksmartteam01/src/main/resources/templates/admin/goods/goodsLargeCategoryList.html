@@ -4,7 +4,7 @@
 	  layout:decorate="~{layout/adminDefault}">
     <!-- 사용자 정의 타이틀 설정 -->
 	<th:block layout:fragment="customTitle">
-	   <title>관리자메인화면</title>
+	   <title>카테고리관리_대분류</title>
 	</th:block>
 	
 	<!-- 사용자 정의 contents -->
@@ -16,7 +16,7 @@
 		     <h3>상품카테고리관리</h3>
 		    </div>
 		    <div class="clearfix"></div>
-			 <div class="row">
+			<div class="row">
 			   <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
@@ -40,17 +40,19 @@
                   <div class="row">
                    <div class="col-sm-12">
                     <div class="card-box table-responsive">
-                     <button class="buttonMoDel" type="button">등록</button>
+                      <div style="margin-right:10px;" class="d-flex justify-content-end">
+			             <button type="button">등록</button>
+			          </div>
                       <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
                        <thead>
                         <tr>
                           <th>
 							 <th><input type="checkbox" id="check-all" ></th>
 						  </th>
-						  <th>대분류코드</th>
-					      <th>대분류이름</th>
-						  <th>대분류업데이트시각</th>
-					      <th>대분류수정/삭제</th>
+			               <th>대분류코드</th>
+			               <th>대분류이름</th>
+			               <th>업데이트시각</th>
+			               <th>수정/삭제</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -59,14 +61,12 @@
 							 <th><input type="checkbox" id="check-all" ></th>
 						  </td>
                           <td>1</td>
-					      <td class="align-middle">사료</td>
-					      <td class="align-middle">
-					      	업데이트시각
-				          </td>
-					      <td class="align-middle">
-					      	 <button class="buttonMoDel" type="button">수정</button>
-		          			 <button class="buttonMoDel" type="button">삭제</button>
-					      </td> 
+                          <td>사료</td>
+                          <td>업데이트시각</td>
+                          <td>
+                          	<button class="buttonMoDel" type="button">수정</button>
+			                <button class="buttonMoDel" type="button">삭제</button>
+                          </td>
                         </tr>
                        </tbody>
                     </table>
@@ -80,13 +80,8 @@
           </div>
          </div>
         </div>
+		</th:block>
+	<!-- end contents -->
+	
 
-	
-			<!-- end footer -->
-	
-	<!-- 사용자 정의 JS 하단 -->
-	<th:block layout:fragment="customFootJs">		
-	
-	</th:block>
-</body>
 </html>

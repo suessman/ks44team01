@@ -9,37 +9,66 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin/goods")
 public class AdminGoodsPayController {
 	
-	@GetMapping("/goodsOrderList")
-	public String goodsOrderList() {
+		@GetMapping("/goodsOrderList")
+		public String goodsOrderList() {
 		
-		return "/admin/goods/goodsOrderList";
-	}
-	
-	@GetMapping("/goodsLargeCategoryInsert")
-	public String goodsLargeCategoryInsert() {
+			return "/admin/goods/goodsOrderList";
+		}
 		
-		return "/admin/goods/goodsLargeCategoryInsert";
-	}
-	@GetMapping("/goodsMediumCategoryInsert")
-	public String goodsMediumCategoryInsert() {
+		@GetMapping("/goodsMediumCategoryModify")
+		public String goodsMediumCategoryModify() {
+			
+			return "/admin/goods/goodsMediumCategoryModify";
+		}
 		
-		return "/admin/goods/goodsMediumCategoryInsert";
-	}
-	
-	@GetMapping("/goodsLargeCategoryList")
-	public String goodsLargeCategoryList() {
+		@GetMapping("/goodsMediumCategoryInsert")
+		public String goodsMediumCategoryInsert() {
+			
+			return "/admin/goods/goodsMediumCategoryInsert";
+		}
 		
-		return "/admin/goods/goodsLargeCategoryList";
-	}
-	
-	@GetMapping("/goodsMediumCategoryList")
-	public String goodsMediumCategoryList() {
+		@GetMapping("/goodsMediumCategoryList")
+		public String goodsMediumCategoryList() {
+			
+			return "/admin/goods/goodsMediumCategoryList";
+		}
 		
-		return "/admin/goods/goodsMediumCategoryList";
-	}
-	@GetMapping("/goodsReviewList")
-	public String goodsReviewList() {
+		@GetMapping("/goodsLargeCategoryList")
+		public String goodsLargeCategoryList() {
+			
+			return "/admin/goods/goodsLargeCategoryList";
+		}
 		
-		return "/admin/goods/goodsReviewList";
-	}
-	}
+		@GetMapping("/goodsLargeCategoryModify")
+		public String goodsLargeCategoryModify() {
+			
+			return "/admin/goods/goodsLargeCategoryModify";
+		}
+		
+		@GetMapping("/goodsLargeCategoryInsert")
+		public String goodsLargeCategoryInsert() {
+			
+			return "/admin/goods/goodsMediumCategoryInsert";
+		}
+		
+
+		@GetMapping("/goodsReviewList")
+		public String goodsReviewList() {
+			
+			return "/admin/goods/goodsReviewList";
+		}
+		
+		@GetMapping("/goodsPaymentCancle")
+		public String goodsPaymentCancle() {
+			
+			return "/admin/goods/goodsPaymentCancle";
+		}
+		
+		@GetMapping("/goodsReturn")
+		public String goodsReturn() {
+			
+			return "/admin/goods/goodsReturn";
+		}
+
+
+}
