@@ -84,3 +84,8 @@ button.btn.btn-success{
 	width:80px;
 	height:80px;
 }
+
+/*modal*/
+.modal-content.block{
+	display:block !important;
+}
