@@ -142,3 +142,20 @@
   border: 1px solid #888;
   width: 90%;
 }
+
+.x_title .flexable-textarea .textarea-input {
+	display: block;
+    width: auto;
+    height: auto;
+    min-height: 40px;
+    padding: 11px 12px 10px;
+    border: 1px solid #ebecef;
+    box-sizing: border-box;
+    overflow: hidden;
+    resize: none;
+    word-break: break-all;
+    font-size: 15px;
+    letter-spacing: -.23px;
+    line-height: 17px;
+    outline: none;
+}
