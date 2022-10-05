@@ -11,12 +11,7 @@ public class UserAccommodationPayController {
 	
 	/**
 	 * 숙소 목록
-	 */	
-	@GetMapping("/accommodationList")
-	public String getAccommodationList(Model model) {
-		return "/user/accommodation/accommodationList";
-	}
-
+	 */
 	
 	@GetMapping("/accommodationPay")
 	public String accommodationPay(Model model) {
