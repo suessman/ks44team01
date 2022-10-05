@@ -135,3 +135,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.board-reply-textarea {
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+}
