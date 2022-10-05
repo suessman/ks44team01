@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	
+	
+
+	
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>주문상품내역 </title>
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+
+	
+
+	<div class="container">
+
+		<h3>주문상품내역</h3>
+		<table class="cOrder">
+			<thead>
+				<tr>
+					<th>상품구분</th>
+					<th>상품명</th>
+					<th>수량</th>
+					<th>가격</th>
+				</tr>
+			
+				<tr>
+					<td>간식</td>
+					<td>이나바 챠오츄르 고양이 간식, 닭가슴살, 10개입</td>
+					<td>1</td>
+					<td>16,000</td>
+				</tr>
+			</thead>
+		</table>
+
+		<h3>주문정보(주문자)</h3>
+		<div >
+			<span class="order-info-tit">
+				이름
+			</span>
+			<span>홍길동</span>
+
+		</div>
+		<div>
+			<span class="order-info-tit">
+				회원ID
+			</span>
+			<span>id001</span>
+		</div>
+		<div>
+			<span class="order-info-tit">
+				휴대전화 
+			</span>
+			<span>010-0000-0001</span>
+		</div>
+		<div>
+			<span class="order-info-tit">
+				일반전화 
+			</span>
+			<span></span>
+		</div>
+		<div>
+			<span class="order-info-tit">
+				주소 
+			</span>
+			<span>전라북도 전주시 덕진동</span>
+		</div>
+		<div>
+			<span class="order-info-tit">
+				이메일 
+			</span>
+			<span>id001@naver.com</span>
+		</div>
+	
+	
+	</div>
+
+</th:block>
+</html> 

@@ -44,4 +44,11 @@ public class UserGoodsListController {
 		
 		return "/user/goods/goodsPaymentListSearch";			
 	}
+	
+	//상품 주문 완료 페이지
+	@GetMapping("/goodsCompleteOrder")
+	public String goodsCompleteOrder(){	
+		
+		return "/user/goods/goodsCompleteOrder";			
+	}
 }

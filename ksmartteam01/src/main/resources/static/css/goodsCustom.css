@@ -230,3 +230,19 @@
 		min-height:120px;
 	}
 	
+	.cOrder{
+		font-size: 15px;
+		margin-bottom: 100px;
+		
+		
+	}
+	.cOrder th{
+		text-align: center;
+	}
+
+	
+	.order-info-tit{
+		display: inline-block;
+		min-width:120px;
+		font-weight:bold;
+	}
