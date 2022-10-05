@@ -28,4 +28,9 @@ public class AdminBoardController {
 		return "/admin/board/modifyBoard";
 	}
 	
+	@GetMapping("/boardCategory")
+	public String boardCategory() {
+		return "/admin/board/boardCategory";
+	}
+	
 }

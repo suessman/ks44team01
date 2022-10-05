@@ -95,6 +95,10 @@ select{
 	width:100%;
 }
 
+.btn-warning{
+	color:#fff;
+}
+
 .toggle-custom{
 	width:100%;
 	background-color:transparent;

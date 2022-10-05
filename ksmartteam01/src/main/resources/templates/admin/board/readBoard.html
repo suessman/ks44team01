@@ -1,48 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layout/default}">
-<head>
-    <meta charset="UTF-8">      
-    <th:block layout:fragment="customTitle">
-    <title>readBoard</title>
-    </th:block>
-    
-    <style>
-        textarea{
-              width:100%;
-            }
-             
-        .reply_reply {
-                border: 2px solid #FF50CF;
-            }
-        .reply_modify {
-                border: 2px solid #FFBB00;
-            }
-    </style>
-</head>
-    <th:block layout:fragment="customContents">
-   	<div class="menu-title">
-		<h3>게시글 열람</h3> 
-	</div>
-<body>
-	<div>
-		<div class="title-group" id="top">
-			<h5>[말머리]게시글 제목</h5>
-		</div>
-		<div style="text-align: center;">
-			<a href="#">작성자</a>
-			<span>작성 시간</span>
-			<span>조회수</span>
-		</div>
-	</div>
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/adminDefault}">
+    <!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+	   <title>게시판 열람</title>
+	</th:block>
+   
+	<th:block layout:fragment="customContents">
 	
-	<div style="text-align: center;">
-		<textarea rows="30" cols="70" disabled="disabled">작성자가 작성한 내용</textarea>
-	</div>
-		
-	<input type="hidden" id="board_id" name="board_id" value="${boardView.id}" />
-        <div align="center">
+	<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+<div class="right_col" role="main">
+<div class="">
+
+	<div class="col-md-12 col-sm-12 ">
+						<div class="x_panel">
+								<div class="x_title">
+									<h2>우리 강아지와의 하루</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+										</li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">Settings 1</a>
+												<a class="dropdown-item" href="#">Settings 2</a>
+											</div>
+										</li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<h4>애견인01<small> 22-10-05 11:44</small></h4>
+									
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<p>내용</p>
+									<hr>
+								</div>
+								
+								<div align="center">
             <table border="1" width="1200px" id="reply_area">
                 <tr reply_type="all"><!-- 뒤에 댓글 붙이기 쉽게 선언 -->
                     <td colspan="4"></td>
@@ -63,16 +80,26 @@
                     </td>
                 </tr>
             </table>
-        </div>
-	
-	<div style="text-align: center;">
-		<a href="/board/modifyBoard"><button>수정하기</button></a>
-		<a href="javascript:delete_check('/board/boardList')"><button>삭제하기</button></a>
-		<a href="/board/boardList"><button>목록 이동</button></a>
+        </div>	
+							</div>
+							
+        
+        
+        <div style="text-align: center;">
+		<a href="/admin/board/modifyBoard"><button>수정하기</button></a>
+		<a href="javascript:delete_check('/admin/board/boardList')"><button>삭제하기</button></a>
+		<a href="/admin/board/boardList"><button>목록 이동</button></a>
 		<a href="#top"><button>위로 가기</button></a>
 	</div>
-	
-	<script>	
+					</div>
+					</div>
+					</div>
+					</div>
+					</div>
+					
+					
+					
+					<script>	
 	/*수정한 글 등록 확인 시작*/
 	function delete_check(url){
 		var answer;
@@ -788,7 +815,6 @@
             });
         </script>
 	<!-- JS 댓글 기능 끝-->
-</body>
-</th:block>
-</html>
+	</th:block>
 
+</html> 
