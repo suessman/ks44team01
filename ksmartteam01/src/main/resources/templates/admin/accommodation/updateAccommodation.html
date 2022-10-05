@@ -2,12 +2,150 @@
 <html xmlns:th="http://www.thymeleaf.org"
      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
      layout:decorate="~{layout/adminDefault}">
-   <!-- 사용자 정의 타이틀 설정 -->
-   <th:block layout:fragment="customTitle">
-      <title>관리자메인화면</title>
-   </th:block>
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+	   <title>관리자메인화면</title>
+	</th:block>
    
-   <th:block layout:fragment="customContents">
-	관리자메인화면 테스트
-   </th:block>
+	<th:block layout:fragment="customContents">
+	<!-- page content -->
+	<div class="right_col" role="main">
+	    <div class="">
+	        <div class="page-title">
+	            <div class="title_left">
+	                <h3>숙소등록</h3>
+	            </div>
+	
+	            <div class="title_right">
+	                <div class="col-md-5 col-sm-5  form-group pull-right top_search">
+	                    <div class="input-group">
+	                        <input type="text" class="form-control" placeholder="Search for...">
+	                        <span class="input-group-btn">
+	                            <button class="btn btn-default" type="button">Go!</button>
+	                        </span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="clearfix"></div>
+	        <div class="row">
+	            <div class="col-md-12 col-sm-12 ">
+	                <div class="x_panel">                    
+	                    
+	                    <div class="x_title">                        
+	                        <ul class="nav navbar-right panel_toolbox">
+	                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+	                            </li>
+	                            <li class="dropdown">
+	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+	                                <ul class="dropdown-menu" role="menu">
+	                                    <li><a class="dropdown-item" href="#">Settings 1</a>
+	                                    </li>
+	                                    <li><a class="dropdown-item" href="#">Settings 2</a>
+	                                    </li>
+	                                </ul>
+	                            </li>
+	                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+	                            </li>
+	                        </ul>
+	                        <div class="clearfix"></div>
+	                    </div>    
+	                    
+	                    <div class="x_content">
+	                        <br />
+	                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+	
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소명<span class="required">*</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input type="text" id="roomName" required="required" class="form-control ">
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소사진<span class="required">*</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input type="file" name="uploadFile" />	                                   
+	                                </div>
+	                            </div>
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소유형  <span class="required">*</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                   <select class="form-control">
+										<option>호텔</option>
+										<option>모텔</option>
+										<option>펜션</option>
+	                                   </select>
+	                                </div>
+	                            </div>
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소가격  <span class="required">*</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+	                                </div>
+	                            </div>
+	                            <div class="item form-group">
+	                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">주소</label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input id="address_kakao" name="address" readonly class="form-control" type="text">
+	                                    <input id="address_kakao" name="address_detail" class="form-control" type="text">
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">체크인시간</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input type="text" class="date-picker form-control" >											
+	                                </div>
+	                            </div>
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">체크아웃시간</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+	                                    <input type="text" class="date-picker form-control" >											
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">주차가능여부</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 mt-2">		
+										<input type="radio" class="flat" name="agree" id="agree" checked=""/>가능
+										<input type="radio" class="flat ml-3" name="agree" id="disagree" />불가능
+	                                </div>
+	                            </div>
+	                            <div class="ln_solid"></div>
+	                            <div class="item form-group">
+	                                <div class="col-md-6 col-sm-6 offset-md-3">
+	                                    <button class="btn btn-primary" type="button">취소</button>										
+	                                    <button type="submit" class="btn btn-success">등록</button>
+	                                </div>
+	                            </div>	
+	                        </form>
+	                    </div>	
+	                </div>
+	            </div>
+	        </div>	
+	    </div>
+	</div>
+	<script>
+	window.onload = function(){
+	    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
+	        //카카오 지도 발생
+	        new daum.Postcode({
+	            oncomplete: function(data) { //선택시 입력값 세팅
+	                document.getElementById("address_kakao").value = data.address; // 주소 넣기
+	                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+	            }
+	        }).open();
+	    });
+	}
+</script>
+	<!-- /page content -->
+	</th:block>
 </html> 

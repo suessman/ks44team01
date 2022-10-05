@@ -13,7 +13,7 @@ public class AdminAccommodationPayController {
 	 */	
 	@GetMapping("/accommodationCategoryModify")
 	public String getAccommodationCategoryModify() {
-		return "/admin/accommodation/accommodationCategoryModify";
+		return "/admin/accommodation/category/accommodationCategoryModify";
 	}
 	
 	/**
@@ -21,7 +21,7 @@ public class AdminAccommodationPayController {
 	 */	
 	@GetMapping("/accommodationCategoryInsert")
 	public String getAccommodationCategoryInsert() {
-		return "/admin/accommodation/accommodationCategoryInsert";
+		return "/admin/accommodation/category/accommodationCategoryInsert";
 	}
 	
 	/**
@@ -29,7 +29,7 @@ public class AdminAccommodationPayController {
 	 */
 	@GetMapping("/accommodationCategory")
 	public String getAccommodationCategory() {
-		return "/admin/accommodation/accommodationCategory";
+		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
 	/**
@@ -37,7 +37,7 @@ public class AdminAccommodationPayController {
 	 */
 	@GetMapping("/accommodationReservationList")
 	public String getAccommodationReservationList() {
-		return "/admin/accommodation/accommodationReservationList";
+		return "/admin/accommodation/reservation/accommodationReservationList";
 	}
 	
 	/**
@@ -45,6 +45,6 @@ public class AdminAccommodationPayController {
 	 */
 	@GetMapping("/accommodationInquiryList")
 	public String getAccommodationInquiryList() {
-		return "/admin/accommodation/accommodationInquiryList";
+		return "/admin/accommodation/inquiry/accommodationInquiryList";
 	}
 }

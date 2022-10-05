@@ -1,163 +1,226 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layout/default}">
-    <head>
-        <meta charset="UTF-8">
-        <th:block layout:fragment="customTitle">
-        	<title>boardList</title>
-        </th:block>
-    </head>
-    <th:block layout:fragment="customContents">    	
-    	<!-- <div class="menu-title">
-			<h3>게시판</h3>
-		</div> -->
-		<!-- 숙소 목록 bg  -->
-		<section class="breadcrumb-section set-bg" data-setbg="/img/board/boardBg.jpg">
-		   	<div class="container">
-		       	<div class="row">
-		           	<div class="col-lg-12 text-center">
-		               	<div class="breadcrumb__text">
-		                   	<h2>게시판</h2>
-		                       <div class="breadcrumb__option">
-		                          	<a href="#">공지사항</a>
-		                          	<span>게시판</span>
-		                      	</div>
-		                   </div>
-		               </div>
-		         	</div>
-			</div>
-		</section>
-
-    	<div class="featured__controls">
-               <ul>
-                   <li class="active" data-filter="notice">공지 사항</li>
-                   <li data-filter=".inform">정보 공유</li>
-                   <li data-filter=".free">자유</li>
-                   <li data-filter=".shortform">숏폼</li>
-                   <li data-filter=".mantoman">1:1 상담</li>                    
-                   <li data-filter=".qna">Q & A</li>
-                   <li data-filter=".faq">F A Q</li>
-               </ul>
-           </div>
-           
-           <div class="container">
-			<div class="row">
-				<table class="table col-12">
-			  <thead class="thead-dark">
-			    <tr>
-			    	<th scope="col">번호</th>
-			      	<th scope="col">제목</th>
-			      	<th scope="col">작성자</th>
-			      	<th scope="col">작성일</th>
-			      	<th scope="col">조회수</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-					<th scope="row">1</th>
-			      	<td><a href="/board/readBoard">[공지 사항] 우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			    </tr>
-			    <tr>
-					<th scope="row">2</th>
-			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
-			      	<td>애견인02</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			    </tr>
-			  	<tr>
-					<th scope="row">3</th>
-			      	<td><a href="/board/readBoard">[숏폼] 우리 강아지와의 하루</a></td>
-			      	<td>애견인03</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">4</th>
-			      	<td><a href="/board/readBoard">[1:1 상담] 우리 강아지와의 하루</a></td>
-			      	<td>애견인04</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">5</th>
-			      	<td><a href="/board/readBoard">[Q & A] 우리 강아지와의 하루</a></td>
-			      	<td>애견인05	</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">6</th>
-			      	<td><a href="/board/readBoard">[F A Q] 우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">7</th>
-			      	<td><a href="/board/readBoard">[정보 공유] 우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">8</th>
-			      	<td><a href="/board/readBoard">[자유]우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">9</th>
-			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  	<tr>
-					<th scope="row">10</th>
-			      	<td><a href="/board/readBoard">[자유] 우리 강아지와의 하루</a></td>
-			      	<td>애견인01</td>
-			      	<td>22.09.27</td>
-			      	<td>1</td>
-			  	</tr>
-			  </tbody>
-		</table>
-			</div>
-           </div>
-	    
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/adminDefault}">
+    <!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+	   <title>관리자메인화면</title>
+	</th:block>
+   
+	<th:block layout:fragment="customContents">
+	<!-- page content -->
+	<body class="nav-md">
+    	<div class="container body">
+    		<div class="main_container">
+				<div class="right_col" role="main">
+					<div class="page-title">
+              			<div class="title_left">
+			               <h3>공지사항</h3>
+			            </div>
+			
+			            <div class="title_right">
+			            	<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+			                	<div class="input-group">
+			                    	<input type="text" class="form-control" placeholder="Search for...">
+			                    	<span class="input-group-btn">
+			                    		<button class="btn btn-secondary" type="button">Go!</button>
+			                    	</span>
+			                  	</div>
+			                </div>
+			            </div>
+			        </div>
 		
-		<div class="board-add">
-			<a href="/board/addBoard"><button>글 쓰기</button></a>
-		</div>
-        <div class="board-order">
-        	<a href="#">◀이전</a>
-		    <a href="#">1</a> 
-		    <a href="#">2</a> 
-		    <a href="#">3</a> 	
-		    <a href="#">4</a> 
-		    <a href="#">5</a> 
-		    <a href="#">6</a> 
-		    <a href="#">7</a> 
-		    <a href="#">8</a> 
-		    <a href="#">9</a> 
-		    <a href="#">10</a> 
-		    <a href="#">다음▶</a>
-		</div>
+		
+		<div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Table design <small>Custom design</small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
 
-		<div class="search-group">
-			<select>
-			    <option>--검색 옵션--</option>
-			    <option>제목</option>
-			    <option>내용</option>
-			    <option>작성자</option>
-			</select>
-			<input type="text" placeholder="검색어 입력">
-			<button>검색</button>
-		</div>
+                  <div class="x_content">
 
-    </th:block>
-</html>
+                    <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
+
+                    <div class="table-responsive">
+                      <table class="table table-striped jambo_table bulk_action">
+                        <thead>
+                          <tr class="headings">
+                            <th>
+                              <input type="checkbox" id="check-all" class="flat">
+                            </th>
+                            <th class="column-title">번호</th>
+                            <th class="column-title">말머리</th>
+                            <th class="column-title">제목</th>
+                            <th class="column-title">작성자</th>
+                            <th class="column-title">작성일</th>
+                            <th class="column-title">조회</th>
+                            <th class="column-title no-link last"><span class="nobr">좋아요</span>
+                            </th>
+                            <th class="bulk-actions" colspan="7">
+                              <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000040</td>
+                            <td class=" ">May 23, 2014 11:47:56 PM </td>
+                            <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i></td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$7.45</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="odd pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000039</td>
+                            <td class=" ">May 23, 2014 11:30:12 PM</td>
+                            <td class=" ">121000208 <i class="success fa fa-long-arrow-up"></i>
+                            </td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$741.20</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000038</td>
+                            <td class=" ">May 24, 2014 10:55:33 PM</td>
+                            <td class=" ">121000203 <i class="success fa fa-long-arrow-up"></i>
+                            </td>
+                            <td class=" ">Mike Smith</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$432.26</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="odd pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000037</td>
+                            <td class=" ">May 24, 2014 10:52:44 PM</td>
+                            <td class=" ">121000204</td>
+                            <td class=" ">Mike Smith</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$333.21</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000040</td>
+                            <td class=" ">May 24, 2014 11:47:56 PM </td>
+                            <td class=" ">121000210</td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$7.45</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="odd pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000039</td>
+                            <td class=" ">May 26, 2014 11:30:12 PM</td>
+                            <td class=" ">121000208 <i class="error fa fa-long-arrow-down"></i>
+                            </td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$741.20</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000038</td>
+                            <td class=" ">May 26, 2014 10:55:33 PM</td>
+                            <td class=" ">121000203</td>
+                            <td class=" ">Mike Smith</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$432.26</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="odd pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000037</td>
+                            <td class=" ">May 26, 2014 10:52:44 PM</td>
+                            <td class=" ">121000204</td>
+                            <td class=" ">Mike Smith</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$333.21</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+
+                          <tr class="even pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000040</td>
+                            <td class=" ">May 27, 2014 11:47:56 PM </td>
+                            <td class=" ">121000210</td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$7.45</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                          <tr class="odd pointer">
+                            <td class="a-center ">
+                              <input type="checkbox" class="flat" name="table_records">
+                            </td>
+                            <td class=" ">121000039</td>
+                            <td class=" ">May 28, 2014 11:30:12 PM</td>
+                            <td class=" ">121000208</td>
+                            <td class=" ">John Blank L</td>
+                            <td class=" ">Paid</td>
+                            <td class="a-right a-right ">$741.20</td>
+                            <td class=" last"><a href="#">View</a>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              </body>
+	</th:block>
+
+</html> 
