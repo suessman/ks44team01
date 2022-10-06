@@ -1,6 +1,6 @@
 package anypet.ks44team01.dto;
 
-public class goodsLargeCategory {
+public class GoodsLargeCategory {
 
 	private String categoryCode;
 	private String categoryName;
