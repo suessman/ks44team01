@@ -1,14 +1,30 @@
 package anypet.ks44team01.admin.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import anypet.ks44team01.dto.AccommodationList;
+import anypet.ks44team01.service.AccommodationListService;
+
 
 @Controller
 @RequestMapping("/admin/accommodation")
 public class AdminAccommodationListController {
+	
+	private AccommodationListService accommodationListService;
+	public AdminAccommodationListController(AccommodationListService accommodationListService) {
+		this.accommodationListService = accommodationListService;
+	}
+	
 	@GetMapping("/accommodationList")
-	public String accommodationList() {
+	public String accommodationList(Model model) {
+		List<AccommodationList> accommodationList = accommodationListService.getAccommodationList();
+		model.addAttribute("accommodationList", accommodationList);
+		
 		return "/admin/accommodation/accommodationList";
 	}
 	
