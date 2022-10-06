@@ -48,7 +48,7 @@ public class AdminGoodsPayController {
 		@GetMapping("/goodsLargeCategoryInsert")
 		public String goodsLargeCategoryInsert() {
 			
-			return "/admin/goods/goodsMediumCategoryInsert";
+			return "/admin/goods/goodsLargeCategoryInsert";
 		}
 		
 
