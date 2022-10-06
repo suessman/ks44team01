@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="anypet.ks44team01.mapper.AccommodationListMapper">
+		<resultMap type="AccommodationList" id="accommodationResultMap" >	
+		
+		<result column="accomodation_detail_code" 		property="accommodationDetailCode"/>
+		<result column="accomodation_category_code" 	property="accommodationCategoryCode"/>
+		<result column="region_code" 	property="accommodationRegionCode"/>
+		<result column="company_member_code" 	property="companyMemberCode"/>
+		<result column="id" 	property="memberId"/>
+		<result column="check_inout" property="checkInOut"/>		
+		
+	</resultMap>
+	<select id="getAccommodationList" resultMap ="accommodationResultMap">
+	SELECT 
+		accomodation_detail_code 
+		, accomodation_category_code 
+		, region_code 
+		, company_member_code 
+		, id 
+		, check_inout 
+	FROM accomodation_detail
+	</select>
+  </mapper>
