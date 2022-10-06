@@ -1,12 +1,24 @@
 package anypet.ks44team01.admin.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import anypet.ks44team01.dto.AccommodationCategory;
+import anypet.ks44team01.service.AccommodationService;
 
 @Controller
 @RequestMapping("/admin/accommodation")
 public class AdminAccommodationPayController {
+	
+	private AccommodationService accommodationService;
+	
+	public AdminAccommodationPayController(AccommodationService accommodationService) {
+		this.accommodationService = accommodationService;
+	}
 	
 	/**
 	 * 숙소 카테고리 수정
@@ -28,7 +40,10 @@ public class AdminAccommodationPayController {
 	 * 숙소 카테고리 목록
 	 */
 	@GetMapping("/accommodationCategory")
-	public String getAccommodationCategory() {
+	public String getAccommodationCategory(Model model) {
+		List<AccommodationCategory> accommodationCategoryList = accommodationService.getAccomodationCategoryList();
+		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
+		
 		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
@@ -45,6 +60,8 @@ public class AdminAccommodationPayController {
 	 */
 	@GetMapping("/accommodationInquiryList")
 	public String getAccommodationInquiryList() {
+		
+		
 		return "/admin/accommodation/inquiry/accommodationInquiryList";
 	}
 }

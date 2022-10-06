@@ -1,6 +1,6 @@
 package anypet.ks44team01.dto;
 
-public class Accommodation {
+public class AccommodationCategory {
 	
 	private String accommodationCategoryCode;
 	private String accommodationId;
@@ -35,11 +35,9 @@ public class Accommodation {
 	public String toString() {
 		return "Accommodation [accommodationCategoryCode=" + accommodationCategoryCode + ", accommodationId="
 				+ accommodationId + ", accommodationCategoryName=" + accommodationCategoryName
-				+ ", registrationDateTime=" + registrationDateTime + ", getAccommodationCategoryCode()="
-				+ getAccommodationCategoryCode() + ", getAccommodationId()=" + getAccommodationId()
-				+ ", getAccommodationCategoryName()=" + getAccommodationCategoryName() + ", getRegistrationDateTime()="
-				+ getRegistrationDateTime() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+				+ ", registrationDateTime=" + registrationDateTime + "]";
 	}
+	
+	
 	
 }

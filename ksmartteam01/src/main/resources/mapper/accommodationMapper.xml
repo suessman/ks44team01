@@ -4,5 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="anypet.ks44team01.mapper.AccommodationMapper">
-
+	<resultMap 	type="AccommodationCategory" id="accommodationCategory">
+		<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
+		<result	column="id" property="accommodationId"/>
+		<result	column="accomodation_category_name" property="accommodationCategoryName"/>
+		<result	column="registration_datetime" property="registrationDateTime"/>
+	</resultMap>
+	
+	<!-- 숙소 문의사항 목록 조회 -->
+	<select id="getAccommodationInquiryList">
+		SELECT
+			 m.company_name
+			,q.id
+			,q.accomodation_QnA_title
+			,q.accomodation_QnA_datetime
+			,d.id
+			,q.accomodation_QnA_answer_datetime
+		FROM
+			accomodation_QnA AS q
+			INNER JOIN
+			accomodation_detail AS d
+			ON 
+			q.accomodation_detail_code = d.accomodation_detail_code
+			INNER JOIN
+			company_member AS m
+			ON
+			d.company_member_code = m.company_member_code;
+	</select>
+	
+	<!-- 숙소 카테고리 목록 조회 -->
+	<select id="getAccommodationCategoryList" resultMap="accommodationCategory">
+		SELECT 
+			accomodation_category_code, 
+			id, 
+			accomodation_category_name, 
+			registration_datetime
+		FROM 
+			accomodation_category;
+	</select>
   </mapper>

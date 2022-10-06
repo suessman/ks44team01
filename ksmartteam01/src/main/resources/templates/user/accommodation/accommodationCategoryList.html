@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>테스트</title>
+	</th:block>
+	<th:block layout:fragment="customContents">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>카테고리코드</th>
+					<th>아이디</th>
+					<th>카테고리명</th>
+					<th>등록일자</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="l : ${accommodationCategoryList}">
+					<td th:text="${l.accommodationCategoryCode}"></td>
+					<td th:text="${l.accommodationId}"></td>
+					<td th:text="${l.accommodationCategoryName}"></td>
+					<td th:text="${l.registrationDateTime}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</th:block>
+	
+</html>
