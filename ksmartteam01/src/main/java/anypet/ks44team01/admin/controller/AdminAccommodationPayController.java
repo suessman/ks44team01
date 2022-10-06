@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import anypet.ks44team01.dto.AccommodationCategory;
+import anypet.ks44team01.dto.AccommodationInquiry;
 import anypet.ks44team01.service.AccommodationService;
 
 @Controller
@@ -59,8 +60,9 @@ public class AdminAccommodationPayController {
 	 * 숙소 문의 목록/상세
 	 */
 	@GetMapping("/accommodationInquiryList")
-	public String getAccommodationInquiryList() {
-		
+	public String getAccommodationInquiryList(Model model) {
+		List<AccommodationInquiry> accommodationInquiryList = accommodationService.getAccommodationInquiryList();
+		model.addAttribute("accommodationInquiryList", accommodationInquiryList);
 		
 		return "/admin/accommodation/inquiry/accommodationInquiryList";
 	}

@@ -60,24 +60,22 @@
 				                        	</tr>
 				                      	</thead>
 				                      	<tbody>
-				                        	<tr>
+				                        	<tr th:each="l : ${accommodationInquiryList}">
 				                          		<td>답변완료</td>
-				                          		<td><a href=#>호텔A</a></td>
-				                          		<td>id007</td>
-					                          	<td><a href="#acccomInquiryAdminA" data-toggle="collapse">인원추가 관련</a></td>
-					                          	<td>2022-09-18</td>
-					                          	<td>id005</td>
-					                          	<td>2022-09-20</td>	
+				                          		<td th:text="${l.companyName}"></td>
+				                          		<td th:text="${l.inquiryId}">id007</td>
+					                          	<td><a href="#acccomInquiryAdminA" data-toggle="collapse" th:text="${l.titleName}"></a></td>
+					                          	<td th:text="${l.datetime}"></td>
+					                          	<td th:text="${l.answerId}"></td>
+					                          	<td th:text="${l.answerDatetime}"></td>	
 					                          	<td><button class="accomInquiryBtn" type="submit">삭제</button></td>
 				                        	</tr>
-				                        	<tr class="collapse" id="acccomInquiryAdminA">
+				                        	<!-- <tr class="collapse" id="acccomInquiryAdminA">
 				                        		<td colspan="7">
-				                        			Q. 어린이가 2명인데 추가비용이 어떻게 되나요?
+				                        			<div th:text="${l.contents}"></div>
 				                        			<br>
 				                        			<br>
-				                        			<div class="inquiryAnswer">
-					                        			A. 어린이 1명 기준 추가비용은 30,000원 입니다.
-				                        			</div>
+				                        			<div th:text="${l.answer}" class="inquiryAnswer"></div>
 				                        			<br>
 				                        			<br>
 				                        		</td>
@@ -85,30 +83,7 @@
 				                        			<button class="accomInquiryBtn" id="accomModifyBtn" type="submit">수정</button>
 				                        			<button class="accomInquiryBtn" id="accomRemoveBtn" type="submit">삭제</button>
 				                        		</td>
-				                        	</tr>
-				                        	<tr>
-				                          		<td>미답변</td>
-				                          		<td><a href=#>호텔B</a></td>
-				                          		<td>id010</td>
-					                          	<td><a href="#acccomInquiryAdminB" data-toggle="collapse">대형견 가능한가요?</a></td>
-					                          	<td>2022-10-02</td>
-					                          	<td></td>
-					                          	<td></td>
-					                          	<td><button class="accomInquiryBtn" type="submit">삭제</button></td>
-				                        	</tr>
-				                        	<tr class="collapse" id="acccomInquiryAdminB">
-				                        		<td colspan="7">
-				                        			Q. 어린이가 2명인데 추가비용이 어떻게 되나요?
-				                        			<br>
-				                        			<br>
-				                        			<textarea class="accomTextarea">A.</textarea>
-				                        			<br>
-				                        			<br>
-				                        		</td>
-				                        		<td>
-				                        			<button class="accomInquiryBtn" type="submit">등록</button>
-				                        		</td>
-				                        	</tr>
+				                        	</tr> -->
 				                      	</tbody>
 				                	</table>			
 				                </div>

@@ -12,14 +12,16 @@
 	</resultMap>
 	
 	<!-- 숙소 문의사항 목록 조회 -->
-	<select id="getAccommodationInquiryList">
+	<select id="getAccommodationInquiryList" resultType="AccommodationInquiry">
 		SELECT
-			 m.company_name
-			,q.id
-			,q.accomodation_QnA_title
-			,q.accomodation_QnA_datetime
-			,d.id
-			,q.accomodation_QnA_answer_datetime
+			 m.company_name								AS companyName
+			,q.id										AS inquiryId
+			,q.accomodation_QnA_title					AS titleName
+			,q.accomodation_QnA_datetime				AS datetime
+			,d.id										AS answerId
+			,q.accomodation_QnA_answer_datetime			AS answerDatetime
+			,q.accomodation_QnA_contents				AS contents
+			,q.accomodation_QnA_answer					AS answer
 		FROM
 			accomodation_QnA AS q
 			INNER JOIN
