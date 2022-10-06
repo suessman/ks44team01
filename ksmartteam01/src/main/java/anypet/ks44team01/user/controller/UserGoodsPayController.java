@@ -13,4 +13,10 @@ public class UserGoodsPayController {
 		
 		return "/user/goods/goodsPay";
 	}
+	
+	@GetMapping("/goodsPaySystemTest")
+	public String goodsPaySystemTest() {
+		
+		return "/user/goods/goodsPaySystemTest";
+	}
 }

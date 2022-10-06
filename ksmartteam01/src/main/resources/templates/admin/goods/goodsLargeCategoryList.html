@@ -13,7 +13,7 @@
 		 <div class="">
 		  <div class="page-title">
 		    <div class="title_left">
-		     <h3>상품카테고리관리</h3>
+		     <h3>카테고리관리</h3>
 		    </div>
 		    <div class="clearfix"></div>
 			<div class="row">
@@ -41,7 +41,7 @@
                    <div class="col-sm-12">
                     <div class="card-box table-responsive">
                       <div style="margin-right:10px;" class="d-flex justify-content-end">
-			             <button type="button">등록</button>
+			             <button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsLargeCategoryInsert}'|" type="button">등록</button>
 			          </div>
                       <table id="datatable-checkbox" class="table table-striped table-bordered bulk_action" style="width:100%">
                        <thead>
@@ -64,8 +64,8 @@
                           <td>사료</td>
                           <td>업데이트시각</td>
                           <td>
-                          	<button class="buttonMoDel" type="button">수정</button>
-			                <button class="buttonMoDel" type="button">삭제</button>
+                          	<button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsLargeCategoryModify}'|" type="button">수정</button>
+			                <button class="btn btn-success" type="button">삭제</button>
                           </td>
                         </tr>
                        </tbody>
