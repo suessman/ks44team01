@@ -10,6 +10,7 @@ public class UserGoodsPayController {
 
 	@GetMapping("/goodsPay")
 	public String goodsPay() {
+		
 		return "/user/goods/goodsPay";
 	}
 }
