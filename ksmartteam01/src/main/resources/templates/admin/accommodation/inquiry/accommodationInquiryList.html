@@ -59,18 +59,18 @@
 					                          	<th></th>
 				                        	</tr>
 				                      	</thead>
-				                      	<tbody>
-				                        	<tr th:each="l : ${accommodationInquiryList}">
+				                      	<tbody  th:each="l : ${accommodationInquiryList}">
+				                        	<tr class="firstTr">
 				                          		<td>답변완료</td>
 				                          		<td th:text="${l.companyName}"></td>
 				                          		<td th:text="${l.inquiryId}">id007</td>
-					                          	<td><a href="#acccomInquiryAdminA" data-toggle="collapse" th:text="${l.titleName}"></a></td>
+					                          	<td><a href="#acccomInquiryAdmin" data-toggle="collapse" th:text="${l.titleName}"></a></td>
 					                          	<td th:text="${l.datetime}"></td>
 					                          	<td th:text="${l.answerId}"></td>
 					                          	<td th:text="${l.answerDatetime}"></td>	
-					                          	<td><button class="accomInquiryBtn" type="submit">삭제</button></td>
+					                          	<td><button class="accomDeleteBtn" type="submit">삭제</button></td>
 				                        	</tr>
-				                        	<!-- <tr class="collapse" id="acccomInquiryAdminA">
+				                        	<tr class="collapse secondTr" id="acccomInquiryAdmin">
 				                        		<td colspan="7">
 				                        			<div th:text="${l.contents}"></div>
 				                        			<br>
@@ -80,10 +80,10 @@
 				                        			<br>
 				                        		</td>
 				                        		<td>
-				                        			<button class="accomInquiryBtn" id="accomModifyBtn" type="submit">수정</button>
-				                        			<button class="accomInquiryBtn" id="accomRemoveBtn" type="submit">삭제</button>
+				                        			<button class="accomModifyBtn" value="수정" type="submit">수정</button>
+				                        			<button class="accomRemoveBtn" type="submit">삭제</button>
 				                        		</td>
-				                        	</tr> -->
+				                        	</tr>
 				                      	</tbody>
 				                	</table>			
 				                </div>
@@ -95,20 +95,40 @@
       	</div>
     	</div>
 	</div>
-	
+
 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+	
 	<script>
 		
+		/* var firstTr = document.querySelector('.firstTr');
+		
+		var secondTr = firstTr.nextSibling;
+		console.log(secondTr);
+		 */
+	
 		/* let inquiryArea = document.getElementsByClassName('inquiryAnswer')[0]; */
 		
-		let inquiryArea = document.querySelector('.inquiryAnswer');
-		let accomModifyBtn = document.querySelector('#accomModifyBtn');
-		let accomRemoveBtn = document.querySelector('#accomRemoveBtn');
+		let inquiryArea = document.querySelectorAll('.inquiryAnswer');
+		let accomModifyBtn = document.querySelectorAll('.accomModifyBtn');
+		let accomRemoveBtn = document.querySelectorAll('.accomRemoveBtn');
 		$(accomModifyBtn).click(function(){
-			inquiryArea.innerHTML = "<textarea class='accomTextarea'>A.</textarea>";
-			accomModifyBtn.innerHTML = "<button class='accomInquiryBtn' type='submit'>등록</button>"
-			accomRemoveBtn.innerHTML = "<button class='accomInquiryBtn' type='submit'>취소</button>"
+				/* const result1 = accomModifyBtn.indexOf(this); */
+				/* inquiryArea[i].innerHTML = "<textarea class='accomTextarea'>A.</textarea>";
+				accomModifyBtn[i].innerHTML = "<button class='accomModifyBtn' type='submit'>등록</button>"
+				accomRemoveBtn[i].innerHTML = "<button class='accomRemoveBtn' type='submit'>취소</button>"  */
+				
+				for(var i=0; i<accomModifyBtn.length; i++){
+					console.log(accomModifyBtn[i]);
+				}
+				
+				console.log(accomModifyBtn[1].value)
+				
+				console.log(this);
+
 		})
+		 
+		
+		
 	</script>
    </th:block>
 </html> 

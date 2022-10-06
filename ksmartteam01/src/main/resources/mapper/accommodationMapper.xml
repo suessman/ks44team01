@@ -22,6 +22,7 @@
 			,q.accomodation_QnA_answer_datetime			AS answerDatetime
 			,q.accomodation_QnA_contents				AS contents
 			,q.accomodation_QnA_answer					AS answer
+			,q.accomodation_QnA_number					AS inquiryCode
 		FROM
 			accomodation_QnA AS q
 			INNER JOIN
