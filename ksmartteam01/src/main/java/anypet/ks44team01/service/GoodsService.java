@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import anypet.ks44team01.dto.GoodsLargeCategory;
+
+import anypet.ks44team01.dto.Goods;
 import anypet.ks44team01.mapper.GoodsMapper;
+
 
 @Service
 @Transactional
@@ -19,9 +21,10 @@ public class GoodsService {
 
 	}
 	
-	//상품대분류카테고리목록조회
-	public List<GoodsLargeCategory> getGoodsList(){
-		List<GoodsLargeCategory> goodsList = goodsMapper.getGoodsLargeCategoryList();
-		return goodsList;
+
+	//상품목록조회
+	public List<Goods> getGoodsList(){
+		List<Goods> goods = goodsMapper.getGoodsList();
+		return goods;
 	}
 }
