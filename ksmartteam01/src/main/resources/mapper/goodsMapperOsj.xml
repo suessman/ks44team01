@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="anypet.ks44team01.mapper.GoodsMapperOsj">
+		<resultMap type="GoodsLargeCategory" id="goodsResultMap">
+		<id 	column="category_code"				property="categoryCode"/>
+		<result column="category_name"				property="categoryName"/>
+		<result column="registration_datetime"		property="registrationDatetime"/>
+		<result column="id"							property="Id"/>
+		</resultMap>
+		
+		<!-- 대분류목록조회 -->
+		<select id="getGoodsLargeCategoryList" resultMap="goodsResultMap" fetchSize="100">
+			/* 대분류목록조회 */
+			SELECT 
+				category_code, 
+				category_name, 
+				registration_datetime
+			FROM 
+				company_category;
+		</select>
+		
+		<!-- 중분류목록조회 -->
+		<select id="getGoodsMediumCategoryList" >
+			/* 중분류목록조회 */
+			SELECT 
+				category_code_sum, 
+				category_code, 
+				category_name, 
+				registration_datetime
+			FROM 
+				company_category;
+		</select>
+		
+</mapper>

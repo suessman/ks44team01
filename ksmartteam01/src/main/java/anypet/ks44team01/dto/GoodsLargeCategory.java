@@ -5,8 +5,8 @@ public class GoodsLargeCategory {
 	private String categoryCode;
 	private String categoryName;
 	private String registrationDatetime;
+	private String Id;
 	
-
 	public String getCategoryCode() {
 		return categoryCode;
 	}
@@ -25,10 +25,17 @@ public class GoodsLargeCategory {
 	public void setRegistrationDatetime(String registrationDatetime) {
 		this.registrationDatetime = registrationDatetime;
 	}
-	
+	public String getId() {
+		return Id;
+	}
+	public void setId(String id) {
+		Id = id;
+	}
 	@Override
 	public String toString() {
-		return "goodsLargeCategory [categoryCode=" + categoryCode + ", categoryName=" + categoryName
-				+ ", registrationDatetime=" + registrationDatetime + "]";
+		return "GoodsLargeCategory [categoryCode=" + categoryCode + ", categoryName=" + categoryName
+				+ ", registrationDatetime=" + registrationDatetime + ", Id=" + Id + "]";
 	}
+	
+	
 }
