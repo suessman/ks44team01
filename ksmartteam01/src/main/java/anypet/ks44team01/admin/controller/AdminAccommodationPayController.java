@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationInquiry;
+import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.service.AccommodationService;
 
 @Controller
@@ -52,7 +53,10 @@ public class AdminAccommodationPayController {
 	 * 숙소 예약 내역 목록/상세
 	 */
 	@GetMapping("/accommodationReservationList")
-	public String getAccommodationReservationList() {
+	public String getAccommodationReservationList(Model model) {
+		List<AccommodationReservationList> accommodationReservationList = accommodationService.getAccommodationReservationList();
+		model.addAttribute("accommodationReservationList", accommodationReservationList);
+		
 		return "/admin/accommodation/reservation/accommodationReservationList";
 	}
 	
