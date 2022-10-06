@@ -1,17 +1,30 @@
 package anypet.ks44team01.dto;
 
-public class GoodsLargeCategory {
+public class GoodsMediumCategory {
 
+	private String categoryCodeSub;
 	private String categoryCode;
+	private String Id;
 	private String categoryName;
 	private String registrationDatetime;
-	private String Id;
 	
+	public String getCategoryCodeSub() {
+		return categoryCodeSub;
+	}
+	public void setCategoryCodeSub(String categoryCodeSub) {
+		this.categoryCodeSub = categoryCodeSub;
+	}
 	public String getCategoryCode() {
 		return categoryCode;
 	}
 	public void setCategoryCode(String categoryCode) {
 		this.categoryCode = categoryCode;
+	}
+	public String getId() {
+		return Id;
+	}
+	public void setId(String id) {
+		Id = id;
 	}
 	public String getCategoryName() {
 		return categoryName;
@@ -25,17 +38,12 @@ public class GoodsLargeCategory {
 	public void setRegistrationDatetime(String registrationDatetime) {
 		this.registrationDatetime = registrationDatetime;
 	}
-	public String getId() {
-		return Id;
-	}
-	public void setId(String id) {
-		Id = id;
-	}
 	@Override
 	public String toString() {
-		return "GoodsLargeCategory [categoryCode=" + categoryCode + ", categoryName=" + categoryName
-				+ ", registrationDatetime=" + registrationDatetime + ", Id=" + Id + "]";
+		return "GoodsMediumCategory [categoryCodeSub=" + categoryCodeSub + ", categoryCode=" + categoryCode + ", Id="
+				+ Id + ", categoryName=" + categoryName + ", registrationDatetime=" + registrationDatetime + "]";
 	}
+	
 	
 	
 }
