@@ -4,15 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="anypet.ks44team01.mapper.AccommodationListMapper">
-		<resultMap type="AccommodationList" id="accommodationResultMap" >
+	<resultMap type="AccommodationList" id="accommodationResultMap" >
 		<result column="accomodation_detail_code" 		property="accommodationDetailCode"/>
 		<result column="accomodation_category_name" 	property="accommodationCategoryCode"/>
-		<result column="region_code" 	property="accommodationRegionCode"/>
-		<result column="company_member_code" 	property="companyMemberCode"/>
-		<result column="id" 	property="memberId"/>
-		<result column="check_inout" property="checkInOut"/>		
+		<result column="region_code" 					property="accommodationRegionCode"/>
+		<result column="company_member_code" 			property="companyMemberCode"/>
+		<result column="id" 							property="memberId"/>
+		<result column="check_inout" 					property="checkInOut"/>	
 		
-<<<<<<< HEAD
+
 		<!-- 1:1 매핑 -->
 		<association property="accommodationCategoryDto" javaType="AccommodationCategory">
 			<id 	column="accomodation_category_code" 		property="accommodationCategoryCode"/>
@@ -30,14 +30,11 @@
 		</association>
 		
 		<association property="accommodationOptionDto" javaType="AccommodationOption">
-			<id 	column="goods_accommodation_option_code" property="goodsAccommodationOptionCode"/>
-			<result column="room_price" property="roomPrice"/>
-		</association>
-		
+			<id 	column="goods_accommodation_option_code" 	property="goodsAccommodationOptionCode"/>
+			<result column="room_price" 						property="roomPrice"/>
+		</association>		
 	</resultMap>
-=======
-		</resultMap>
->>>>>>> refs/heads/develop
+
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
 	SELECT 
 		d.accomodation_detail_code
