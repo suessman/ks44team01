@@ -9,6 +9,58 @@ public class AccommodationList {
 	private String checkInOut;
 	private String parking;
 	private String registrationDateTime;
+	
+	private AccommodationCategory accommodationCategoryDto;
+	
+	
+	public AccommodationCategory getAccommodationCategoryDto() {
+		return accommodationCategoryDto;
+	}
+	public void setAccommodationCategoryDto(AccommodationCategory accommodationCategoryDto) {
+		this.accommodationCategoryDto = accommodationCategoryDto;
+	}
+	
+	
+	private Region regionDto;	
+	
+	public Region getRegionDto() {
+		return regionDto;
+	}
+	public void setRegionDto(Region regionDto) {
+		this.regionDto = regionDto;
+	}
+	
+	private CompanyMember companyMemberDto;
+	
+	
+	public CompanyMember getCompanyMemberDto() {
+		return companyMemberDto;
+	}
+	public void setCompanyMemberDto(CompanyMember companyMemberDto) {
+		this.companyMemberDto = companyMemberDto;
+	}
+	
+	private AccommodationOption accommodationOptionDto;	
+	
+	
+
+	public AccommodationOption getAccommodationOptionDto() {
+		return accommodationOptionDto;
+	}
+	public void setAccommodationOptionDto(AccommodationOption accommodationOptionDto) {
+		this.accommodationOptionDto = accommodationOptionDto;
+	}
+
+
+	private AccommodationSpecialPrice accommodationSpecialPriceDto;	
+	
+
+	public AccommodationSpecialPrice getAccommodationSpecialPriceDto() {
+		return accommodationSpecialPriceDto;
+	}
+	public void setAccommodationSpecialPriceDto(AccommodationSpecialPrice accommodationSpecialPriceDto) {
+		this.accommodationSpecialPriceDto = accommodationSpecialPriceDto;
+	}
 	public String getAccommodationDetailCode() {
 		return accommodationDetailCode;
 	}
@@ -57,17 +109,21 @@ public class AccommodationList {
 	public void setRegistrationDateTime(String registrationDateTime) {
 		this.registrationDateTime = registrationDateTime;
 	}
+	
 	@Override
 	public String toString() {
 		return "AccommodationList [accommodationDetailCode=" + accommodationDetailCode + ", accommodationCategoryCode="
 				+ accommodationCategoryCode + ", accommodationRegionCode=" + accommodationRegionCode
 				+ ", companyMemberCode=" + companyMemberCode + ", memberId=" + memberId + ", checkInOut=" + checkInOut
 				+ ", parking=" + parking + ", registrationDateTime=" + registrationDateTime
-				+ ", getAccommodationDetailCode()=" + getAccommodationDetailCode() + ", getAccommodationCategoryCode()="
-				+ getAccommodationCategoryCode() + ", getAccommodationRegionCode()=" + getAccommodationRegionCode()
-				+ ", getCompanyMemberCode()=" + getCompanyMemberCode() + ", getMemberId()=" + getMemberId()
-				+ ", getCheckInOut()=" + getCheckInOut() + ", getParking()=" + getParking()
-				+ ", getRegistrationDateTime()=" + getRegistrationDateTime() + ", getClass()=" + getClass()
-				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+				+ ", accommodationCategoryDto=" + accommodationCategoryDto + ", getAccommodationCategoryDto()="
+				+ getAccommodationCategoryDto() + ", getAccommodationDetailCode()=" + getAccommodationDetailCode()
+				+ ", getAccommodationCategoryCode()=" + getAccommodationCategoryCode()
+				+ ", getAccommodationRegionCode()=" + getAccommodationRegionCode() + ", getCompanyMemberCode()="
+				+ getCompanyMemberCode() + ", getMemberId()=" + getMemberId() + ", getCheckInOut()=" + getCheckInOut()
+				+ ", getParking()=" + getParking() + ", getRegistrationDateTime()=" + getRegistrationDateTime()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
+	
 }
