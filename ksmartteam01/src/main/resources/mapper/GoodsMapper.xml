@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="anypet.ks44team01.mapper.GoodsMapper">
+ 		<resultMap type="GoodsList" id="goodsResultMap">
+			<id 	column="id"						property="goodsId"/>
+			<result column="goods_code"				property="goodsCode"/>
+			<result column="goods_name"				property="goodsName"/>
+			<result column="category_code_sub"		property="categoryCodeSub"/>
+			<result column="goods_resgister_time"	property="goodsResgisterTime"/>
+			<result column="goods_image"			property="goodsImage"/>
+			<result column="goods_price"			property="goodsPrice"/>
+		</resultMap>
+ 	
+ 	<select id="getGoodsList" resultMap="goodsResultMap" fetchSize="100">
+	
+		/* 상품목록 */
+		SELECT
+			 m.id
+			,g.goods_code
+			,g.goods_name
+			,ccs.category_code_sub
+			,g.goods_resgister_time
+			,g.goods_image
+			,g.goods_price
+		FROM
+			goods	AS g
+			INNER JOIN 
+			member AS m
+			ON 
+			m.id = g.id
+			INNER JOIN
+			company_category_sub AS ccs
+			ON
+			g.category_code_sub = ccs.category_code_sub;
+			
+			
+	</select>
+	
+	<select id="getGoodsInquiryModify" resultType="GoodsInquiry" fetchSize="100">
+	
+		/* 상품문의목록 */
+			 SELECT 
+				 goods_QnA_number			as goodsQnaNumber
+				,goods_code					as goodsCode
+				,id							as GoodsInquiryId
+				,goods_QnA_datetime			as goodsQnaDatetime
+				,goods_QnA_title			as goodsQnaTitle
+				,goods_QnA_contents			as goodsQnaContents
+				,goods_QnA_answer			as goodsQnaAnswer
+				,goods_QnA_secret			as goodsQnaSecret
+			FROM 
+				goods_QnA;
+	</select>
+</mapper>
