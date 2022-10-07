@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationInquiry;
+import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.mapper.AccommodationMapper;
 
 @Service
@@ -26,6 +27,13 @@ public class AccommodationService {
 		System.out.println("accommodationService bean 생성");
 	}
 	
+	//예약내역 목록
+	public List<AccommodationReservationList> getAccommodationReservationList(){
+		
+		List<AccommodationReservationList> accommodationReservationList = accommodationMapper.getAccommodationReservationList();
+		
+		return accommodationReservationList;
+	}
 
 	//문의 목록
 	public List<AccommodationInquiry> getAccommodationInquiryList(){
@@ -34,6 +42,30 @@ public class AccommodationService {
 		
 		return accommodationInquiryList;
 		
+	}
+	
+	//특정 카테고리 조회
+	public AccommodationCategory getCategoryInfo(String accommodationCategoryCode) {
+		
+		AccommodationCategory accommodationCategory = accommodationMapper.getCategoryInfo(accommodationCategoryCode);
+		
+		return accommodationCategory;	
+	}
+	
+	//카테고리 수정
+	public void modifyAccommodationCategory(AccommodationCategory accommodationCategory) {
+		
+		accommodationMapper.modifyAccommodationCategory(accommodationCategory);
+		
+		System.out.println("카테고리 수정: " + accommodationCategory);
+	}
+	
+	//카테고리 등록
+	public void addAccommodationCategory(AccommodationCategory accommodationCategory){
+		
+		accommodationMapper.addAccommodationCategory(accommodationCategory);
+		
+		System.out.println("카테고리 등록: " + accommodationCategory);
 	}
 	
 	//카테고리 목록

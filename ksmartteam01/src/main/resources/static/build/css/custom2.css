@@ -109,5 +109,12 @@
 	border: none; 
 	background-color: #007bff; 
 	color: white; 
-	border-radius: 10%
+	border-radius: 10%	
+}
+
+.accomInquiryBtn{
+	border: none; 
+	background-color: #007bff; 
+	color: white; 
+	border-radius: 10%	
 }

@@ -37,32 +37,33 @@
 	                  	</div>
 			        	<div class="x_content">
 							<br />
-							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" th:action="@{/admin/accommodation/accommodationCategoryModify}" th:object="${categoryInfo}">
+								<input style="display: none;" type="text" name="accommodationCategoryCode" th:value="*{accommodationCategoryCode}">
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">카테고리명<span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="first-name" required="required" class="form-control" value="호텔">
+										<input type="text" id="first-name" required="required" class="form-control" name="accommodationCategoryName" th:value="${categoryInfo.accommodationCategoryName}">
 									</div>
 								</div>
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">등록 ID<span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="last-name" name="last-name" required="required" class="form-control" value="id001" readonly>
+										<input type="text" id="last-name" name="accommodationId" required="required" class="form-control" th:value="*{accommodationId}" readonly>
 									</div>
 								</div>
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">수정 ID<span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="last-name" name="last-name" required="required" class="form-control" value="id002" readonly>
+										<input type="text" id="last-name" name="last-name" required="required" class="form-control" th:value="*{accommodationId}" readonly>
 									</div>
 								</div>
 								
 								<div class="item form-group" align="center">
 									<div class="col-md-6 col-sm-6 offset-md-3">
-										<button class="btn btn-primary" type="button">수정</button>
+										<button class="btn btn-primary" type="submit">수정</button>
 										<button class="btn btn-primary" type="reset">취소</button>
 									</div>
 								</div>

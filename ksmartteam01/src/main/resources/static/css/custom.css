@@ -435,6 +435,14 @@ span.text-primary.md-text{
 		display:block !important;
 	}
 	
+<<<<<<< HEAD
+}
+
+/*범준*/
+
+.input-height{
+	height:42px;
+=======
 	.form-display-layout .form-el{
 		margin-left:0 !important;
 		margin-top: 16px;
@@ -481,4 +489,5 @@ span.text-primary.md-text{
 	object-fit:cover;
 	width:80px;
 	height:80px;
+>>>>>>> refs/heads/develop
 }

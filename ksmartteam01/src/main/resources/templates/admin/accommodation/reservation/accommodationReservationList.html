@@ -65,24 +65,22 @@
 				                			</tr>
 				                		</thead>
 				                		<tbody>
-				                			<tr>
-				                				<td>arn001</td>
+				                			<tr th:each="l : ${accommodationReservationList}">
+				                				<td th:text="${l.accommodationReservationCode}"></td>
 				                				<td>
-				                					<a href="#">id001</a>
+				                					<a href="#" th:text="${l.id}"></a>
 				                				</td>
-				                				<td>홍길동</td>
+				                				<td th:text="${l.name}"></td>
 				                				<td>
-				                					<a href="#">호텔A</a>
-				                				</td>
-				                				<td>
-				                					<a href="#" >스위트룸</a>
+				                					<a href="#" th:text="${l.name}"></a>
 				                				</td>
 				                				<td>
-				                					<a href="#" class="open_modal">apc001</a>
+				                					<a href="#" th:text="${l.accommodationOption}"></a>
 				                				</td>
 				                				<td>
-				                					2022-09-20 16:00:00
+				                					<a href="#" th:text="${l.accommodationPaymentCode}" class="open_modal"></a>
 				                				</td>
+				                				<td th:text="${l.reservationDatetime}"></td>
 				                				<td>
 													예약확정
 													<a href="#" class="reservation_modal">(예약상태 변경)</a>
@@ -90,12 +88,8 @@
 				                				<td>
 				                					<a href="#" class="remove_modal"><button type="submit" style="border: none; background-color: skyblue; border-radius: 10%">X</button></a>
 				                				</td>
-				                				<td>
-				                					2022-09-23 16:00:00
-				                				</td>
-				                				<td>
-				                					2022-09-24 16:00:00
-				                				</td>
+				                				<td th:text="${l.checkinDatetime}"></td>
+				                				<td th:text="${l.checkoutDatetime}"></td>
 				                				<td>2</td>
 				                			</tr>
 				                		</tbody>
@@ -183,35 +177,35 @@
             <div class="row">
 				<div class="x_content">
 					<br/>
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:each="l : ${accommodationReservationList}">
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-3 label-align" for="first-name">결제금액<span class="required">*</span></label>
 							<div class="col-md-8 col-sm-6 ">
-								<input type="text" id="first-name" required="required" class="form-control" value="150,000">
+								<input type="text" id="first-name" required="required" class="form-control" th:value="${l.paymentAmount}">
 							</div>
 						</div>
 						<div class="item form-group">
 							<label class="col-form-label col-md-4 col-sm-3 label-align" for="last-name">사용적립금<span class="required">*</span></label>
 							<div class="col-md-8 col-sm-6 ">
-								<input type="text" id="last-name" name="last-name" required="required" class="form-control" value="50,000">
+								<input type="text" id="last-name" name="last-name" required="required" class="form-control" th:value="${l.usingPoint}">
 							</div>
 						</div>
 						<div class="item form-group">
 							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">총결제금액</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" value="100,000">
+								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.totalPaymentPrice}">
 							</div>
 						</div>
 						<div class="item form-group">
 							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">결제일자</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" value="2022-09-21 17:00:00">
+								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.paymentDate}">
 							</div>
 						</div>
 						<div class="item form-group">
 							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">결제방식</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" value="계좌이체(농협)">
+								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.paymentTerm}">
 							</div>
 						</div>
 						<div class="item form-group" align="center" style="margin-top: 30px;">
