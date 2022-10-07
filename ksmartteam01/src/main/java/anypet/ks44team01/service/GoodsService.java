@@ -2,11 +2,13 @@ package anypet.ks44team01.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import anypet.ks44team01.dto.Goods;
+import anypet.ks44team01.dto.GoodsList;
+import anypet.ks44team01.dto.GoodsInquiry;
 import anypet.ks44team01.mapper.GoodsMapper;
 
 
@@ -14,6 +16,7 @@ import anypet.ks44team01.mapper.GoodsMapper;
 @Transactional
 public class GoodsService {
 	
+	@Autowired
 	private final GoodsMapper goodsMapper;
 	
 	public GoodsService(GoodsMapper goodsMapper) {
@@ -23,8 +26,14 @@ public class GoodsService {
 	
 
 	//상품목록조회
-	public List<Goods> getGoodsList(){
-		List<Goods> goods = goodsMapper.getGoodsList();
-		return goods;
+	public List<GoodsList> getGoodsList(){
+		List<GoodsList> goodsList = goodsMapper.getGoodsList();
+		return goodsList;
+	}
+	
+	//상품문의목록
+	public List<GoodsInquiry> getGoodsInquiryModify(){
+		List<GoodsInquiry> GoodsInquiryModify = goodsMapper.getGoodsInquiryModify();
+		return GoodsInquiryModify;
 	}
 }
