@@ -82,6 +82,57 @@
 			d.company_member_code = m.company_member_code;
 	</select>
 	
+	<!-- 특정 숙소 카테고리 조회  -->
+	<select id="getCategoryInfo" resultMap="accommodationCategory" parameterType="String">
+		SELECT 
+			 accomodation_category_code 
+			,id
+			,accomodation_category_name 
+			,registration_datetime
+		FROM
+			accomodation_category
+		WHERE 
+			accomodation_category_code = #{accommodationCategoryCode};
+	</select>	
+	
+	<!-- 숙소 카테고리 수정 -->
+	<update id="modifyAccommodationCategory" parameterType="AccommodationCategory">
+		UPDATE accomodation_category
+		<trim prefix="SET">
+			<if test="accommodationCategoryName != null and accommodationCategoryName != ''">
+				accomodation_category_name	= #{accommodationCategoryName}
+			</if>
+		</trim>
+		WHERE
+			accomodation_category_code= #{accommodationCategoryCode};
+	</update>
+	
+	<!-- 숙소 카테고리 등록 -->
+	<insert id="addAccommodationCategory" parameterType="AccommodationCategory">
+		<selectKey keyProperty="accommodationCategoryCode" resultType="String" order="BEFORE">
+ 			SELECT 
+				(CASE 
+					WHEN COUNT(c.accomodation_category_code) = 0 THEN 'acc001'
+					WHEN MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code, 'acc', -1) AS UNSIGNED)) > 999
+						THEN CONCAT('acc', MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'acc',-1) AS UNSIGNED))+1)
+					ELSE CONCAT('acc', LPAD(MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'acc',-1) AS UNSIGNED))+1,3,0))
+				 END
+				)AS accommodationCategoryCode
+			FROM
+				accomodation_category AS c			
+		</selectKey>	
+		INSERT INTO accomodation_category
+			(accomodation_category_code, 
+			 id, 
+			 accomodation_category_name, 
+			 registration_datetime)
+		VALUES 
+			(#{accommodationCategoryCode}, 
+			 'id001', 
+			 #{accommodationCategoryName}, 
+			 NOW());
+	</insert>
+	
 	<!-- 숙소 카테고리 목록 조회 -->
 	<select id="getAccommodationCategoryList" resultMap="accommodationCategory">
 		SELECT 
