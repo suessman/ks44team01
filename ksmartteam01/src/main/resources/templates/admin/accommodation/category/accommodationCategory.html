@@ -61,7 +61,7 @@
 				                          	<td th:text="${l.accommodationId}"></td>
 				                          	<td th:text="${l.registrationDateTime}"></td>
 				                          	<td>
-				                          		<a href="/admin/accommodation/accommodationCategoryModify"><button class="accomInquiryBtn" type="submit">수정</button></a>
+				                          		<a th:href="@{/admin/accommodation/accommodationCategoryModify(accommodationCategoryCode=${l.accommodationCategoryCode})}"><button class="accomInquiryBtn" type="submit">수정</button></a>
 				                          		<a href="#"><button class="accomInquiryBtn" type="submit">삭제</button></a>
 				                          	</td>
 			                        	</tr>

@@ -19,6 +19,15 @@ public interface AccommodationMapper{
 	//문의 목록
 	public List<AccommodationInquiry> getAccommodationInquiryList();
 	
+	//특정 카테고리 조회
+	public AccommodationCategory getCategoryInfo(String accommodationCategoryCode);
+	
+	//카테고리 수정
+	public int modifyAccommodationCategory(AccommodationCategory accommodationCategory);
+
+	//카테고리 등록
+	public int addAccommodationCategory(AccommodationCategory accommodationCategory);
+	
 	//카테고리 목록
 	public List<AccommodationCategory> getAccommodationCategoryList();
 }

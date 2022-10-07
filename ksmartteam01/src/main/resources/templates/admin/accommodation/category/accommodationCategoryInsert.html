@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
      layout:decorate="~{layout/adminDefault}">
+     
    <!-- 사용자 정의 타이틀 설정 -->
    <th:block layout:fragment="customTitle">
       <title>숙소카테고리등록</title>
@@ -36,13 +37,13 @@
 	                    	</ul>
 	                  	</div>
 			        	<div class="x_content">
-							<br />
-							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+							<br/>
+							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:action="@{/admin/accommodation/accommodationCategoryInsert}" method="post">
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">카테고리명<span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="first-name" required="required" class="form-control">
+										<input type="text" id="first-name" required="required" class="form-control" name="accommodationCategoryName">
 									</div>
 								</div>
 								<div class="item form-group">
@@ -55,7 +56,7 @@
 								
 								<div class="item form-group" align="center">
 									<div class="col-md-6 col-sm-6 offset-md-3">
-										<button class="btn btn-primary" type="button">등록</button>
+										<button class="btn btn-primary" type="submit">등록</button>
 										<button class="btn btn-primary" type="reset">취소</button>
 									</div>
 								</div>
