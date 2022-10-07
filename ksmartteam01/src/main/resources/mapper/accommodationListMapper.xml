@@ -4,24 +4,68 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="anypet.ks44team01.mapper.AccommodationListMapper">
-		<resultMap type="AccommodationList" id="accommodationResultMap" >	
-		
+		<resultMap type="AccommodationList" id="accommodationResultMap" >
 		<result column="accomodation_detail_code" 		property="accommodationDetailCode"/>
-		<result column="accomodation_category_code" 	property="accommodationCategoryCode"/>
+		<result column="accomodation_category_name" 	property="accommodationCategoryCode"/>
 		<result column="region_code" 	property="accommodationRegionCode"/>
 		<result column="company_member_code" 	property="companyMemberCode"/>
 		<result column="id" 	property="memberId"/>
 		<result column="check_inout" property="checkInOut"/>		
 		
+<<<<<<< HEAD
+		<!-- 1:1 매핑 -->
+		<association property="accommodationCategoryDto" javaType="AccommodationCategory">
+			<id 	column="accomodation_category_code" 		property="accommodationCategoryCode"/>
+			<result column="accomodation_category_name" 	 	property="accommodationCategoryName"/>			
+		</association>
+		
+		<association property="regionDto" javaType="Region">
+				<id 	column="region_code" 		property="regionCode"/>
+				<result column="region_name" 	 	property="regionName"/>
+		</association>
+			
+		<association property="companyMemberDto" javaType="CompanyMember">
+			<id 	column="company_member_code" 		property="companyMemberCode"/>
+			<result column="company_name" 	 			property="companyName"/>
+		</association>
+		
+		<association property="accommodationOptionDto" javaType="AccommodationOption">
+			<id 	column="goods_accommodation_option_code" property="goodsAccommodationOptionCode"/>
+			<result column="room_price" property="roomPrice"/>
+		</association>
+		
+	</resultMap>
+=======
 		</resultMap>
+>>>>>>> refs/heads/develop
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
 	SELECT 
-		accomodation_detail_code 
-		, accomodation_category_code 
-		, region_code 
-		, company_member_code 
-		, id 
-		, check_inout 
-	FROM accomodation_detail
+		d.accomodation_detail_code
+		, c.accomodation_category_name
+		, r.region_name
+		, m.id
+		, m.company_name
+		, d.check_inout
+		, d.parking
+		, d.registration_datetime
+		, o.room_price	
+	FROM 
+		accomodation_detail AS d
+		INNER JOIN 
+		accomodation_category AS c
+		ON 
+		d.accomodation_category_code = c.accomodation_category_code
+		INNER JOIN
+		region AS r
+		on
+		r.region_code = d.region_code
+		INNER JOIN
+		company_member AS m
+		ON 
+		m.company_member_code = d.company_member_code
+		INNER JOIN
+		goods_accomodation_option AS o
+		ON
+		o.accomodation_detail_code = d.accomodation_detail_code; 
 	</select>
   </mapper>

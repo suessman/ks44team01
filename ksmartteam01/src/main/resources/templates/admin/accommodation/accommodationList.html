@@ -72,12 +72,25 @@
 		                                    </thead>	
 		
 		                                    <tbody>
+		                                    	<!-- <tr>
+		                                    		<td>1</td>
+													<td>신라스테이마포</td>
+													<td>서울</td>
+													<td>호텔</td>
+													<td>124,000원</td>
+													<td>
+			                                            <a href="/admin/accommodation/updateAccommodation">
+			                                            	<button type="button" class="btn btn-sm btn-primary">수정</button>
+			                                            </a>	    
+		                                            	<button type="button" class="btn btn-sm btn-success">삭제</button>
+		                                            </td>	
+		                                    	</tr> -->
 		                                        <tr th:if="${not #lists.isEmpty(accommodationList)}" th:each="l : ${accommodationList}" onclick="location.href='/admin/accommodation/accommodationDetail'">
-		                                            <td th:text=${l.accommodationDetailCode}></td>
-		                                            <td th:text=${l.accommodationCategoryCode}></td>
-		                                            <td th:text=${l.accommodationRegionCode}></td>
-		                                            <td th:text=${l.companyMemberCode}></td>
-		                                            <td th:text=${l.memberId}></td>	
+										            <td th:text=${l.accommodationDetailCode}></td>
+		                                            <td th:text=${l.accommodationCategoryDto.accommodationCategoryName}></td>
+		                                            <td th:text=${l.regionDto.regionName}></td>
+		                                            <td th:text=${l.companyMemberDto.companyName}></td>
+		                                            <td th:text=${l.accommodationOptionDto.roomPrice}></td>		                                           
 		                                            <td>
 			                                            <a href="/admin/accommodation/updateAccommodation">
 			                                            	<button type="button" class="btn btn-sm btn-primary">수정</button>

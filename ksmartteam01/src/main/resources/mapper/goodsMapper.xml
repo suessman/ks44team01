@@ -3,8 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="anypet.ks44team01.mapper.GoodsMapper">
+<<<<<<< HEAD
+	<!-- <select id="getGoodsList" resultMap="goodsResultMap" fetchSize="100"> -->
+	<select id="getGoodsList">
+=======
 	<select id="getGoodsList" fetchSize="100">
 	
+>>>>>>> refs/heads/develop
 	/* 상품리스트*/
 	SELECT
 		id
