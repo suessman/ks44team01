@@ -13,7 +13,7 @@
 		<result column="id" 	property="memberId"/>
 		<result column="check_inout" property="checkInOut"/>		
 		
-	</resultMap>
+		</resultMap>
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
 	SELECT 
 		accomodation_detail_code 
