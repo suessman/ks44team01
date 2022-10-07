@@ -103,8 +103,7 @@
 																<th>Salary</th>
 															</tr>
 														</thead>
-
-
+                                                      
 														<tbody>
 															<tr th:if="${not #lists.isEmpty(boardList)}"
 																th:each="b : ${boardList}" id="boardListTable">
@@ -117,7 +116,6 @@
 																<td th:text="${b.board_datetime}"></td>
 																<td th:text="${b.board_hits}"></td>
 															</tr>
-
 														</tbody>
 													</table>
 												</div>

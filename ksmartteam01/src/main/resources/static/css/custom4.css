@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.box-fragment-ui{
+	justify-content:space-between;
+}
+.box-fragment-ui div.nice-select{
+	width:100%;
+}
+.box-fragment-ui div{
+	width:30%;	
+}
