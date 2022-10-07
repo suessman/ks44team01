@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
-<head th:replace="fragments/head :: headFragment">
+<head th:replace="fragments/user/head :: headFragment">
 </head>
 <body>
 	<div id="wrapper">
 		<!-- start header -->
-		<div th:replace="fragments/header :: headerFragment">
+		<div th:replace="fragments/user/header :: headerFragment">
 		</div>
 		<!-- end header -->
 		
@@ -25,7 +25,7 @@
 		<!-- end contents -->
 		
 		<!-- start footer -->		
-		<div th:replace="fragments/footer :: footerFragment" >
+		<div th:replace="fragments/user/footer :: footerFragment" >
 		</div>
 		<!-- end footer -->
 	</div>
@@ -35,6 +35,8 @@
 	<script th:src="@{/js/mixitup.min.js}"></script>
     <script th:src="@{/js/owl.carousel.min.js}"></script>
     <script th:src="@{/js/main.js}"></script>
+    
+    
 	</th:block>
 </body>
 </html>

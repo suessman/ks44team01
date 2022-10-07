@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="anypet.ks44team01.mapper.AccommodationMapper">
+	<resultMap 	type="AccommodationCategory" id="accommodationCategory">
+		<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
+		<result	column="id" property="accommodationId"/>
+		<result	column="accomodation_category_name" property="accommodationCategoryName"/>
+		<result	column="registration_datetime" property="registrationDateTime"/>
+	</resultMap>
+	
+	<!-- 숙소 예약내역 조회  -->
+	<select id="getAccommodationReservationList" resultType="AccommodationReservationList">
+	SELECT 
+		 r.accomodation_reservation_number 				AS accommodationReservationCode
+		,r.id 											AS id
+		,m.name 										AS name
+		,o.accomodation_option							AS accommodationOption
+		,r.accomodation_date 							AS reservationDatetime
+		,r.checkin_date 								AS checkinDatetime
+		,r.checkout_date 								AS checkoutDatetime
+		,r.reservation_people 							AS totalNumber
+		,p.accomodation_payment_number  				AS accommodationPaymentCode
+		,r.payment_amount								AS paymentAmount
+		,r.using_point 									AS usingPoint
+		,r.total_payment_price 							AS totalPaymentPrice
+		,p.accomodation_payment_term 					AS paymentTerm
+		,p.accomodation_payment_bank 					AS paymnetBank
+		,p.accomodation_payment_date 					AS paymentDate
+		,cm.company_name 								AS companyName
+	FROM
+		accomodation_detail AS d
+		INNER JOIN 
+		accomodation_reservation AS r
+		ON
+		r.accomodation_detail_code = d.accomodation_detail_code
+		INNER JOIN 
+		goods_accomodation_option AS o 
+		ON
+		o.accomodation_detail_code = d.accomodation_detail_code
+		INNER JOIN 
+		member AS m
+		ON
+		m.id = r.id
+		INNER JOIN 
+		accomodation_payment AS p
+		ON
+		p.accomodation_reservation_number = r.accomodation_reservation_number
+		INNER JOIN 
+		accomodation_payment_cancel AS c
+		ON
+		p.accomodation_payment_number = c.accomodation_payment_number
+		INNER JOIN 
+		company_member AS cm
+		ON
+		cm.company_member_code = d.company_member_code
+	</select>
+	
+	<!-- 숙소 문의사항 목록 조회 -->
+	<select id="getAccommodationInquiryList" resultType="AccommodationInquiry">
+		SELECT
+			 m.company_name								AS companyName
+			,q.id										AS inquiryId
+			,q.accomodation_QnA_title					AS titleName
+			,q.accomodation_QnA_datetime				AS datetime
+			,d.id										AS answerId
+			,q.accomodation_QnA_answer_datetime			AS answerDatetime
+			,q.accomodation_QnA_contents				AS contents
+			,q.accomodation_QnA_answer					AS answer
+			,q.accomodation_QnA_number					AS inquiryCode
+		FROM
+			accomodation_QnA AS q
+			INNER JOIN
+			accomodation_detail AS d
+			ON 
+			q.accomodation_detail_code = d.accomodation_detail_code
+			INNER JOIN
+			company_member AS m
+			ON
+			d.company_member_code = m.company_member_code;
+	</select>
+	
+	<!-- 숙소 카테고리 목록 조회 -->
+	<select id="getAccommodationCategoryList" resultMap="accommodationCategory">
+		SELECT 
+			accomodation_category_code, 
+			id, 
+			accomodation_category_name, 
+			registration_datetime
+		FROM 
+			accomodation_category;
+	</select>
+  </mapper>

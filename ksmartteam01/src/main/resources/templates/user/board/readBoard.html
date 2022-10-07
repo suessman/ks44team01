@@ -66,11 +66,26 @@
         </div>
 	
 	<div style="text-align: center;">
-		<a href="/board/modifyBoard"><button>수정하기</button></a>
-		<a href="javascript:add_check('/board/boardList')"><button>삭제하기</button></a>
-		<a href="/board/boardList"><button>목록 이동</button></a>
+		<a href="/user/board/modifyBoard"><button>수정하기</button></a>
+		<a href="javascript:delete_check('/user/board/boardList')"><button>삭제하기</button></a>
+		<a href="/user/board/boardList"><button>목록 이동</button></a>
 		<a href="#top"><button>위로 가기</button></a>
 	</div>
+	
+	<script>	
+	/*수정한 글 등록 확인 시작*/
+	function delete_check(url){
+		var answer;
+		//페이지를 이동하기 전에 confirm()을 사용해 다시 한번 확인한다.
+		//확인을 선택하면 answer에  true, 취소를 선택하면 false 값이 들어간다.
+		answer = confirm("글을 삭제하시겠습니까?");
+		//확인을 선택한 경우 자바스크립트를 호출할 때 같이 넘어온 url이라는 변수에 들어있는 주소로 페이지 이동
+		if(answer == true){
+			location = url;
+		}
+	}
+	/*수정한 글 등록 확인 끝*/
+	</script>
 	
 	<!-- JS 댓글 기능 시작 -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
