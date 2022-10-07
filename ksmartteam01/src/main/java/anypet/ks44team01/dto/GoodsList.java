@@ -8,6 +8,8 @@ public class GoodsList {
 	private String goodsResgisterTime;
 	private String goodsImage;
 	private int goodsPrice;
+	private String goodsQuantiy;
+	
 	public String getGoodsCode() {
 		return goodsCode;
 	}
@@ -50,13 +52,28 @@ public class GoodsList {
 	public void setGoodsPrice(int goodsPrice) {
 		this.goodsPrice = goodsPrice;
 	}
+	public String getGoodsQuantiy() {
+		return goodsQuantiy;
+	}
+	public void setGoodsQuantiy(String goodsQuantiy) {
+		this.goodsQuantiy = goodsQuantiy;
+	}
 	
 	@Override
 	public String toString() {
-		return "GoodsList [goodsCode=" + goodsCode + ", goodsId=" + goodsId + ", goodsName=" + goodsName
-				+ ", categoryCodeSub=" + categoryCodeSub + ", goodsResgisterTime=" + goodsResgisterTime
-				+ ", goodsImage=" + goodsImage + ", goodsPrice=" + goodsPrice + "]";
+		return "GoodsList " + 
+				"[goodsCode=" + goodsCode + 
+				", goodsId=" + goodsId + 
+				", goodsName=" + goodsName + 
+				", categoryCodeSub=" + categoryCodeSub + 
+				", goodsResgisterTime=" + goodsResgisterTime + 
+				", goodsImage=" + goodsImage + 
+				", goodsPrice=" + goodsPrice + 
+				", goodsQuantiy=" + goodsQuantiy + "]";
 	}
+
+	
+	
 	
 	
 }
