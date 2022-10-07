@@ -10,9 +10,9 @@
 		<result column="region_code" 	property="accommodationRegionCode"/>
 		<result column="company_member_code" 	property="companyMemberCode"/>
 		<result column="id" 	property="memberId"/>
-		<result column="check_inout" property="checkInOut"/>		
+		<result column="check_inout" property="checkInOut"/>	
 		
-<<<<<<< HEAD
+
 		<!-- 1:1 매핑 -->
 		<association property="accommodationCategoryDto" javaType="AccommodationCategory">
 			<id 	column="accomodation_category_code" 		property="accommodationCategoryCode"/>
@@ -35,9 +35,7 @@
 		</association>
 		
 	</resultMap>
-=======
-		</resultMap>
->>>>>>> refs/heads/develop
+
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
 	SELECT 
 		d.accomodation_detail_code
