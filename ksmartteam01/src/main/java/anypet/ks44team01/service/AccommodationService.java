@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationInquiry;
+import anypet.ks44team01.dto.AccommodationPayment;
 import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.mapper.AccommodationMapper;
 
@@ -26,6 +27,16 @@ public class AccommodationService {
 	public void accommodationService() {
 		System.out.println("accommodationService bean 생성");
 	}
+	
+	
+	//특정 결제내역 조회 
+	public AccommodationPayment getAccommodationPayment(String accommodationReservationCode) {
+	 
+		AccommodationPayment accommodationPayment = accommodationMapper.getAccommodationPayment(accommodationReservationCode);
+	 
+		return accommodationPayment; 
+	}
+	
 	
 	//예약내역 목록
 	public List<AccommodationReservationList> getAccommodationReservationList(){
@@ -50,6 +61,14 @@ public class AccommodationService {
 		AccommodationCategory accommodationCategory = accommodationMapper.getCategoryInfo(accommodationCategoryCode);
 		
 		return accommodationCategory;	
+	}
+	
+	//카테고리 삭제
+	public int deleteAccommodationCategory(String accommodationCategoryCode) {
+		
+		int result = accommodationMapper.deleteAccommodationCategory(accommodationCategoryCode);
+		
+		return result;
 	}
 	
 	//카테고리 수정
