@@ -25,4 +25,13 @@ public interface GoodsMapper {
 	
 	//상품 중분류 목록
 	public List<GoodsCategorySub> getGoodsCategorySub();
+
+	public void goodsInsert(GoodsList goodsList);
+
+	//상품 수정
+	public int goodsModify(GoodsList goodsList);
+	
+	//특정 상품 조회
+	public GoodsList getGoodsInfoByCode(String goodsCode);
+	
 }
