@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<head th:replace="fragments/admin/head :: headFragment">
+</head>
+ <body class="bg-white" style="height:100vh;">
+	<div class="container body h-100">
+		<div class="main_container h-100">
+			<!-- 사용자 정의 contents -->
+			<th:block layout:fragment="customContents">
+			내용 들어가는부분	
+			</th:block>		
+			<!-- end contents -->		
+		</div>		
+	</div>
+	
+	<!-- 사용자 정의 JS 하단 -->
+	<th:block layout:fragment="customFootJs">		
+	<!-- Bootstrap -->
+    <link th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link th:href="@{/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
+    <!-- NProgress -->
+    <link th:href="@{/vendors/nprogress/nprogress.css}" rel="stylesheet}">
+    <!-- Animate.css -->
+    <link th:href="@{/vendors/animate.css/animate.min.css}" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link th:href="@{/build/css/custom.min.css}" rel="stylesheet">
+
+	</th:block>
+</body>
+</html>

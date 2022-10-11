@@ -44,6 +44,30 @@ public class AccommodationService {
 		
 	}
 	
+	//특정 카테고리 조회
+	public AccommodationCategory getCategoryInfo(String accommodationCategoryCode) {
+		
+		AccommodationCategory accommodationCategory = accommodationMapper.getCategoryInfo(accommodationCategoryCode);
+		
+		return accommodationCategory;	
+	}
+	
+	//카테고리 수정
+	public void modifyAccommodationCategory(AccommodationCategory accommodationCategory) {
+		
+		accommodationMapper.modifyAccommodationCategory(accommodationCategory);
+		
+		System.out.println("카테고리 수정: " + accommodationCategory);
+	}
+	
+	//카테고리 등록
+	public void addAccommodationCategory(AccommodationCategory accommodationCategory){
+		
+		accommodationMapper.addAccommodationCategory(accommodationCategory);
+		
+		System.out.println("카테고리 등록: " + accommodationCategory);
+	}
+	
 	//카테고리 목록
 	public List<AccommodationCategory> getAccomodationCategoryList(){
 		
