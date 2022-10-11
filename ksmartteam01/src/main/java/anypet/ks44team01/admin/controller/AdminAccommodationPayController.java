@@ -25,6 +25,19 @@ public class AdminAccommodationPayController {
 	}
 	
 	/**
+	 * 숙소 카테고리 삭제
+	 * */
+	@GetMapping("/deleteAccommodationCategory")
+	public String deleteAccommodationCategory(String accommodationCategoryCode) {
+	
+		accommodationService.deleteAccommodationCategory(accommodationCategoryCode);
+		
+		System.out.println("카테고리 삭제 정보: " + accommodationCategoryCode);
+		
+		return "redirect:accommodationCategory";
+	}
+	
+	/**
 	 * 숙소 카테고리 수정
 	 */	
 	@PostMapping("/accommodationCategoryModify")
@@ -82,12 +95,15 @@ public class AdminAccommodationPayController {
 		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
+	
 	/**
 	 * 숙소 예약 내역 목록/상세
 	 */
 	@GetMapping("/accommodationReservationList")
 	public String getAccommodationReservationList(Model model) {
+		
 		List<AccommodationReservationList> accommodationReservationList = accommodationService.getAccommodationReservationList();
+		
 		model.addAttribute("accommodationReservationList", accommodationReservationList);
 		
 		return "/admin/accommodation/reservation/accommodationReservationList";
