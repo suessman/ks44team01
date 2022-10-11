@@ -2,6 +2,8 @@ package anypet.ks44team01.admin.controller;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,11 @@ public class AdminGoodsController {
 		this.goodsService = goodsService;
 	}
 	
+	@PostConstruct
+	public void goodsControllerInit() {
+		log.info("goodsController 생성");
+	}
+	
 	//상품목록
 	@GetMapping("/goodsList")
 	public String goodsList(Model model) {
@@ -50,6 +57,15 @@ public class AdminGoodsController {
 		return "/admin/goods/goodsDetail";
 	}
 	
+	//상품 수정 쿼리 실행
+	@PostMapping("/goodsModify")
+	public String goodsModify(GoodsList goodsList) {
+		goodsService.goodsModify(goodsList);
+		log.info("사용자가 상품 수정한 정보 ::: {}", goodsList);
+		
+		return "redirect:/admin/goods/goodsList";
+	}
+	
 	//상품 수정 페이지에 정보 불러오기
 	@GetMapping("/goodsModify")
 	public String goodsModify(@RequestParam(name="goodsCode", required = false) String goodsCode,
@@ -64,6 +80,7 @@ public class AdminGoodsController {
 		
 		return "/admin/goods/goodsModify";
 	}
+	
 	
 	@PostMapping("/goodsInsert")
 	public String goodsInsert(GoodsList goodsList) {
