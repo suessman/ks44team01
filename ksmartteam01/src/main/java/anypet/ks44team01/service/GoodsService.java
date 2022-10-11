@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import anypet.ks44team01.dto.GoodsList;
+import anypet.ks44team01.dto.GoodsCategory;
+import anypet.ks44team01.dto.GoodsCategorySub;
 import anypet.ks44team01.dto.GoodsInquiry;
 import anypet.ks44team01.mapper.GoodsMapper;
-
 
 @Service
 @Transactional
@@ -36,4 +37,17 @@ public class GoodsService {
 		List<GoodsInquiry> GoodsInquiryModify = goodsMapper.getGoodsInquiryModify();
 		return GoodsInquiryModify;
 	}
+	
+	//카테고리 대분류 조회
+	public List<GoodsCategory> getGoodsCategory(){
+		List<GoodsCategory> goodsCategory = goodsMapper.getGoodsCategory();
+		return goodsCategory;
+	}
+	
+	//카테고리 대분류 조회
+	public List<GoodsCategorySub> getGoodsCategorySub(){
+		List<GoodsCategorySub> goodsCategorySub = goodsMapper.getGoodsCategorySub();
+		return goodsCategorySub;
+	}
+	
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+	<mapper namespace="anypet.ks44team01.mapper.CategoryMapper">
+		<resultMap type="GoodsCategory" id="GoodsCategoryMap">
+			<id		column="category_code" 				property="categoryCode"/>
+			<result column="id" 						property="categoryId"/>
+			<result column="category_name" 			property="categoryName"/>
+			<result column="registration_datetime" 		property="registrationDate"/>
+		</resultMap>
+		
+		<resultMap type="GoodsCategorySub" id="GoodsCategorySubMap">
+			<id		column="category_code_sub" 			property="categoryCodeSub"/>
+			<result column="category_code" 				property="categoryCode"/>
+			<result column="id" 						property="categorySubId"/>
+			<result column="category_sub_name" 			property="categorySubName"/>
+			<result column="registration_datetime" 		property="registrationDate"/>
+		</resultMap>
+	</mapper>
