@@ -65,4 +65,69 @@
 		ON
 		o.accomodation_detail_code = d.accomodation_detail_code; 
 	</select>
+	
+	<!--숙소등록 -->	
+	<insert id="addAccommodation" parameterType="map">
+	 		<selectKey keyProperty="accommodationDetailCode" resultType="String" order="BEFORE">
+			SELECT
+				(CASE			
+				 WHEN count(adc.accomodation_detail_code) = 0 THEN 'adc001'
+				 WHEN (Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1) > 999 THEN
+				 	concat('adc',Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1)
+				 ELSE
+					concat('adc',LPAD(Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
+				 END) AS accommodationDetailCode
+			FROM 
+				accomodation_detail AS adc;
+	  		</selectKey>
+			INSERT INTO accomodation_detail
+				(accomodation_detail_code
+				, accomodation_category_code
+				, region_code
+				, company_member_code
+				, id
+				, check_inout
+				, parking
+				, registration_datetime)
+			VALUES
+				(#{accommodationDetailCode}
+				,select 
+					accomodation_category_code 
+				from accomodation_category 
+					where accomodation_category_name = #{accommodationCategoryName}
+				,select 
+					region_code 
+				from region 
+					where region_name = #{regionName}
+				,select 
+					company_member_code 
+				from company_member 
+					where id = 'id003'
+				,select 
+					id 
+				from company_member 
+					where id = 'id003'		
+				,#{checkInOut}
+				,#{parking}
+				,now())
+	</insert>
+		
+	<select id="getRegionList" resultType="Region">
+	/*숙소지역조회*/
+	select
+		r.region_code AS regionCode
+		,r.region_name AS regionName
+	FROM
+		region as r;
+	</select>
+	<select id="getCategoryList" resultType="AccommodationCategory">
+	/*숙소카테고리조회*/
+	select
+		c.accomodation_category_code AS accommodationCategoryCode
+		,c.accomodation_category_name AS accommodationCategoryName
+	FROM
+		accomodation_category as c;
+	</select>
+
+	
   </mapper>

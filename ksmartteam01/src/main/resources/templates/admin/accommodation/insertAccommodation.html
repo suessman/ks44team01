@@ -53,73 +53,91 @@
 	                    
 	                    <div class="x_content">
 	                        <br />
-	                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+	                        <form th:action="@{/admin/accommodation/insertAccommodation}" method="post">
 	
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소명<span class="required">*</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소명<span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="text" id="roomName" required="required" class="form-control ">
+	                                    <input type="text" id="" name="" class="form-control ">
 	                                </div>
 	                            </div>
 	                            
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소사진<span class="required">*</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소사진<span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="file" name="uploadFile" />	                                   
+	                                    <input type="file" name="uploadFile"/>	                                   
 	                                </div>
 	                            </div>
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소유형  <span class="required">*</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소유형  <span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                   <select class="form-control">
-										<option>호텔</option>
-										<option>모텔</option>
-										<option>펜션</option>
+										<select class="form-control" name="accommodationCategoryName">
+										<th:block th:unless="${#lists.isEmpty(accommodationCategoryList)}" th:each="l : ${accommodationCategoryList}" >
+											<option th:value="${l.accommodationCategoryName}" th:text="${l.accommodationCategoryName}"></option>
+										</th:block>
+										<th:block th:if="${#lists.isEmpty(accommodationCategoryList)}">
+											<option value="">등록된 숙소유형이 없습니다.</option>
+										</th:block>		
+	                                   </select>
+	                                </div>
+	                            </div>
+	                            
+	                            <div class="item form-group">
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">주소 <span class="">*</span>
+	                                </label>
+	                                <div class="col-md-6 col-sm-6 ">
+										<select class="form-control" id="" name="regionName">
+										<th:block th:unless="${#lists.isEmpty(region)}" th:each="l : ${region}" >
+											<option th:value="${l.regionName}" th:text="${l.regionName}"></option>
+										</th:block>
+										<th:block th:if="${#lists.isEmpty(region)}">
+											<option value="">등록된 지역이 없습니다.</option>
+										</th:block>		
 	                                   </select>
 	                                </div>
 	                            </div>
 	                           
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소가격  <span class="required">*</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소가격  <span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+	                                    <input type="text" name="companyMemberCode" class="form-control">
 	                                </div>
 	                            </div>
 	                            <div class="item form-group">
 	                                <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">주소</label>
 	                                <div class="col-md-6 col-sm-6 ">
 	                                    <input id="address_kakao" name="address" readonly class="form-control" type="text">
-	                                    <input id="address_kakao" name="address_detail" class="form-control" type="text">
+	                                    <input id="address_kakao" name="addressDetail" class="form-control" type="text">
 	                                </div>
 	                            </div>
 	                            
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">체크인시간</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">체크인시간</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="text" class="date-picker form-control" >											
+	                                    <input type="text" id="checkInOut" name="checkInOut" class="date-picker form-control" >											
 	                                </div>
 	                            </div>
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">체크아웃시간</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">체크아웃시간</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="text" class="date-picker form-control" >											
+	                                    <input type="text" name="memberId" class="date-picker form-control" >											
 	                                </div>
 	                            </div>
 	                            
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">주차가능여부</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">주차가능여부</span>
 	                                </label>
 	                                <div class="col-md-3 col-sm-6 mt-2">		
-										<input type="radio" class="flat" name="agree" id="agree" checked=""/>가능										
+										<input type="radio" name="parking" class="flat" id="agree"/>가능										
 	                                </div>
 	                                <div class="col-md-3 col-sm-6 mt-2">		
-										<input type="radio" class="flat ml-3" name="agree" id="disagree" />불가능
+										<input type="radio" class="flat ml-3" name="disagree" id="disagree" />불가능
 	                                </div>
 	                            </div>
 	                            
@@ -148,22 +166,14 @@
 															</div>
 															<div class="modal-body">																
 																<div class="item form-group">
-									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">방이름</span>
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">방이름</span>
 									                                </label>
 									                                <div class="col-md-6 col-sm-6 ">
 									                                    <input type="text" class="date-picker form-control" >											
 									                                </div>
 									                            </div>
 									                            <div class="item form-group">
-									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">기준인원수</span>
-									                                </label>
-									                                <div class="col-md-6 col-sm-6 ">
-									                                    <input type="text" class="date-picker form-control" >											
-									                                </div>
-									                            </div>
-									                            
-									                            <div class="item form-group">
-									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">최대이용가능인원수</span>
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">기준인원수</span>
 									                                </label>
 									                                <div class="col-md-6 col-sm-6 ">
 									                                    <input type="text" class="date-picker form-control" >											
@@ -171,7 +181,7 @@
 									                            </div>
 									                            
 									                            <div class="item form-group">
-									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">주중가</span>
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">최대이용가능인원수</span>
 									                                </label>
 									                                <div class="col-md-6 col-sm-6 ">
 									                                    <input type="text" class="date-picker form-control" >											
@@ -179,7 +189,15 @@
 									                            </div>
 									                            
 									                            <div class="item form-group">
-									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="required">주말가</span>
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">주중가</span>
+									                                </label>
+									                                <div class="col-md-6 col-sm-6 ">
+									                                    <input type="text" class="date-picker form-control" >											
+									                                </div>
+									                            </div>
+									                            
+									                            <div class="item form-group">
+									                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">주말가</span>
 									                                </label>
 									                                <div class="col-md-6 col-sm-6 ">
 									                                    <input type="text" class="date-picker form-control" >											
@@ -283,7 +301,7 @@
 	        new daum.Postcode({
 	            oncomplete: function(data) { //선택시 입력값 세팅
 	                document.getElementById("address_kakao").value = data.address; // 주소 넣기
-	                document.querySelector("input[name=address_detail]").focus(); //상세입력 포커싱
+	                document.querySelector("input[name=addressDetail]").focus(); //상세입력 포커싱
 	            }
 	        }).open();
 	    });
