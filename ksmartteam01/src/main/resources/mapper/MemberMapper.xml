@@ -22,11 +22,11 @@
 	<!-- 전체 회원 조회 -->
 	<select id="getMemberList" resultMap="memberResultMap">		
 		SELECT
-			m.id AS memberId,
-			m.name AS memberName,
-			m.level AS memberLevel,
-			m.email AS memberEmail,
-			m.birth AS memberBirth
+			m.id
+			,m.name
+			,m.level
+			,m.email
+			,m.birth
 		FROM
 			member AS m;
 	</select>
