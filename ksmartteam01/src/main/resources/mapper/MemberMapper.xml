@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="anypet.ks44team01.mapper.MemberMapper">
+
+	<!-- id가 BoardMapper의 method name, 메서드를 오버라이딩한다. --> 	
+ 	<!-- resultType 앞에 anypet.ks44team01.dto 적어줘야하지만 application.properties에서 설정 해줘서 안써줘도 된다.-->
+	<resultMap type="Member" id="memberResultMap">
+		<id 	column="id" 		 property="memberId"/>
+        <result column="pw" 				 property="memberPw"/>
+        <result column="name" 				 property="memberName"/>
+        <result column="level" 				 property="memberLevel"/>
+        <result column="gender" 			 property="memberGender"/>
+        <result column="addr" 				 property="memberAdress"/>
+        <result column="email" 				 property="memberEmail"/>
+        <result column="phone" 				 property="memberPhone"/>
+        <result column="Date" 				 property="memberDate"/>
+        <result column="birth" 				 property="memberBirth"/>      
+	</resultMap>
+	<!-- 전체 회원 조회 -->
+	<select id="getMemberList" resultMap="memberResultMap">		
+		SELECT
+			m.id
+			,m.name
+			,m.level
+			,m.email
+			,m.birth
+		FROM
+			member AS m;
+	</select>
+	
+</mapper>
