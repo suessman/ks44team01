@@ -37,7 +37,6 @@ public class AccommodationListService {
 	
 	//숙소등록
 	public void addAccommodation(AccommodationList accommodationList) {
-		int result = accommodationListMapper.addAccommodation(accommodationList);
-		System.out.println("회원가입 결과:" + result);
+		accommodationListMapper.addAccommodation(accommodationList);	
 	}
 }
