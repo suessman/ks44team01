@@ -52,34 +52,37 @@
 		accomodation_category AS c
 		ON 
 		d.accomodation_category_code = c.accomodation_category_code
-		INNER JOIN
+		INNER JOIN 
 		region AS r
 		on
 		r.region_code = d.region_code
-		INNER JOIN
+		INNER JOIN 
 		company_member AS m
 		ON 
 		m.company_member_code = d.company_member_code
-		INNER JOIN
+		INNER JOIN 
 		goods_accomodation_option AS o
 		ON
 		o.accomodation_detail_code = d.accomodation_detail_code; 
 	</select>
 	
 	<!--숙소등록 -->	
-	<insert id="addAccommodation" parameterType="map">
-	 		<selectKey keyProperty="accommodationDetailCode" resultType="String" order="BEFORE">
-			SELECT
-				(CASE			
-				 WHEN count(adc.accomodation_detail_code) = 0 THEN 'adc001'
-				 WHEN (Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1) > 999 THEN
-				 	concat('adc',Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1)
-				 ELSE
-					concat('adc',LPAD(Max(CAST(substring_index(adc.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
-				 END) AS accommodationDetailCode
-			FROM 
-				accomodation_detail AS adc;
-	  		</selectKey>
+	<insert id="addAccommodation" parameterType="AccommodationList">
+ 		<selectKey keyProperty="accommodationDetailCode" resultType="String" order="BEFORE">
+		SELECT
+			(CASE 
+			 -- 상품이 없을 경우
+			 WHEN count(g.accomodation_detail_code) = 0 THEN 'adc001'
+			 -- 999개 등록되어 있을 경우
+			 WHEN (Max(CAST(substring_index(g.accomodation_detail_code,'g',-1) AS UNSIGNED))+1) > 999 THEN
+			 	concat('adc',Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1)
+			 -- 1~999 범위일 경우
+			 ELSE
+				concat('adc',LPAD(Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
+			 END) AS accommodationDetailCode
+		FROM 
+			accomodation_detail AS g;
+  		</selectKey>
 			INSERT INTO accomodation_detail
 				(accomodation_detail_code
 				, accomodation_category_code
@@ -91,22 +94,10 @@
 				, registration_datetime)
 			VALUES
 				(#{accommodationDetailCode}
-				,select 
-					accomodation_category_code 
-				from accomodation_category 
-					where accomodation_category_name = #{accommodationCategoryName}
-				,select 
-					region_code 
-				from region 
-					where region_name = #{regionName}
-				,select 
-					company_member_code 
-				from company_member 
-					where id = 'id003'
-				,select 
-					id 
-				from company_member 
-					where id = 'id003'		
+				,#{accommodationCategoryCode}
+				,#{accommodationRegionCode}
+				,'cmc001'
+				,'id003'
 				,#{checkInOut}
 				,#{parking}
 				,now())

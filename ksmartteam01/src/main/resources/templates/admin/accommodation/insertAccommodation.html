@@ -59,7 +59,7 @@
 	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="roomName">숙소명<span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-	                                    <input type="text" id="" name="" class="form-control ">
+	                                    <input type="text" id="accommodationRoomName" name="accommodationRoomName" class="form-control ">
 	                                </div>
 	                            </div>
 	                            
@@ -71,12 +71,12 @@
 	                                </div>
 	                            </div>
 	                            <div class="item form-group">
-	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">숙소유형  <span class="">*</span>
+	                                <label class="col-form-label col-md-3 col-sm-3 label-align">숙소유형  <span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-										<select class="form-control" name="accommodationCategoryName">
+										<select class="form-control" name="accommodationCategoryCode">
 										<th:block th:unless="${#lists.isEmpty(accommodationCategoryList)}" th:each="l : ${accommodationCategoryList}" >
-											<option th:value="${l.accommodationCategoryName}" th:text="${l.accommodationCategoryName}"></option>
+											<option th:value="${l.accommodationCategoryCode}" th:text="${l.accommodationCategoryName}"></option>
 										</th:block>
 										<th:block th:if="${#lists.isEmpty(accommodationCategoryList)}">
 											<option value="">등록된 숙소유형이 없습니다.</option>
@@ -89,9 +89,9 @@
 	                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">주소 <span class="">*</span>
 	                                </label>
 	                                <div class="col-md-6 col-sm-6 ">
-										<select class="form-control" id="" name="regionName">
-										<th:block th:unless="${#lists.isEmpty(region)}" th:each="l : ${region}" >
-											<option th:value="${l.regionName}" th:text="${l.regionName}"></option>
+										<select class="form-control" name="accommodationRegionCode">
+										<th:block th:unless="${#lists.isEmpty(region)}" th:each="l : ${region}" >									
+											<option th:value="${l.regionCode}" th:text="${l.regionName}"></option>
 										</th:block>
 										<th:block th:if="${#lists.isEmpty(region)}">
 											<option value="">등록된 지역이 없습니다.</option>
@@ -134,10 +134,10 @@
 	                                <label class="col-form-label col-md-3 col-sm-3 label-align"><span class="">주차가능여부</span>
 	                                </label>
 	                                <div class="col-md-3 col-sm-6 mt-2">		
-										<input type="radio" name="parking" class="flat" id="agree"/>가능										
+										<input type="radio" th:value="가능" name="parking" class="flat" id="agree"/>가능										
 	                                </div>
 	                                <div class="col-md-3 col-sm-6 mt-2">		
-										<input type="radio" class="flat ml-3" name="disagree" id="disagree" />불가능
+										<input type="radio" th:value="불가능" name="parking"   class="flat ml-3" id="disagree" />불가능
 	                                </div>
 	                            </div>
 	                            

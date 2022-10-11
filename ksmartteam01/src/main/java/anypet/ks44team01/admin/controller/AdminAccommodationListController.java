@@ -38,11 +38,15 @@ public class AdminAccommodationListController {
 	@PostMapping("/insertAccommodation")
 	public String insertAccommodation(AccommodationList accommodationList) {
 		accommodationListService.addAccommodation(accommodationList);
-		return "redirect:/admin/accommodation/accmmodationList";
+		
+		return "redirect:/admin/accommodation/accommodationList";
 	}
 	
 	@GetMapping("/insertAccommodation")
 	public String insertAccommodation(Model model) {
+		List<AccommodationList> accommodationList = accommodationListService.getAccommodationList();
+		model.addAttribute("accommodationList", accommodationList);
+		
 		model.addAttribute("title", "숙소등록");
 		List<AccommodationCategory> accommodationCategoryList = accommodationListService.getCategoryList();
 		List<Region> region = accommodationListService.getRegionList();
