@@ -5,7 +5,7 @@ public class GoodsMediumCategory {
 	private String categoryCodeSub;
 	private String categoryCode;
 	private String Id;
-	private String categoryName;
+	private String categoryNameSub;
 	private String registrationDatetime;
 	
 	public String getCategoryCodeSub() {
@@ -26,11 +26,11 @@ public class GoodsMediumCategory {
 	public void setId(String id) {
 		Id = id;
 	}
-	public String getCategoryName() {
-		return categoryName;
+	public String getCategoryNameSub() {
+		return categoryNameSub;
 	}
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
+	public void setCategoryNameSub(String categoryNameSub) {
+		this.categoryNameSub = categoryNameSub;
 	}
 	public String getRegistrationDatetime() {
 		return registrationDatetime;
@@ -41,9 +41,7 @@ public class GoodsMediumCategory {
 	@Override
 	public String toString() {
 		return "GoodsMediumCategory [categoryCodeSub=" + categoryCodeSub + ", categoryCode=" + categoryCode + ", Id="
-				+ Id + ", categoryName=" + categoryName + ", registrationDatetime=" + registrationDatetime + "]";
+				+ Id + ", categoryNameSub=" + categoryNameSub + ", registrationDatetime=" + registrationDatetime + "]";
 	}
-	
-	
 	
 }
