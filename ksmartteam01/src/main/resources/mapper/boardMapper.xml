@@ -23,9 +23,9 @@
 		/*AS 쓰고싶으면 resultType으로 해줘야한다.*/
 		SELECT
 			board_code,
-			id,
 			board_category_code,
 			board_title,
+			id,
 			board_datetime,
 			board_hits
 		FROM
@@ -34,7 +34,7 @@
 	</select>
 	
 	<!-- 게시물 열람 -->
-	<select id="readaBoard" resultMap="boardResultMap" fetchSize="100">
+	<select id="readBoard" resultMap="boardResultMap" fetchSize="100">
 		/*AS 쓰고싶으면 resultType으로 해줘야한다.*/
 		SELECT
 			id,

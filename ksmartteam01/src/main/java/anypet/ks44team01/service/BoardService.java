@@ -21,7 +21,6 @@ public class BoardService {
 	// 게시물 목록 조회
 	public List<Board> getBoardList(){
 		List<Board> boardList = boardMapper.getBoardList();
-		
 	/*
 	 * if(boardList != null) { //향상된 for문 for(데이터타입 : 배열) for(Board board :
 	 * boardList) { String boardCategoryCode = board.getBoard_category_code();

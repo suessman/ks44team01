@@ -47,10 +47,10 @@ public class AdminBoardController {
 	 * @return
 	 * */
 	@GetMapping("/readBoard")
-	public String readBoard(Model model) {
-		List<Board> readBoard = boardService.getBoardList();
-		log.info("게시물 목록 ::: {}" , readBoard);
-		
+	public String redBoard(Model model) {
+		List<Board> readBoard = boardService.readBoard();
+		log.info("게시물 열람 ::: {}" , readBoard);
+		model.addAttribute("readBoard", readBoard);
 		return "/admin/board/readBoard";
 	}
 	

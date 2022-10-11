@@ -72,10 +72,5 @@ public class Board {
 				+ ", board_title=" + board_title + ", board_contents=" + board_contents + ", board_datetime="
 				+ board_datetime + ", board_image=" + board_image + ", board_hits=" + board_hits + "]";
 	}
-	
-	
-	
-	
-	
-	
+		
 }

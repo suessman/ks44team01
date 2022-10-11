@@ -13,7 +13,6 @@ import anypet.ks44team01.dto.Board;
 * 데이터베이스 접근을 하기 위한 로직과 비지니스 로직을 분리하기 위해 사용
 * 
 * */
-
 @Mapper
 public interface BoardMapper {
 
