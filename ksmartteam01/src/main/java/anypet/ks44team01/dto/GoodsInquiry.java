@@ -10,6 +10,16 @@ public class GoodsInquiry {
 	private String goodsQnaContents;
 	private String goodsQnaAnswer;
 	private String goodsQnaSecretPassword;
+	
+	private GoodsList goodsInfo;
+	
+	public GoodsList getGoodsInfo() {
+		return goodsInfo;
+	}
+	public void setGoodsInfo(GoodsList goodsInfo) {
+		this.goodsInfo = goodsInfo;
+	}
+	
 	public String getGoodsQnaNumber() {
 		return goodsQnaNumber;
 	}

@@ -9,193 +9,149 @@
 	</th:block>
 	
 	<th:block layout:fragment="customContents">
-			상품등록
-		
-				<!-- page content -->
+				상품등록
+			
+					<!-- page content -->
 		<div class="right_col" role="main">
-	
-			<div class="">
-				<div class="page-title">
-					<div class="title_left">
-						<h3>상품 등록 페이지</h3>
-					</div>
-	
-					<div class="title_right">
-						<div class="col-md-5 col-sm-5  form-group pull-right top_search">
-							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Search for..."> 
-									<span class="input-group-btn">
-									<button class="btn btn-default" type="button">Go!</button>
-								</span>
-							</div>
+			<form id="goodsInsertForm" th:action="@{/admin/goods/goodsInsert}"
+				method="post">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>상품 등록 페이지</h3>
 						</div>
-					</div>
-				</div>
 	
-				<div class="clearfix"></div>
-	
-				<div class="row">
-					<div class="col-md-12 col-sm-12 ">
-						<div class="x_panel">
-							<div class="x_title">
-								<h2>insert</h2>
-								<ul class="nav navbar-right panel_toolbox">
-									<li>
-										<a class="collapse-link">
-											<i class="fa fa-chevron-up"></i>
-										</a>
-									</li>
-									<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-										<i class="fa fa-wrench"></i>
-									</a>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="#">Settings 1</a> 
-											<a class="dropdown-item" href="#">Settings 2</a>
-										</div>
-									</li>
-									<li>
-										<a class="close-link">
-											<i class="fa fa-close"></i>
-										</a>
-									</li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-							<div class="col-md-6 col-sm-6 ">
-								<div class="product-image">
-									<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
-									<div class="flieupload-body">
-										<div id='previewId'></div>
-									</div>
-									<input class="fileSelect" type="file" onchange="previewImage(this,'previewId')">
-								</div>
-	
-								<div class="x_content">
-									<div class="form-group row ">
-										<label class="control-label col-md-3 col-sm-3" for="goodsName">상품명</label>
-										<div class="col-md-6 col-sm-6 ">
-											<input type="text" id="goodsName" name="goodsName" class="form-control" placeholder="상품명">
-										</div>
-									</div>
-									<div class="form-group row">
-										<label class="control-label col-md-3 col-sm-3 ">상품 카테고리</label>
-										<div class="col-md-9 col-sm-9 ">
-											
-										
-											<label class="addTitle control-label">대분류</label>
-											<select class="form-control">
-												<th:block th:unless="${#lists.isEmpty(goodsCategory)}" th:each="c : ${goodsCategory}" >
-													<option th:value="${c.categoryName}" th:text="${c.categoryName}"></option>
-												</th:block>
-												<th:block th:if="${#lists.isEmpty(goodsCategory)}">
-													<option value="">등록된 회원등급이 없습니다.</option>
-												</th:block>						
-											</select>
-											
-											<label class="addTitle control-label">중분류</label>
-											<select class="select2_single form-control" tabindex="-1"onchange="onChangeEvent();">
-												<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}" th:each="cs : ${goodsCategorySub}" >
-													<option th:value="${cs.categorySubName}" th:text="${cs.categorySubName}"></option>
-												</th:block>
-												<th:block th:if="${#lists.isEmpty(goodsCategorySub)}">
-													<option value="">등록된 회원등급이 없습니다.</option>
-												</th:block>						
-											</select>
-											
-											
-										</div>
-									</div>
-	
-									<div class="form-group row">
-										<label class="control-label col-md-3 col-sm-3" for="goodsQuantiy">가격</label>
-										<div class="col-md-9 col-sm-9 ">
-											<input type="text" id="goodsQuantiy" name="goodsQuantiy"  class="form-control" placeholder="가격">
-										</div>
-									</div>
-									
-									<div class="form-group row ">
-										<label class="control-label col-md-3 col-sm-3" for="goodsPrice">재고수량</label>
-										<div class="col-md-9 col-sm-9 ">
-											<input type="number" id="goodsPrice" name="goodsPrice"  class="form-control nums" placeholder="수량" step="1">
-										</div>
-									</div>
-									
-									<div class="form-group row">
-										<label class="control-label col-md-3 col-sm-3" for="goodsContents">상품 상세 설명<span class="required">*</span>
-										</label>
-										<div class="col-md-9 col-sm-9 ">
-											<textarea id="goodsContents" name="goodsContents"  class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
-										</div>
-									</div>
-									
-									<div class="ln_solid"></div>
-									<div class="form-group">
-										<div class="col-md-9 col-sm-9  offset-md-3">
-											<a href="/admin/goods/goodsList">
-												<button type="button" class="btn btn-primary">취소</button>
-											</a>
-											<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
-											<button type="submit" class="btn btn-success">등록</button>
-										</div>
-									</div>
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control"
+										placeholder="Search for..."> <span
+										class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
 								</div>
 							</div>
 						</div>
 					</div>
+	
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>insert</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"> <i
+												class="fa fa-chevron-up"></i>
+										</a></li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" role="button" aria-expanded="false">
+												<i class="fa fa-wrench"></i>
+										</a>
+											<div class="dropdown-menu"
+												aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">Settings 1</a> <a
+													class="dropdown-item" href="#">Settings 2</a>
+											</div></li>
+										<li><a class="close-link"> <i class="fa fa-close"></i>
+										</a></li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="col-md-6 col-sm-6 ">
+									<div class="product-image">
+										<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
+										<div class="flieupload-body">
+											<div id='previewId'></div>
+										</div>
+										<input id="goodsImage" name="goodsImage" class="fileSelect"
+											type="file" onchange="previewImage(this,'previewId')">
+									</div>
+	
+									<div class="x_content">
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3" for="goodsName">상품명</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="text" id="goodsName" name="goodsName"
+													class="form-control" placeholder="상품명">
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3">상품 카테고리</label>
+											<div class="col-md-9 col-sm-9 ">
+												<label class="addTitle control-label">대분류</label> <select
+													class="form-control" name="categoryCode">
+													<th:block th:unless="${#lists.isEmpty(goodsCategory)}"
+														th:each="c : ${goodsCategory}">
+														<option th:value="${c.categoryCode}"
+															th:text="${c.categoryName}"></option>
+													</th:block>
+													<th:block th:if="${#lists.isEmpty(goodsCategory)}">
+														<option value="">등록된 회원등급이 없습니다.</option>
+													</th:block>
+												</select> <label class="addTitle control-label">중분류</label> <select
+													class="select2_single form-control" name="categoryCodeSub"
+													tabindex="-1" onchange="onChangeEvent();">
+													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}"
+														th:each="cs : ${goodsCategorySub}">
+														<option th:value="${cs.categoryCodeSub}"
+															th:text="${cs.categorySubName}"></option>
+													</th:block>
+													<th:block th:if="${#lists.isEmpty(goodsCategorySub)}">
+														<option value="">등록된 회원등급이 없습니다.</option>
+													</th:block>
+												</select>
+	
+	
+											</div>
+										</div>
+	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsQuantiy">가격</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="text" id="goodsPrice" name="goodsPrice"
+													class="form-control" placeholder="가격">
+											</div>
+										</div>
+	
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsPrice">재고수량</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="number" id="goodsQuantiy" name="goodsQuantiy"
+													class="form-control nums" placeholder="수량" step="1">
+											</div>
+										</div>
+	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsContents">상품 상세 설명<span class="required">*</span>
+											</label>
+											<div class="col-md-9 col-sm-9 ">
+												<textarea id="goodsContents" name="goodsContents"
+													class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+											</div>
+										</div>
+	
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-9 col-sm-9  offset-md-3">
+												<a href="/admin/goods/goodsList">
+													<button type="button" class="btn btn-primary">취소</button>
+												</a>
+												<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
+												<button type="submit" class="btn btn-success">등록</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</th:block>
-	<!-- /page content -->
-	
-	<script th:inline="javascript">
-		/* 대분류 선택시 중분류 카테고리 나오게 하기 */
-			var largeCategoryList = /*[[${largeCategoryList}]]*/
-				console.log(largeCategoryList)
-			var largeCate = $(".largeCate");
-			var smallCate = $(".smallCate");
-			
-			//대분류 <option> 태그
-			for(var large of largeCategoryList){
-				var largeCode = large.goodsLargeCategory;
-				var largeName = large.goodsCategory;
-				console.log('largeCode: '+large.goodsLargeCategory)
-				console.log('largeName: '+large.goodsCategory)
-				
-				largeCate.append("<option value='"+ largeCode +"'>" + largeName + "</option>");
-			}
-			//대분류 option 클릭 시 중분류 변화
-			$(largeCate).on("change",function(){
-				smallCate.children().remove();
-				smallCate.append("<option value='none'>::</option>")
-					
-				for(var large of largeCategoryList){
-					var selectLarge = $(this).find("option:selected").val();	
-					console.log(selectLarge);
-					
-					for(var small of large.goodsSmallCategoryInfo){
-						var largeCode2 = small.goodsLargeCategory;
-						var smallCode = small.goodsSmallCategory;
-						var smallName = small.smallCategoryName;
-								
-						console.log('largeCode2: '+largeCode2);
-						console.log('smallCode: '+smallCode);
-						console.log('smallName: '+smallName);
-							
-						if(selectLarge === largeCode2){
-							smallCate.append("<option value='"+smallCode+"'>" + smallName + "</option>");
-						}
-					}
-				}
-			});
-		</script>
-		
-		
-		
-		
-		
-		
-		
+<!-- /page content -->
 </html>
