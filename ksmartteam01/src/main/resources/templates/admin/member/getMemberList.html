@@ -66,35 +66,21 @@
                         <tr>
                           <th>아이디</th>
                           <th>이름</th>
-                          <th>전화번호</th>
-                          <th>성별</th>
-                          <th>주소</th> 
+                          <th>회원분류</th>
+                          <th>이메일</th>
+                          <th>생년월일</th> 
                         </tr>
                       </thead>
 
 
                       <tbody>
-                        <tr onclick="location.href='/admin/member/searchMember'">
-                          <td>id001</td>
-                          <td>박범준</td>
-                          <td>010-9050-3616</td>
-                          <td>남자</td>
-                          <td>전주시</td>
-                        </tr>
-                        <tr>
-                          <td>id002</td>
-                          <td>김수영</td>
-                          <td>010-1234-3616</td>
-                          <td>남자</td>
-                          <td>익산시</td>
-                        </tr>
-                        <tr>
-                          <td>id003</td>
-                          <td>심정민</td>
-                          <td>010-2345-3616</td>
-                          <td>남자</td>
-                          <td>군산시</td>
-                        </tr>
+                        <tr th:if="${not #lists.isEmpty(member)}" th:each="l : ${member}"  onclick="location.href='/admin/member/searchMember'">
+                          <td th:text=${l.memberId}></td>
+                          <td th:text=${l.memberName}></td>
+                          <td th:text=${l.memberLevel}></td>
+                          <td th:text=${l.memberEmail}></td>
+                          <td th:text=${l.memberBirth}></td>
+                        </tr>          
                       </tbody>
                     </table>
                   </div>
