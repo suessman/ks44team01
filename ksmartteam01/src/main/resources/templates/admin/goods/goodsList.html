@@ -49,7 +49,11 @@
 											<a class="dropdown-item" href="#">Settings 1</a> <a
 												class="dropdown-item" href="#">Settings 2</a>
 										</div></li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+									<li>
+										<a class="close-link">
+											<i class="fa fa-close"></i>
+										</a>
+									</li>
 								</ul>
 								<div class="clearfix"></div>
 							</div>
@@ -58,19 +62,15 @@
 									<div class="col-sm-12">
 										<div class="card-box table-responsive">
 											<p class="text-muted font-13 m-b-30">
-												<code>상품명 클릭 시 상품등록 페이지로 이동</code>
+												<code>행 클릭 시 상품상세 페이지로 이동</code>
 											</p>
-											<table id="datatable"
-												class="table table-striped table-bordered"
-												style="width: 100%">
-	
+											<table id="datatable" class="table table-striped table-bordered" style="width: 100%">
 												<thead>
-													<tr >
+													<tr>
 														<th>상품코드</th>
 														<th>아이디</th>
 														<th>상품명</th>
 														<th>상품구분</th>
-														<th>등록시각</th>
 														<th>상품사진</th>
 														<th>가격</th>
 														<th>재고수량</th>
@@ -79,12 +79,11 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr th:if="${not #lists.isEmpty(goodsList)}" th:each="g : ${goodsList}" id="goodsListTable">
+													<tr th:if="${not #lists.isEmpty(goodsList)}" th:each="g : ${goodsList}" onclick="location.href='/admin/goods/goodsDetail'">
 														<td th:text="${g.goodsCode}"></td>
 														<td th:text="${g.goodsId}"></td>
-														<td th:text="${g.goodsName}" onclick="location.href='/admin/goods/goodsInsert'"></td>
+														<td th:text="${g.goodsName}"></td>
 														<td th:text="${g.categoryCodeSub}"></td>
-														<td th:text="${g.goodsResgisterTime}"></td>
 														<td th:text="${g.goodsImage}"></td>
 														<td th:text="${g.goodsPrice}"></td>
 														<td th:text="${g.goodsQuantiy}"></td>
@@ -96,7 +95,7 @@
 														<td>
 															<button type="button" class="btn btn-sm btn-success">삭제</button>
 														</td>
-													</tr>\
+													</tr>
 												</tbody>
 											</table>
 										</div>

@@ -68,26 +68,20 @@
 												<thead>
 													<tr>
 														<th>답변여부</th>
-														<th>상품명</th>
-														<th>문의자ID</th>
-														<th>문의제목</th>
-														<th>작성날짜</th>
-														<th>문의내용</th><!-- 너무 길어지면 뒤에 ...으로  -->
-														<th>답변자ID</th>
-														<th>답변날짜</th>
-														<th>삭제</th>
+			                                            <th>상품명</th>
+			                                            <th>문의자ID</th>
+			                                            <th>문의제목</th><!-- 너무 길어지면 뒤에 ...으로  -->
+			                                            <th>작성날짜</th>
+			                                            <th>삭제</th>
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>Y</td>
-														<td><a href=#>A상품</a></td>
-														<td>id001</td>
-														<td onclick="location.href='/admin/goods/goodsInquiryModifyDetail'">상품유통기한</td>
-														<td>2022-10-01</td>
-														<td>상품이 변질됬습니다.</td>
-														<td>admin01</td>
-														<td>2022-10-02</td>
+													<tr th:if="${not #lists.isEmpty(goodsInquiryModify)}" th:each="q : ${goodsInquiryModify}"  onclick="location.href='/admin/goods/goodsInquiryModifyDetail'">
+														<td th:text="${q.goodsQnaAnswer}"></td>
+														<td th:text="${q.goodsName}"></td>
+														<td th:text="${q.goodsInquiryId}"></td>
+														<td th:text="${q.goodsQnaTitle}"></td>
+														<td th:text="${q.goodsQnaDatetime}"></td>
 														<td>
 															<button type="button" class="btn btn-sm btn-success">삭제</button>
 														</td>

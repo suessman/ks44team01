@@ -23,6 +23,7 @@ public class AccommodationList {
 	
 	private Region regionDto;	
 	
+	
 	public Region getRegionDto() {
 		return regionDto;
 	}
