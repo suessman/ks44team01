@@ -2,260 +2,145 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layout/adminDefault}">
-	
+
 	<!-- 사용자 정의 타이틀 설정 -->
 	<th:block layout:fragment="customTitle">
-		<title>상품등록</title>
+		<title>상품수정</title>
 	</th:block>
 	
 	<th:block layout:fragment="customContents">
-			상품수정
-		
-				<!-- page content -->
+				상품수정
+			
+					<!-- page content -->
 		<div class="right_col" role="main">
+			<form id="goodsModifyForm" th:action="@{/admin/goods/goodsModify}"
+				th:object="${goodsInfo}" class="form-horizontal" method="post">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>상품 수정</h3>
+						</div>
 	
-			<div class="">
-				<div class="page-title">
-					<div class="title_left">
-						<h3>상품 수정</h3>
-					</div>
-	
-					<div class="title_right">
-						<div class="col-md-5 col-sm-5  form-group pull-right top_search">
-							<div class="input-group">
-								<input type="text" class="form-control"placeholder="Search for..."> 
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">Go!</button>
-								</span>
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control"
+										placeholder="Search for..."> <span
+										class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
 	
-				<div class="clearfix"></div>
+					<div class="clearfix"></div>
 	
-				<div class="row">
-					<div class="col-md-12 col-sm-12 ">
-						<div class="x_panel">
-							<div class="x_title">
-								<h2>insert</h2>
-								<ul class="nav navbar-right panel_toolbox">
-									<li><a class="collapse-link">
-									<i class="fa fa-chevron-up"></i></a></li>
-									<li class="dropdown"><a href="#" class="dropdown-toggle"
-										data-toggle="dropdown" role="button" aria-expanded="false"><i
-											class="fa fa-wrench"></i></a>
-										<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-											<a class="dropdown-item" href="#">Settings 1</a> <a
-												class="dropdown-item" href="#">Settings 2</a>
-										</div></li>
-									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
-								</ul>
-								<div class="clearfix"></div>
-							</div>
-							<div class="col-md-6 col-sm-6 ">
-								<div class="product-image">
-									<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
-									<div class="flieupload-body">
-										<div id='previewId'></div>
-									</div>
-	
-									<input class="fileSelect" type="file"
-										onchange="previewImage(this,'previewId')">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>insert</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"> <i
+												class="fa fa-chevron-up"></i></a></li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" role="button" aria-expanded="false"><i
+												class="fa fa-wrench"></i></a>
+											<div class="dropdown-menu"
+												aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">Settings 1</a> <a
+													class="dropdown-item" href="#">Settings 2</a>
+											</div></li>
+										<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+									</ul>
+									<div class="clearfix"></div>
 								</div>
-	
-								<div class="x_content">
-									<div class="form-group row ">
-										<label class="control-label col-md-3 col-sm-3 ">상품명</label>
-										<div class="col-md-6 col-sm-6 ">
-											<input type="text" class="form-control" placeholder="상품명">
+								<div class="col-md-6 col-sm-6 ">
+									<div class="product-image">
+										<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
+										<div class="flieupload-body">
+											<div id='previewId'></div>
 										</div>
-									</div>
-									<div class="form-group row">
-										<label class="control-label col-md-3 col-sm-3 ">상품 카테고리</label>
-										<div class="col-md-9 col-sm-9 ">
-											<select class="form-control">
-												<option>- 대분류 -</option>
-												<option>사료</option>
-												<option>간식</option>
-												<option>건강관리</option>
-												<option>위생/배변</option>
-												<option>미용/목욕</option>
-												<option>급식/급수기</option>
-												<option>장난감/훈련</option>
-												<option>하우스</option>
-												<option>이동장</option>
-												<option>패션/의류</option>
-												<option>사목줄/하네스료</option>
-												<option>기타</option>
 	
-	
-											</select> <select class="select2_single form-control" tabindex="-1"
-												onchange="onChangeEvent();">
-												<option>- 중분류 -</option>
-												<option value="0">건식</option>
-												<option value="1">소프트</option>
-												<option value="2">습식</option>
-												<option value="3">건조생식</option>
-												<option value="3">분유/우유</option>
-												<option value="3">사료기타</option>
-												<option value="3">캔/파우치</option>
-												<option value="3">져키/트릿</option>
-												<option value="3">비스킷/쿠키</option>
-												<option value="3">사사미</option>
-												<option value="3">동결/건조간식</option>
-												<option value="3">통살/소시지</option>
-												<option value="3">수제간식</option>
-												<option value="3">파우더</option>
-												<option value="3">음료</option>
-												<option value="3">종합영양제</option>
-												<option value="3">피부/모질</option>
-												<option value="3">눈/귀</option>
-												<option value="3">치아/구강</option>
-												<option value="3">뼈/관절</option>
-												<option value="3">신장/요로</option>
-												<option value="3">장유산균</option>
-												<option value="3">면역/스트레스</option>
-												<option value="3">해충방지</option>
-												<option value="3">의약부외품</option>
-												<option value="3">건강관리 기타</option>
-												<option value="3">배변패드</option>
-												<option value="3">배변판</option>
-												<option value="3">기저귀/팬티</option>
-												<option value="3">탈취/소독</option>
-												<option value="3">배변봉투/집게</option>
-												<option value="3">배변유도제</option>
-												<option value="3">위생/배변 기타</option>
-												<option value="3">샴푸/린스/비누</option>
-												<option value="3">에센스/향수/스파</option>
-												<option value="3">브러쉬/빗</option>
-												<option value="3">미용가위/클리퍼</option>
-												<option value="3">발톱/발관리</option>
-												<option value="3">드라이기/타올</option>
-												<option value="3">물티슈/크리너</option>
-												<option value="3">미용/목욕 기타</option>
-	
-											</select>
-										</div>
+										<input class="fileSelect" type="file"
+											onchange="previewImage(this,'previewId')">
 									</div>
 	
-									<div class="form-group row ">
-										<label class="control-label col-md-3 col-sm-3 ">재고수량</label>
-										<div class="col-md-9 col-sm-9 ">
-											<input type="text" class="form-control" placeholder="가격">
+									<div class="x_content">
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3 ">상품명</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="text" class="form-control" placeholder="상품명">
+											</div>
 										</div>
-									</div>
-									<div class="form-group row ">
-										<label class="control-label col-md-3 col-sm-3 ">가격</label>
-										<div class="col-md-9 col-sm-9 ">
-											<input type="number" class="form-control nums"
-												placeholder="수량" step="1">
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3">상품 카테고리</label>
+											<div class="col-md-9 col-sm-9 ">
+												<label class="addTitle control-label">대분류</label> <select
+													class="form-control" name="categoryCode">
+													<th:block th:unless="${#lists.isEmpty(goodsCategory)}"
+														th:each="c : ${goodsCategory}">
+														<option th:value="${c.categoryCode}"
+															th:text="${c.categoryName}"></option>
+													</th:block>
+													<th:block th:if="${#lists.isEmpty(goodsCategory)}">
+														<option value="">등록된 회원등급이 없습니다.</option>
+													</th:block>
+												</select> <label class="addTitle control-label">중분류</label> <select
+													class="select2_single form-control" name="categoryCodeSub"
+													tabindex="-1" onchange="onChangeEvent();">
+													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}"
+														th:each="cs : ${goodsCategorySub}">
+														<option th:value="${cs.categoryCodeSub}"
+															th:text="${cs.categorySubName}"></option>
+													</th:block>
+													<th:block th:if="${#lists.isEmpty(goodsCategorySub)}">
+														<option value="">등록된 회원등급이 없습니다.</option>
+													</th:block>
+												</select>
+	
+	
+											</div>
 										</div>
-									</div>
-									<div class="form-group row">
-										<label class="control-label col-md-3 col-sm-3 ">상품 상세
-											설명<span class="required">*</span>
-										</label>
-										<div class="col-md-9 col-sm-9 ">
-											<textarea class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsQuantiy">가격</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="text" id="goodsPrice" name="goodsPrice"
+													class="form-control" placeholder="가격">
+											</div>
 										</div>
-									</div>
 	
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsPrice">재고수량</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="number" id="goodsQuantiy" name="goodsQuantiy"
+													class="form-control nums" placeholder="수량" step="1">
+											</div>
+										</div>
 	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsContents">상품 상세 설명<span class="required">*</span>
+											</label>
+											<div class="col-md-9 col-sm-9 ">
+												<textarea id="goodsContents" name="goodsContents"
+													class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+											</div>
+										</div>
 	
-	
-	
-	
-	
-	
-									<!-- <div class="form-group row">
-													<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-														<br>
-														<small class="text-navy">Normal Bootstrap elements</small>
-													</label>
-		
-													<div class="col-md-9 col-sm-9 ">
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" value=""> Option one. select more than one options
-															</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" value=""> Option two. select more than one options
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" checked="" value="option1" id="optionsRadios1" name="optionsRadios"> Option one. only select one option
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" value="option2" id="optionsRadios2" name="optionsRadios"> Option two. only select one option
-															</label>
-														</div>
-													</div>
-												</div>
-		
-												<div class="form-group row">
-													<label class="col-md-3 col-sm-3  control-label">Checkboxes and radios
-														<br>
-														<small class="text-navy">Normal Bootstrap elements</small>
-													</label>
-		
-													<div class="col-md-9 col-sm-9 ">
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" class="flat" checked="checked"> Checked
-															</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" class="flat"> Unchecked
-															</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" class="flat" disabled="disabled"> Disabled
-															</label>
-														</div>
-														<div class="checkbox">
-															<label>
-																<input type="checkbox" class="flat" disabled="disabled" checked="checked"> Disabled & checked
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" class="flat" checked name="iCheck"> Checked
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" class="flat" name="iCheck"> Unchecked
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" class="flat" name="iCheck" disabled="disabled"> Disabled
-															</label>
-														</div>
-														<div class="radio">
-															<label>
-																<input type="radio" class="flat" name="iCheck3" disabled="disabled" checked> Disabled & Checked
-															</label>
-														</div>
-													</div>
-												</div> -->
-	
-									<div class="ln_solid"></div>
-									<div class="form-group">
-										<div class="col-md-9 col-sm-9  offset-md-3">
-											<a href="/admin/goods/goodsList">
-												<button type="button" class="btn btn-primary">취소</button>
-											</a>
-											<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
-											<button type="submit" class="btn btn-success">등록</button>
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-9 col-sm-9  offset-md-3">
+												<a href="/admin/goods/goodsList">
+													<button type="button" class="btn btn-primary">취소</button>
+												</a>
+												<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
+												<button type="submit" class="btn btn-success">등록</button>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -263,7 +148,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	</th:block>
 	<!-- /page content -->

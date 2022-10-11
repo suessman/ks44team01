@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import anypet.ks44team01.dto.GoodsCategory;
 import anypet.ks44team01.dto.GoodsCategorySub;
@@ -48,11 +50,26 @@ public class AdminGoodsController {
 		return "/admin/goods/goodsDetail";
 	}
 	
-	//상품수정
+	//상품 수정 페이지에 정보 불러오기
 	@GetMapping("/goodsModify")
-	public String goodsModify(Model model) {
+	public String goodsModify(@RequestParam(name="goodsCode", required = false) String goodsCode,
+							  Model model) {
+		
+		GoodsList goodsInfo = goodsService.getGoodsInfoByCode(goodsCode);
+		
+		log.info("특정 상품의 정보 ::: {}", goodsInfo);
+		//model 셋팅
+		model.addAttribute("title", "상품수정");
+		model.addAttribute("goodsInfo", goodsInfo);
 		
 		return "/admin/goods/goodsModify";
+	}
+	
+	@PostMapping("/goodsInsert")
+	public String goodsInsert(GoodsList goodsList) {
+		
+		goodsService.goodsInsert(goodsList);	
+		return "redirect:/admin/goods/goodsList";
 	}
 	
 	//상품등록
@@ -63,8 +80,7 @@ public class AdminGoodsController {
 		
 		//중분류
 		List<GoodsCategorySub> goodsCategorySub = goodsService.getGoodsCategorySub();
-		
-		
+				
 		model.addAttribute("title", "상품 등록");
 		model.addAttribute("goodsCategory", goodsCategory);
 		model.addAttribute("goodsCategorySub", goodsCategorySub);

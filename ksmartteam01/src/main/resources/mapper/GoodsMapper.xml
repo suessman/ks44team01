@@ -7,8 +7,11 @@
 			<id		column="goods_code" 			property="goodsCode"/>
 			<result column="id" 					property="goodsId"/>
 			<result column="goods_name" 			property="goodsName"/>
+			<result column="category_member_code" 	property="categoryMemberCode"/>
 			<result column="category_code" 			property="categoryCode"/>
+			<result column="category_name" 			property="categoryName"/>
 			<result column="category_code_sub" 		property="categoryCodeSub"/>
+			<result column="category_sub_name" 		property="categorySubName"/>
 			<result column="goods_resgister_time" 	property="goodsResgisterTime"/>
 			<result column="goods_image" 			property="goodsImage"/>
 			<result column="goods_price" 			property="goodsPrice"/>
@@ -49,17 +52,19 @@
 	
 		<select id="getGoodsCategory" resultType="GoodsCategory">
 		    /* 상품 카테고리 대분류 조회 */
-			SELECT 
-				category_name as categoryName
+		    SELECT
+		    	 category_code as categoryCode
+				,category_name as categoryName
 			FROM 
-			company_category;
+				company_category;
 
 	    </select> 
 	    
-	    		<select id="getGoodsCategorySub" resultType="GoodsCategorySub">
+   		<select id="getGoodsCategorySub" resultType="GoodsCategorySub">
 		    /* 상품 카테고리 중분류 조회 */
-			SELECT 
-				category_sub_name as categorySubName
+			SELECT
+				 category_code_sub as categoryCodeSub
+				,category_sub_name as categorySubName
 			FROM 
 			company_category_sub;
 
@@ -89,13 +94,36 @@
 				g.category_code_sub = ccs.category_code_sub
 				ORDER BY g.goods_price DESC;
 		</select>
-		
-		<insert id="goodsAdd" parameterType="GoodsList">
-		/* 상품 등록  */
-		INSERT INTO tb_goods
-			(goods_name, category_code, category_code_sub, goods_quantity, goods_price, goods_contents, goods_image, goods_resgister_time, goods_image)
-		VALUES
-			(#{goodsName}, #{categoryCode}, #{categoryCodeSub}, #{goodsQuantiy}, #{goodsPrice}, #{goodsContents}, #{goodsImage}, NOW(), #{goodsImage})
+		<insert id="goodsInsert" parameterType="GoodsList">
+			<selectKey keyProperty="goodsCode" resultType="String" order="BEFORE">
+				SELECT
+					(CASE 
+					 -- 상품이 없을 경우
+					 WHEN count(g.goods_code) = 0 THEN 'gc001_4'
+					 -- 999개 등록되어 있을 경우
+					 WHEN (Max(CAST(substring_index(g.goods_code,'gc',-1) AS UNSIGNED))+1) > 999 THEN
+					 	concat('gc',Max(CAST(substring_index(g.goods_code,'gc',-1) AS UNSIGNED))+1)
+					 -- 1~999 범위일 경우
+					 ELSE
+						concat('gc',LPAD(Max(CAST(substring_index(g.goods_code,'gc',-1) AS UNSIGNED))+1,3,0))	
+					 END) AS goodsCode
+				FROM 
+					goods AS g;
+	  		</selectKey>
+			/* 상품 등록  */
+			INSERT INTO goods
+				(goods_code, company_member_code, category_code_sub, id, goods_name, goods_price, goods_image, goods_quantity, registration_datetime, goods_contents)
+			VALUES(
+				#{goodsCode}, 
+				'cmc004', 
+				#{categoryCodeSub}, 
+				'id004', 
+				#{goodsName}, 
+				#{goodsPrice}, 
+				#{goodsImage}, 
+				#{goodsQuantiy}, 
+				NOW(), 
+				#{goodsContents});	
 		</insert>
 		
 		
