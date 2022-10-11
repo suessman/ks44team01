@@ -63,17 +63,16 @@ public class GoodsService {
 		
 	}
 	
-	//특정상품 조회
+	 //특정상품 조회
 	public GoodsList getGoodsInfoByCode(String goodsCode) {
 		GoodsList goodsList = goodsMapper.getGoodsInfoByCode(goodsCode);
-		return goodsList;
+		return goodsList; 
 	}
 		
 	
 	//상품 수정
-	public int goodsModify(GoodsList goodsList) {
-		int result = goodsMapper.goodsModify(goodsList);
-		return result;
+	public void goodsModify(GoodsList goodsList) {
+		goodsMapper.goodsModify(goodsList);
 	}
 	
 	
