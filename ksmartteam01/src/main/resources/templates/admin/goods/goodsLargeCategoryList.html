@@ -49,16 +49,18 @@
 				                <th>대분류코드</th>
 				                <th>대분류이름</th>
 				                <th>업데이트시각</th>
+				                <th>아이디</th>
 				                <th>수정/삭제</th>
 	                         </tr>
 	                       </thead>
 	                       <tbody>
 	                         <tr th:if="${not #lists.isEmpty(goodsLargeCategoryList)}" th:each="l : ${goodsLargeCategoryList}">
-	                           <td th:text="${l.CategoryCode}"></td>
-	                           <td th:text="${l.CategoryName}"></td>
+	                           <td th:text="${l.categoryCode}"></td>
+	                           <td th:text="${l.categoryName}"></td>
 	                           <td th:text="${l.registrationDatetime}"></td>
+	                           <td th:text="${l.Id}"></td>
 	                           <td>
-	                            	<button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsLargeCategoryModify}'|" type="button">수정</button>
+	                            	<button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsLargeCategoryModify(categoryCode=${l.categoryCode})}'|" type="button">수정</button>
 				                    <button class="btn btn-success" type="button">삭제</button>
 	                           </td>
 	                         </tr>

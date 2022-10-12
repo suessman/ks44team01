@@ -1,6 +1,5 @@
 package anypet.ks44team01.admin.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import anypet.ks44team01.dto.GoodsLargeCategory;
@@ -23,14 +23,23 @@ public class AdminGoodsPayController {
 		public AdminGoodsPayController(GoodsServiceOsj goodsService) {
 			this.goodsService = goodsService;
 		}
-	
-		@GetMapping("/goodsOrderList")
-		public String goodsOrderList() {
+
 		
-			return "/admin/goods/goodsOrderList";
+		/**
+		 * 상품 대분류 목록
+		 */	
+		@GetMapping("/goodsLargeCategoryList")
+		public String goodsLargeCategoryList(Model model) {
+			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
+			
+			model.addAttribute("title", "상품대분류목록");
+			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
+		
+			return "/admin/goods/goodsLargeCategoryList";
 		}
-		
-		
+		/**
+		 * 상품 중분류 목록
+		 */	
 		@GetMapping("/goodsMediumCategoryList")
 		public String goodsMediumCategoryList(Model model) {
 			List<GoodsMediumCategory> goodsMediumCategoryList = goodsService.getGoodsMediumCategoryList();
@@ -41,36 +50,10 @@ public class AdminGoodsPayController {
 			return "/admin/goods/goodsMediumCategoryList";
 		}
 		
-		@GetMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsertForm() {
-			
-			return "/admin/goods/goodsMediumCategoryInsert";
-		}
-		@PostMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
-			
-			goodsService.goodsMediumCategoryInsert(goodsMediumCategory);
-			
-			return "redirect:/admin/goods/goodsMediumCategoryList";
-		}
 		
-		@GetMapping("/goodsMediumCategoryModify")
-		public String goodsMediumCategoryModify() {
-			
-			return "/admin/goods/goodsMediumCategoryModify";
-		}
-		
-		
-		@GetMapping("/goodsLargeCategoryList")
-		public String goodsLargeCategoryList(Model model) {
-			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
-			
-			model.addAttribute("title", "상품대분류목록");
-			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
-		
-			return "/admin/goods/goodsLargeCategoryList";
-		}
-		
+		/**
+		 * 상품 대분류 등록
+		 */	
 		@GetMapping("/goodsLargeCategoryInsert")
 		public String goodsLargeCategoryInsertForm() {
 			
@@ -84,14 +67,91 @@ public class AdminGoodsPayController {
 			return "redirect:/admin/goods/goodsLargeCategoryList";
 		}
 		
+		/**
+		 * 상품 대분류 수정
+		 */	
+		@PostMapping("/goodsLargeCategoryModify")
+		public String goodsLargeCategoryModify(GoodsLargeCategory goodsLargeCategory) {
+			
+			goodsService.goodsLargeCategoryModify(goodsLargeCategory);
+			
+			return "redirect:/admin/goods/goodsLargeCategoryList";
+		}
 		
 		@GetMapping("/goodsLargeCategoryModify")
-		public String goodsLargeCategoryModify() {
-			
+		public String goodsLargeCategoryModify(@RequestParam(value="categoryCode", required = false) String categoryCode
+												,Model model) {
+			//특정카테고리의 정보
+			GoodsLargeCategory largeCategoryInfo = goodsService.getLargeCategoryInfoByCategoryCode(categoryCode);
+			System.out.println(">>>>>>>" + largeCategoryInfo);
+			//model 세팅
+			model.addAttribute("title", "대분류수정");
+			model.addAttribute("largeCategoryInfo", largeCategoryInfo);
 			return "/admin/goods/goodsLargeCategoryModify";
+		}
+		/**
+		 * 상품 중분류 수정
+		 */	
+		@PostMapping("/goodsMediumCategoryModify")
+		public String goodsMediumMediumCategoryModify(GoodsMediumCategory goodsMediumCategory) {
+			
+			goodsService.goodsMediumCategoryModify(goodsMediumCategory);
+			
+			return "redirect:/admin/goods/goodsMediumCategoryList";
+		}
+		
+		@GetMapping("/goodsMediumCategoryModify")
+		public String goodsMediumCategoryModify(@RequestParam(value="categoryCodeSub", required = false) String categoryCodeSub
+												,Model model) {
+			//특정카테고리의 정보
+			GoodsMediumCategory mediumCategoryInfo = goodsService.getMediumCategoryInfoByCategoryCodeSub(categoryCodeSub);
+			System.out.println(">>>>>>>" + mediumCategoryInfo);
+			//model 세팅
+			model.addAttribute("title", "대분류수정");
+			model.addAttribute("mediumCategoryInfo", mediumCategoryInfo);
+			return "/admin/goods/goodsMediumCategoryModify";
+		}
+		
+		/**
+		 * 상품 중분류 등록
+		 */	
+		@GetMapping("/goodsMediumCategoryInsert")
+		public String goodsMediumCategoryInsertForm() {
+			
+			return "/admin/goods/goodsMediumCategoryInsert";
+		}
+		@PostMapping("/goodsMediumCategoryInsert")
+		public String goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+			
+			goodsService.goodsMediumCategoryInsert(goodsMediumCategory);
+			
+			return "redirect:/admin/goods/goodsMediumCategoryList";
+		}
+		//ajax 활용
+		@GetMapping("/getLargeCategoryList")
+		@ResponseBody
+			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
+							
+			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
+							
+			model.addAttribute("title", "상품대분류목록");
+			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
+							
+			return goodsLargeCategoryList;
 		}
 		
 
+
+		
+		
+
+		
+		
+		@GetMapping("/goodsOrderList")
+		public String goodsOrderList() {
+		
+			return "/admin/goods/goodsOrderList";
+		}
 		
 		@GetMapping("/goodsReviewList")
 		public String goodsReviewList() {
@@ -110,17 +170,9 @@ public class AdminGoodsPayController {
 			
 			return "/admin/goods/goodsReturn";
 		}
-		//ajax 활용
-		@GetMapping("/getLargeCategoryList")
-		@ResponseBody
-		public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
-			
-			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
-			
-			model.addAttribute("title", "상품대분류목록");
-			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
-			
-			return goodsLargeCategoryList;
-		}
+		
+
+		
+		
 
 }

@@ -144,10 +144,8 @@
 						    	<select class="form-control">
 							      <option>010</option>
 							      <option>011</option>
-							      <option>017</option>
 							    </select>
-							     <input  type='number'  class="form-control ml-3" value="7722">
-							     <input  type='number'  class="form-control ml-3" value="7722">
+							     <input type="text" class="form-control ml-3" value="7722-6965">
 						    </div>
 					   	</div>	
 					</div>
@@ -257,7 +255,6 @@
 	</th:block>
 	<!-- 사용자 정의 JS 하단 -->
 	<th:block layout:fragment="customFootJs">
-			<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 			<script>
 				window.onload = function(){
 				    document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
@@ -272,31 +269,32 @@
 				}
 			</script>
 			<!-- jQuery -->
+			<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 			<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 			<script>
-		        var IMP = window.IMP; 
-		        IMP.init("imp27140510"); 
-	
-		        function requestPay() {
-		            IMP.request_pay({
-		                pg : 'html5_inicis',
-		                pay_method : 'card',
-		                merchant_uid: "57008833-33004", 
-		                name : '당근 10kg',
-		                amount : 1004,
-		                buyer_email : 'Iamport@chai.finance',
-		                buyer_name : '아임포트 기술지원팀',
-		                buyer_tel : '010-1234-5678',
-		                buyer_addr : '서울특별시 강남구 삼성동',
-		                buyer_postcode : '123-456'
-		            }, function (rsp) { // callback
-		                if (rsp.success) {
-		                    console.log(rsp);
-		                } else {
-		                    console.log(rsp);
-		                }
-		            });
-		        }
+	        var IMP = window.IMP; 
+	        IMP.init("imp27140510"); 
+
+	        function requestPay() {
+	            IMP.request_pay({
+	                pg : 'html5_inicis',
+	                pay_method : 'card',
+	                merchant_uid: "57008833-33004", 
+	                name : '당근 10kg',
+	                amount : 1004,
+	                buyer_email : 'Iamport@chai.finance',
+	                buyer_name : '아임포트 기술지원팀',
+	                buyer_tel : '010-1234-5678',
+	                buyer_addr : '서울특별시 강남구 삼성동',
+	                buyer_postcode : '123-456'
+	            }, function (rsp) { // callback
+	                if (rsp.success) {
+	                    console.log(rsp);
+	                } else {
+	                    console.log(rsp);
+	                }
+	            });
+	        }
 		</script>	
 		<script>
 				/*
@@ -313,7 +311,6 @@
 				})
 				*/
 		</script>
-		
 	</th:block>
 	<!-- iamport.payment.js -->
 </html> 

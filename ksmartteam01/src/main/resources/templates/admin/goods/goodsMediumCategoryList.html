@@ -50,6 +50,7 @@
 						  <th>중분류코드</th>
 					      <th>중분류이름</th>
 						  <th>업데이트시각</th>
+						  <th>아이디</th>
 					      <th>중분류수정/삭제</th>
                         </tr>
                       </thead>
@@ -59,8 +60,9 @@
 	                           <td th:text="${l.CategoryCodeSub}"></td>
 	                           <td th:text="${l.CategoryNameSub}"></td>
 	                           <td th:text="${l.registrationDatetime}"></td>
+	                           <td th:text="${l.Id}"></td>
 	                           <td>
-	                            	<button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsMediumCategoryModify}'|" type="button">수정</button>
+	                            	<button class="btn btn-success" th:onclick="|location.href='@{/admin/goods/goodsMediumCategoryModify(categoryCodeSub=${l.categoryCodeSub})}'|" type="button">수정</button>
 				                    <button class="btn btn-success" type="button">삭제</button>
 	                           </td>
                        </tbody>

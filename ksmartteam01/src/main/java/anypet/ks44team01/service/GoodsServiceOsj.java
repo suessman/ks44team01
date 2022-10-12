@@ -27,31 +27,64 @@ public class GoodsServiceOsj {
 		System.out.println("goodsService bean 생성");
 	}
 	
-	//상품대분류카테고리목록조회
+	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList(){
+		
 		List<GoodsLargeCategory> goodsLargeCategoryList = goodsMapper.getGoodsLargeCategoryList();
+		
 		return goodsLargeCategoryList;
 	}
 	
-	//상품중분류카테고리목록조회
+	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList(){
+		
 		List<GoodsMediumCategory> goodsMediumCategoryList = goodsMapper.getGoodsMediumCategoryList();
+		
 		return goodsMediumCategoryList;
 	}
 	
-	//상품대분류카테고리등록
+	//상품대분류등록
 	public void goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
 		
 		int result = goodsMapper.goodsLargeCategoryInsert(goodsLargeCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
-	
-	//상품중분류카테고리등록
+		
+	//상품중분류등록
 	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
 		
 		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
+	
+	//상품대분류수정
+	public void goodsLargeCategoryModify(GoodsLargeCategory goodsLargeCategory) {
+		goodsMapper.goodsLargeCategoryModify(goodsLargeCategory);
+	}
+	
+	//특정대분류조회
+	public GoodsLargeCategory getLargeCategoryInfoByCategoryCode(String categoryCode) {
+		
+		GoodsLargeCategory goodsLargeCategory = goodsMapper.getLargeCategoryInfoByCategoryCode(categoryCode);
+		
+		return goodsLargeCategory;
+	}
+	
+	
+	//상품중분류수정
+	public void goodsMediumCategoryModify(GoodsMediumCategory goodsMediumCategory) {
+		goodsMapper.goodsMediumCategoryModify(goodsMediumCategory);
+	}
+	
+	//특정중분류조회
+	public GoodsMediumCategory getMediumCategoryInfoByCategoryCodeSub(String categoryCodeSub) {
+		
+		GoodsMediumCategory goodsMediumCategory = goodsMapper.getMediumCategoryInfoByCategoryCodeSub(categoryCodeSub);
+		
+		return goodsMediumCategory;
+	}
+	
+	
 } 
