@@ -19,9 +19,9 @@ public class UserBoardController {
 		return "/user/board/addBoard";
 	}
 	
-	@GetMapping("/readBoard")
-	public String readBoard() {
-		return "/user/board/readBoard";
+	@GetMapping("/boardDetail")
+	public String boardDetail() {
+		return "/user/board/boardDetail";
 	}
 	
 	@GetMapping("/modifyBoard")

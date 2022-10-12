@@ -46,52 +46,45 @@
 				       	<div class="row">
 				       		<div class="col-sm-12">
 				           		<div class="card-box table-responsive">
-				           			<div class="col-sm-10">
+				           			<div class="col-sm-12">
 				                	<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 				                		<thead>
 				                			<tr>
 				                				<th>숙소예약번호</th>
 				                				<th>예약자 ID</th>
-				                				<th>숙소예약자</th>
-				                				<th>숙소명</th>
-				                				<th>숙소옵션</th>
-				                				<th>결제코드</th>
-				                				<th>예약날짜</th>
-				                				<th>예약상태</th>			                				
-				                				<th>삭제</th>
+				                				<th>예약날짜</th>	                				
 				                				<th>입실날짜</th>
 				                				<th>퇴실날짜</th>
 				                				<th>인원</th>	
+				                				<th>총결제금액</th>
+				                				<th>사용포인트</th>
+				                				<th>최종결제금액</th>
+				                				<th>결제코드</th>
+				                				<th>삭제</th>
 				                			</tr>
 				                		</thead>
 				                		<tbody>
-				                			<tr th:each="l : ${accommodationReservationList}">
+				                			<tr th:each="l: ${accommodationReservationList}">
 				                				<td th:text="${l.accommodationReservationCode}"></td>
 				                				<td>
 				                					<a href="#" th:text="${l.id}"></a>
 				                				</td>
-				                				<td th:text="${l.name}"></td>
-				                				<td>
-				                					<a href="#" th:text="${l.name}"></a>
-				                				</td>
-				                				<td>
-				                					<a href="#" th:text="${l.accommodationOption}"></a>
-				                				</td>
-				                				<td>
-				                					<a href="#" th:text="${l.accommodationPaymentCode}" class="open_modal"></a>
-				                				</td>
 				                				<td th:text="${l.reservationDatetime}"></td>
-				                				<td>
-													예약확정
-													<a href="#" class="reservation_modal">(예약상태 변경)</a>
-												</td>				                				
-				                				<td>
-				                					<a href="#" class="remove_modal"><button type="submit" style="border: none; background-color: skyblue; border-radius: 10%">X</button></a>
-				                				</td>
 				                				<td th:text="${l.checkinDatetime}"></td>
 				                				<td th:text="${l.checkoutDatetime}"></td>
-				                				<td>2</td>
-				                			</tr>
+				                				<td th:text="${l.totalNumber}"></td>
+				                				<td th:text="${l.paymentAmount}"></td>			
+				                				<td th:text="${l.usingPoint}"></td>			
+				                				<td th:text="${l.totalPaymentPrice}"></td>	
+				                				<td>
+				                					<a href="#">
+				                						<button type="button" id="open_modal" th:text="${l.accommodationPaymentCode}" th:value="${l.accommodationReservationCode}"></button>
+				                					</a>
+				                				</td>			
+				                				<td>
+				                					<a href="#"><button type="submit" class="deleteModal">X</button></a>
+				                				</td>
+				                			</tr> 
 				                		</tbody>
 				                	</table>
 				                </div>
@@ -167,6 +160,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- 결제 모달 -->
 <div id="modal" class="modal-background">
     <div class="modal-window">
@@ -176,36 +170,37 @@
 	        </div>
             <div class="row">
 				<div class="x_content">
-					<br/>
-					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" th:each="l : ${accommodationReservationList}">
+					<br/> 
+					<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" th:action="@{/admin/accommodation/accommodationReservaionList}">
+						<input type="hidden" id="accommodationReservationCode" name="accommodationReservationCode">
 						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-3 label-align" for="first-name">결제금액<span class="required">*</span></label>
+							<label class="col-form-label col-md-4 col-sm-3 label-align" for="first-name">결제방식<span class="required">*</span></label>
 							<div class="col-md-8 col-sm-6 ">
-								<input type="text" id="first-name" required="required" class="form-control" th:value="${l.paymentAmount}">
+								<input type="text" id="first-name" required="required" class="form-control">
 							</div>
 						</div>
 						<div class="item form-group">
-							<label class="col-form-label col-md-4 col-sm-3 label-align" for="last-name">사용적립금<span class="required">*</span></label>
+							<label class="col-form-label col-md-4 col-sm-3 label-align" for="last-name">결제일자<span class="required">*</span></label>
 							<div class="col-md-8 col-sm-6 ">
-								<input type="text" id="last-name" name="last-name" required="required" class="form-control" th:value="${l.usingPoint}">
+								<input type="text" id="last-name" name="last-name" required="required" class="form-control">
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">총결제금액</label>
+							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">할부여부</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.totalPaymentPrice}">
+								<input id="middle-name" class="form-control" type="text" name="middle-name">
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">결제일자</label>
+							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">결제은행</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.paymentDate}">
+								<input id="middle-name" class="form-control" type="text" name="middle-name">
 							</div>
 						</div>
 						<div class="item form-group">
-							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">결제방식</label>
+							<label for="middle-name" class="col-form-label col-md-4 col-sm-3 label-align">구매적립금</label>
 							<div class="col-md-8 col-sm-6 ">
-								<input id="middle-name" class="form-control" type="text" name="middle-name" th:value="${l.paymentTerm}">
+								<input id="middle-name" class="form-control" type="text" name="middle-name">
 							</div>
 						</div>
 						<div class="item form-group" align="center" style="margin-top: 30px;">
@@ -226,17 +221,21 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
+	//모달 : 에이작스로~
 
-    $('.open_modal').click(function() {
+	var $accommodationReservationCode = $('#accommodationReservationCode');
+	$('#open_modal').click(function() {
         $('#modal').css({
             display: 'flex',
         });
+        $accommodationReservationCode.val($(this).val());
     })
+    
     $('.btn').click(function() {
         $('#modal').css({
              display: 'none',
         });
-    })
+    }) 
     
   	$('.reservation_modal').click(function() {
         $('#modalReservation').css({
@@ -249,7 +248,7 @@
         });
     })
     
-  	$('.remove_modal').click(function() {
+  	$('.deleteModal').click(function() {
         $('#modalRemove').css({
             display: 'flex',
         });

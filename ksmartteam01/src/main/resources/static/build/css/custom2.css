@@ -118,3 +118,14 @@
 	color: white; 
 	border-radius: 10%	
 }
+
+.deleteModal{
+	border: none; 
+	background-color: skyblue; 
+	border-radius: 10% 
+}
+
+#open_modal{
+	border: none;
+	color: blue;
+}

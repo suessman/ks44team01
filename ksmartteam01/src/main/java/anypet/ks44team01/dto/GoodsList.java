@@ -4,11 +4,16 @@ public class GoodsList {
 	private String goodsCode;
 	private String goodsId;
 	private String goodsName;
+	private String categoryMemberCode;
+	private String categoryCode;
+	private String categoryName;
 	private String categoryCodeSub;
+	private String categorySubName;
 	private String goodsResgisterTime;
 	private String goodsImage;
 	private int goodsPrice;
 	private String goodsQuantiy;
+	private String goodsContents;
 	
 	public String getGoodsCode() {
 		return goodsCode;
@@ -28,11 +33,35 @@ public class GoodsList {
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
 	}
+	public String getCategoryMemberCode() {
+		return categoryMemberCode;
+	}
+	public void setCategoryMemberCode(String categoryMemberCode) {
+		this.categoryMemberCode = categoryMemberCode;
+	}
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
+	public String getCategoryName() {
+		return categoryName;
+	}
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 	public String getCategoryCodeSub() {
 		return categoryCodeSub;
 	}
 	public void setCategoryCodeSub(String categoryCodeSub) {
 		this.categoryCodeSub = categoryCodeSub;
+	}
+	public String getCategorySubName() {
+		return categorySubName;
+	}
+	public void setCategorySubName(String categorySubName) {
+		this.categorySubName = categorySubName;
 	}
 	public String getGoodsResgisterTime() {
 		return goodsResgisterTime;
@@ -58,22 +87,22 @@ public class GoodsList {
 	public void setGoodsQuantiy(String goodsQuantiy) {
 		this.goodsQuantiy = goodsQuantiy;
 	}
+	public String getGoodsContents() {
+		return goodsContents;
+	}
+	public void setGoodsContents(String goodsContents) {
+		this.goodsContents = goodsContents;
+	}
 	
 	@Override
 	public String toString() {
-		return "GoodsList " + 
-				"[goodsCode=" + goodsCode + 
-				", goodsId=" + goodsId + 
-				", goodsName=" + goodsName + 
-				", categoryCodeSub=" + categoryCodeSub + 
-				", goodsResgisterTime=" + goodsResgisterTime + 
-				", goodsImage=" + goodsImage + 
-				", goodsPrice=" + goodsPrice + 
-				", goodsQuantiy=" + goodsQuantiy + "]";
+		return "GoodsList [goodsCode=" + goodsCode + ", goodsId=" + goodsId + ", goodsName=" + goodsName
+				+ ", categoryMemberCode=" + categoryMemberCode + ", categoryCode=" + categoryCode + ", categoryName="
+				+ categoryName + ", categoryCodeSub=" + categoryCodeSub + ", categorySubName=" + categorySubName
+				+ ", goodsResgisterTime=" + goodsResgisterTime + ", goodsImage=" + goodsImage + ", goodsPrice="
+				+ goodsPrice + ", goodsQuantiy=" + goodsQuantiy + ", goodsContents=" + goodsContents + "]";
 	}
 
-	
-	
 	
 	
 }

@@ -8,20 +8,21 @@ package anypet.ks44team01.dto;
  * */
 public class Board {
 	
-	private String board_code;
+	private String boardCode;
 	private String id;
-	private String board_category_code;
-	private String board_title;
-	private String board_contents;
-	private String board_datetime;
-	private String board_image;
-	private int board_hits;
+	private String boardCategoryCode;
+	private String boardTitle;
+	private String boardContents;
+	private String boardDatetime;
+	private String boardImage;
+	private int    boardHits;
+	private BoardCategory boardCategory;
 	
-	public String getBoard_code() {
-		return board_code;
+	public String getBoardCode() {
+		return boardCode;
 	}
-	public void setBoard_code(String board_code) {
-		this.board_code = board_code;
+	public void setBoardCode(String boardCode) {
+		this.boardCode = boardCode;
 	}
 	public String getId() {
 		return id;
@@ -29,48 +30,54 @@ public class Board {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getBoard_category_code() {
-		return board_category_code;
+	public String getBoardCategoryCode() {
+		return boardCategoryCode;
 	}
-	public void setBoard_category_code(String board_category_code) {
-		this.board_category_code = board_category_code;
+	public void setBoardCategoryCode(String boardCategoryCode) {
+		this.boardCategoryCode = boardCategoryCode;
 	}
-	public String getBoard_title() {
-		return board_title;
+	public String getBoardTitle() {
+		return boardTitle;
 	}
-	public void setBoard_title(String board_title) {
-		this.board_title = board_title;
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
 	}
-	public String getBoard_contents() {
-		return board_contents;
+	public String getBoardContents() {
+		return boardContents;
 	}
-	public void setBoard_contents(String board_contents) {
-		this.board_contents = board_contents;
+	public void setBoardContents(String boardContents) {
+		this.boardContents = boardContents;
 	}
-	public String getBoard_datetime() {
-		return board_datetime;
+	public String getBoardDatetime() {
+		return boardDatetime;
 	}
-	public void setBoard_datetime(String board_datetime) {
-		this.board_datetime = board_datetime;
+	public void setBoardDatetime(String boardDatetime) {
+		this.boardDatetime = boardDatetime;
 	}
-	public String getBoard_image() {
-		return board_image;
+	public String getBoardImage() {
+		return boardImage;
 	}
-	public void setBoard_image(String board_image) {
-		this.board_image = board_image;
+	public void setBoardImage(String boardImage) {
+		this.boardImage = boardImage;
 	}
-	public int getBoard_hits() {
-		return board_hits;
+	public int getBoardHits() {
+		return boardHits;
 	}
-	public void setBoard_hits(int board_hits) {
-		this.board_hits = board_hits;
+	public void setBoardHits(int boardHits) {
+		this.boardHits = boardHits;
+	}
+	public BoardCategory getBoardCategory() {
+		return boardCategory;
+	}
+	public void setBoardCategory(BoardCategory boardCategory) {
+		this.boardCategory = boardCategory;
 	}
 	
 	@Override
 	public String toString() {
-		return "Board [board_code=" + board_code + ", id=" + id + ", board_category_code=" + board_category_code
-				+ ", board_title=" + board_title + ", board_contents=" + board_contents + ", board_datetime="
-				+ board_datetime + ", board_image=" + board_image + ", board_hits=" + board_hits + "]";
+		return "Board [boardCode=" + boardCode + ", id=" + id + ", boardCategoryCode=" + boardCategoryCode
+				+ ", boardTitle=" + boardTitle + ", boardContents=" + boardContents + ", boardDatetime=" + boardDatetime
+				+ ", boardImage=" + boardImage + ", boardHits=" + boardHits + ", boardCategory=" + boardCategory + "]";
 	}
-		
+			
 }

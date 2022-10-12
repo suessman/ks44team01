@@ -1,90 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/adminDefault}">
-      
-	<!-- 사용자 정의 타이틀 설정 -->
-	<th:block layout:fragment="customTitle">
-	   <title>게시물 열람</title>
-	</th:block>
-
-	<th:block layout:fragment="customContents">
-	<div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>
-                	게시물 열람<small> - 게시물을 열람하고 댓글을 등록, 수정, 삭제하는 페이지</small> 
-                </h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>제목 <small>작성자 작성일</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-
-                    <div class="col-md-8 col-lg-8 col-sm-7">
-                      <input id="board_idx" type="hidden" th:value="${board?.idx}" />
-        <input id="board_create_date" type="hidden" th:value="${board?.createdDate}" />
-        <table class="table">
-            <tr>
-                <th style="padding:13px 0 0 15px;">생성 날짜</th>
-                <td th:text="${r.board_datetime}">
-                    <input type="text" class="form-control input-sm" readonly
-                           th:value="${board?.createdDate} ? 
-                                  ${#temporals.format(board.createdDate, 'yyyy-MM-dd HH:mm')} : 
-                                 ${board?.createdDate}" />
-                </td>
-            </tr>
-            <tr>
-                <th style="padding:13px 0 0 15px;">제목</th>
-                <td>
-                    <input id="board_title" type="text" class="form-control input-sm" 
-                           th:value="${board?.title}" />
-                </td>
-            </tr>
-            <tr>
-                <th style="padding:13px 0 0 15px;">내용</th>
-                <td>
-                    <textarea id="board_content" class="form-control input-sm" 
-                             maxlength="140" rows="70" style="height: 200px;" 
-                             th:text="${board?.content}" ></textarea>
-                    <span class="help-block"></span>
-                </td>
-            </tr>
-        </table>
-<input type="hidden" id="board_id" name="board_id" value="${boardView.id}" />
+	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default}">
+<head>
+    <meta charset="UTF-8">      
+    <th:block layout:fragment="customTitle">
+    <title>boardDetail</title>
+    </th:block>
+    
+    <style>
+        textarea{
+              width:100%;
+            }
+             
+        .reply_reply {
+                border: 2px solid #FF50CF;
+            }
+        .reply_modify {
+                border: 2px solid #FFBB00;
+            }
+    </style>
+</head>
+    <th:block layout:fragment="customContents">
+   	<div class="menu-title">
+		<h3>게시글 열람</h3> 
+	</div>
+<body>
+	<div>
+		<div class="title-group" id="top">
+			<h5>[말머리]게시글 제목</h5>
+		</div>
+		<div style="text-align: center;">
+			<a href="#">작성자</a>
+			<span>작성 시간</span>
+			<span>조회수</span>
+		</div>
+	</div>
+	
+	<div style="text-align: center;">
+		<textarea rows="30" cols="70" disabled="disabled">작성자가 작성한 내용</textarea>
+	</div>
+		
+	<input type="hidden" id="board_id" name="board_id" value="${boardView.id}" />
         <div align="center">
             <table border="1" width="1200px" id="reply_area">
                 <tr reply_type="all"><!-- 뒤에 댓글 붙이기 쉽게 선언 -->
@@ -109,26 +66,13 @@
         </div>
 	
 	<div style="text-align: center;">
-		<a href="/admin/board/modifyBoard"><button>수정하기</button></a>
-		<a href="javascript:delete_check('/admin/board/boardList')"><button>삭제하기</button></a>
-		<a href="/admin/board/boardList"><button>목록 이동</button></a>
+		<a href="/user/board/modifyBoard"><button>수정하기</button></a>
+		<a href="javascript:delete_check('/user/board/boardList')"><button>삭제하기</button></a>
+		<a href="/user/board/boardList"><button>목록 이동</button></a>
 		<a href="#top"><button>위로 가기</button></a>
 	</div>
-                     
-                    </div>
-                    
-
-                    <div class="clearfix"></div>
-
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-<script>	
+	
+	<script>	
 	/*수정한 글 등록 확인 시작*/
 	function delete_check(url){
 		var answer;
@@ -844,6 +788,7 @@
             });
         </script>
 	<!-- JS 댓글 기능 끝-->
-        
-	</th:block>
+</body>
+</th:block>
 </html>
+

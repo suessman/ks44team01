@@ -38,4 +38,20 @@ public class GoodsServiceOsj {
 		List<GoodsMediumCategory> goodsMediumCategoryList = goodsMapper.getGoodsMediumCategoryList();
 		return goodsMediumCategoryList;
 	}
+	
+	//상품대분류카테고리등록
+	public void goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
+		
+		int result = goodsMapper.goodsLargeCategoryInsert(goodsLargeCategory);
+		
+		System.out.println("회원가입 결과 : " + result);
+	}
+	
+	//상품중분류카테고리등록
+	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+		
+		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
+		
+		System.out.println("회원가입 결과 : " + result);
+	}
 } 
