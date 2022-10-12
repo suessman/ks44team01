@@ -18,7 +18,14 @@ public interface AccommodationListMapper {
 	
 	//지역목록조회
 	public List<Region> getRegionList();
+
+	//특정 회원 정보 조회
+	public AccommodationList getAccommodationInfoByCode(String accommodationDetailCode);
 	
+	//회원정보수정
+	public int updateAccommodationList(AccommodationList accommodationList);
+
 	//업체회원목록조회
 	public List<CompanyMember> getCompanyMember();
+
 }
