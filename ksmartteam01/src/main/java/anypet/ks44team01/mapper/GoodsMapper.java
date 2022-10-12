@@ -33,5 +33,8 @@ public interface GoodsMapper {
 	
 	//특정 상품 조회
 	public GoodsList getGoodsInfoByCode(String goodsCode);
+
+	//상품 삭제
+	public void goodsRemove(String goodsCode);
 	
 }
