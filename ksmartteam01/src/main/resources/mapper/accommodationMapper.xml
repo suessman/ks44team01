@@ -6,45 +6,87 @@
   <mapper namespace="anypet.ks44team01.mapper.AccommodationMapper">
 	<resultMap 	type="AccommodationCategory" id="accommodationCategory">
 		<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
-		<result	column="id" property="accommodationId"/>
+		<result	column="id" 						property="accommodationId"/>
 		<result	column="accomodation_category_name" property="accommodationCategoryName"/>
-		<result	column="registration_datetime" property="registrationDateTime"/>
+		<result	column="registration_datetime" 		property="registrationDateTime"/>
 	</resultMap>
 	
-	<resultMap type="AccommodationPayment" id="accommodationPayment">
-		<id 	column="accomodation_payment_number" property="accommodationPaymentCode"/>
-		<result	column="accomodation_reservation_number" property="accommodationReservationCode"/>
-		<association property="accommodationReservationList" javaType="AccommodationReservationList">
-			<id		column="accomodation_reservation_number" property="accommodationReservationCode"/>
-			<result column="accomodation_detail_code" property="accommodationDetailCode"/>
-			<result	column="id" property="id"/>
-			<result	column="accomodation_date" property="reservationDatetime"/>
-			<result	column="checkin_date" property="checkinDatetime"/>
-			<result	column="checkout_date" property="checkoutDatetime"/>
-			<result	column="reservation_people" property="totalNumber"/>
-			<result	column="payment_amount" property="paymentAmount"/>
-			<result	column="using_point" property="usingPoint"/>
-			<result	column="total_payment_price" property="totalPaymentPrice"/>
-		</association>
+	<!-- 예약한 숙소 상세정보 -->
+	<resultMap type="AccommodationDetail" id="accommodationDetail">
+		<id		column="accomodation_detail_code" property="accommodationDetailCode"/>
+		
+			<association property="accommodationOption" javaType="AccommodationOption">
+				<id		column="goods_accommodation_option_code" property="goodsAccommodationOptionCode"/>
+				<result	column="accomodation_option" 			 property="accommodationOption"/>
+			</association>
+			
+			<association property="accommodationCategory" javaType="AccommodationCategory">
+				<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
+				<result column="accomodation_category_name" property="accommodationCategoryName"/>
+			</association>
+			
+			<association property="companyMember" javaType="CompanyMember">
+				<id		column="company_member_code" property="companyMemberCode"/>
+				<result column="company_name" 	 	 property="companyName"/>
+				<result column="company_phone" 	 	 property="companyPhone"/>
+				<result column="company_address" 	 property="companyAddress"/>
+			</association>
 	</resultMap>
+	
+	<!-- 숙소정보 조회 -->
+	<select id="getAccommodationDetailInfo" parameterType="String" resultMap="accommodationDetail">
+		SELECT 		
+			 c.accomodation_category_name
+			,m.company_name	
+			,g.accomodation_option				
+			,m.company_phone						
+			,m.company_address		
+		FROM 
+			accomodation_detail AS d
+			INNER JOIN
+			accomodation_category AS c
+			ON
+			d.accomodation_category_code = c.accomodation_category_code
+			INNER JOIN
+			company_member	AS m
+			ON
+			d.company_member_code = m.company_member_code
+			INNER JOIN
+			goods_accomodation_option AS g
+			ON
+			g.accomodation_detail_code = d.accomodation_detail_code
+		WHERE 
+			g.goods_accomodation_option_code = #{goodsAccommodationOptionCode};
+	</select>
+	
+	<!-- 회원정보 조회 -->
+	<select id="getReservaionMemberInfo" resultType="Member">
+		SELECT 
+ 			 m.id				AS memberId
+			,m.name				AS memberName
+			,m.phone			AS memberPhone
+			,m.email			AS memberEmail
+		FROM 
+			member AS m
+		WHERE 
+			m.id = #{memberId};
+	</select>
 	
 	<!-- 숙소 결제내역 조회 -->
 	<select id="getAccommodationPayment" resultType="AccommodationPayment">
 		SELECT 
-			p.accomodation_payment_number					
-			p.accomodation_reservation_number 				
-			p.personal_member_code													
-			p.accomodation_payment_term						 	
-			p.accomodation_payment_date					 
-			p.accomodation_mothly_payment					 			
-			p.accomodation_payment_bank					
-			p.purchased_point							
+			 p.accomodation_payment_number			AS accommodationPaymentCode		
+			,p.accomodation_reservation_number 		AS accommodationReservationNumber		
+			,p.personal_member_code					AS personalMemberCode								
+			,p.accomodation_payment_term			AS accommodationPaymentTerm		 	
+			,p.accomodation_payment_date			AS accommodationPaymentDate
+			,p.accomodation_mothly_payment			AS accommodationMothlyPayment
+			,p.accomodation_payment_bank			AS accommodationPaymentBank
+			,p.purchased_point						AS purchasedPoint
 		FROM 
 			accomodation_payment AS p
-			INNER JOIN
-			accomodation_reservation AS r
-			ON 
-			p.accomodation_reservation_number = #{accommodationReservationCode};
+		WHERE
+			p.accomodation_payment_number = #{accommodationPaymentCode};
 	</select>
 	
 	<!-- 숙소 예약내역 조회  -->
@@ -52,6 +94,7 @@
 	SELECT 
 		 r.accomodation_reservation_number 		AS accommodationReservationCode
 		,r.accomodation_detail_code				AS accommodationDetailCode
+		,r.goods_accomodation_option_code		AS goodsAccommodationOptionCode
 		,r.id 									AS id
 		,r.accomodation_date 					AS reservationDatetime					
 		,r.checkin_date 						AS checkinDatetime		

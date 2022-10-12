@@ -8,15 +8,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import anypet.ks44team01.dto.AccommodationCategory;
+import anypet.ks44team01.dto.AccommodationDetail;
 import anypet.ks44team01.dto.AccommodationInquiry;
 import anypet.ks44team01.dto.AccommodationPayment;
 import anypet.ks44team01.dto.AccommodationReservationList;
+import anypet.ks44team01.dto.Member;
 import anypet.ks44team01.mapper.AccommodationMapper;
 
 @Service
 @Transactional
 public class AccommodationService {
 
+	// DI 생성자 메소드 주입방식
 	private AccommodationMapper accommodationMapper;
 	
 	public AccommodationService(AccommodationMapper accommodationMapper) {
@@ -28,6 +31,21 @@ public class AccommodationService {
 		System.out.println("accommodationService bean 생성");
 	}
 	
+	//숙소 정보 조회
+	public AccommodationDetail getAccommodationDetailInfo(String goodsAccommodationOptionCode) {
+		
+		AccommodationDetail accommodationDetailInfo = accommodationMapper.getAccommodationDetailInfo(goodsAccommodationOptionCode);
+		
+		return accommodationDetailInfo;
+	}
+	
+	//회원 정보 조회
+	public Member getReservaionMemberInfo(String memberId) {
+		
+		Member memberInfo = accommodationMapper.getReservaionMemberInfo(memberId);
+		
+		return memberInfo;
+	}
 	
 	//특정 결제내역 조회 
 	public AccommodationPayment getAccommodationPayment(String accommodationReservationCode) {
