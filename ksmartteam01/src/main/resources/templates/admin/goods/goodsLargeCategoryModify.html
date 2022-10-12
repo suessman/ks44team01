@@ -65,28 +65,31 @@
 								</div>
 								<div class="x_content">
 									<br />
-									<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">대분류코드 <span class="required">*</span>
+									<form id="demo-form2" th:action="@{/admin/goods/goodsLargeCategoryModify}" method="post" data-parsley-validate class="form-horizontal form-label-left">
+										<div th:object="${largeCategoryInfo}" class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="categoryCode">대분류코드 <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="first-name" required="required" class="form-control ">
+												<input type="text" id="categoryCode" name="categoryCode" required="required" class="form-control" th:value="*{categoryCode}" readonly="readonly">
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">대분류이름 <span class="required">*</span>
+										<div th:object="${largeCategoryInfo}" class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="categoryName">대분류이름 <span class="required">*</span>
 											</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="last-name" name="last-name" required="required" class="form-control">
+												<input type="text" id="categoryName" name="categoryName" required="required" th:value="${largeCategoryInfo.categoryName}" class="form-control">
 											</div>
 										</div>
-										<div class="item form-group">
-											<label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">업데이트시간 <span class="required">*</span>
+										
+										<div th:object="${largeCategoryInfo}" class="item form-group">
+											<label class="col-form-label col-md-3 col-sm-3 label-align" for="glcmId">아이디 <span class="required">*</span>
 											</label>
-											<div class="col-md-6 col-sm-6 ">
-												<input type="date" id="last-name" name="last-name" required="required" class="form-control">
+											<div class="col-md-6 col-sm-6 "><!-- ${session.SID} -->
+												<input type="text" id="glcmId" name="Id" required="required" class="form-control" th:value="${largeCategoryInfo.Id}" readonly="readonly">
 											</div>
 										</div>
+				
+										
 										<div class="ln_solid"></div>
 										<div class="item form-group">
 											<div class="col-md-6 col-sm-6 offset-md-3">

@@ -23,9 +23,18 @@ public interface GoodsMapperOsj {
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList();
 	//상품대분류등록
 	public int goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory);
+	//상품대분류수정
+	public int goodsLargeCategoryModify(GoodsLargeCategory goodsLargeCategory);
+	//특정대분류정보조회
+	public GoodsLargeCategory getLargeCategoryInfoByCategoryCode(String categoryCode);
+	
 	
 	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList();
 	//상품중분류등록
 	public int goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory);
+	//상품중분류수정
+	public int goodsMediumCategoryModify(GoodsMediumCategory goodsMediumCategory);
+	//특정중분류정보조회
+	public GoodsMediumCategory getMediumCategoryInfoByCategoryCodeSub(String categoryCodeSub);
 }

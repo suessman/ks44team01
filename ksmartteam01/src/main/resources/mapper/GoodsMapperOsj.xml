@@ -15,7 +15,8 @@
 			/* 대분류목록조회 */
 			SELECT 
 				category_code, 
-				category_name, 
+				category_name,
+				id,
 				registration_datetime
 			FROM 
 				company_category;
@@ -50,6 +51,84 @@
 			  	,#{Id}
 			   );
 		</insert>
+		
+	<!-- 대분류 수정 -->
+	<update id="goodsLargeCategoryModify" parameterType="GoodsLargeCategory">
+		UPDATE company_category
+		<trim prefix="SET" prefixOverrides=",">		
+			<if test="categoryName != null and categoryName != ''">
+			    category_name       	= #{categoryName}
+			</if>
+			<if test="Id != null and Id != ''">
+			   ,id     					= #{Id}
+			</if>
+			   ,registration_datetime    = now()
+			
+		</trim>
+		WHERE
+		   category_code = #{categoryCode};
+	</update>
+
+	<!-- 특정대분류조회 -->
+	<select id="getLargeCategoryInfoByCategoryCode" parameterType="String" resultType="GoodsLargeCategory">
+		/* 특정대분류조회 */
+		SELECT 
+			 cc.category_code					AS		categoryCode
+			,cc.category_name					AS		categoryName
+			,cc.id								AS		Id
+			,cc.registration_datetime			AS		registrationDatetime
+		FROM 
+			company_category AS cc
+		WHERE
+			cc.category_code = #{categoryCode}
+	</select>
+	
+	<!-- 중분류 수정 -->
+	<update id="goodsMediumCategoryModify" parameterType="GoodsMediumCategory">
+		UPDATE company_category_sub
+		<trim prefix="SET" prefixOverrides=",">	
+			<if test="categoryCode != null and categoryCode != ''">
+			    category_code      			= #{categoryCode}
+			</if>	
+			<if test="categoryNameSub != null and categoryNameSub != ''">
+			   ,category_sub_name       	= #{categoryNameSub}
+			</if>
+			<if test="Id != null and Id != ''">
+			   ,id     						= #{Id}
+			</if>
+			   ,registration_datetime 		= now()
+		</trim>
+		WHERE
+		   category_code_sub = #{categoryCodeSub};
+	</update>
+
+	<!-- 특정중분류조회 -->
+	<select id="getMediumCategoryInfoByCategoryCodeSub" parameterType="String" resultType="GoodsMediumCategory">
+		/* 특정중분류조회 */
+		SELECT 
+			 ccs.category_code_sub				AS		categoryCodeSub
+			,ccs.category_code					AS		categoryCode
+			,ccs.category_sub_name				AS		categoryNameSub
+			,ccs.id								AS		Id
+			,ccs.registration_datetime			AS		registrationDatetime
+		FROM 
+			company_category_sub AS ccs
+		WHERE
+			ccs.category_code_sub = #{categoryCodeSub}
+	</select>
+
+	<!-- 중분류목록조회 -->
+	<select id="getGoodsMediumCategoryList" resultType="GoodsMediumCategory">
+		/* 중분류목록조회 */
+		SELECT 
+			category_code_sub				as		categoryCodeSub
+			,category_code                  as		categoryCode
+			,category_sub_name				as		categoryNameSub
+			,id								as		Id
+			,registration_datetime			as		registrationDatetime
+		FROM 
+			company_category_sub;
+	</select>
 		
 		
 		<!-- 중분류등록 -->
@@ -86,17 +165,7 @@
 		</insert>
 
 		
-		<!-- 중분류목록조회 -->
-		<select id="getGoodsMediumCategoryList" resultType="GoodsMediumCategory">
-			/* 중분류목록조회 */
-			SELECT 
-				category_code                   as		categoryCode
-				,category_code_sub				as		categoryCodeSub
-				,category_sub_name				as		categoryNameSub
-				,registration_datetime			as		registrationDatetime
-			FROM 
-				company_category_sub;
-		</select>
+
 		
 		
 </mapper>
