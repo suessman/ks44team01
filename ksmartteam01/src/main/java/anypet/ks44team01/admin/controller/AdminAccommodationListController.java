@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationList;
@@ -42,6 +44,7 @@ public class AdminAccommodationListController {
 		return "redirect:/admin/accommodation/accommodationList";
 	}
 	
+	//숙소등록
 	@GetMapping("/insertAccommodation")
 	public String insertAccommodation(Model model) {
 		List<AccommodationList> accommodationList = accommodationListService.getAccommodationList();
@@ -54,12 +57,54 @@ public class AdminAccommodationListController {
 		model.addAttribute("region", region);
 		
 		return "/admin/accommodation/insertAccommodation";
-	}	
+	}		
 	
+	//숙소수정
 	@GetMapping("/updateAccommodation")
-	public String updateAccommodation() {
+	public String updateAccommodation(@RequestParam(value="accommodationDetailCode", required = false) String accommodationDetailCode
+			, Model model) {
+		
+		//숙소의 정보
+		AccommodationList accommodationListInfo = accommodationListService.getAccommodationInfoByCode(accommodationDetailCode);
+		model.addAttribute("accommodationListInfo", accommodationListInfo);
+		
+		List<AccommodationCategory> accommodationCategoryList = accommodationListService.getCategoryList();
+		List<Region> region = accommodationListService.getRegionList();
+		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
+		model.addAttribute("region", region);
+		
 		return "/admin/accommodation/updateAccommodation";
 	}
+	
+	//숙소수정
+	@PostMapping("/updateAccommodation")
+	public String updateAccommodation(AccommodationList accommodationList) {
+		
+		
+		accommodationListService.updateAccommodationList(accommodationList);
+		
+		return "redirect:/admin/accommodation/accommodationList";
+	}
+	
+	//숙소삭제
+	@GetMapping("/remove/{accommodationDetailCode}")
+	public String removeAccommodationList(@PathVariable(value = "accommodationDetailCode") String accommodationDetailCode
+											,@RequestParam(value="msg", required = false) String msg
+											,Model model) {
+		model.addAttribute("accommodationDetailCode", accommodationDetailCode);
+		return "/admin/accommodation/removeAccommodationList";
+	}
+	
+	//숙소삭제
+	/*
+	 * @PostMapping("/removeAccommodationList") public String
+	 * removeAccommodationList(@RequestParam(name="accommodationDetailCode") String
+	 * accommodationDetailCode ,RedirectAttributes reAttr) {
+	 * 
+	 * }
+	 */
+					
+							
 	
 	@GetMapping("/accommodationDetail")
 	public String accommodationDetail() {

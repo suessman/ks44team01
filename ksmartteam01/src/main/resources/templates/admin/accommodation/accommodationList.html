@@ -92,10 +92,13 @@
 		                                            <td th:text=${l.companyMemberDto.companyName}></td>
 		                                            <td th:text=${l.accommodationOptionDto.roomPrice}></td>		                                           
 		                                            <td>
-			                                            <a href="/admin/accommodation/updateAccommodation">
+			                                            <a th:href="@{/admin/accommodation/updateAccommodation(accommodationDetailCode=${l.accommodationDetailCode})}">
 			                                            	<button type="button" class="btn btn-sm btn-primary">수정</button>
 			                                            </a>	    
-		                                            	<button type="button" class="btn btn-sm btn-success">삭제</button>
+			                                            <a th:href="${|/admin/accommodation/remove/${l.accommodationDetailCode}|}">
+			                                            	<button type="button" t class="btn btn-sm btn-success">삭제</button>
+			                                            </a>
+		                                            	
 		                                            </td>			                                            	                                            
 		                                        </tr>		                                                                       
 		                                    </tbody>

@@ -110,21 +110,16 @@ public class AccommodationList {
 	public void setRegistrationDateTime(String registrationDateTime) {
 		this.registrationDateTime = registrationDateTime;
 	}
-	
 	@Override
 	public String toString() {
 		return "AccommodationList [accommodationDetailCode=" + accommodationDetailCode + ", accommodationCategoryCode="
 				+ accommodationCategoryCode + ", accommodationRegionCode=" + accommodationRegionCode
 				+ ", companyMemberCode=" + companyMemberCode + ", memberId=" + memberId + ", checkInOut=" + checkInOut
 				+ ", parking=" + parking + ", registrationDateTime=" + registrationDateTime
-				+ ", accommodationCategoryDto=" + accommodationCategoryDto + ", getAccommodationCategoryDto()="
-				+ getAccommodationCategoryDto() + ", getAccommodationDetailCode()=" + getAccommodationDetailCode()
-				+ ", getAccommodationCategoryCode()=" + getAccommodationCategoryCode()
-				+ ", getAccommodationRegionCode()=" + getAccommodationRegionCode() + ", getCompanyMemberCode()="
-				+ getCompanyMemberCode() + ", getMemberId()=" + getMemberId() + ", getCheckInOut()=" + getCheckInOut()
-				+ ", getParking()=" + getParking() + ", getRegistrationDateTime()=" + getRegistrationDateTime()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+				+ ", accommodationCategoryDto=" + accommodationCategoryDto + ", regionDto=" + regionDto
+				+ ", companyMemberDto=" + companyMemberDto + ", accommodationOptionDto=" + accommodationOptionDto
+				+ ", accommodationSpecialPriceDto=" + accommodationSpecialPriceDto + "]";
 	}
+	
 	
 }

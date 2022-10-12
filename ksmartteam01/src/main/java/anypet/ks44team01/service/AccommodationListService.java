@@ -39,4 +39,16 @@ public class AccommodationListService {
 	public void addAccommodation(AccommodationList accommodationList) {
 		accommodationListMapper.addAccommodation(accommodationList);	
 	}
+	
+	//특정숙소의 정보 조회
+	public AccommodationList getAccommodationInfoByCode(String accommodationDetailCode) {
+		AccommodationList accommodationListInfo = accommodationListMapper.getAccommodationInfoByCode(accommodationDetailCode);
+		return accommodationListInfo;
+	}
+	
+	//숙소수정
+	public void updateAccommodationList(AccommodationList accommodationList) {
+		accommodationListMapper.updateAccommodationList(accommodationList);
+	}
+	
 }

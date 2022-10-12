@@ -111,6 +111,8 @@
 	FROM
 		region as r;
 	</select>
+	
+	
 	<select id="getCategoryList" resultType="AccommodationCategory">
 	/*숙소카테고리조회*/
 	select
@@ -119,6 +121,59 @@
 	FROM
 		accomodation_category as c;
 	</select>
-
+	
+	<!-- 특정 숙소 조회 -->
+	<select id="getAccommodationInfoByCode" parameterType="String" resultType="AccommodationList">
+	/*매개변수 선언 되어있을 경우 파라미터타입 써줘야한다.*/
+	/*특정 숙소 조회*/
+	SELECT
+		d.accomodation_detail_code				AS accommodationDetailCode,
+		d.accomodation_category_code 		    AS accommodationCategoryCode,
+		d.region_code 							AS accommodationRegionCode,
+		d.company_member_code 					AS companyMemberCode,
+		d.id									AS memberId,
+		d.check_inout 							AS checkInOut,
+		d.parking 								AS parking,
+		d.registration_datetime 				AS registrationDateTime
+	FROM
+		accomodation_detail AS d
+	WHERE
+		d.accomodation_detail_code = #{accommodationDetailCode};
+	</select>
+	
+		
+	<!-- 숙소수정 -->
+	<update id="updateAccommodationList" parameterType="AccommodationList">
+	/*쉼표가 뒤에 있으면 suffixOverrides*/
+	UPDATE accomodation_detail
+	<trim prefix="SET" prefixOverrides=",">		
+		<if test="accommodationDetailCode != null and accommodationDetailCode != ''">
+		accomodation_detail_code 		    		= #{accommodationDetailCode}
+		</if>
+		<if test="accommodationCategoryCode != null and accommodationCategoryCode != ''">
+		,accomodation_category_code 				= #{accommodationCategoryCode}
+		</if>
+		<if test="accommodationRegionCode != null and accommodationRegionCode != ''">
+		,region_code 								= #{accommodationRegionCode}
+		</if>
+		<if test="companyMemberCode != null and companyMemberCode != ''">
+		,company_member_code 						= #{companyMemberCode}
+		</if>
+		<if test="memberId != null and memberId != ''">
+		,id 										= 'id003'
+		</if>
+		<if test="checkInOut != null and checkInOut != ''">
+		,check_inout 								= #{checkInOut}
+		</if>
+		<if test="parking != null and parking != ''">
+		,parking 									= #{parking}
+		</if>
+		<if test="registrationDateTime != null and registrationDateTime != ''">
+		,registration_datetime 						= now()
+		</if>
+	</trim>
+	WHERE
+		accomodation_detail_code = #{accommodationDetailCode};
+	</update>
 	
   </mapper>
