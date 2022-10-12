@@ -96,7 +96,7 @@
 				(#{accommodationDetailCode}
 				,#{accommodationCategoryCode}
 				,#{accommodationRegionCode}
-				,'cmc001'
+				,'cmc003'
 				,'id003'
 				,#{checkInOut}
 				,#{parking}
@@ -119,6 +119,12 @@
 	FROM
 		accomodation_category as c;
 	</select>
-
-	
+	<select id="getCompanyMember" resultType="CompanyMember">
+	/*company_member조회*/
+	select
+		m.company_member_code AS companyMemberCode
+		,m.company_member_category AS companyMemberCategory
+	FROM
+		company_member as m;
+	</select>
   </mapper>

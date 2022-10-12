@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationList;
+import anypet.ks44team01.dto.CompanyMember;
 import anypet.ks44team01.dto.Region;
 import anypet.ks44team01.service.AccommodationListService;
 
@@ -18,6 +19,7 @@ import anypet.ks44team01.service.AccommodationListService;
 @Controller
 @RequestMapping("/admin/accommodation")
 public class AdminAccommodationListController {
+	
 	
 	private AccommodationListService accommodationListService;
 	public AdminAccommodationListController(AccommodationListService accommodationListService) {
@@ -50,8 +52,11 @@ public class AdminAccommodationListController {
 		model.addAttribute("title", "숙소등록");
 		List<AccommodationCategory> accommodationCategoryList = accommodationListService.getCategoryList();
 		List<Region> region = accommodationListService.getRegionList();
+		List<CompanyMember> companyMember = accommodationListService.getCompanyMember();
+		
 		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
 		model.addAttribute("region", region);
+		model.addAttribute("companyMember", companyMember);
 		
 		return "/admin/accommodation/insertAccommodation";
 	}	

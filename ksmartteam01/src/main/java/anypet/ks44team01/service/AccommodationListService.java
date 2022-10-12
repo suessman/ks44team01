@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationList;
+import anypet.ks44team01.dto.CompanyMember;
 import anypet.ks44team01.dto.Region;
 import anypet.ks44team01.mapper.AccommodationListMapper;
 
@@ -25,15 +26,26 @@ public class AccommodationListService {
 		return accommodationList;
 	}
 	
+	//카테고리목록조회
 	public List<AccommodationCategory> getCategoryList(){
 		List<AccommodationCategory> accommodationCategory = accommodationListMapper.getCategoryList();
 		return accommodationCategory;
 	}
 	
+	//지역목록조회
 	public List<Region> getRegionList(){
 		List<Region> region = accommodationListMapper.getRegionList();
 		return region;
 	}
+	
+	
+	//업체회원조회
+	public List<CompanyMember> getCompanyMember(){
+		List<CompanyMember> companyMember = accommodationListMapper.getCompanyMember();
+		
+		return companyMember;
+	}	
+	
 	
 	//숙소등록
 	public void addAccommodation(AccommodationList accommodationList) {
