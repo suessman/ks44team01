@@ -96,7 +96,7 @@
 				(#{accommodationDetailCode}
 				,#{accommodationCategoryCode}
 				,#{accommodationRegionCode}
-				,'cmc001'
+				,'cmc003'
 				,'id003'
 				,#{checkInOut}
 				,#{parking}
@@ -110,8 +110,7 @@
 		,r.region_name AS regionName
 	FROM
 		region as r;
-	</select>
-	
+	</select>	
 	
 	<select id="getCategoryList" resultType="AccommodationCategory">
 	/*숙소카테고리조회*/
@@ -121,7 +120,7 @@
 	FROM
 		accomodation_category as c;
 	</select>
-	
+
 	<!-- 특정 숙소 조회 -->
 	<select id="getAccommodationInfoByCode" parameterType="String" resultType="AccommodationList">
 	/*매개변수 선언 되어있을 경우 파라미터타입 써줘야한다.*/
@@ -175,5 +174,14 @@
 	WHERE
 		accomodation_detail_code = #{accommodationDetailCode};
 	</update>
-	
+
+	<select id="getCompanyMember" resultType="CompanyMember">
+	/*company_member조회*/
+	select
+		m.company_member_code AS companyMemberCode
+		,m.company_member_category AS companyMemberCategory
+	FROM
+		company_member as m;
+	</select>
+
   </mapper>
