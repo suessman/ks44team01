@@ -1,80 +1,190 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layout/default}">
-<head>
-    <meta charset="UTF-8">      
-    <th:block layout:fragment="customTitle">
-    <title>boardDetail</title>
-    </th:block>
-    
-    <style>
-        textarea{
-              width:100%;
-            }
-             
-        .reply_reply {
-                border: 2px solid #FF50CF;
-            }
-        .reply_modify {
-                border: 2px solid #FFBB00;
-            }
-    </style>
-</head>
-    <th:block layout:fragment="customContents">
-   	<div class="menu-title">
-		<h3>게시글 열람</h3> 
-	</div>
-<body>
-	<div>
-		<div class="title-group" id="top">
-			<h5>[말머리]게시글 제목</h5>
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/adminDefault}">
+
+<!-- 사용자 정의 타이틀 설정 -->
+<th:block layout:fragment="customTitle">
+	<title>게시물 열람</title>
+</th:block>
+
+<th:block layout:fragment="customContents">
+	<div class="right_col" role="main">
+		<div class="">
+			<div class="page-title">
+				<div class="title_left">
+					<h3>
+						게시물 열람<small> - 게시물을 열람하고 댓글을 등록, 수정, 삭제하는 페이지</small>
+					</h3>
+				</div>
+
+				<div class="title_right">
+					<div class="col-md-5 col-sm-5   form-group pull-right top_search">
+						<div class="input-group">
+							<input type="text" class="form-control"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button class="btn btn-secondary" type="button">Go!</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="x_panel">
+						<div class="x_title">
+							<h2>
+								게시물 카테고리 <small>게시물 번호</small>
+							</h2>
+							<ul class="nav navbar-right panel_toolbox">
+								<li><a class="collapse-link"><i
+										class="fa fa-chevron-up"></i></a></li>
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown" role="button" aria-expanded="false"><i
+										class="fa fa-wrench"></i></a>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="#">Settings 1</a> <a
+											class="dropdown-item" href="#">Settings 2</a>
+									</div></li>
+								<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+						<div class="x_content">
+							<br />
+							<form id="demo-form2" data-parsley-validate
+								class="form-horizontal form-label-left">
+
+								<div class="item form-group">
+									<label class="col-form-label col-md-3 col-sm-3 label-align"
+										for="roomName">제목<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" id="roomName" readonly required="required" 
+											class="form-control ">
+									</div>
+								</div>
+								<div class="item form-group">
+									<label class="col-form-label col-md-3 col-sm-3 label-align"
+										for="roomName">작성자<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" id="roomName" readonly required="required"
+											class="form-control ">
+									</div>
+								</div>
+								<div class="item form-group">
+									<label class="col-form-label col-md-3 col-sm-3 label-align"
+										for="roomName">작성일<span class="required">*</span>
+									</label>
+									<div class="col-md-6 col-sm-6 ">
+										<input type="text" id="roomName" readonly required="required"
+											class="form-control ">
+									</div>
+								</div>
+								<div class="item form-group">
+									<div class="col-md-6 offset-md-3 col-sm-12 mt-2">
+										<div class="mt-3">
+											<div class="order-product-box">
+												<div
+													class="top d-flex justify-content-between align-items-center">
+													내용</div>
+
+												<ul class="product-list">
+													<li>
+														<div class="ml-3">
+															<p>
+																<span class="font-weight-bold option-title">방이름 </span>
+																<span>스위트룸</span>
+															</p>
+															<p>
+																<span class="font-weight-bold option-title">기준인원수</span>
+																<span>3명</span>
+															</p>
+															<p>
+																<span class="font-weight-bold option-title">최대
+																	이용가능 인원 수</span> <span>3명</span>
+															</p>
+															<p>
+																<span class="font-weight-bold option-title">잔여 호실
+																	수</span> <span>1개</span>
+															</p>
+															<p>
+																<span class="font-weight-bold option-title">주중가</span> <span>1개</span>
+															</p>
+															<p>
+																<span class="font-weight-bold option-title">주말가</span> <span>1개</span>
+															</p>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="ln_solid"></div>
+							</form>
+							<input type="hidden" id="board_id" name="board_id"
+								value="${boardView.id}" />
+							<div align="center">
+								<table border="1" width="1200px" id="reply_area">
+									<tr reply_type="all">
+										<!-- 뒤에 댓글 붙이기 쉽게 선언 -->
+										<td colspan="4"></td>
+									</tr>
+									<!-- 댓글이 들어갈 공간 -->
+								</table>
+								<table border="1" width="1200px" bordercolor="#46AA46">
+									<tr>
+										<td width="500px"><input type="text" id="reply_writer"
+											name="reply_writer" style="width: 170px;" maxlength="10"
+											placeholder="작성자" /> <input type="password"
+											id="reply_password" name="reply_password"
+											style="width: 170px;" maxlength="10" placeholder="패스워드" />
+											<button id="reply_save" name="reply_save">댓글 등록</button></td>
+									</tr>
+									<tr>
+										<td><textarea id="reply_content" name="reply_content"
+												rows="4" cols="50" placeholder="댓글을 입력하세요."></textarea></td>
+									</tr>
+								</table>
+							</div>
+							<div style="text-align: center;">
+								<a href="/admin/board/modifyBoard"><button>수정하기</button></a> <a
+									href="javascript:delete_check('/admin/board/boardList')"><button>삭제하기</button></a>
+								<a href="/admin/board/boardList"><button>목록 이동</button></a> <a
+									href="#top"><button>위로 가기</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div style="text-align: center;">
-			<a href="#">작성자</a>
-			<span>작성 시간</span>
-			<span>조회수</span>
-		</div>
 	</div>
-	
-	<div style="text-align: center;">
-		<textarea rows="30" cols="70" disabled="disabled">작성자가 작성한 내용</textarea>
-	</div>
-		
-	<input type="hidden" id="board_id" name="board_id" value="${boardView.id}" />
-        <div align="center">
-            <table border="1" width="1200px" id="reply_area">
-                <tr reply_type="all"><!-- 뒤에 댓글 붙이기 쉽게 선언 -->
-                    <td colspan="4"></td>
-                </tr>
-                <!-- 댓글이 들어갈 공간 -->
-            </table>
-            <table border="1" width="1200px" bordercolor="#46AA46">
-                <tr>
-                    <td width="500px">
-                        <input type="text" id="reply_writer" name="reply_writer" style="width:170px;" maxlength="10" placeholder="작성자"/>
-                        <input type="password" id="reply_password" name="reply_password" style="width:170px;" maxlength="10" placeholder="패스워드"/>
-                        <button id="reply_save" name="reply_save">댓글 등록</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea id="reply_content" name="reply_content" rows="4" cols="50" placeholder="댓글을 입력하세요."></textarea>
-                    </td>
-                </tr>
-            </table>
-        </div>
-	
-	<div style="text-align: center;">
-		<a href="/board/modifyBoard"><button>수정하기</button></a>
-		<a href="javascript:add_check('/board/boardList')"><button>삭제하기</button></a>
-		<a href="/board/boardList"><button>목록 이동</button></a>
-		<a href="#top"><button>위로 가기</button></a>
-	</div>
-	
+
+	<script>	
+	/*수정한 글 등록 확인 시작*/
+	function delete_check(url){
+		var answer;
+		//페이지를 이동하기 전에 confirm()을 사용해 다시 한번 확인한다.
+		//확인을 선택하면 answer에  true, 취소를 선택하면 false 값이 들어간다.
+		answer = confirm("글을 삭제하시겠습니까?");
+		//확인을 선택한 경우 자바스크립트를 호출할 때 같이 넘어온 url이라는 변수에 들어있는 주소로 페이지 이동
+		if(answer == true){
+			location = url;
+		}
+	}
+	/*수정한 글 등록 확인 끝*/
+	</script>
+
 	<!-- JS 댓글 기능 시작 -->
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-    <script type="text/javascript">
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
             $(document).ready(function(){
                 
                 var reply_count = 0; //원래 DB에 저장하고 저장 아이디 번호를 넘겨줘야 하는데 DB 없이 댓글 소스만 있어 DB 에서 아이디 증가하는것처럼 스크립트에서 순번을 생성
@@ -301,9 +411,7 @@
                     if(status){
                         alert("수정과 대댓글은 동시에 불가합니다.");
                         return false;
-                    }
-                    
-                    
+                    }                                
                     
                     if(check){
 
@@ -766,14 +874,10 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
-                     
-                });
-                 
+                    */                
+                });              
             });
         </script>
 	<!-- JS 댓글 기능 끝-->
-</body>
 </th:block>
 </html>
-
