@@ -79,21 +79,23 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr th:if="${not #lists.isEmpty(goodsList)}" th:each="g : ${goodsList}" onclick="location.href='/admin/goods/goodsDetail'">
+													<tr th:if="${not #lists.isEmpty(goodsList)}" th:each="g : ${goodsList}">
 														<td th:text="${g.goodsCode}"></td>
 														<td th:text="${g.goodsId}"></td>
-														<td th:text="${g.goodsName}"></td>
+														<td th:text="${g.goodsName}" onclick="location.href='/admin/goods/goodsDetail'"></td>
 														<td th:text="${g.categoryCodeSub}"></td>
 														<td th:text="${g.goodsImage}"></td>
 														<td th:text="${g.goodsPrice}"></td>
 														<td th:text="${g.goodsQuantiy}"></td>
 														<td>
-															<a href="/admin/goods/goodsModify">
-																<button type="button" class="btn btn-primary">수정</button>
+															<a th:href="@{/admin/goods/goodsModify(goodsCode=${g.goodsCode})}">
+																<button type="button" id="modify_Btn" class="btn btn-primary">수정</button>
 															</a>
 														</td>
 														<td>
-															<button type="button" class="btn btn-sm btn-success">삭제</button>
+															<a th:data-goods-code="${g.goodsCode}" data-toggle="modal" data-target="#removeModal">
+																<button type="button" id="delete_Btn" class="btn btn-sm btn-success">삭제</button>
+															</a>
 														</td>
 													</tr>
 												</tbody>
@@ -108,5 +110,18 @@
 			</div>
 		</div>
 	</th:block>
+	<script type="text/javascript">
+		var formObj = $("form[role='form']");
+		 
+		$("#delete_Btn").click(function(){
+			 
+		var con = confirm("정말로 삭제하시겠습니까?");
+		
+			if(con) {      
+			formObj.attr("action", "/admin/goods/delete");
+			formObj.submit();
+			}
+		});
+	</script>
 
 </html>

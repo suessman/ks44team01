@@ -21,7 +21,8 @@ public class GoodsService {
 	
 	
 	public static final Logger log = LoggerFactory.getLogger(GoodsService.class);
-
+	
+	//의존성 주입
 	@Autowired
 	private final GoodsMapper goodsMapper;
 	
@@ -30,6 +31,10 @@ public class GoodsService {
 
 	}
 	
+	//상품 삭제
+	public void goodsRemove(String goodsCode) {
+		goodsMapper.goodsRemove(goodsCode);
+	}
 
 	//상품목록조회
 	public List<GoodsList> getGoodsList(){

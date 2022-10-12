@@ -7,12 +7,12 @@
 			<id		column="goods_code" 			property="goodsCode"/>
 			<result column="id" 					property="goodsId"/>
 			<result column="goods_name" 			property="goodsName"/>
-			<result column="category_member_code" 	property="categoryMemberCode"/>
+			<result column="company_member_code" 	property="companyMemberCode"/>
 			<result column="category_code" 			property="categoryCode"/>
 			<result column="category_name" 			property="categoryName"/>
 			<result column="category_code_sub" 		property="categoryCodeSub"/>
 			<result column="category_sub_name" 		property="categorySubName"/>
-			<result column="goods_resgister_time" 	property="goodsResgisterTime"/>
+			<result column="registration_datetime" 	property="goodsResgisterTime"/>
 			<result column="goods_image" 			property="goodsImage"/>
 			<result column="goods_price" 			property="goodsPrice"/>
 			<result column="goods_quantity" 		property="goodsQuantiy"/>
@@ -20,19 +20,49 @@
 		</resultMap>
 		
 		
+		<delete id="goodsRemove" parameterType="String">
+			/* 상품 삭제 */
+			DELETE
+			FROM goods
+			WHERE goods_code = #{goodsCode};
+		</delete>
+		
+		<select id="getGoodsInfoByCode" parameterType="String" resultType="GoodsList">
+  		/* 특정상품 조회 */
+  			SELECT 
+				 goods_code 			AS goodsCode
+				,company_member_code	AS companyMemberCode
+				,id						AS goodsId
+				,goods_name				AS goodsName
+				,goods_price			AS goodsPrice
+				,goods_image			AS goodsImage
+				,goods_quantity			AS goodsQuantiy
+				,registration_datetime	AS goodsResgisterTime
+				,goods_contents			AS goodsContents
+			FROM 
+		goods AS g
+		WHERE
+			goods_code = #{goodsCode};
+	 	<!-- <trim prefix="WHERE" prefixOverrides="AND |OR">
+	 		<if test="sv != null and sv != ''">
+	 			${sk} LIKE CONCAT('%', #{sv},'%')
+	 		</if>
+	 	</trim> -->
+  	</select>
+		
 		<update id="goodsModify" parameterType="GoodsList">
 		/* 상품 수정 */
 			UPDATE goods
 			<trim prefix="SET" prefixOverrides=",">
 				<if test="goodsCode != null and goodsCode != ''"					>goods_code = #{goodsCode}</if>
-				<if test="categoryMemberCode != null and categoryMemberCode != ''"	>,company_member_code = #{categoryMemberCode}</if>
+				<if test="companyMemberCode != null and companyMemberCode != ''"	>,company_member_code = #{companyMemberCode}</if>
 				<if test="categoryCodeSub != null and categoryCodeSub != ''"		>,category_code_sub = #{categoryCodeSub}</if>
 				<if test="goodsId != null and goodsId != ''"						>,id = #{goodsId}</if>
-				<if test="goods_name != null and goods_name != ''"					>,goods_name = #{goodsName}</if>
-				<if test="goods_price != null and goods_price != ''"				>,goods_price = #{goodsPrice}</if>
-				<if test="goods_image != null and goods_image != ''"				>,goods_image = #{goodsImage}</if>
-				<if test="goods_quantity != null and goods_quantity != ''"			>,goods_quantity = #{goodsQuantiy}</if>
-				<if test="goods_contents != null and goods_contents != ''"			>,goods_contents = #{goodsContents}</if>
+				<if test="goodsName != null and goodsName != ''"					>,goods_name = #{goodsName}</if>
+				<if test="goodsPrice != null and goodsPrice != ''"					>,goods_price = #{goodsPrice}</if>
+				<if test="goodsImage != null and goodsImage != ''"					>,goods_image = #{goodsImage}</if>
+				<if test="goodsQuantiy != null and goodsQuantiy != ''"				>,goods_quantity = #{goodsQuantiy}</if>
+				<if test="goodsContents != null and goodsContents != ''"			>,goods_contents = #{goodsContents}</if>
 				,registration_datetime = NOW()
 			</trim>
 			WHERE

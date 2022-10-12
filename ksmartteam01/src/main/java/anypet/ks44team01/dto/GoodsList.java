@@ -4,7 +4,7 @@ public class GoodsList {
 	private String goodsCode;
 	private String goodsId;
 	private String goodsName;
-	private String categoryMemberCode;
+	private String companyMemberCode;
 	private String categoryCode;
 	private String categoryName;
 	private String categoryCodeSub;
@@ -14,7 +14,23 @@ public class GoodsList {
 	private int goodsPrice;
 	private String goodsQuantiy;
 	private String goodsContents;
+
+	private GoodsCategory goodsCategoryDto;
+
+	private GoodsCategorySub goodsCategorySubDto;
 	
+	public GoodsCategory getGoodsCategoryDto() {
+		return goodsCategoryDto;
+	}
+	public void setGoodsCategoryDto(GoodsCategory goodsCategoryDto) {
+		this.goodsCategoryDto = goodsCategoryDto;
+	}
+	public GoodsCategorySub getGoodsCategorySubDto() {
+		return goodsCategorySubDto;
+	}
+	public void setGoodsCategorySubDto(GoodsCategorySub goodsCategorySubDto) {
+		this.goodsCategorySubDto = goodsCategorySubDto;
+	}
 	public String getGoodsCode() {
 		return goodsCode;
 	}
@@ -33,11 +49,11 @@ public class GoodsList {
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
 	}
-	public String getCategoryMemberCode() {
-		return categoryMemberCode;
+	public String getCompanyMemberCode() {
+		return companyMemberCode;
 	}
-	public void setCategoryMemberCode(String categoryMemberCode) {
-		this.categoryMemberCode = categoryMemberCode;
+	public void setCompanyMemberCode(String companyMemberCode) {
+		this.companyMemberCode = companyMemberCode;
 	}
 	public String getCategoryCode() {
 		return categoryCode;
@@ -97,12 +113,9 @@ public class GoodsList {
 	@Override
 	public String toString() {
 		return "GoodsList [goodsCode=" + goodsCode + ", goodsId=" + goodsId + ", goodsName=" + goodsName
-				+ ", categoryMemberCode=" + categoryMemberCode + ", categoryCode=" + categoryCode + ", categoryName="
+				+ ", companyMemberCode=" + companyMemberCode + ", categoryCode=" + categoryCode + ", categoryName="
 				+ categoryName + ", categoryCodeSub=" + categoryCodeSub + ", categorySubName=" + categorySubName
 				+ ", goodsResgisterTime=" + goodsResgisterTime + ", goodsImage=" + goodsImage + ", goodsPrice="
 				+ goodsPrice + ", goodsQuantiy=" + goodsQuantiy + ", goodsContents=" + goodsContents + "]";
 	}
-
-	
-	
 }

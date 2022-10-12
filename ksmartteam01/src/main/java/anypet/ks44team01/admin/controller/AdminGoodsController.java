@@ -32,6 +32,15 @@ public class AdminGoodsController {
 		this.goodsService = goodsService;
 	}
 	
+	//상품 삭제
+	@GetMapping("/goodsRemove")
+	public String goodsRemove(@RequestParam(value = "goodsCode") String goodsCode) {
+		
+		goodsService.goodsRemove(goodsCode);
+
+		return "redirect:/admin/goods/goodsList";
+	}
+	
 	@PostConstruct
 	public void goodsControllerInit() {
 		log.info("goodsController 생성");
@@ -75,8 +84,20 @@ public class AdminGoodsController {
 		
 		log.info("특정 상품의 정보 ::: {}", goodsInfo);
 		//model 셋팅
+		
+		//대분류
+		List<GoodsCategory> goodsCategory = goodsService.getGoodsCategory();
+		
+		//중분류
+		List<GoodsCategorySub> goodsCategorySub = goodsService.getGoodsCategorySub();
+		
+		List<GoodsList> goodsList = goodsService.getGoodsList();
+		
 		model.addAttribute("title", "상품수정");
 		model.addAttribute("goodsInfo", goodsInfo);
+		model.addAttribute("goodsCategory", goodsCategory);
+		model.addAttribute("goodsCategorySub", goodsCategorySub);
+		model.addAttribute("goodsList", goodsList);
 		
 		return "/admin/goods/goodsModify";
 	}

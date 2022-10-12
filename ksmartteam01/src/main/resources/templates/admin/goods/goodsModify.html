@@ -13,9 +13,8 @@
 			
 					<!-- page content -->
 		<div class="right_col" role="main">
-			<form id="goodsModifyForm" th:action="@{/admin/goods/goodsModify}"
-				th:object="${goodsInfo}" class="form-horizontal" method="post">
-				<div class="">
+			<form id="goodsModifyForm" th:action="@{/admin/goods/goodsModify}" class="form-horizontal" method="post">
+				<div th:object="${goodsInfo}">
 					<div class="page-title">
 						<div class="title_left">
 							<h3>상품 수정</h3>
@@ -40,7 +39,7 @@
 						<div class="col-md-12 col-sm-12 ">
 							<div class="x_panel">
 								<div class="x_title">
-									<h2>insert</h2>
+									<h2>상품 수정 페이지</h2>
 									<ul class="nav navbar-right panel_toolbox">
 										<li><a class="collapse-link"> <i
 												class="fa fa-chevron-up"></i></a></li>
@@ -63,75 +62,62 @@
 											<div id='previewId'></div>
 										</div>
 	
-										<input class="fileSelect" type="file"
-											onchange="previewImage(this,'previewId')">
+										<input id="goodsImage" name="goodsImage" class="fileSelect" type="file" onchange="previewImage(this,'previewId')">
 									</div>
 	
 									<div class="x_content">
+										<input type="hidden" id="goodsCode" name="goodsCode" th:value="*{goodsCode}" class="form-control" placeholder="상품명">
 										<div class="form-group row ">
-											<label class="control-label col-md-3 col-sm-3 ">상품명</label>
+											<label class="control-label col-md-3 col-sm-3" for="goodsName">상품명</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" class="form-control" placeholder="상품명">
+												<input type="text" id="goodsName" name="goodsName" th:value="*{goodsName}" class="form-control" placeholder="상품명">
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="control-label col-md-3 col-sm-3">상품 카테고리</label>
 											<div class="col-md-9 col-sm-9 ">
-												<label class="addTitle control-label">대분류</label> <select
-													class="form-control" name="categoryCode">
-													<th:block th:unless="${#lists.isEmpty(goodsCategory)}"
-														th:each="c : ${goodsCategory}">
-														<option th:value="${c.categoryCode}"
-															th:text="${c.categoryName}"></option>
+											
+											
+												<label class="addTitle control-label">대분류</label> 
+												<select class="form-control" name="categoryCode">
+													<th:block th:unless="${#lists.isEmpty(goodsCategory)}" th:each="c : ${goodsCategory}">
+														<option th:value="${c.categoryCode}" th:text="${c.categoryName}" th:selected="${c.categoryCode} == *{categoryCode}"></option>
 													</th:block>
 													<th:block th:if="${#lists.isEmpty(goodsCategory)}">
 														<option value="">등록된 회원등급이 없습니다.</option>
 													</th:block>
-												</select> <label class="addTitle control-label">중분류</label> <select
-													class="select2_single form-control" name="categoryCodeSub"
-													tabindex="-1" onchange="onChangeEvent();">
-													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}"
-														th:each="cs : ${goodsCategorySub}">
-														<option th:value="${cs.categoryCodeSub}"
-															th:text="${cs.categorySubName}"></option>
+												</select> 
+												<label class="addTitle control-label">중분류</label> 
+												<select class="select2_single form-control" name="categoryCodeSub">
+													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}" th:each="cs : ${goodsCategorySub}">
+														<option th:value="${cs.categoryCodeSub}" th:text="${cs.categorySubName}" th:selected="${cs.categoryCodeSub} == *{categoryCodeSub}"></option>
 													</th:block>
 													<th:block th:if="${#lists.isEmpty(goodsCategorySub)}">
 														<option value="">등록된 회원등급이 없습니다.</option>
 													</th:block>
 												</select>
-	
-	
 											</div>
 										</div>
-	
 										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3"
-												for="goodsQuantiy">가격</label>
+											<label class="control-label col-md-3 col-sm-3" for="goodsPrice">가격</label>
 											<div class="col-md-9 col-sm-9 ">
-												<input type="text" id="goodsPrice" name="goodsPrice"
-													class="form-control" placeholder="가격">
+												<input type="text" id="goodsPrice" name="goodsPrice" th:value="*{goodsPrice}" class="form-control">
 											</div>
 										</div>
 	
 										<div class="form-group row ">
-											<label class="control-label col-md-3 col-sm-3"
-												for="goodsPrice">재고수량</label>
+											<label class="control-label col-md-3 col-sm-3" for="goodsQuantiy">재고수량</label>
 											<div class="col-md-9 col-sm-9 ">
-												<input type="number" id="goodsQuantiy" name="goodsQuantiy"
-													class="form-control nums" placeholder="수량" step="1">
+												<input type="text" id="goodsQuantiy" name="goodsQuantiy" th:value="*{goodsQuantiy}" class="form-control nums" placeholder="수량" step="1">
 											</div>
 										</div>
-	
 										<div class="form-group row">
-											<label class="control-label col-md-3 col-sm-3"
-												for="goodsContents">상품 상세 설명<span class="required">*</span>
-											</label>
+											<label class="control-label col-md-3 col-sm-3" for="goodsContents">상품 상세 설명</label>
 											<div class="col-md-9 col-sm-9 ">
-												<textarea id="goodsContents" name="goodsContents"
-													class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+													<th:block><textarea id="goodsContents" name="goodsContents" class="form-control" rows="3" placeholder="상품 상세 설명" th:text="*{goodsContents}"></textarea></th:block>
+												
 											</div>
 										</div>
-	
 										<div class="ln_solid"></div>
 										<div class="form-group">
 											<div class="col-md-9 col-sm-9  offset-md-3">
@@ -152,4 +138,5 @@
 		</div>
 	</th:block>
 	<!-- /page content -->
+	
 </html>
