@@ -7,4 +7,10 @@ import anypet.ks44team01.dto.Member;
 public interface MemberMapper {
 	//회원목록 조회
 	public List<Member> getMemberList();
+	//특정회원 조회
+	public Member getMemberInfoById(String memberId);
+	//특정 회원 정보 수정
+	public Member modifyMember(String memberId);
+	
+	
 }
