@@ -20,4 +20,12 @@ public class MemberService {
 		List<Member> member = memberMapper.getMemberList();
 		return member;
 	}
+	public Member getMemberInfoById(String memberId){
+		Member member = memberMapper.getMemberInfoById(memberId);
+		return member;
+	}
+	public Member modifyMember(String memberId) {
+		Member member = memberMapper.modifyMember(memberId);
+		return member;
+	}
 }

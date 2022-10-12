@@ -13,7 +13,7 @@
 			<div class="">
 				<div class="page-title">
 					<div class="title_left">
-						<h3>상품 목록 페이지</h3>
+						<h3>회원 목록 페이지</h3>
 					</div>
 	
 					<div class="title_right">
@@ -72,15 +72,15 @@
 													</tr>
 												</thead>
 												<tbody>
-													<tr th:if="${not #lists.isEmpty(member)}"
-														th:each="l : ${member}"
-														onclick="location.href='/admin/member/searchMember'">
-														<td th:text=${l.memberId}></td>
-														<td th:text=${l.memberName}></td>
-														<td th:text=${l.memberLevel}></td>
-														<td th:text=${l.memberEmail}></td>
-														<td th:text=${l.memberBirth}></td>
-													</tr>
+													<th:block th:if="${not #lists.isEmpty(member)}" th:each="l : ${member}">
+														<tr th:onclick="|location.href='@{/admin/member/searchMember(memberId=${l.memberId})}'|">
+															<td th:text=${l.memberId}></td>
+															<td th:text=${l.memberName}></td>
+															<td th:text=${l.memberLevel}></td>
+															<td th:text=${l.memberEmail}></td>
+															<td th:text=${l.memberBirth}></td>
+														</tr>
+													</th:block>
 												</tbody>
 											</table>
 										</div>

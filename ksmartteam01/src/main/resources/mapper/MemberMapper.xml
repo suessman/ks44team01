@@ -8,7 +8,7 @@
 	<!-- id가 BoardMapper의 method name, 메서드를 오버라이딩한다. --> 	
  	<!-- resultType 앞에 anypet.ks44team01.dto 적어줘야하지만 application.properties에서 설정 해줘서 안써줘도 된다.-->
 	<resultMap type="Member" id="memberResultMap">
-		<id 	column="id" 		 property="memberId"/>
+		<id 	column="id" 		 		 property="memberId"/>
         <result column="pw" 				 property="memberPw"/>
         <result column="name" 				 property="memberName"/>
         <result column="level" 				 property="memberLevel"/>
@@ -30,5 +30,38 @@
 		FROM
 			member AS m;
 	</select>
+	<!-- 특정 회원 조회 -->
+	<select id="getMemberInfoById" parameterType="String" resultMap="memberResultMap">
+		SELECT 
+			m.*
+		FROM
+			member AS m
+		WHERE 
+			m.id = #{memberId}; 
+	</select>
+	
+	<!-- 회원 수정 -->
+	<update id="modifyMember" parameterType="Member">
+		UPDATE member
+		<trim prefix="SET" prefixOverrides=",">		
+			<if test="memberPw != null and memberPw != ''">
+			    pw       	= #{memberPw}
+			</if>
+			<if test="memberName != null and memberName != ''">			
+			   ,name     	= #{memberName}
+			</if>
+			<if test="memberAddress != null and memberAddress != ''">
+			   ,addr     	= #{memberAdress}
+			</if>
+			<if test="memberEmail != null and memberEmail != ''">
+			   ,email    	= #{memberEmail}
+			</if>
+			<if test="memberPhone != null and memberPhone != ''">
+			   ,phone    	= #{memberPhone}
+			</if>
+		</trim>
+		WHERE
+		   id = #{memberId};
+	</update>
 	
 </mapper>
