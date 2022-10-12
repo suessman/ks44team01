@@ -38,7 +38,7 @@
 			        	<div class="x_content">
 							<br />
 							<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" th:action="@{/admin/accommodation/accommodationCategoryModify}" th:object="${categoryInfo}">
-								<input style="display: none;" type="text" name="accommodationCategoryCode" th:value="*{accommodationCategoryCode}">
+								<input type="hidden" name="accommodationCategoryCode" th:value="*{accommodationCategoryCode}">
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">카테고리명<span class="required">*</span>
 									</label>

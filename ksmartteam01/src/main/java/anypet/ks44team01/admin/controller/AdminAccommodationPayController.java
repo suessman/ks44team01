@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import anypet.ks44team01.dto.AccommodationCategory;
+import anypet.ks44team01.dto.AccommodationDetail;
 import anypet.ks44team01.dto.AccommodationInquiry;
+import anypet.ks44team01.dto.AccommodationPayment;
 import anypet.ks44team01.dto.AccommodationReservationList;
+import anypet.ks44team01.dto.Member;
 import anypet.ks44team01.service.AccommodationService;
 
 @Controller
@@ -95,6 +99,44 @@ public class AdminAccommodationPayController {
 		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
+	/**
+	 * 숙소 정보 조회
+	 */
+	@PostMapping("/reservationAccommodationDetailInfo")
+	@ResponseBody
+	public AccommodationDetail getAccommodationDetailInfo(@RequestParam(value="goodsAccommodationOptionCode") String goodsAccommodationOptionCode) {
+		
+		AccommodationDetail accommodationDetailInfo = accommodationService.getAccommodationDetailInfo(goodsAccommodationOptionCode);
+		System.out.println(accommodationDetailInfo);
+		
+		return accommodationDetailInfo;
+	}
+	
+	/**
+	 * 회원 정보 조회
+	 */
+	@PostMapping("/accommodationReservationMemberInfo")
+	@ResponseBody
+	public Member getReservaionMemberInfo(@RequestParam(value="memberId") String memberId) {
+		
+		Member memberInfo = accommodationService.getReservaionMemberInfo(memberId);
+		System.out.println(memberInfo);
+		
+		return memberInfo;
+	}
+	
+	/**
+	 * 결제 내역 조회
+	 */
+	@PostMapping("/accommodationPaymentDetail")
+	@ResponseBody
+	public AccommodationPayment getAccommodationPaymnetDetail(@RequestParam(value="accommodationPaymentCode") String accommodationPaymentCode) {
+		
+		AccommodationPayment accommodationPaymentDetail = accommodationService.getAccommodationPayment(accommodationPaymentCode);
+		System.out.println(">>>>>>>>>>"+accommodationPaymentDetail);
+		
+		return accommodationPaymentDetail;
+	}
 	
 	/**
 	 * 숙소 예약 내역 목록/상세

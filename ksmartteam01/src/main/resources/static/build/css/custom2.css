@@ -129,3 +129,8 @@
 	border: none;
 	color: blue;
 }
+
+.reservationTable{
+	float: none; 
+	margin:0 auto;
+}
