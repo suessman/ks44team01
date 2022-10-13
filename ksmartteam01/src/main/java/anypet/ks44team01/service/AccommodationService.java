@@ -11,6 +11,7 @@ import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationDetail;
 import anypet.ks44team01.dto.AccommodationInquiry;
 import anypet.ks44team01.dto.AccommodationPayment;
+import anypet.ks44team01.dto.AccommodationPaymentCancel;
 import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.dto.Member;
 import anypet.ks44team01.mapper.AccommodationMapper;
@@ -31,7 +32,7 @@ public class AccommodationService {
 		System.out.println("accommodationService bean 생성");
 	}
 	
-	/// 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제 
+	/// 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제  <-> 데이터 삭제하지 말고 컬럼 하나 추가해서 화면에 안보이게 처리?
 	public int removeReservation(String accommodationReservationCode, String accommodationPaymentCode) {
 		int resultRemove = 0;
 		
@@ -44,6 +45,14 @@ public class AccommodationService {
 		resultRemove += accommodationMapper.removeReservation(accommodationReservationCode);
 		
 		return resultRemove;
+	}
+	
+	//숙소 결제취소 승인
+	public void updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode) {
+		
+		accommodationMapper.updatePaymentCancel(accomodationPaymentCancelCode);
+		
+		System.out.println("결제취소코드: " + accomodationPaymentCancelCode);	
 	}
 	
 	//숙소 정보 조회

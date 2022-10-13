@@ -8,6 +8,7 @@ import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationDetail;
 import anypet.ks44team01.dto.AccommodationInquiry;
 import anypet.ks44team01.dto.AccommodationPayment;
+import anypet.ks44team01.dto.AccommodationPaymentCancel;
 import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.dto.Member;
 
@@ -24,6 +25,9 @@ public interface AccommodationMapper{
 	public int removeAccommodationPayment(String accommodationPaymentCode);
 	//4)숙소 예약내역 삭제
 	public int removeReservation(String accommodationReservationCode);
+	
+	//숙소 결제취소 승인
+	public int updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode);
 	
 	//숙소정보 조회
 	public AccommodationDetail getAccommodationDetailInfo(String goodsAccommodationOptionCode);
