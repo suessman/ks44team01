@@ -100,7 +100,7 @@
 			 NOW());
 	</insert>
 	
-	<select id="getBoardCategoryList" resultMap="BoardCategoryResultMap" fetchSize="100">
+	<!-- <select id="getBoardCategoryList" resultMap="BoardCategoryResultMap" fetchSize="100">
 		/*  */
 		SELECT 
 			board_code, 
@@ -113,7 +113,7 @@
 			board_hits
 		FROM 
 			board
-	</select>
+	</select> -->
 	
 	<!-- 게시판 카테고리 수정 -->
 	<update id="modifyBoardCategory" parameterType="BoardCategory">
