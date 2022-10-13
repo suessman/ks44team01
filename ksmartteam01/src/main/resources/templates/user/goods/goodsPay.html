@@ -111,7 +111,7 @@
 						
 						
 						<div th:objcet="${memberInfo}" class="mt-3">
-							<h4 id="memberName" name="memberName" th:text="${memberInfo.memberName}"><span class="border-badge">기본배송지</span></h4>
+							<span class="border-badge">기본배송지</span><h4 id="memberName" name="memberName" th:text="${memberInfo.memberName}"></h4>
 							<p class="mt-2"></p>
 							<p id="memberAdress" name="memberAdress" th:text="${memberInfo.memberAdress}" class="mt-2"></p>
 							<p id="memberName" name="memberName" th:text="${memberInfo.memberName}"  class="text-gray-sm"></p>
@@ -167,20 +167,17 @@
 								<div class="top">
 								업체명
 								</div>
-								<!-- 
 								<ul class="product-list">
 									<li th:if="${not #lists.isEmpty(goodsOrderList)}" th:each="g : ${goodsOrderList}">
-										<img src="/img/accommodation/room1.jpg" alt="주문상품">
 										<div class="ml-3">
-											<p th:text="${g.}">상품명</p>
+											<p th:text="${g.goodsCode}"></p>
 											<p>
-												<span class="font-weight-bold">20,000원</span>
-												<span>1개</span>
+												<span th:text="${g.orderPrice}"></span>
+												<span th:text="${g.orderQuantity}"></span>
 											</p>
 										</div>
-									</li>					
+									</li>
 								</ul>
-								 -->
 							</div>
 						</div>         
 		    		</div>
