@@ -24,8 +24,10 @@ public class MemberService {
 		Member member = memberMapper.getMemberInfoById(memberId);
 		return member;
 	}
-	public void modifyMember(String memberId) {
-		memberMapper.modifyMember(memberId);
-		
-	}
+	/*
+	 * public void modifyMember(String memberId) {
+	 * memberMapper.modifyMember(memberId);
+	 * 
+	 * }
+	 */
 }
