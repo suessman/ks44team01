@@ -131,7 +131,7 @@
 		/* 중분류목록조회 */
 		SELECT 
 			ccs.category_code_sub				as		categoryCodeSub
-			,cc.category_code                  as		categoryCode
+			,cc.category_code                   as		categoryCode
 			,ccs.category_sub_name				as		categoryNameSub
 			,m.id								as		Id
 			,cc.registration_datetime			as		registrationDatetime
