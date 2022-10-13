@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
+import anypet.ks44team01.dto.GoodsOrder;
 
 @Mapper
 public interface GoodsMapperOsj {
@@ -18,7 +19,12 @@ public interface GoodsMapperOsj {
 	* 데이터베이스 접근을 하기 위한 로직과 비지니스 로직을 분리하기 위해 사용
 	* 
 	* */
-
+	
+	//사용자
+	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
+	
+	
+	//관리자 
 	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList();
 	//상품대분류등록

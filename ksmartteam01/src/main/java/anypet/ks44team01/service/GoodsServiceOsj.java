@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
+import anypet.ks44team01.dto.GoodsOrder;
 import anypet.ks44team01.mapper.GoodsMapperOsj;
 
 @Service
@@ -26,7 +27,17 @@ public class GoodsServiceOsj {
 	public void goodsServicInit() {
 		System.out.println("goodsService bean 생성");
 	}
+	//사용자
+	//상품 결제/주문정보 조회
+	public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
+		
+		int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
+		
+		System.out.println("상품 결제/주문정보 조회: " + result);
+	}
 	
+	
+	//관리자
 	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList(){
 		
