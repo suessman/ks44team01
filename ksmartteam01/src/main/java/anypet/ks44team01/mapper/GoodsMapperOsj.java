@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
 import anypet.ks44team01.dto.GoodsOrder;
+import anypet.ks44team01.dto.GoodsOrderDetail;
+import anypet.ks44team01.dto.Member;
 
 @Mapper
 public interface GoodsMapperOsj {
@@ -21,8 +23,12 @@ public interface GoodsMapperOsj {
 	* */
 	
 	//사용자
+	//상품 결제/주문정보 입력
 	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
-	
+	//상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
+	public Member getMemberInfoById(String memberId);
+	//상품 결제페이지 주문 상세 조회
+	public List<GoodsOrderDetail> getGoodsOrderDetailList();
 	
 	//관리자 
 	//상품대분류목록조회
