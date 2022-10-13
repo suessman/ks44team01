@@ -63,7 +63,9 @@
 		INNER JOIN 
 		goods_accomodation_option AS o
 		ON
-		o.accomodation_detail_code = d.accomodation_detail_code; 
+		o.accomodation_detail_code = d.accomodation_detail_code
+		WHERE
+		d.is_del = 0;		
 	</select>
 	
 	<!--숙소등록 -->	
@@ -185,15 +187,4 @@
 	</select>
 
 	<!-- 숙소삭제  -->
-	<delete id="deleteAccommodationList" parameterType="String">
-	DELETE
-	d
-	FROM
-		accomodation_detail as d
-	WHERE
-		d.accomodation_detail_code = #{accommodationDetailCode};
-	
-	</delete>
 
-
-  </mapper>
