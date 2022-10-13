@@ -9,7 +9,18 @@ public class AccommodationList {
 	private String checkInOut;
 	private String parking;
 	private String registrationDateTime;
+	private String isDel;
 	
+	
+	
+	public String getIsDel() {
+		return isDel;
+	}
+	public void setIsDel(String isDel) {
+		this.isDel = isDel;
+	}
+
+
 	private AccommodationCategory accommodationCategoryDto;
 	
 	
