@@ -36,8 +36,8 @@
 					<div class="col-md-12 col-sm-12 ">
 						<div class="x_panel">
 							<div class="x_title">
-								<a href="/admin/goods/goodsInsert">
-									<button type="button" class="btn btn-primary">상품등록</button>
+								<a href="/admin/member/getMemberList">
+									<button type="button" class="btn btn-primary">회원정보수정</button>
 								</a>
 								<ul class="nav navbar-right panel_toolbox">
 									<li><a class="collapse-link"><i
@@ -118,14 +118,14 @@
 													</tr>
 												</tbody>
 												<tfoot>
-													<tr>
-														<td>
-															<a th:href="/admin/member/getMemberList">
-																<button type="submit" id="modifyMember">수정</button>
-															</a>
-															<button type="button">탈퇴</button>
-														</td>
-													</tr>
+													<th:block th:if="${not #lists.isEmpty(member)}" th:each="l : ${member}">
+														<tr>
+															<td>															
+																<button type="button" th:onclick="|location.href='@{/admin/member/getMemberList(memberId=${l.memberId})}'|">수정</button>														
+																<button type="button">탈퇴</button>
+															</td>
+														</tr>
+													</th:block>
 												</tfoot>
 											</table>
 										</div>

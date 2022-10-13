@@ -24,8 +24,8 @@ public class MemberService {
 		Member member = memberMapper.getMemberInfoById(memberId);
 		return member;
 	}
-	public Member modifyMember(String memberId) {
-		Member member = memberMapper.modifyMember(memberId);
-		return member;
+	public void modifyMember(String memberId) {
+		memberMapper.modifyMember(memberId);
+		
 	}
 }
