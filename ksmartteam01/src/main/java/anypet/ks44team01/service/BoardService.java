@@ -20,6 +20,11 @@ public class BoardService {
 	public BoardService(BoardMapper boardMapper) {
 		this.boardMapper = boardMapper;
 	}
+	
+	@PostConstruct
+	public void boardService() {
+		System.out.println("boardService bean 생성");
+	}
 
 	// 기능 구현은 메소드 단위로 이루어지기 때문에 하나라도 잘못되면 롤백하기 위해 서비스에 트랜잭션 어노테이션 작성
 	// 게시물 목록 조회
@@ -64,9 +69,5 @@ public class BoardService {
 		return boardDetail;
 	}
 
-	@PostConstruct
-	public void boardService() {
-		System.out.println("boardService bean 생성");
-	}
 
 }

@@ -63,4 +63,10 @@ public class AccommodationListService {
 		accommodationListMapper.updateAccommodationList(accommodationList);
 	}
 	
+	
+	//숙소삭제
+	public int deleteAccommodationList(String accommodationDetailCode) {
+		int result = accommodationListMapper.deleteAccommodationList(accommodationDetailCode);
+		return result;
+	}
 }

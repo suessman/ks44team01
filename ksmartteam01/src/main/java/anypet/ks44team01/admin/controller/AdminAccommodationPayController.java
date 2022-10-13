@@ -14,6 +14,7 @@ import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.AccommodationDetail;
 import anypet.ks44team01.dto.AccommodationInquiry;
 import anypet.ks44team01.dto.AccommodationPayment;
+import anypet.ks44team01.dto.AccommodationPaymentCancel;
 import anypet.ks44team01.dto.AccommodationReservationList;
 import anypet.ks44team01.dto.Member;
 import anypet.ks44team01.service.AccommodationService;
@@ -111,6 +112,19 @@ public class AdminAccommodationPayController {
 		
 		return "redirect:/accommodationReservationList";
 	}
+	/**
+	 * 결제취소 승인 
+	 */
+	@PostMapping("/accommodationApproval")
+	public String updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode) {
+		
+		accommodationService.updatePaymentCancel(accomodationPaymentCancelCode);
+		
+		System.out.println("관리자승인: " + accomodationPaymentCancelCode);
+		
+		return "redirect:accommodationReservationList";
+	}
+	
 	/**
 	 * 숙소 정보 조회
 	 */

@@ -76,12 +76,17 @@
 				                				<td th:text="${l.reservationDatetime}"></td>
 				                				<td th:text="${l.paymentAmount}"></td>			
 				                				<td th:text="${l.usingPoint}"></td>			
-				                				<td th:text="${l.totalPaymentPrice}"></td>	
+				                				<td th:text="${l.totalPaymentPrice}"></td>
+					                				<td>
+					                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"  th:if="${l.accomodationPaymentCancelCode == null}"></a>
+						                				<a th:text="결제취소완료" th:value="${l.accomodationPaymentCancelCode}" th:if="${l.accomodationPaymentCancelCode != null and l.accomodationPaymentCancelApproval.toString().equals('Y')}"></a>
+						                				<div>
+							                				<a style="color: blue;" class="approval_paymentCancel" data-toggle="modal" data-target=".approvalModal" th:text="결제취소요청 " th:if="${l.accomodationPaymentCancelCode != null and l.accomodationPaymentCancelApproval.toString().equals('N')}"></a>
+						                					<input class="approvalInput" type="hidden" th:value="${l.accomodationPaymentCancelCode}" >
+					                					</div>
+					                				</td>
 				                				<td>
-				                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"></a>
-				                				</td>			
-				                				<td>
-				                					<button type="submit" class="deleteModal" data-toggle="modal" data-target=".bs-example-modal-sm" th:value="${l.accommodationReservationCode}">X</button>
+				                					<button type="submit" class="deleteModal" data-toggle="modal" data-target=".delete_Modal" th:value="${l.accommodationReservationCode}">X</button>
 				                				</td>
 				                				<td th:text="${l.checkinDatetime}"></td>
 				                				<td th:text="${l.checkoutDatetime}"></td>
@@ -97,12 +102,37 @@
                 <p>
                 	1. 예약자 ID 클릭 : 예약자 기본정보를 보여준다.
                 	2. 숙소상세 클릭 : 숙소 상세정보를 보여준다.
-                	3. 결제코드 클릭 : 결제 상세내역을 보여준다.
+                	3. 결제코드 클릭 : 결제 상세내역을 보여준다. 결제취소된 경우에는 결제취소 텍스트가 나온다.
                 </p>
      		</div>
       	</div>
     	</div>
 	</div>
+
+<!-- 결제취소 모달 -->
+<div class="modal fade bs-example-modal-sm approvalModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">결제취소승인</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<br/>
+        <p>결제취소를 승인하시겠습니까?</p>
+        <br/>
+      </div>
+      <div class="modal-footer">
+      	<form method="post" th:action="@{/admin/accommodation/accommodationApproval}">
+	      	<input type="hidden" class="modalApproval" name="accomodationPaymentCancelCode">
+	        <button type="submit" class="btn btn-primary approvalBtn">승인</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	    </form>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- 숙소정보 모달 -->
 <div id="reservationAccommodationInfo" class="modal fade bs-example-modal-lg reservationAccommodationModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -192,10 +222,10 @@
       </div>
     </div>
   </div>
-</div>
-                  
+</div>      
+
 <!-- 삭제 모달 -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="deleteModal" class="modal fade bs-example-modal-sm delete_Modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -254,11 +284,14 @@
 					<input id="purchasedPoint" class="form-control" type="text" name="purchasedPoint" readonly="readonly">
 				</div>
 			</div>
+			<br/>
+	       	<div class="item form-group">
+	       		<div class="col-md-12 col-sm-6 " align="center">
+		         	<button type="button" class="btn btn-primary paymentCancelBtn">결제취소</button>
+		         	<button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+	       		</div>
+	       	</div>
 		</form>
-	       <div class="modal-footer">
-	         <button type="button" class="btn btn-primary paymentCancelBtn" >결제취소</button>
-	         <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
-	       </div>
        </div>
      </div>
    </div>
@@ -268,12 +301,14 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
-	/* 결제취소 모달 */
-	$('.paymentCancelBtn').click(function(){/* 
-		$(this).val = $('#accommodationPaymentCode').val; */
-		
-	})
+	/* 결제취소 승인 모달 */
+	$('.approval_paymentCancel').click(function(){
+		var approvalInput = $('.approvalInput').val();
+		console.log(approvalInput);
+		$('.modalApproval').val(approvalInput);
+	});
 
+	
 	/* 숙소정보 모달 */
 	$('.accommodationInfoModal').click(function(){
 		var goodsAccommodationOptionCode = $(this).text();
@@ -337,6 +372,7 @@
 				$('#accommodationMothlyPayment').val(data.accommodationMothlyPayment);
 				$('#accommodationPaymentBank').val(data.accommodationPaymentBank);
 				$('#purchasedPoint').val(data.purchasedPoint);
+				$('.paymentCancelBtn').val(data.accommodationPaymentCode);
 				$('#modalTest').modal('show');
 			});
 			 
@@ -344,6 +380,7 @@
 			  alert( "Request failed: " + textStatus );
 			});
         console.log('결제코드', accommodationPaymentCode);
+
     })
     
 	

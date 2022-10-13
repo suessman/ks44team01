@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -91,23 +90,14 @@ public class AdminAccommodationListController {
 		return "redirect:/admin/accommodation/accommodationList";
 	}
 	
-	//숙소삭제
-	@GetMapping("/remove/{accommodationDetailCode}")
-	public String removeAccommodationList(@PathVariable(value = "accommodationDetailCode") String accommodationDetailCode
-											,@RequestParam(value="msg", required = false) String msg
-											,Model model) {
-		model.addAttribute("accommodationDetailCode", accommodationDetailCode);
-		return "/admin/accommodation/removeAccommodationList";
-	}
 	
 	//숙소삭제
-	/*
-	 * @PostMapping("/removeAccommodationList") public String
-	 * removeAccommodationList(@RequestParam(name="accommodationDetailCode") String
-	 * accommodationDetailCode ,RedirectAttributes reAttr) {
-	 * 
-	 * }
-	 */
+	@GetMapping("/deleteAccommodation")
+	public String deleteAccommodation(String accommodationDetailCode) {
+		accommodationListService.deleteAccommodationList(accommodationDetailCode);		
+		System.out.println(accommodationDetailCode);
+		return "redirect:/admin/accommodation/accommodationList";
+	}
 					
 							
 	

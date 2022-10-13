@@ -77,13 +77,16 @@
 													<td th:text="${c.id}"></td>
 													<td th:text="${c.boardCategoryName}"></td>
 													<td th:text="${c.registrationDatetime}"></td>
-													<td><a
-														th:href="@{/admin/board/modifyBoardCategory(boardCategoryCode=${c.boardCategoryCode})}">
-															<button type="submit">수정</button>
-													</a></td>
 													<td>
-														<button class="accomInquiryBtn deleteCategoryModalBtn" 
-															type="submit" th:value="${c.boardCategoryCode}">삭제</button>
+														<a th:href="@{/admin/board/modifyBoardCategory(boardCategoryCode=${c.boardCategoryCode})}">
+															<button type="submit">수정</button>
+														</a>
+													</td>
+													<td>
+														<a href="#">
+															<button id="deleteBoardCategoryBtn"
+																type="submit" th:value="${c.boardCategoryCode}">삭제</button>
+														</a>
 													</td>
 												</tr>
 											</tbody>
@@ -101,60 +104,14 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- 삭제 모달 -->
-	<div id="modalRemove" class="removeModal">
-		<div class="removeModal-window">
-			<div class="modal-content">
-				<div class="modal-title">
-					<h3>카테고리 삭제</h3>
-				</div>
-				<div class="row">
-					<div class="x_content">
-						<br />
-						<form id="demo-form2" data-parsley-validate
-							class="form-horizontal form-label-left"
-							th:action="@{/admin/board/boardCategoryList}"
-							method="get">
-							<div class="item form-group">
-								<div class="col-md-6 col-sm-6 ">
-									<h6 class="modal_style">해당 카테고리를 삭제하시겠습니까?</h6>
-								</div>
-							</div>
-							<div class="item form-group" align="center"
-								style="margin-top: 30px;">
-								<div class="col-md-6 col-sm-6 offset-md-3">
-									<span class="row"> <input type="hidden"
-										name="accommodationCategoryCode" id="deleteCategoryCode">
-										<button class="btn btn-primary" type="submit">삭제</button>
-										<button class="btn btn-primary" type="reset">취소</button>
-									</span>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-	<script>
-
-	var $deleteCategoryCode = $('#deleteCategoryCode');
-	
-  	$('.deleteCategoryModalBtn').click(function() {
-        $('#modalRemove').css({
-            display: 'flex',
-        });
-        $deleteCategoryCode.val($(this).val());
-    })
-     $('.btn').click(function() {
-        $('#modalRemove').css({
-             display: 'none',
-        });
-    })
+<script>
+	/* 삭제 버튼 */
+	$("#deleteBoardCategoryBtn").on("click", function(e){
+	    form.attr("action", "/admin/board/boardCategoryList.html");
+	    form.attr("method", "post");
+	    form.submit();
+	});
 </script>
+
 </th:block>
 </html>
