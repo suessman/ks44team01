@@ -81,7 +81,7 @@
 				                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"></a>
 				                				</td>			
 				                				<td>
-				                					<button type="button" class="deleteModal" data-toggle="modal" data-target=".bs-example-modal-sm">X</button>
+				                					<button type="submit" class="deleteModal" data-toggle="modal" data-target=".bs-example-modal-sm" th:value="${l.accommodationReservationCode}">X</button>
 				                				</td>
 				                				<td th:text="${l.checkinDatetime}"></td>
 				                				<td th:text="${l.checkoutDatetime}"></td>
@@ -94,6 +94,11 @@
 						</div>
 	            	</div>
                 </div>
+                <p>
+                	1. 예약자 ID 클릭 : 예약자 기본정보를 보여준다.
+                	2. 숙소상세 클릭 : 숙소 상세정보를 보여준다.
+                	3. 결제코드 클릭 : 결제 상세내역을 보여준다.
+                </p>
      		</div>
       	</div>
     	</div>
@@ -250,10 +255,10 @@
 				</div>
 			</div>
 		</form>
-       </div>
-       <div class="modal-footer">
-         <button type="button" class="btn btn-primary">결제취소</button>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+	       <div class="modal-footer">
+	         <button type="button" class="btn btn-primary paymentCancelBtn" >결제취소</button>
+	         <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+	       </div>
        </div>
      </div>
    </div>
@@ -263,6 +268,12 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
+	/* 결제취소 모달 */
+	$('.paymentCancelBtn').click(function(){/* 
+		$(this).val = $('#accommodationPaymentCode').val; */
+		
+	})
+
 	/* 숙소정보 모달 */
 	$('.accommodationInfoModal').click(function(){
 		var goodsAccommodationOptionCode = $(this).text();
