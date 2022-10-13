@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
 import anypet.ks44team01.dto.GoodsOrder;
+import anypet.ks44team01.dto.GoodsOrderDetail;
+import anypet.ks44team01.dto.Member;
 import anypet.ks44team01.mapper.GoodsMapperOsj;
 
 @Service
@@ -28,15 +30,32 @@ public class GoodsServiceOsj {
 		System.out.println("goodsService bean 생성");
 	}
 	//사용자
-	//상품 결제/주문정보 조회
-	public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
+
+	//상품 결제/주문정보 입력
+		public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
+			
+			int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
+			
+			System.out.println("상품 결제/주문정보 조회: " + result);
+		}
+	// 상품 결제페이지에 주문상세 조회
+		public List<GoodsOrderDetail> getGoodsOrderDetailList(){
+			
+			List<GoodsOrderDetail> goodsOrderDetailList = goodsMapper.getGoodsOrderDetailList();
+			
+			return goodsOrderDetailList;
+		}	
+	// 상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
+		public Member getMemberInfoById(String memberId) {
+				
+			Member member = goodsMapper.getMemberInfoById(memberId);
+					
+			return member;
+		}
 		
-		int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
+	// 배송지 업데이트
+	
 		
-		System.out.println("상품 결제/주문정보 조회: " + result);
-	}
-	
-	
 	//관리자
 	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList(){
