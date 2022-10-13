@@ -16,6 +16,15 @@ import anypet.ks44team01.dto.Member;
 @Mapper
 public interface AccommodationMapper{
 	
+	//1)숙소 결제취소내역 삭제
+	public int removePaymentCancel(String accommodationPaymentCode);
+	//2)숙소 리뷰내역 삭제
+	public int removeReview(String accommodationPaymentCode);
+	//3)숙소 결제내역 삭제
+	public int removeAccommodationPayment(String accommodationPaymentCode);
+	//4)숙소 예약내역 삭제
+	public int removeReservation(String accommodationReservationCode);
+	
 	//숙소정보 조회
 	public AccommodationDetail getAccommodationDetailInfo(String goodsAccommodationOptionCode);
 	
@@ -26,23 +35,23 @@ public interface AccommodationMapper{
 	public AccommodationPayment getAccommodationPayment(String accommodationReservationCode);
 
 	//예약 목록
-	public List<AccommodationReservationList> getAccommodationReservationList();
+	public List<AccommodationReservationList> reservationList();
 	
 	//문의 목록
-	public List<AccommodationInquiry> getAccommodationInquiryList();
+	public List<AccommodationInquiry> inquiryList();
 	
 	//특정 카테고리 조회
 	public AccommodationCategory getCategoryInfo(String accommodationCategoryCode);
 	
 	//카테고리 삭제
-	public int deleteAccommodationCategory(String accommodationCategoryCode);
+	public int removeCategory(String accommodationCategoryCode);
 	
 	//카테고리 수정
-	public int modifyAccommodationCategory(AccommodationCategory accommodationCategory);
+	public int updateCategory(AccommodationCategory accommodationCategory);
 
 	//카테고리 등록
-	public int addAccommodationCategory(AccommodationCategory accommodationCategory);
+	public int insertCategory(AccommodationCategory accommodationCategory);
 	
 	//카테고리 목록
-	public List<AccommodationCategory> getAccommodationCategoryList();
+	public List<AccommodationCategory> categoryList();
 }

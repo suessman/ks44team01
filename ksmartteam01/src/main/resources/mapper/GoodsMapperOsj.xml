@@ -117,6 +117,7 @@
 			ccs.category_code_sub = #{categoryCodeSub}
 	</select>
 
+	
 	<!-- 중분류목록조회 -->
 	<select id="getGoodsMediumCategoryList" resultType="GoodsMediumCategory">
 		/* 중분류목록조회 */
@@ -163,8 +164,39 @@
 			 	,Now()
 			   );
 		</insert>
-
 		
+	<!-- 배송지 조회를 위한 특정회원 조회 -->
+	<select id="getMemberInfoById" parameterType="String" resultType="Member">
+		/* 배송지 조회를 위한 특정회원 조회 */
+		SELECT 
+			m.id 					AS	memberId
+			,m.NAME					AS	memberName
+			,m.level				AS	memberLevel
+			,m.addr					AS	memberAdress
+			,m.phone				AS	memberPhone
+
+		FROM
+		 	member AS m
+		WHERE
+			m.id = #{memberId}
+	</select>
+	<!-- 주문 상세 조회 -->
+	<select id="getGoodsOrderDetailList" resultType="GoodsOrderDetail">
+		/* 주문 상세 조회 */
+		SELECT 
+			 god.order_detail_number		AS orderDetail
+			,god.goods_code					AS goodsCode
+			,god.category_code_sub			AS categoryCodeSub
+			,god.id							AS id
+			,god.order_quantity				AS orderQuantity
+			,god.order_price				AS orderPrice
+			,god.goods_order_code			AS goodsOrderCode
+			,god.order_resgister_time		AS orderRegisterTime
+			,god.registration_datetime		AS registrationDatetime
+		FROM 
+			order_detail AS god
+
+	</select>	
 
 		
 		

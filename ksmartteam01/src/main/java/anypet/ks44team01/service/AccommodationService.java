@@ -31,6 +31,21 @@ public class AccommodationService {
 		System.out.println("accommodationService bean 생성");
 	}
 	
+	/// 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제 
+	public int removeReservation(String accommodationReservationCode, String accommodationPaymentCode) {
+		int resultRemove = 0;
+		
+		resultRemove += accommodationMapper.removePaymentCancel(accommodationPaymentCode);
+		
+		resultRemove += accommodationMapper.removeReview(accommodationPaymentCode);
+		
+		resultRemove += accommodationMapper.removeAccommodationPayment(accommodationPaymentCode);
+		
+		resultRemove += accommodationMapper.removeReservation(accommodationReservationCode);
+		
+		return resultRemove;
+	}
+	
 	//숙소 정보 조회
 	public AccommodationDetail getAccommodationDetailInfo(String goodsAccommodationOptionCode) {
 		
@@ -57,17 +72,17 @@ public class AccommodationService {
 	
 	
 	//예약내역 목록
-	public List<AccommodationReservationList> getAccommodationReservationList(){
+	public List<AccommodationReservationList> reservationList(){
 		
-		List<AccommodationReservationList> accommodationReservationList = accommodationMapper.getAccommodationReservationList();
+		List<AccommodationReservationList> accommodationReservationList = accommodationMapper.reservationList();
 		
 		return accommodationReservationList;
 	}
 
 	//문의 목록
-	public List<AccommodationInquiry> getAccommodationInquiryList(){
+	public List<AccommodationInquiry> inquiryList(){
 		
-		List<AccommodationInquiry> accommodationInquiryList = accommodationMapper.getAccommodationInquiryList();
+		List<AccommodationInquiry> accommodationInquiryList = accommodationMapper.inquiryList();
 		
 		return accommodationInquiryList;
 		
@@ -82,33 +97,33 @@ public class AccommodationService {
 	}
 	
 	//카테고리 삭제
-	public int deleteAccommodationCategory(String accommodationCategoryCode) {
+	public int removeCategory(String accommodationCategoryCode) {
 		
-		int result = accommodationMapper.deleteAccommodationCategory(accommodationCategoryCode);
+		int result = accommodationMapper.removeCategory(accommodationCategoryCode);
 		
 		return result;
 	}
 	
 	//카테고리 수정
-	public void modifyAccommodationCategory(AccommodationCategory accommodationCategory) {
+	public void updateCategory(AccommodationCategory accommodationCategory) {
 		
-		accommodationMapper.modifyAccommodationCategory(accommodationCategory);
+		accommodationMapper.updateCategory(accommodationCategory);
 		
 		System.out.println("카테고리 수정: " + accommodationCategory);
 	}
 	
 	//카테고리 등록
-	public void addAccommodationCategory(AccommodationCategory accommodationCategory){
+	public void insertCategory(AccommodationCategory accommodationCategory){
 		
-		accommodationMapper.addAccommodationCategory(accommodationCategory);
+		accommodationMapper.insertCategory(accommodationCategory);
 		
 		System.out.println("카테고리 등록: " + accommodationCategory);
 	}
 	
 	//카테고리 목록
-	public List<AccommodationCategory> getAccomodationCategoryList(){
+	public List<AccommodationCategory> categoryList(){
 		
-		List<AccommodationCategory> accommodationCategoryList = accommodationMapper.getAccommodationCategoryList();
+		List<AccommodationCategory> accommodationCategoryList = accommodationMapper.categoryList();
 		
 		return accommodationCategoryList;
 	}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.Board;
 import anypet.ks44team01.dto.BoardCategory;
 import anypet.ks44team01.service.BoardService;
@@ -109,25 +110,39 @@ public class AdminBoardController {
 	 * */
 	@PostMapping("/modifyBoardCategory")
 	public String modifyBoardCategory(BoardCategory boardCategory) {
-		
 		System.out.println("게시판 카테고리 수정 정보: " + boardCategory);
 		boardService.modifyBoardCategory(boardCategory);
 		
-		return "redirect:boardCategoryList";
+		return "redirect:/admin/board/boardCategoryList";
 	}
 
 	@GetMapping("/modifyBoardCategory")
-	public String modifyBoardCategory(Model model) {
+	public String modifyBoardCategory(@RequestParam(value="boardCategoryCode", required = false) String boardCategoryCode, Model model) {
+		//특정 게시판 카테고리 정보
+		BoardCategory boardCategoryInfo = boardService.getBoardCategoryInfo(boardCategoryCode);			
 		List<BoardCategory> boardCategoryList = boardService.getBoardCategoryList();
 		
-		model.addAttribute("title", "게시판 카테고리 수정");
+		model.addAttribute("boardCategoryInfo", boardCategoryInfo);
 		model.addAttribute("boardCategoryList", boardCategoryList);
 		
 		return "/admin/board/modifyBoardCategory";
 	}
 	
 	
+	/*
+	 * 게시판 카테고리 삭제
+	 * @param model
+	 * @return
+	 * */
+	@GetMapping("/deleteBoardCategory")
+	public String deleteBoardCategory(String boardCategoryCode) {
 	
+		boardService.deleteBoardCategory(boardCategoryCode);
+		
+		System.out.println("카테고리 삭제 정보: " + boardCategoryCode);
+		
+		return "redirect:accommodationCategory";
+	}
 	
 	
 }

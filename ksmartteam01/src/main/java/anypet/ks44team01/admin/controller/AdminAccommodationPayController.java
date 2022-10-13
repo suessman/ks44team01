@@ -32,9 +32,9 @@ public class AdminAccommodationPayController {
 	 * 숙소 카테고리 삭제
 	 * */
 	@GetMapping("/deleteAccommodationCategory")
-	public String deleteAccommodationCategory(String accommodationCategoryCode) {
+	public String removeCategory(String accommodationCategoryCode) {
 	
-		accommodationService.deleteAccommodationCategory(accommodationCategoryCode);
+		accommodationService.removeCategory(accommodationCategoryCode);
 		
 		System.out.println("카테고리 삭제 정보: " + accommodationCategoryCode);
 		
@@ -45,9 +45,9 @@ public class AdminAccommodationPayController {
 	 * 숙소 카테고리 수정
 	 */	
 	@PostMapping("/accommodationCategoryModify")
-	public String getAccommodationCategoryModify(AccommodationCategory accommodationCategory) {
+	public String updateCategory(AccommodationCategory accommodationCategory) {
 		
-		accommodationService.modifyAccommodationCategory(accommodationCategory);
+		accommodationService.updateCategory(accommodationCategory);
 		
 		System.out.println("카테고리 수정 정보: " + accommodationCategory);
 		
@@ -55,12 +55,12 @@ public class AdminAccommodationPayController {
 	}
 	
 	@GetMapping("/accommodationCategoryModify")
-	public String getAccommodationCategoryModify(@RequestParam(value="accommodationCategoryCode", required = false) String accommodationCategoryCode, Model model) {
+	public String updateCategory(@RequestParam(value="accommodationCategoryCode", required = false) String accommodationCategoryCode, Model model) {
 		
 		//특정 카테고리 정보
 		AccommodationCategory categoryInfo = accommodationService.getCategoryInfo(accommodationCategoryCode);
 		
-		List<AccommodationCategory> accommodationCategoryList = accommodationService.getAccomodationCategoryList();
+		List<AccommodationCategory> accommodationCategoryList = accommodationService.categoryList();
 		
 		model.addAttribute("categoryInfo", categoryInfo);
 		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
@@ -72,17 +72,17 @@ public class AdminAccommodationPayController {
 	 * 숙소 카테고리 등록
 	 */	
 	@PostMapping("/accommodationCategoryInsert")
-	public String getAccommodationCategoryInsert(AccommodationCategory accommodationCategory) {
+	public String insertCategory(AccommodationCategory accommodationCategory) {
 		
 		System.out.println("카테고리 등록 정보: " + accommodationCategory);
-		accommodationService.addAccommodationCategory(accommodationCategory);
+		accommodationService.insertCategory(accommodationCategory);
 		
 		return "redirect:accommodationCategory";
 	}
 
 	@GetMapping("/accommodationCategoryInsert")
 	public String getAccommodationCategoryInsert(Model model) {
-		List<AccommodationCategory> accommodationCategoryList = accommodationService.getAccomodationCategoryList();
+		List<AccommodationCategory> accommodationCategoryList = accommodationService.categoryList();
 		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
 		
 		return "/admin/accommodation/category/accommodationCategoryInsert";
@@ -92,13 +92,25 @@ public class AdminAccommodationPayController {
 	 * 숙소 카테고리 목록
 	 */
 	@GetMapping("/accommodationCategory")
-	public String getAccommodationCategory(Model model) {
-		List<AccommodationCategory> accommodationCategoryList = accommodationService.getAccomodationCategoryList();
+	public String categoryList(Model model) {
+		List<AccommodationCategory> accommodationCategoryList = accommodationService.categoryList();
 		model.addAttribute("accommodationCategoryList", accommodationCategoryList);
 		
 		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
+	/**
+	 * 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제 
+	 */
+	@GetMapping("/removeReservation")
+	public String removeReservation(String accommodationReservationCode, String accommodationPaymentCode) {
+		
+		accommodationService.removeReservation(accommodationReservationCode, accommodationPaymentCode);
+		
+		System.out.println("예약내역삭제: " + accommodationReservationCode + accommodationPaymentCode);
+		
+		return "redirect:/accommodationReservationList";
+	}
 	/**
 	 * 숙소 정보 조회
 	 */
@@ -142,9 +154,9 @@ public class AdminAccommodationPayController {
 	 * 숙소 예약 내역 목록/상세
 	 */
 	@GetMapping("/accommodationReservationList")
-	public String getAccommodationReservationList(Model model) {
+	public String reservationList(Model model) {
 		
-		List<AccommodationReservationList> accommodationReservationList = accommodationService.getAccommodationReservationList();
+		List<AccommodationReservationList> accommodationReservationList = accommodationService.reservationList();
 		
 		model.addAttribute("accommodationReservationList", accommodationReservationList);
 		
@@ -155,8 +167,8 @@ public class AdminAccommodationPayController {
 	 * 숙소 문의 목록/상세
 	 */
 	@GetMapping("/accommodationInquiryList")
-	public String getAccommodationInquiryList(Model model) {
-		List<AccommodationInquiry> accommodationInquiryList = accommodationService.getAccommodationInquiryList();
+	public String inquiryList(Model model) {
+		List<AccommodationInquiry> accommodationInquiryList = accommodationService.inquiryList();
 		model.addAttribute("accommodationInquiryList", accommodationInquiryList);
 		
 		return "/admin/accommodation/inquiry/accommodationInquiryList";
