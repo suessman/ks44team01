@@ -101,8 +101,10 @@
                 </div>
                 <p>
                 	1. 예약자 ID 클릭 : 예약자 기본정보를 보여준다.
+                	<br/>
                 	2. 숙소상세 클릭 : 숙소 상세정보를 보여준다.
-                	3. 결제코드 클릭 : 결제 상세내역을 보여준다. 결제취소된 경우에는 결제취소 텍스트가 나온다.
+                	<br/>
+                	3. 결제코드 클릭 : 결제 상세내역을 보여준다. 결제취소된 경우에는 결제취소 텍스트가 나온다. 결제취소요청 클릭 후 승인을 누르면 결제취소완료가 된다.
                 </p>
      		</div>
       	</div>
@@ -287,7 +289,7 @@
 			<br/>
 	       	<div class="item form-group">
 	       		<div class="col-md-12 col-sm-6 " align="center">
-		         	<button type="button" class="btn btn-primary paymentCancelBtn">결제취소</button>
+		         	<button type="submit" class="btn btn-primary paymentCancelBtn">결제취소</button>
 		         	<button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
 	       		</div>
 	       	</div>
@@ -301,6 +303,13 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
+	/* 결제 취소 */
+	$('.paymentCancelBtn').click(function(){
+		var paymentCancelBtn = $('.paymentCancelBtn')
+		console.log("paymentCancelBtn: " + paymentCancelBtn.val());
+		paymentCancelBtn.val().submit();
+	});
+
 	/* 결제취소 승인 모달 */
 	$('.approval_paymentCancel').click(function(){
 		var approvalInput = $('.approvalInput').val();
