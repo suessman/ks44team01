@@ -27,7 +27,7 @@ public interface AccommodationListMapper {
 
 	//업체회원목록조회
 	public List<CompanyMember> getCompanyMember();
-	
+
 	//숙소삭제
 	public int deleteAccommodationList(String accommodationDetailCode);
 

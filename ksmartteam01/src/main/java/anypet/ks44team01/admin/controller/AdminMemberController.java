@@ -37,12 +37,13 @@ public class AdminMemberController {
 		return "admin/member/searchMember";
 	}
 	//특정 회원 정보 수정
-	@PostMapping
+	@PostMapping("/searchMember")
 	public String modifyMember(Model model
 							  ,@RequestParam(value="memberId")String memberId) {
 		memberService.modifyMember(memberId);
-		return "redirect:/admin/member/searchMember";
+		return "redirect:/admin/member/getMemberList";
 	}
+	
 	
 	
 }

@@ -22,9 +22,11 @@
 		
 		<delete id="goodsRemove" parameterType="String">
 			/* 상품 삭제 */
-			DELETE
-			FROM goods
-			WHERE goods_code = #{goodsCode};
+			DELETE FROM 
+				goods 
+			WHERE 
+				goods_code=#{goodsCode};
+			
 		</delete>
 		
 		<select id="getGoodsInfoByCode" parameterType="String" resultType="GoodsList">

@@ -183,7 +183,7 @@
 	FROM
 		company_member as m;
 	</select>
-	
+
 	<!-- 숙소삭제  -->
 	<delete id="deleteAccommodationList" parameterType="String">
 	DELETE
@@ -194,5 +194,6 @@
 		d.accomodation_detail_code = #{accommodationDetailCode};
 	
 	</delete>
+
 
   </mapper>
