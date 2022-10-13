@@ -5,9 +5,8 @@ import org.apache.ibatis.annotations.Mapper;
 import anypet.ks44team01.dto.Board;
 import anypet.ks44team01.dto.BoardCategory;
 
-
-//Mybatis 매핑XML에 기재된 SQL을 호출하기 위한 인터페이스이다. Mybatis3.0부터 생겼다.
-//Mapper -> dao 역할
+// Mybatis 매핑XML에 기재된 SQL을 호출하기 위한 인터페이스이다. Mybatis3.0부터 생겼다.
+// Mapper -> dao 역할
 
 /*
 *database의 data에 접근하기 위한 객체 
@@ -15,9 +14,11 @@ import anypet.ks44team01.dto.BoardCategory;
 * */
 @Mapper
 public interface BoardMapper {
-
 	//게시물 목록 조회
 	public List<Board> getBoardList();
+	
+	//특정 게시물 카테고리 조회
+	public BoardCategory getBoardCategoryInfo(String boardCategoryCode);
 	
 	//게시물 카테고리 목록 조회
 	public List<BoardCategory> getBoardCategoryList();
@@ -29,7 +30,8 @@ public interface BoardMapper {
 	public int modifyBoardCategory(BoardCategory boardCategory);
 	
 	//게시물 카테고리 삭제	
-	
+	public int deleteBoardCategory(String boardCategoryCode);
+
 	//게시물 상세
 	public List<Board> getBoardDetail();
 		
