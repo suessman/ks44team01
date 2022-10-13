@@ -11,6 +11,6 @@ public interface MemberMapper {
 	public Member getMemberInfoById(String memberId);
 	//특정 회원 정보 수정
 	public Member modifyMember(String memberId);
-	
+
 	
 }

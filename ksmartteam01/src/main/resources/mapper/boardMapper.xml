@@ -100,20 +100,6 @@
 			 NOW());
 	</insert>
 	
-	<select id="getBoardCategoryList" resultMap="BoardCategoryResultMap" fetchSize="100">
-		/*  */
-		SELECT 
-			board_code, 
-			id, 
-			board_category_code, 
-			board_title, 
-			board_contents, 
-			board_datetime, 
-			board_image, 
-			board_hits
-		FROM 
-			board
-	</select>
 	
 	<!-- 게시판 카테고리 수정 -->
 	<update id="modifyBoardCategory" parameterType="BoardCategory">

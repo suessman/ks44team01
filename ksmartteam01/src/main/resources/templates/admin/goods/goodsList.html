@@ -5,7 +5,7 @@
 	<th:block layout:fragment="customTitle">
 		<title>상품목록</title>
 	</th:block>
-
+	
 
 	<th:block layout:fragment="customContents">
 		<div class="right_col" role="main">
@@ -93,8 +93,8 @@
 															</a>
 														</td>
 														<td>
-															<a th:data-goods-code="${g.goodsCode}" data-toggle="modal" data-target="#removeModal">
-																<button type="button" id="delete_Btn" class="btn btn-sm btn-success">삭제</button>
+															<a href="javascript:void(0);" th:data-goods-code="${g.goodsCode}" data-toggle="modal" data-target="#removeModal">
+																<button type="button" id="delete_Btn" class="removeBtn btn-sm btn-success removeBtn">삭제</button>
 															</a>
 														</td>
 													</tr>
@@ -109,19 +109,55 @@
 				</div>
 			</div>
 		</div>
-	</th:block>
+		<form id="goodsDeleteForm" name="goodsDeleteForm" method="get"
+			th:action="@{/admin/goods/goodsRemove}">
+			<div class="removeModal modal fade" id="removeModal" tabindex="-1"
+				role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
+				<!-- <div class="modal-dialog modal-dialog-centered modal-sm" role="document"> -->
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="removeModalLabel"
+								style="font-weight: bold;">삭제하시겠습니까?</h5>
+						</div>
+						<div class="modal-footer" style="text-align: center;">
+							<input type="hidden" name="goodsCode" id="goodsCode">
+							<button type="button" class="btn btn-dark" id="removeBtnCheck">확인</button>
+							<button type="button" class="btn btn-secondary" id='closeBtn'
+								data-dismiss="modal">닫기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</form>
+</th:block>
+<th:block layout:fragment="customTopJs">
 	<script type="text/javascript">
-		var formObj = $("form[role='form']");
-		 
-		$("#delete_Btn").click(function(){
-			 
-		var con = confirm("정말로 삭제하시겠습니까?");
-		
-			if(con) {      
-			formObj.attr("action", "/admin/goods/delete");
-			formObj.submit();
-			}
+		/* ajax */
+		$(function() {
+			$('#ajaxCall').click(function() {
+
+				var request = $.ajax({
+					url : "jsonContentType.jsp", //요청 페이지 주소
+					method : "POST", //요청 방식
+					data : {
+						id : 'userId001',
+						userName : '홍길동'
+					}, //요청 페이지에 전달할 데이터 {key : value}
+					dataType : "json" //요청 페이지에서 응답할 방식
+				});
+				//정상적인 응답이 왔을 경우 실행되는 메서드
+				request.done(function(data) {
+					console.log(data);
+				});
+				//비정상적인 응답이나 요청 후 응답 실패 시 실행되는 메서드
+				request.fail(function(jqXHR, textStatus) {
+					alert("Request failed: " + textStatus);
+					console.log(jqXHR);
+				});
+			});
 		});
 	</script>
+</th:block>
 
 </html>
