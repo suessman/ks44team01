@@ -75,10 +75,14 @@
 		SELECT 
 			 cc.category_code					AS		categoryCode
 			,cc.category_name					AS		categoryName
-			,cc.id								AS		Id
+			,m.id								AS		Id
 			,cc.registration_datetime			AS		registrationDatetime
 		FROM 
 			company_category AS cc
+			INNER JOIN
+			member AS m
+			ON
+			m.id = cc.id
 		WHERE
 			cc.category_code = #{categoryCode}
 	</select>
@@ -107,12 +111,16 @@
 		/* 특정중분류조회 */
 		SELECT 
 			 ccs.category_code_sub				AS		categoryCodeSub
-			,ccs.category_code					AS		categoryCode
+			,cc.category_code					AS		categoryCode
 			,ccs.category_sub_name				AS		categoryNameSub
 			,ccs.id								AS		Id
 			,ccs.registration_datetime			AS		registrationDatetime
 		FROM 
 			company_category_sub AS ccs
+			INNER JOIN
+			company_category AS cc
+			ON
+			ccs.category_code = cc.category_code
 		WHERE
 			ccs.category_code_sub = #{categoryCodeSub}
 	</select>
@@ -122,13 +130,21 @@
 	<select id="getGoodsMediumCategoryList" resultType="GoodsMediumCategory">
 		/* 중분류목록조회 */
 		SELECT 
-			category_code_sub				as		categoryCodeSub
-			,category_code                  as		categoryCode
-			,category_sub_name				as		categoryNameSub
-			,id								as		Id
-			,registration_datetime			as		registrationDatetime
+			ccs.category_code_sub				as		categoryCodeSub
+			,cc.category_code                   as		categoryCode
+			,ccs.category_sub_name				as		categoryNameSub
+			,m.id								as		Id
+			,cc.registration_datetime			as		registrationDatetime
 		FROM 
-			company_category_sub;
+			company_category_sub AS ccs
+			INNER JOIN
+			company_category AS cc
+			ON
+			ccs.category_code = cc.category_code
+			INNER JOIN
+			member AS m
+			ON
+			m.id = cc.id;
 	</select>
 		
 		
@@ -180,14 +196,15 @@
 		WHERE
 			m.id = #{memberId}
 	</select>
+	
 	<!-- 주문 상세 조회 -->
 	<select id="getGoodsOrderDetailList" resultType="GoodsOrderDetail">
 		/* 주문 상세 조회 */
 		SELECT 
 			 god.order_detail_number		AS orderDetail
-			,god.goods_code					AS goodsCode
-			,god.category_code_sub			AS categoryCodeSub
-			,god.id							AS id
+			,g.goods_code					AS goodsCode
+			,ccs.category_code_sub			AS categoryCodeSub
+			,m.id							AS id
 			,god.order_quantity				AS orderQuantity
 			,god.order_price				AS orderPrice
 			,god.goods_order_code			AS goodsOrderCode
@@ -195,7 +212,18 @@
 			,god.registration_datetime		AS registrationDatetime
 		FROM 
 			order_detail AS god
-
+			INNER JOIN
+			goods AS g
+			ON
+			god.goods_code = g.goods_code
+			INNER JOIN
+			company_category_sub AS ccs
+			ON
+			god.category_code_sub = ccs.category_code_sub
+			INNER JOIN
+			member AS m
+			ON
+			god.id = m.id;
 	</select>	
 
 		
