@@ -22,10 +22,12 @@
 		
 		<delete id="goodsRemove" parameterType="String">
 			/* 상품 삭제 */
-			DELETE FROM 
-				goods 
+			DELETE 
+			g
+			FROM 
+				goods as g
 			WHERE 
-				goods_code=#{goodsCode};
+				g.goods_code=#{goodsCode};
 			
 		</delete>
 		

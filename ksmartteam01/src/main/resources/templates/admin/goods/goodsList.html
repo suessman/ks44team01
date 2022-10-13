@@ -93,9 +93,6 @@
 															</a>
 														</td>
 														<td>
-															<a href="javascript:void(0);" th:data-goods-code="${g.goodsCode}" data-toggle="modal" data-target="#removeModal">
-																<button type="button" id="delete_Btn" class="removeBtn btn-sm btn-success">삭제</button>
-															</a>
 														</td>
 													</tr>
 												</tbody>
@@ -109,79 +106,4 @@
 				</div>
 			</div>
 		</div>
-		<form id="goodsDeleteForm" name="goodsDeleteForm" method="get"
-			th:action="@{/admin/goods/goodsRemove}">
-			<div class="removeModal modal fade" id="removeModal" tabindex="-1"
-				role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true">
-				<!-- <div class="modal-dialog modal-dialog-centered modal-sm" role="document"> -->
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="removeModalLabel"
-								style="font-weight: bold;">삭제하시겠습니까?</h5>
-						</div>
-						<div class="modal-footer" style="text-align: center;">
-							<input type="hidden" name="goodsCode" id="goodsCode">
-							<button type="button" class="btn btn-dark" id="removeBtnCheck">확인</button>
-							<button type="button" class="btn btn-secondary" id='closeBtn'
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-</th:block>
-	<script src="https://code.jquery.com/jquery-3.4.1.js">
-	 $(function() {
-		/* 리스트에서 삭제 버튼 클릭 시 해당 상품 코드 가져오기 */
-		$('.removeBtn').each(function(){
-			$(this).click(function(){
-				var goodsCode =  $(this).data("goods-code");
-				$('#goodsCode').val( goodsCode );
-				
-				// 가져온 상품코드 콘솔 출력
-				var removeCood = $('input[name="goodsCode"]').val();
-				console.log(removeCood);
-			});
-		});
-		$('#removeBtnCheck').click(function () {
-			
-			/* ajax */
-			$.ajax({
-				type:"get",
-				url : "jsonContentType.jsp", //요청 페이지 주소
-				method : "POST", //요청 방식
-				success:function (r) {
-					for(let i = 0; i < r.data.length; i++){
-						let tag =
-						'<tr>'
-							'<td>'+ r.data[i].goods_code+'<td>'+
-							'<td>'+ r.data[i].id+'<td>'+
-							'<td>'+ r.data[i].goods_name+'<td>'+
-							'<td>'+ r.data[i].category_code_sub+'<td>'+
-							'<td>'+ r.data[i].goods_image+'<td>'+
-							'<td>'+ r.data[i].goods_price+'<td>'+
-							'<td>'+
-								'<button date-goodsCode="'+r.data[i].goodsCode+'" Class="goodsCode">삭제</button>'
-							'<td>'+
-						'<tr>';
-						$(".goodsCode").click(function(){
-							if(confirm("삭제하시겠습니까?")){
-								$.ajax({
-									url : "/"+$(this).attr("goodsCode"),
-									type:"delete",
-									success:function(r){
-										alert(r.message);
-										location.reload();
-									}
-								});
-							}
-						});
-					}
-				}
-			});
-		});
-	 });
-	</script>
-	
 </html>

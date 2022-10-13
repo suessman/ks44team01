@@ -187,12 +187,4 @@
 	</select>
 
 	<!-- 숙소삭제  -->
-	<update id="deleteAccommodationList" parameterType="String">
-	UPDATE accomodation_detail 
-		SET
-			is_del = 1
-		WHERE 
-			accomodation_detail_code=#{accommodationDetailCode};	
-	</update>
 
-  </mapper>
