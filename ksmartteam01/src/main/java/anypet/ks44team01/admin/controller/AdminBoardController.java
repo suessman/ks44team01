@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.Board;
 import anypet.ks44team01.dto.BoardCategory;
 import anypet.ks44team01.service.BoardService;
@@ -128,7 +127,7 @@ public class AdminBoardController {
 		return "/admin/board/modifyBoardCategory";
 	}
 	
-	
+
 	/*
 	 * 게시판 카테고리 삭제
 	 * @param model
@@ -139,9 +138,9 @@ public class AdminBoardController {
 	
 		boardService.deleteBoardCategory(boardCategoryCode);
 		
-		System.out.println("카테고리 삭제 정보: " + boardCategoryCode);
+		System.out.println("게시판 카테고리 삭제 정보: " + boardCategoryCode);
 		
-		return "redirect:accommodationCategory";
+		return "redirect:boardCategoryList";
 	}
 	
 	

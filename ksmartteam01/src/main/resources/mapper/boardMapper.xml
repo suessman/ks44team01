@@ -121,7 +121,7 @@
 			</if>
 		</trim>
 		WHERE
-			board_category_code= #{boardCategoryCode};
+			board_category_code = #{boardCategoryCode};
 	</update>
 	
 	<!-- 게시판 카테고리 삭제 -->
