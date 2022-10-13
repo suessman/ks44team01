@@ -183,5 +183,16 @@
 	FROM
 		company_member as m;
 	</select>
+	
+	<!-- 숙소삭제  -->
+	<delete id="deleteAccommodationList" parameterType="String">
+	DELETE
+	d
+	FROM
+		accomodation_detail as d
+	WHERE
+		d.accomodation_detail_code = #{accommodationDetailCode};
+	
+	</delete>
 
   </mapper>
