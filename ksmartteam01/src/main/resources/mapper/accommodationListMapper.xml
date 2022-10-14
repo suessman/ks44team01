@@ -60,7 +60,7 @@
 		company_member AS m
 		ON 
 		m.company_member_code = d.company_member_code
-		INNER JOIN 
+		LEFT OUTER JOIN
 		goods_accomodation_option AS o
 		ON
 		o.accomodation_detail_code = d.accomodation_detail_code
@@ -185,6 +185,16 @@
 	FROM
 		company_member as m;
 	</select>
+	
+	<!-- 숙소삭제  -->
+	<update id="deleteAccommodationList" parameterType="String">
+	UPDATE accomodation_detail 
+		SET
+			is_del = 1
+		WHERE 
+			accomodation_detail_code=#{accommodationDetailCode};
+	
+	</update>
 
 </mapper>
 
