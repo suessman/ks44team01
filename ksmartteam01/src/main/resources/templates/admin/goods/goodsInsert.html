@@ -10,10 +10,20 @@
 	
 	<th:block layout:fragment="customContents">
 				상품등록
+			<style>
+				.ck_warn{						
+				/* 입력란 공란 경고 태그 */
+					display: none;
+				    padding-top: 10px;
+				    text-align: center;
+				    color: #e05757;
+				    font-weight: 300;    
+				}
+			</style>
 			
 					<!-- page content -->
 		<div class="right_col" role="main">
-			<form id="goodsInsertForm" th:action="@{/admin/goods/goodsInsert}"
+			<form id="goodsInsertForm" class="goodsInsertForm" th:action="@{/admin/goods/goodsInsert}"
 				method="post">
 				<div class="">
 					<div class="page-title">
@@ -72,37 +82,29 @@
 										<div class="form-group row ">
 											<label class="control-label col-md-3 col-sm-3" for="goodsName">상품명</label>
 											<div class="col-md-6 col-sm-6 ">
-												<input type="text" id="goodsName" name="goodsName"
-													class="form-control" placeholder="상품명">
+												<input type="text" id="goodsName" name="goodsName" class="form-control" placeholder="상품명">
+												<span class="ck_warn goodsName">상품명을 입력해주세요.</span>
 											</div>
 										</div>
 										<div class="form-group row">
 											<label class="control-label col-md-3 col-sm-3">상품 카테고리</label>
 											<div class="col-md-9 col-sm-9 ">
-												<label class="addTitle control-label">대분류</label> <select
-													class="form-control" name="categoryCode">
-													<th:block th:unless="${#lists.isEmpty(goodsCategory)}"
-														th:each="c : ${goodsCategory}">
-														<option th:value="${c.categoryCode}"
-															th:text="${c.categoryName}"></option>
+											
+												<label class="addTitle control-label">대분류</label> 
+												<select class="categoryCode form-control" name="categoryCode">
+													<th:block th:unless="${#lists.isEmpty(goodsCategory)}" th:each="c : ${goodsCategory}">
+														<option th:value="${c.categoryCode}" th:text="${c.categoryName}"></option>
 													</th:block>
-													<th:block th:if="${#lists.isEmpty(goodsCategory)}">
-														<option value="">등록된 회원등급이 없습니다.</option>
-													</th:block>
-												</select> <label class="addTitle control-label">중분류</label> <select
-													class="select2_single form-control" name="categoryCodeSub"
-													tabindex="-1" onchange="onChangeEvent();">
-													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}"
-														th:each="cs : ${goodsCategorySub}">
-														<option th:value="${cs.categoryCodeSub}"
-															th:text="${cs.categorySubName}"></option>
-													</th:block>
-													<th:block th:if="${#lists.isEmpty(goodsCategorySub)}">
-														<option value="">등록된 회원등급이 없습니다.</option>
+												</select> 
+												
+												
+												<label class="addTitle control-label">중분류</label> 
+												<select class="categoryCodeSub select2_single form-control" name="categoryCodeSub" tabindex="-1" onchange="onChangeEvent();">
+													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}" th:each="cs : ${goodsCategorySub}">
+														<option th:value="${cs.categoryCodeSub}" th:text="${cs.categorySubName}"></option>
 													</th:block>
 												</select>
-	
-	
+												<span class="ck_warn category">카테고리를 선택해주세요.</span>
 											</div>
 										</div>
 	
@@ -110,8 +112,8 @@
 											<label class="control-label col-md-3 col-sm-3"
 												for="goodsQuantiy">가격</label>
 											<div class="col-md-9 col-sm-9 ">
-												<input type="text" id="goodsPrice" name="goodsPrice"
-													class="form-control" placeholder="가격">
+												<input type="text" id="goodsPrice" name="goodsPrice" class="form-control" placeholder="가격">
+												<span class="ck_warn goodsPrice">가격을 입력해주세요.</span>
 											</div>
 										</div>
 	
@@ -119,8 +121,8 @@
 											<label class="control-label col-md-3 col-sm-3"
 												for="goodsPrice">재고수량</label>
 											<div class="col-md-9 col-sm-9 ">
-												<input type="number" id="goodsQuantiy" name="goodsQuantiy"
-													class="form-control nums" placeholder="수량" step="1">
+												<input type="number" id="goodsQuantiy" name="goodsQuantiy" class="form-control nums" placeholder="수량" step="1">
+												<span class="ck_warn goodsQuantiy">상품 재고를 입력해주세요.</span>
 											</div>
 										</div>
 	
@@ -129,8 +131,8 @@
 												for="goodsContents">상품 상세 설명<span class="required">*</span>
 											</label>
 											<div class="col-md-9 col-sm-9 ">
-												<textarea id="goodsContents" name="goodsContents"
-													class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+												<textarea id="goodsContents" name="goodsContents" class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+												<span class="ck_warn goodsContents">상품 상세 설명을 입력해주세요.</span>
 											</div>
 										</div>
 	
@@ -154,4 +156,55 @@
 		</div>
 	</th:block>
 <!-- /page content -->
+	<th:block layout:fragment="customTopJs">
+		<script type="text/javascript">
+			$(function(){
+				/* $('#idCheckBtn').click(()=>{					
+				}) */				
+				//MemberController에서 요청에 응답 ??
+				
+				//유효성검사
+				function validationCheck(data){
+					var isValid = true;
+					
+					//유효성검사
+					if(typeof data == 'object'){
+						$.each(data,function(){
+							var inputValue = $(this).val();
+							console.log(inputValue);
+							if(typeof inputValue == 'undefined' || inputValue == null || inputValue == ''){
+								isValid = false;
+								var inputId = $(this).attr('id');
+								var alertMsg = $('label[for="'+ inputId +'"]').text();
+								alert(alertMsg + '입력해주세요');
+								$(this).focus();
+								
+								
+								
+								return false;
+							} 
+						}); //each함수에서 빠져나옴 {input1,input2,input3}
+						console.log('return 후 실행 여부');						
+					}
+					return isValid;
+				}
+		
+				$(document).on('click', '#joinBtn',function(){
+			
+					var inputObj = $('#goodsInsertForm input');
+					console.log(inputObj, 'inputObj');
+					console.log(typeof inputObj);		
+					
+					//유효성검사
+					var isValid = validationCheck(inputObj);					
+					
+					console.log(isValid , '유효성검사 결과');			
+					
+					
+					//유효성검사후
+					if(isValid){$('#goodsInsertForm').submit()}
+				})
+			})
+		</script>
+	</th:block>
 </html>

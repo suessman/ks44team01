@@ -19,7 +19,6 @@
 			<result column="goods_contents" 		property="goodsContents"/>
 		</resultMap>
 		
-		
 		<delete id="goodsRemove" parameterType="String">
 			/* 상품 삭제 */
 			DELETE 
@@ -28,7 +27,6 @@
 				goods as g
 			WHERE 
 				g.goods_code=#{goodsCode};
-			
 		</delete>
 		
 		<select id="getGoodsInfoByCode" parameterType="String" resultType="GoodsList">
