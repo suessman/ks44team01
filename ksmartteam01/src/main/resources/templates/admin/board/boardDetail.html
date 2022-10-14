@@ -38,7 +38,7 @@
 					<div class="x_panel">
 						<div class="x_title">
 							<h2>
-								게시물 카테고리 <small>게시물 번호</small>
+								자유 <small>bc001</small>
 							</h2>
 							<ul class="nav navbar-right panel_toolbox">
 								<li><a class="collapse-link"><i
@@ -64,8 +64,8 @@
 										for="roomName">제목<span class="required">*</span>
 									</label>
 									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="roomName" readonly required="required" 
-											class="form-control ">
+										<input type="text" id="roomName" readonly required="required"
+											class="form-control" value="우리 강아지와의 하루">
 									</div>
 								</div>
 								<div class="item form-group">
@@ -74,7 +74,7 @@
 									</label>
 									<div class="col-md-6 col-sm-6 ">
 										<input type="text" id="roomName" readonly required="required"
-											class="form-control ">
+											class="form-control" value="애견인02">
 									</div>
 								</div>
 								<div class="item form-group">
@@ -83,7 +83,7 @@
 									</label>
 									<div class="col-md-6 col-sm-6 ">
 										<input type="text" id="roomName" readonly required="required"
-											class="form-control ">
+											class="form-control" value="2022-09-27 12:45:00">
 									</div>
 								</div>
 								<div class="item form-group">
@@ -97,28 +97,9 @@
 												<ul class="product-list">
 													<li>
 														<div class="ml-3">
-															<p>
-																<span class="font-weight-bold option-title">방이름 </span>
-																<span>스위트룸</span>
-															</p>
-															<p>
-																<span class="font-weight-bold option-title">기준인원수</span>
-																<span>3명</span>
-															</p>
-															<p>
-																<span class="font-weight-bold option-title">최대
-																	이용가능 인원 수</span> <span>3명</span>
-															</p>
-															<p>
-																<span class="font-weight-bold option-title">잔여 호실
-																	수</span> <span>1개</span>
-															</p>
-															<p>
-																<span class="font-weight-bold option-title">주중가</span> <span>1개</span>
-															</p>
-															<p>
-																<span class="font-weight-bold option-title">주말가</span> <span>1개</span>
-															</p>
+															<p>강아지와 보내는 하루는 참 즐거운 시간이다!</p>
+															<p>강아지와 보내는 하루는 참 유익한 시간이다!</p>
+															<p>강아지와 보내는 하루는 참 보람찬 시간이다!</p>
 														</div>
 													</li>
 												</ul>
@@ -232,7 +213,7 @@
                     var reply_id;
                      
                     //ajax 호출 (여기에 댓글을 저장하는 로직을 개발)
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/reply/save",
                         dataType    :   "json",
@@ -253,7 +234,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                     
                     
                     reply_id = reply_count++;//DB에 저장했다 하고 순번을 생성
@@ -312,7 +293,7 @@
                     };
                      
                     //ajax 호출
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/reply/del",
                         dataType    :   "json",
@@ -335,7 +316,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                     
                     check = true;//삭제 되면 체크값을 true로 변경
                      
@@ -381,7 +362,7 @@
                     };
                      
                     //ajax 호출
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/reply/check",
                         dataType    :   "json",
@@ -404,7 +385,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                     
                     check = true;//패스워드가 맞으면 체크값을 true로 변경
                     
@@ -557,7 +538,7 @@
                             reply_password  : $("#reply_modify_password_"+reply_id).val(),
                             reply_content   : reply_content
                     };
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/reply/update",
                         dataType    :   "json",
@@ -578,7 +559,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                     //수정된댓글 내용을 적고
                     if(r_type=="main"){
                         reply = 
@@ -728,7 +709,7 @@
                     var reply_id;
                      
                     //ajax 호출
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/reply/save",
                         dataType    :   "json",
@@ -749,7 +730,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                     
                     reply_id = reply_count++;//DB에 저장했다 하고 순번을 생성
                      
@@ -807,7 +788,7 @@
                                          
                     //ajax 호출
                        alert("패스워드 체크하고 맞으면 수정페이지로 이동");
-                    /*
+                    
                     $.ajax({
                         url         :   "/board/check",
                         dataType    :   "json",
@@ -828,7 +809,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */
+                    
                      
                 });
                  
@@ -851,7 +832,7 @@
                     };
                     
                     alert("패스워드 체크하고 맞으면 게시글 삭제후 리스트 페이지 이동");
-                    /*                 
+                                    
                     //ajax 호출
                     $.ajax({
                         url         :   "/board/del",
@@ -874,7 +855,7 @@
                             console.log("AJAX_ERROR");
                         }
                     });
-                    */                
+                                  
                 });              
             });
         </script>
