@@ -186,5 +186,5 @@
 		company_member as m;
 	</select>
 
-	<!-- 숙소삭제  -->
+</mapper>
 
