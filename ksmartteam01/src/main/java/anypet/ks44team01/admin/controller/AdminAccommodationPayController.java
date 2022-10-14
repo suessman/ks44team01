@@ -116,11 +116,11 @@ public class AdminAccommodationPayController {
 	 * 결제취소 승인 
 	 */
 	@PostMapping("/accommodationApproval")
-	public String updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode) {
+	public String updatePaymentCancel(AccommodationPaymentCancel accommodationPaymentCancelCode) {
 		
-		accommodationService.updatePaymentCancel(accomodationPaymentCancelCode);
+		accommodationService.updatePaymentCancel(accommodationPaymentCancelCode);
 		
-		System.out.println("관리자승인: " + accomodationPaymentCancelCode);
+		System.out.println("관리자승인: " + accommodationPaymentCancelCode);
 		
 		return "redirect:accommodationReservationList";
 	}

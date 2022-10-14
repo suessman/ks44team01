@@ -48,11 +48,11 @@ public class AccommodationService {
 	}
 	
 	//숙소 결제취소 승인
-	public void updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode) {
+	public void updatePaymentCancel(AccommodationPaymentCancel accommodationPaymentCancelCode) {
 		
-		accommodationMapper.updatePaymentCancel(accomodationPaymentCancelCode);
+		accommodationMapper.updatePaymentCancel(accommodationPaymentCancelCode);
 		
-		System.out.println("결제취소코드: " + accomodationPaymentCancelCode);	
+		System.out.println("결제취소코드: " + accommodationPaymentCancelCode);	
 	}
 	
 	//숙소 정보 조회
