@@ -77,14 +77,14 @@
 				                				<td th:text="${l.paymentAmount}"></td>			
 				                				<td th:text="${l.usingPoint}"></td>			
 				                				<td th:text="${l.totalPaymentPrice}"></td>
-					                				<td>
-					                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"  th:if="${l.accomodationPaymentCancelCode == null}"></a>
-						                				<a th:text="결제취소완료" th:value="${l.accomodationPaymentCancelCode}" th:if="${l.accomodationPaymentCancelCode != null and l.accomodationPaymentCancelApproval.toString().equals('Y')}"></a>
-						                				<div>
-							                				<a style="color: blue;" class="approval_paymentCancel" data-toggle="modal" data-target=".approvalModal" th:text="결제취소요청 " th:if="${l.accomodationPaymentCancelCode != null and l.accomodationPaymentCancelApproval.toString().equals('N')}"></a>
-						                					<input class="approvalInput" type="hidden" th:value="${l.accomodationPaymentCancelCode}" >
-					                					</div>
-					                				</td>
+				                				<td>
+				                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"  th:if="${l.accommodationPaymentCancelCode == null}"></a>
+					                				<div>
+					                				<a th:text="결제취소완료" th:value="${l.accommodationPaymentCancelCode}" th:if="${l.accommodationPaymentCancelCode != null and l.accommodationPaymentCancelApproval.toString().equals('Y')}"></a>
+						                				<a style="color: blue;" class="approval_paymentCancel" data-toggle="modal" data-target=".approvalModal" th:text="결제취소요청 " th:if="${l.accommodationPaymentCancelCode != null and l.accommodationPaymentCancelApproval.toString().equals('N')}"></a>
+					                					<input class="approvalInput" type="hidden" th:value="${l.accommodationPaymentCancelCode}" >
+				                					</div>
+				                				</td>
 				                				<td>
 				                					<button type="submit" class="deleteModal" data-toggle="modal" data-target=".delete_Modal" th:value="${l.accommodationReservationCode}">X</button>
 				                				</td>
@@ -127,7 +127,7 @@
       </div>
       <div class="modal-footer">
       	<form method="post" th:action="@{/admin/accommodation/accommodationApproval}">
-	      	<input type="hidden" class="modalApproval" name="accomodationPaymentCancelCode">
+	      	<input type="hidden" class="modalApproval" name="accommodationPaymentCancelCode">
 	        <button type="submit" class="btn btn-primary approvalBtn">승인</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 	    </form>

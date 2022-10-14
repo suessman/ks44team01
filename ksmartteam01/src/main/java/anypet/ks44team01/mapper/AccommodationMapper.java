@@ -26,8 +26,11 @@ public interface AccommodationMapper{
 	//4)숙소 예약내역 삭제
 	public int removeReservation(String accommodationReservationCode);
 	
+	//숙소 관리자 결제 취소 -> accomodationPaymentCode
+	public int adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCode);
+	
 	//숙소 결제취소 승인
-	public int updatePaymentCancel(AccommodationPaymentCancel accomodationPaymentCancelCode);
+	public int updatePaymentCancel(AccommodationPaymentCancel accommodationPaymentCancelCode);
 	
 	//숙소정보 조회
 	public AccommodationDetail getAccommodationDetailInfo(String goodsAccommodationOptionCode);

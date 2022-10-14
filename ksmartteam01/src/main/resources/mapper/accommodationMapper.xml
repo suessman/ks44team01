@@ -66,11 +66,6 @@
 			a.accomodation_reservation_number = #{accommodationReservationCode}
 	</delete>	
 	
-	<!-- 결제취소 -->
-	<insert id="">
-	
-	</insert>
-	
 	<!-- 숙소정보 조회 -->
 	<select id="getAccommodationDetailInfo" parameterType="String" resultMap="accommodationDetail">
 		SELECT 		
@@ -175,7 +170,7 @@
 			accomodation_payment_cancel_approval ='Y'
 		</trim>
 		WHERE 
-			accomodation_payment_cancel_code= #{accomodationPaymentCancelCode};
+			accomodation_payment_cancel_code= #{accommodationPaymentCancelCode};
 	</update>
 	
 	<!-- 숙소 예약내역 조회  -->
@@ -193,8 +188,8 @@
 		,r.using_point 							AS usingPoint							
 		,r.total_payment_price 					AS totalPaymentPrice
 		,p.accomodation_payment_number			AS accommodationPaymentCode
-		,c.accomodation_payment_cancel_code		AS accomodationPaymentCancelCode
-		,c.accomodation_payment_cancel_approval	AS accomodationPaymentCancelApproval								
+		,c.accomodation_payment_cancel_code		AS accommodationPaymentCancelCode
+		,c.accomodation_payment_cancel_approval	AS accommodationPaymentCancelApproval								
 	FROM
 		accomodation_reservation AS r
 		LEFT OUTER JOIN

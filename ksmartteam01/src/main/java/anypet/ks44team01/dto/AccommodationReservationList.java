@@ -16,22 +16,8 @@ public class AccommodationReservationList {
 	private int usingPoint;
 	private int totalPaymentPrice;
 	private String accommodationPaymentCode;
-	private String accomodationPaymentCancelCode;
-	private String accomodationPaymentCancelApproval;
-	
-	
-	public String getAccomodationPaymentCancelApproval() {
-		return accomodationPaymentCancelApproval;
-	}
-	public void setAccomodationPaymentCancelApproval(String accomodationPaymentCancelApproval) {
-		this.accomodationPaymentCancelApproval = accomodationPaymentCancelApproval;
-	}
-	public String getAccomodationPaymentCancelCode() {
-		return accomodationPaymentCancelCode;
-	}
-	public void setAccomodationPaymentCancelCode(String accomodationPaymentCancelCode) {
-		this.accomodationPaymentCancelCode = accomodationPaymentCancelCode;
-	}
+	private String accommodationPaymentCancelCode;
+	private String accommodationPaymentCancelApproval;
 	public String getAccommodationReservationCode() {
 		return accommodationReservationCode;
 	}
@@ -116,6 +102,18 @@ public class AccommodationReservationList {
 	public void setAccommodationPaymentCode(String accommodationPaymentCode) {
 		this.accommodationPaymentCode = accommodationPaymentCode;
 	}
+	public String getAccommodationPaymentCancelCode() {
+		return accommodationPaymentCancelCode;
+	}
+	public void setAccommodationPaymentCancelCode(String accommodationPaymentCancelCode) {
+		this.accommodationPaymentCancelCode = accommodationPaymentCancelCode;
+	}
+	public String getAccommodationPaymentCancelApproval() {
+		return accommodationPaymentCancelApproval;
+	}
+	public void setAccommodationPaymentCancelApproval(String accommodationPaymentCancelApproval) {
+		this.accommodationPaymentCancelApproval = accommodationPaymentCancelApproval;
+	}
 	@Override
 	public String toString() {
 		return "AccommodationReservationList [accommodationReservationCode=" + accommodationReservationCode
@@ -125,10 +123,11 @@ public class AccommodationReservationList {
 				+ checkinDatetime + ", checkoutDatetime=" + checkoutDatetime + ", totalNumber=" + totalNumber
 				+ ", paymentAmount=" + paymentAmount + ", usingPoint=" + usingPoint + ", totalPaymentPrice="
 				+ totalPaymentPrice + ", accommodationPaymentCode=" + accommodationPaymentCode
-				+ ", accomodationPaymentCancelCode=" + accomodationPaymentCancelCode
-				+ ", accomodationPaymentCancelApproval=" + accomodationPaymentCancelApproval + "]";
+				+ ", accommodationPaymentCancelCode=" + accommodationPaymentCancelCode
+				+ ", accommodationPaymentCancelApproval=" + accommodationPaymentCancelApproval + "]";
 	}
-
+	
+	
 	
 
 }

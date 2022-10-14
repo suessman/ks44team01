@@ -2,28 +2,27 @@ package anypet.ks44team01.dto;
 
 public class AccommodationPaymentCancel {
 		
-	private String accomodationPaymentCancelCode;
-	private String accomodationPaymentNumber;
+	private String accommodationPaymentCancelCode;
+	private String accommodationPaymentNumber;
 	private String id;
-	private String accomodationPaymentCancelDatetime;
-	private String accomodationPaymentCancelReason;
-	private String accomodationPaymentCancelApproval;
-	private String accomodationPaymentCancelApprovalDatetime;
+	private String accommodationPaymentCancelDatetime;
+	private String accommodationPaymentCancelReason;
+	private String accommodationPaymentCancelApproval;
+	private String accommodationPaymentCancelApprovalDatetime;
 	
 	private AccommodationPayment accommodationPayment;
 	private AccommodationReservationList accommodationReservationList;
-	
-	public String getAccomodationPaymentCancelCode() {
-		return accomodationPaymentCancelCode;
+	public String getAccommodationPaymentCancelCode() {
+		return accommodationPaymentCancelCode;
 	}
-	public void setAccomodationPaymentCancelCode(String accomodationPaymentCancelCode) {
-		this.accomodationPaymentCancelCode = accomodationPaymentCancelCode;
+	public void setAccommodationPaymentCancelCode(String accommodationPaymentCancelCode) {
+		this.accommodationPaymentCancelCode = accommodationPaymentCancelCode;
 	}
-	public String getAccomodationPaymentNumber() {
-		return accomodationPaymentNumber;
+	public String getAccommodationPaymentNumber() {
+		return accommodationPaymentNumber;
 	}
-	public void setAccomodationPaymentNumber(String accomodationPaymentNumber) {
-		this.accomodationPaymentNumber = accomodationPaymentNumber;
+	public void setAccommodationPaymentNumber(String accommodationPaymentNumber) {
+		this.accommodationPaymentNumber = accommodationPaymentNumber;
 	}
 	public String getId() {
 		return id;
@@ -31,29 +30,29 @@ public class AccommodationPaymentCancel {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getAccomodationPaymentCancelDatetime() {
-		return accomodationPaymentCancelDatetime;
+	public String getAccommodationPaymentCancelDatetime() {
+		return accommodationPaymentCancelDatetime;
 	}
-	public void setAccomodationPaymentCancelDatetime(String accomodationPaymentCancelDatetime) {
-		this.accomodationPaymentCancelDatetime = accomodationPaymentCancelDatetime;
+	public void setAccommodationPaymentCancelDatetime(String accommodationPaymentCancelDatetime) {
+		this.accommodationPaymentCancelDatetime = accommodationPaymentCancelDatetime;
 	}
-	public String getAccomodationPaymentCancelReason() {
-		return accomodationPaymentCancelReason;
+	public String getAccommodationPaymentCancelReason() {
+		return accommodationPaymentCancelReason;
 	}
-	public void setAccomodationPaymentCancelReason(String accomodationPaymentCancelReason) {
-		this.accomodationPaymentCancelReason = accomodationPaymentCancelReason;
+	public void setAccommodationPaymentCancelReason(String accommodationPaymentCancelReason) {
+		this.accommodationPaymentCancelReason = accommodationPaymentCancelReason;
 	}
-	public String getAccomodationPaymentCancelApproval() {
-		return accomodationPaymentCancelApproval;
+	public String getAccommodationPaymentCancelApproval() {
+		return accommodationPaymentCancelApproval;
 	}
-	public void setAccomodationPaymentCancelApproval(String accomodationPaymentCancelApproval) {
-		this.accomodationPaymentCancelApproval = accomodationPaymentCancelApproval;
+	public void setAccommodationPaymentCancelApproval(String accommodationPaymentCancelApproval) {
+		this.accommodationPaymentCancelApproval = accommodationPaymentCancelApproval;
 	}
-	public String getAccomodationPaymentCancelApprovalDatetime() {
-		return accomodationPaymentCancelApprovalDatetime;
+	public String getAccommodationPaymentCancelApprovalDatetime() {
+		return accommodationPaymentCancelApprovalDatetime;
 	}
-	public void setAccomodationPaymentCancelApprovalDatetime(String accomodationPaymentCancelApprovalDatetime) {
-		this.accomodationPaymentCancelApprovalDatetime = accomodationPaymentCancelApprovalDatetime;
+	public void setAccommodationPaymentCancelApprovalDatetime(String accommodationPaymentCancelApprovalDatetime) {
+		this.accommodationPaymentCancelApprovalDatetime = accommodationPaymentCancelApprovalDatetime;
 	}
 	public AccommodationPayment getAccommodationPayment() {
 		return accommodationPayment;
@@ -69,12 +68,12 @@ public class AccommodationPaymentCancel {
 	}
 	@Override
 	public String toString() {
-		return "AccommodationPaymentCancel [accomodationPaymentCancelCode=" + accomodationPaymentCancelCode
-				+ ", accomodationPaymentNumber=" + accomodationPaymentNumber + ", id=" + id
-				+ ", accomodationPaymentCancelDatetime=" + accomodationPaymentCancelDatetime
-				+ ", accomodationPaymentCancelReason=" + accomodationPaymentCancelReason
-				+ ", accomodationPaymentCancelApproval=" + accomodationPaymentCancelApproval
-				+ ", accomodationPaymentCancelApprovalDatetime=" + accomodationPaymentCancelApprovalDatetime
+		return "AccommodationPaymentCancel [accommodationPaymentCancelCode=" + accommodationPaymentCancelCode
+				+ ", accommodationPaymentNumber=" + accommodationPaymentNumber + ", id=" + id
+				+ ", accommodationPaymentCancelDatetime=" + accommodationPaymentCancelDatetime
+				+ ", accommodationPaymentCancelReason=" + accommodationPaymentCancelReason
+				+ ", accommodationPaymentCancelApproval=" + accommodationPaymentCancelApproval
+				+ ", accommodationPaymentCancelApprovalDatetime=" + accommodationPaymentCancelApprovalDatetime
 				+ ", accommodationPayment=" + accommodationPayment + ", accommodationReservationList="
 				+ accommodationReservationList + "]";
 	}
