@@ -5,7 +5,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import anypet.ks44team01.dto.AccommodationCategory;
 import anypet.ks44team01.dto.Board;
 import anypet.ks44team01.dto.BoardCategory;
 import anypet.ks44team01.mapper.BoardMapper;
