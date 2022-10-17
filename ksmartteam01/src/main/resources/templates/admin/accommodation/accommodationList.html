@@ -65,7 +65,7 @@
 			                                            <th>숙소명</th>
 			                                            <th>숙소위치</th>
 			                                            <th>숙소유형</th>
-			                                            <th>가격</th>
+			                                            <!-- <th>가격</th> -->
 			                                            <th>수정/삭제</th>
 			                                        </tr>
 			                                    </thead>	
@@ -89,7 +89,7 @@
 			                                            <td th:text=${l.accommodationCategoryDto.accommodationCategoryName}></td>
 			                                            <td th:text=${l.regionDto.regionName}></td>
 			                                            <td th:text=${l.companyMemberDto.companyName}></td>
-			                                  		    <td th:text=${l.accommodationOptionDto.roomPrice}></td>                                    
+			                                  		    <!-- <td th:text=${l.accommodationOptionDto.roomPrice}></td>     -->                                
 			                                            <td>
 				                                            <a th:href="@{/admin/accommodation/updateAccommodation(accommodationDetailCode=${l.accommodationDetailCode})}">
 				                                            	<button type="button" class="btn btn-sm btn-primary">수정</button>
