@@ -60,7 +60,7 @@
 		company_member AS m
 		ON 
 		m.company_member_code = d.company_member_code
-		LEFT OUTER JOIN
+		INNER JOIN
 		goods_accomodation_option AS o
 		ON
 		o.accomodation_detail_code = d.accomodation_detail_code

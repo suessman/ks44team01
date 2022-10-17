@@ -33,6 +33,8 @@ public class AdminAccommodationListController {
 		List<AccommodationList> accommodationList = accommodationListService.getAccommodationList();
 		model.addAttribute("accommodationList", accommodationList);
 		
+		System.out.println(accommodationList);
+		
 		return "/admin/accommodation/accommodationList";
 	}
 	
@@ -49,7 +51,11 @@ public class AdminAccommodationListController {
 	@GetMapping("/insertAccommodation")
 	public String insertAccommodation(Model model) {
 		List<AccommodationList> accommodationList = accommodationListService.getAccommodationList();
+		
 		model.addAttribute("accommodationList", accommodationList);
+		System.out.println("start숙소데이터목록");
+		System.out.println(accommodationList);
+		System.out.println("end숙소데이터목록");
 		
 		model.addAttribute("title", "숙소등록");
 		List<AccommodationCategory> accommodationCategoryList = accommodationListService.getCategoryList();
