@@ -17,17 +17,12 @@ import anypet.ks44team01.dto.Member;
 @Mapper
 public interface AccommodationMapper{
 	
-	//1)숙소 결제취소내역 삭제
-	public int removePaymentCancel(String accommodationPaymentCode);
-	//2)숙소 리뷰내역 삭제
-	public int removeReview(String accommodationPaymentCode);
-	//3)숙소 결제내역 삭제
-	public int removeAccommodationPayment(String accommodationPaymentCode);
-	//4)숙소 예약내역 삭제
-	public int removeReservation(String accommodationReservationCode);
+
+	//숙소 예약내역 삭제
+	public int removeReservationList(AccommodationReservationList accommodationReservationCode);
 	
 	//숙소 관리자 결제 취소 -> accomodationPaymentCode
-	public int adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCode);
+	public int adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCancel);
 	
 	//숙소 결제취소 승인
 	public int updatePaymentCancel(AccommodationPaymentCancel accommodationPaymentCancelCode);

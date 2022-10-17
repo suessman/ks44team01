@@ -239,8 +239,11 @@
         <p>예약내역을 삭제하시겠습니까?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">삭제</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+      	<form method="post" th:action="@{/admin/accommodation/removeReservationList}">
+	      	<input type="hidden" class="deleteValue" name="accommodationReservationCode">
+	        <button type="submit" class="btn btn-primary">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	    </form>
       </div>
     </div>
   </div>
@@ -254,7 +257,7 @@
          <h4 class="modal-title" id="myModalLabel">결제정보</h4>
        </div>
        <div class="modal-body">
-         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" >
+         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" th:action="@{/admin/accommodation/adminPaymentCancel}">
 			<input type="hidden" id="accommodationPaymentCode" name="accommodationPaymentCode">
 			<div class="item form-group">
 				<label class="col-form-label col-md-4 col-sm-3 label-align" for="accommodationPaymentTerm">결제방식<span class="required">*</span></label>
@@ -286,13 +289,13 @@
 					<input id="purchasedPoint" class="form-control" type="text" name="purchasedPoint" readonly="readonly">
 				</div>
 			</div>
-			<br/>
 	       	<div class="item form-group">
 	       		<div class="col-md-12 col-sm-6 " align="center">
-		         	<button type="submit" class="btn btn-primary paymentCancelBtn">결제취소</button>
+		         	<button type="button" class="btn btn-primary paymentCancelBtn" name="accommodationPaymentCode">결제취소</button>
 		         	<button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
 	       		</div>
 	       	</div>
+			<br/>
 		</form>
        </div>
      </div>
@@ -303,11 +306,17 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <script>
+	/* 삭제 모달 */
+	$('.deleteModal').click(function(){
+		var deleteValue = $(this).val();
+		$('.deleteValue').val(deleteValue);
+		console.log($('.deleteValue').val());
+	})
+	
 	/* 결제 취소 */
 	$('.paymentCancelBtn').click(function(){
 		var paymentCancelBtn = $('.paymentCancelBtn')
 		console.log("paymentCancelBtn: " + paymentCancelBtn.val());
-		paymentCancelBtn.val().submit();
 	});
 
 	/* 결제취소 승인 모달 */

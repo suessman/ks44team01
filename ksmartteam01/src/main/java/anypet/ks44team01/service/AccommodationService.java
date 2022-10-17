@@ -32,19 +32,20 @@ public class AccommodationService {
 		System.out.println("accommodationService bean 생성");
 	}
 	
-	/// 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제  <-> 데이터 삭제하지 말고 컬럼 하나 추가해서 화면에 안보이게 처리?
-	public int removeReservation(String accommodationReservationCode, String accommodationPaymentCode) {
-		int resultRemove = 0;
+	// 숙소 예약내역 삭제
+	public void removeReservationList(AccommodationReservationList accommodationReservationCode) {
 		
-		resultRemove += accommodationMapper.removePaymentCancel(accommodationPaymentCode);
+		accommodationMapper.removeReservationList(accommodationReservationCode);
 		
-		resultRemove += accommodationMapper.removeReview(accommodationPaymentCode);
+		System.out.println("예약내역삭제: " + accommodationReservationCode);
+	}
+	
+	// 숙소 결제취소
+	public void adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCancel) {
 		
-		resultRemove += accommodationMapper.removeAccommodationPayment(accommodationPaymentCode);
+		accommodationMapper.adminPaymentCancel(accommodationPaymentCancel);
 		
-		resultRemove += accommodationMapper.removeReservation(accommodationReservationCode);
-		
-		return resultRemove;
+		System.out.println("숙소 결제취소: " + accommodationPaymentCancel);
 	}
 	
 	//숙소 결제취소 승인
