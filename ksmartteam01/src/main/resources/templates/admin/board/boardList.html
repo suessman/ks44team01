@@ -98,28 +98,29 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr th:if="${not #lists.isEmpty(boardList)}"
-													th:each="b : ${boardList}"
-													onclick="location.href='/admin/board/boardDetail'">
-													<td><input type="checkbox" id="check-all"></td>
-													<td th:text="${b.boardCode}"></td>
-													<td th:text="${b.boardCategory.boardCategoryName}"></td>
-													<td th:text="${b.boardTitle}"></td>
-													<td th:text="${b.id}"></td>
-													<td th:text="${b.boardDatetime}"></td>
-													<td th:text="${b.boardHits}"></td>
-													<td><a href="/admin/board/modifyBoard"><button
-																type="button">수정</button></a></td>
-													<td><a href="/admin/board/boardList"><button
-																type="button">삭제</button></a></td>
-												</tr>
-											</tbody>									
+												<th:block th:if="${not #lists.isEmpty(boardList)}"
+														th:each="b : ${boardList}">
+													<tr th:onclick="|location.href='@{/admin/board/boardDetail(boardCode=${b.boardCode})}'|">
+														<td><input type="checkbox" id="check-all"></td>
+														<td th:text="${b.boardCode}"></td>
+														<td th:text="${b.boardCategory.boardCategoryName}"></td>
+														<td th:text="${b.boardTitle}"></td>
+														<td th:text="${b.id}"></td>
+														<td th:text="${b.boardDatetime}"></td>
+														<td th:text="${b.boardHits}"></td>
+														<td><a href="/admin/board/modifyBoard"><button
+																	type="button">수정</button></a></td>
+														<td><a href="#"><button
+																	type="button">삭제</button></a></td>
+													</tr>
+												</th:block>
+											</tbody>
 										</table>
 									</div>
 								</div>
 							</div>
 							<div>
-								<a href="/admin/board/addBoard"><button type="button"
+								<a href="#"><button type="button"
 										style="align-items: center">등록</button></a>
 							</div>
 						</div>

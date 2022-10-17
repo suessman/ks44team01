@@ -32,6 +32,22 @@ public class BoardService {
 		return boardList;
 	}
 	
+	// 특정 게시물 상세 조회
+	public Board getBoardDetailByCode(String boardCode) {
+		Board board = boardMapper.getBoardDetailByCode(boardCode);
+		return board;
+	}
+	
+	// 게시판 등록
+	public void addBoard(Board board) {		
+		boardMapper.addBoard(board);	
+		System.out.println("게시판 카테고리 등록 : " + board);
+	}
+	
+	// 게시판 수정
+	
+	// 게시판 삭제	
+	
 	// 특정 게시판 카테고리 조회
 	public BoardCategory getBoardCategoryInfo(String boardCategoryCode) {	
 		BoardCategory boardCategory = boardMapper.getBoardCategoryInfo(boardCategoryCode);	
@@ -57,16 +73,7 @@ public class BoardService {
 	}
 		
 	// 게시판 카테고리 삭제
-	public int deleteBoardCategory(String boardCategoryCode) {				
-		int result = boardMapper.deleteBoardCategory(boardCategoryCode);
-		return result;
+	public void deleteBoardCategory(String boardCategoryCode) {				
+		boardMapper.deleteBoardCategory(boardCategoryCode);
 	}
-		
-	// 게시물 상세
-	public List<Board> getBoardDetail() {
-		List<Board> boardDetail = boardMapper.getBoardDetail();
-		return boardDetail;
-	}
-
-
 }

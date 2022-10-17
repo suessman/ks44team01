@@ -41,17 +41,38 @@ public class AdminBoardController {
 		List<Board> boardList = boardService.getBoardList();		
 		log.info("게시물 목록 ::: {}" , boardList);
 		model.addAttribute("boardList", boardList);
+		
 		return "/admin/board/boardList";
 	}
 	
+	/*
+	 * 특정 게시물 상세 조회
+	 * @param model
+	 * @return
+	 * */
 	@GetMapping("/boardDetail")
-	public String getBoardDetail(Model model) {
+	public String getBoardDetail(@RequestParam(value="boardCode", required = false) String boardCode
+			  					 ,Model model) {
+		Board boardDetail = boardService.getBoardDetailByCode(boardCode);
+        
+		log.info("게시판 상세 내용 ::: {}",boardDetail);
+		model.addAttribute("title", "게시판 상세 내용");
+		model.addAttribute("boardDetail", boardDetail);
+		
 		return "/admin/board/boardDetail";
 	}
 	
-	@GetMapping("/addBoard")
-	public String addBoard() {
-		return "/admin/board/addBoard";
+	/*
+	 * 게시물 등록
+	 * @param model
+	 * @return
+	 * */	
+	@PostMapping("/addBoard")
+	public String addBoard(Board board) {
+		System.out.println("게시물 등록 정보: " + board);
+		boardService.addBoard(board);
+		
+		return "redirect:boardList";
 	}
 	
 	@GetMapping("/modifyBoard")
@@ -79,6 +100,7 @@ public class AdminBoardController {
 		List<BoardCategory> boardCategoryList = boardService.getBoardCategoryList();		
 		log.info("게시물 목록 ::: {}" , boardCategoryList);
 		model.addAttribute("boardCategoryList", boardCategoryList);
+		
 		return "/admin/board/boardCategoryList";
 	}
 	
@@ -89,17 +111,15 @@ public class AdminBoardController {
 	 * */
 	@PostMapping("/addBoardCategory")
 	public String addBoardCategory(BoardCategory boardCategory) {
-		
 		System.out.println("게시판 카테고리 등록 정보: " + boardCategory);
 		boardService.addBoardCategory(boardCategory);
 		
 		return "redirect:boardCategoryList";
 	}
-
+	
 	@GetMapping("/addBoardCategory")
 	public String addBoardCategory(Model model) {
 		List<BoardCategory> boardCategoryList = boardService.getBoardCategoryList();
-		
 		model.addAttribute("title", "게시판 카테고리 등록");
 		model.addAttribute("boardCategoryList", boardCategoryList);
 		
@@ -124,28 +144,21 @@ public class AdminBoardController {
 		//특정 게시판 카테고리 정보
 		BoardCategory boardCategoryInfo = boardService.getBoardCategoryInfo(boardCategoryCode);			
 		List<BoardCategory> boardCategoryList = boardService.getBoardCategoryList();
-		
 		model.addAttribute("boardCategoryInfo", boardCategoryInfo);
 		model.addAttribute("boardCategoryList", boardCategoryList);
 		
 		return "/admin/board/modifyBoardCategory";
 	}
 	
-
 	/*
 	 * 게시판 카테고리 삭제
 	 * @param model
 	 * @return
 	 * */
 	@GetMapping("/deleteBoardCategory")
-	public String deleteBoardCategory(String boardCategoryCode) {
-	
+	public String deleteBoardCategory(@RequestParam(value = "boardCategoryCode") String boardCategoryCode) {
 		boardService.deleteBoardCategory(boardCategoryCode);
 		
-		System.out.println("게시판 카테고리 삭제 정보: " + boardCategoryCode);
-		
-		return "redirect:boardCategoryList";
+		return "redirect:/admin/board/boardCategoryList";
 	}
-	
-	
 }

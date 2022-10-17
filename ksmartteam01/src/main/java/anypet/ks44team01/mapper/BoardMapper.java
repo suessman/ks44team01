@@ -14,30 +14,32 @@ import anypet.ks44team01.dto.BoardCategory;
 * */
 @Mapper
 public interface BoardMapper {
-	//게시물 목록 조회
+	// 게시물 목록 조회
 	public List<Board> getBoardList();
 	
-	//특정 게시물 카테고리 조회
+	// 특정 게시물 상세 조회
+	public Board getBoardDetailByCode(String boardCode);
+			
+	// 게시물 등록
+	public int addBoard(Board board);
+
+	// 게시물 수정
+	
+	// 게시물 삭제
+	
+	// 특정 게시물 카테고리 조회
 	public BoardCategory getBoardCategoryInfo(String boardCategoryCode);
 	
-	//게시물 카테고리 목록 조회
+	// 게시물 카테고리 목록 조회
 	public List<BoardCategory> getBoardCategoryList();
 	
-	//게시물 카테고리 등록
+	// 게시물 카테고리 등록
 	public int addBoardCategory(BoardCategory boardCategory);
 	
-	//게시물 카테고리 수정
+	// 게시물 카테고리 수정
 	public int modifyBoardCategory(BoardCategory boardCategory);
 	
-	//게시물 카테고리 삭제	
-	public int deleteBoardCategory(String boardCategoryCode);
+	// 게시물 카테고리 삭제	
+	public void deleteBoardCategory(String boardCategoryCode);
 
-	//게시물 상세
-	public List<Board> getBoardDetail();
-		
-	//게시물 등록
-	
-	//게시물 수정
-	
-	//게시물 삭제
 }
