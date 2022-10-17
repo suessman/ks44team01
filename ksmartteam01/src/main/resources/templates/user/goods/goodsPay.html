@@ -165,15 +165,17 @@
 		    			<div class="mt-3">
 							<div class="order-product-box">
 								<div class="top">
-								업체명
+									주문상세
 								</div>
 								<ul class="product-list">
-									<li th:if="${not #lists.isEmpty(goodsOrderDetailList}" th:each="g : ${goodsOrderDetailList}">
+									<li th:if="${not #lists.isEmpty(goodsOrderdetail)}" th:each="god : ${goodsOrderdetail}">
 										<div class="ml-3">
-											<p th:text="${g.goodsCode}"></p>
+											<img th:src="@{${god.goodsImage}}" alt="">
 											<p>
-												<span th:text="${g.orderPrice}"></span>
-												<span th:text="${g.orderQuantity}"></span>
+												<span th:text="${god.goodsName}"></span><br>
+												<span th:text="${god.goodsPrice + '원' + ' X'}"></span>
+												<span th:text="${god.orderQuantity + '개' + ' ='}"></span>
+												<span th:text="${god.orderPrice + '원'}"></span>
 											</p>
 										</div>
 									</li>

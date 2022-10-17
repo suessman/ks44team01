@@ -8,22 +8,20 @@
 	</th:block>
 	
 	<th:block layout:fragment="customCss">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+	    <!-- Google Font -->
+	    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+	    <!-- Css Styles -->
+	    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+	    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+	    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+	    <link rel="stylesheet" href="css/style.css" type="text/css">
 	</th:block>
 	
 	<th:block layout:fragment="customContents">
-
-
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-section set-bg" data-setbg="/img/petG1.jpg">
         <div class="container">
@@ -49,6 +47,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__table">
+                    	<from>
                         <table>
                             <thead>
                                 <tr>
@@ -60,67 +59,26 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr th:if="${not #lists.isEmpty(goodsOrderdetail)}" th:each="god : ${goodsOrderdetail}">
                                     <td class="shoping__cart__item">
-                                        <img style="width:200px;" src="/img/cart/petCage.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
+                                        <img style="width:200px;" th:src="@{${god.goodsImage}}" alt="">
+                                        <h5 th:text="${god.goodsName}"></h5>
                                     </td>
-                                    <td class="shoping__cart__price">
-                                        $55.00
+                                    <td class="shoping__cart__price" th:text="${god.goodsPrice}">
+                                      	
                                     </td>
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
+                                            <div><!-- class="pro-qty"-->
+                                            	<button style="width:15px" class="quantity_btn plus_btn">+</button>
+                                                <input style="width:30%" type="text" th:value="${god.orderQuantity}">
+                                                <button style="width:15px" class="quantity_btn minus_btn">-</button>
                                             </div>
+                                            <a class="quantity_modify_btn" data-cartId="${ci.cartId}">변경</a>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        $110.00
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img style="width:200px;" src="/img/cart/PetClothes.jpg" alt="">
-                                        <h5>Fresh Garden Vegetable</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $39.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $39.99
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shoping__cart__item">
-                                        <img style="width:200px;" src="/img/cart/petToy2.jpg" alt="">
-                                        <h5>Organic Bananas</h5>
-                                    </td>
-                                    <td class="shoping__cart__price">
-                                        $69.00
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total">
-                                        $69.99
+                                    <td class="shoping__cart__total" th:text="${god.orderPrice}">
+                                      	
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
@@ -128,8 +86,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </from>
                     </div>
                 </div>
+
             </div>
             <div class="row">
                 <div class="col-lg-12">
@@ -143,26 +103,39 @@
                                    <div class="shoping__checkout">
                         <h5>총 합</h5>
                         <ul>
-                            <li>Total <span>$454.98</span></li>
+                            <li>Total <span></span></li>
                         </ul>
-                        <a href="#" class="primary-btn">주문하기</a>
+                        <a th:href="@{/user/goods/goodsPay}" class="primary-btn">주문하기</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Shoping Cart Section End -->
-
-</th:block>
-    <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
-
+	</th:block>
+	<th:block  layout:fragment="customFootJs">
+	    <!-- Js Plugins -->
+	    <script src="js/jquery-3.3.1.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/jquery.nice-select.min.js"></script>
+	    <script src="js/jquery-ui.min.js"></script>
+	    <script src="js/jquery.slicknav.js"></script>
+	    <script src="js/mixitup.min.js"></script>
+	    <script src="js/owl.carousel.min.js"></script>
+	    <script src="js/main.js"></script>
+	    <script>
+	    /* 수량버튼 */
+	    $(".plus_btn").on("click", function(){
+	    	let quantity = $(this).parent("div").find("input").val();
+	    	$(this).parent("div").find("input").val(++quantity);
+	    });
+	    $(".minus_btn").on("click", function(){
+	    	let quantity = $(this).parent("div").find("input").val();
+	    	if(quantity > 1){
+	    		$(this).parent("div").find("input").val(--quantity);		
+	    	}
+	    });
+	    </script>
+	</th:block>
 
 </html>

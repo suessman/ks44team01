@@ -1,6 +1,7 @@
 package anypet.ks44team01.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,8 +28,12 @@ public interface GoodsMapperOsj {
 	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
 	//상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
 	public Member getMemberInfoById(String memberId);
-	//상품 결제페이지 주문 상세 조회
-	public List<GoodsOrderDetail> getGoodsOrderDetailList();
+	
+	//상품 결제페이지 특정회원의 아이디와 주문 상세 조회
+	public List<Map<String,Object>> getGoodsOrderDetailByIdAndDatetime(String memberId, String orderRegisterTime);
+	
+	//장바구니 수량수정
+	public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
 	
 	//관리자 
 	//상품대분류목록조회

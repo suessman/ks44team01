@@ -9,11 +9,10 @@ public class GoodsOrder {
 	private String getPhone;
 	private String getName;
 	private String etc;
+	private String id;
 	private int totalPrice;
 	private int usingPoint;
 	private int totalPaymentPrice;
-	
-	
 	public String getGoodsOrderCode() {
 		return goodsOrderCode;
 	}
@@ -56,6 +55,12 @@ public class GoodsOrder {
 	public void setEtc(String etc) {
 		this.etc = etc;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getTotalPrice() {
 		return totalPrice;
 	}
@@ -74,13 +79,14 @@ public class GoodsOrder {
 	public void setTotalPaymentPrice(int totalPaymentPrice) {
 		this.totalPaymentPrice = totalPaymentPrice;
 	}
-	
 	@Override
 	public String toString() {
 		return "GoodsOrder [goodsOrderCode=" + goodsOrderCode + ", personalMemberCode=" + personalMemberCode
 				+ ", goodsOrderDatetime=" + goodsOrderDatetime + ", goodsOrderAddress=" + goodsOrderAddress
-				+ ", getPhone=" + getPhone + ", getName=" + getName + ", etc=" + etc + ", totalPrice=" + totalPrice
-				+ ", usingPoint=" + usingPoint + ", totalPaymentPrice=" + totalPaymentPrice + "]";
+				+ ", getPhone=" + getPhone + ", getName=" + getName + ", etc=" + etc + ", id=" + id + ", totalPrice="
+				+ totalPrice + ", usingPoint=" + usingPoint + ", totalPaymentPrice=" + totalPaymentPrice + "]";
 	}
+	
+	
 	
 }

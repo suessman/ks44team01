@@ -1,6 +1,7 @@
 package anypet.ks44team01.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -30,7 +31,19 @@ public class GoodsServiceOsj {
 		System.out.println("goodsService bean 생성");
 	}
 	//사용자
-
+	//주문 상세 조회(장바구니, 결제페이지)
+	public List<Map<String, Object>> getGoodsOrderDetailByIdAndDatetime(String memberId, String orderRegisterTime){
+		
+		List<Map<String, Object>> goodsOrderDetail = goodsMapper.getGoodsOrderDetailByIdAndDatetime(memberId, orderRegisterTime);
+		
+		return goodsOrderDetail;
+	}
+	//카트 수량 수정
+	public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){
+		goodsMapper.modifyCartCount(goodsOrderDetail);
+		
+	}
+	
 	//상품 결제/주문정보 입력
 		public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
 			
@@ -38,13 +51,6 @@ public class GoodsServiceOsj {
 			
 			System.out.println("상품 결제/주문정보 조회: " + result);
 		}
-	// 상품 결제페이지에 주문상세 조회
-		public List<GoodsOrderDetail> getGoodsOrderDetailList(){
-			
-			List<GoodsOrderDetail> goodsOrderDetailList = goodsMapper.getGoodsOrderDetailList();
-			
-			return goodsOrderDetailList;
-		}	
 	// 상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
 		public Member getMemberInfoById(String memberId) {
 				
@@ -65,26 +71,10 @@ public class GoodsServiceOsj {
 		return goodsLargeCategoryList;
 	}
 	
-	//상품중분류목록조회
-	public List<GoodsMediumCategory> getGoodsMediumCategoryList(){
-		
-		List<GoodsMediumCategory> goodsMediumCategoryList = goodsMapper.getGoodsMediumCategoryList();
-		
-		return goodsMediumCategoryList;
-	}
-	
 	//상품대분류등록
 	public void goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
 		
 		int result = goodsMapper.goodsLargeCategoryInsert(goodsLargeCategory);
-		
-		System.out.println("회원가입 결과 : " + result);
-	}
-		
-	//상품중분류등록
-	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
-		
-		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
@@ -102,6 +92,21 @@ public class GoodsServiceOsj {
 		return goodsLargeCategory;
 	}
 	
+	//상품중분류목록조회
+	public List<GoodsMediumCategory> getGoodsMediumCategoryList(){
+		
+		List<GoodsMediumCategory> goodsMediumCategoryList = goodsMapper.getGoodsMediumCategoryList();
+		
+		return goodsMediumCategoryList;
+	}
+	
+	//상품중분류등록
+	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+		
+		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
+		
+		System.out.println("회원가입 결과 : " + result);
+	}
 	
 	//상품중분류수정
 	public void goodsMediumCategoryModify(GoodsMediumCategory goodsMediumCategory) {
