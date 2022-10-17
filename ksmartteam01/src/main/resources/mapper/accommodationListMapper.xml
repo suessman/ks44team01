@@ -36,7 +36,7 @@
 	</resultMap>
 
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
-	SELECT 
+		SELECT 
 		d.accomodation_detail_code
 		, c.accomodation_category_name
 		, r.region_name
@@ -45,7 +45,6 @@
 		, d.check_inout
 		, d.parking
 		, d.registration_datetime
-		, o.room_price	
 	FROM 
 		accomodation_detail AS d
 		INNER JOIN 
@@ -59,13 +58,9 @@
 		INNER JOIN 
 		company_member AS m
 		ON 
-		m.company_member_code = d.company_member_code
-		INNER JOIN
-		goods_accomodation_option AS o
-		ON
-		o.accomodation_detail_code = d.accomodation_detail_code
+		m.company_member_code = d.company_member_code		
 		WHERE
-		d.is_del = 0;		
+		d.is_del = 0;
 	</select>
 	
 	<!--숙소등록 -->	
