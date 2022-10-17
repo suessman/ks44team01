@@ -3,13 +3,13 @@ package anypet.ks44team01.dto;
 public class AccommodationPaymentCancel {
 		
 	private String accommodationPaymentCancelCode;
-	private String accommodationPaymentNumber;
+	private String accommodationPaymentCode;
 	private String id;
 	private String accommodationPaymentCancelDatetime;
 	private String accommodationPaymentCancelReason;
 	private String accommodationPaymentCancelApproval;
 	private String accommodationPaymentCancelApprovalDatetime;
-	
+
 	private AccommodationPayment accommodationPayment;
 	private AccommodationReservationList accommodationReservationList;
 	public String getAccommodationPaymentCancelCode() {
@@ -18,11 +18,11 @@ public class AccommodationPaymentCancel {
 	public void setAccommodationPaymentCancelCode(String accommodationPaymentCancelCode) {
 		this.accommodationPaymentCancelCode = accommodationPaymentCancelCode;
 	}
-	public String getAccommodationPaymentNumber() {
-		return accommodationPaymentNumber;
+	public String getAccommodationPaymentCode() {
+		return accommodationPaymentCode;
 	}
-	public void setAccommodationPaymentNumber(String accommodationPaymentNumber) {
-		this.accommodationPaymentNumber = accommodationPaymentNumber;
+	public void setAccommodationPaymentCode(String accommodationPaymentCode) {
+		this.accommodationPaymentCode = accommodationPaymentCode;
 	}
 	public String getId() {
 		return id;
@@ -69,7 +69,7 @@ public class AccommodationPaymentCancel {
 	@Override
 	public String toString() {
 		return "AccommodationPaymentCancel [accommodationPaymentCancelCode=" + accommodationPaymentCancelCode
-				+ ", accommodationPaymentNumber=" + accommodationPaymentNumber + ", id=" + id
+				+ ", accommodationPaymentCode=" + accommodationPaymentCode + ", id=" + id
 				+ ", accommodationPaymentCancelDatetime=" + accommodationPaymentCancelDatetime
 				+ ", accommodationPaymentCancelReason=" + accommodationPaymentCancelReason
 				+ ", accommodationPaymentCancelApproval=" + accommodationPaymentCancelApproval
@@ -77,5 +77,7 @@ public class AccommodationPaymentCancel {
 				+ ", accommodationPayment=" + accommodationPayment + ", accommodationReservationList="
 				+ accommodationReservationList + "]";
 	}
+	
+	
 	
 }

@@ -32,40 +32,6 @@
 			</association>
 	</resultMap>
 	
-	<!-- 예약내역 삭제 -->
-	<!-- 1)숙소 결제취소내역 삭제 -->
-	<delete id="removePaymentCancel" parameterType="String">
-			DELETE 
-		FROM
-			accomodation_payment_cancel AS c
-		WHERE
-			c.accomodation_payment_number = #{accommodationPaymentCode}
-	</delete>
-	<!-- 2)숙소 리뷰내역 삭제 -->
-	<delete id="removeReview" parameterType="String">
-		DELETE
-		FROM
-			accomodation_review AS r
-		WHERE 
-			r.accomodation_payment_number = #{accommodationPaymentCode}
-	</delete>	
-	<!-- 3)숙소 결제내역 삭제 -->
-	<delete id="removeAccommodationPayment" parameterType="String">
-		DELETE
-		FROM 
-			accomodation_payment AS p
-		WHERE 
-			p.accomodation_payment_number = #{accommodationPaymentCode}
-	</delete>
-	<!-- 4)숙소 예약내역 삭제 -->	
-	<delete id="removeReservation" parameterType="String">
-		DELETE
-		FROM 
-			accomodation_reservation AS a
-		WHERE
-			a.accomodation_reservation_number = #{accommodationReservationCode}
-	</delete>	
-	
 	<!-- 숙소정보 조회 -->
 	<select id="getAccommodationDetailInfo" parameterType="String" resultMap="accommodationDetail">
 		SELECT 		
@@ -106,16 +72,16 @@
 	</select>
 	
 	<!-- 숙소 관리자 결제취소 -->
-	<!-- <insert id="" parameterType="AccommodationPaymentCancel">
-		<selectKey keyProperty="accomodationPaymentCancelCode" resultType="String" order="BEFORE">
+	<!-- <insert id="adminPaymentCancel" parameterType="AccommodationPaymentCancel">
+		<selectKey keyProperty="accommodationPaymentCancelCode" resultType="String" order="BEFORE">
  			SELECT 
 				(CASE 
 					WHEN COUNT(accomodation_payment_cancel_code) = 0 THEN 'apcc001'
 					WHEN MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code, 'apcc', -1) AS UNSIGNED)) > 999
-						THEN CONCAT('apcc', MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'apcc',-1) AS UNSIGNED))+1)
-					ELSE CONCAT('apcc', LPAD(MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'apcc',-1) AS UNSIGNED))+1,3,0))
+						THEN CONCAT('apcc', MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code,'apcc',-1) AS UNSIGNED))+1)
+					ELSE CONCAT('apcc', LPAD(MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code,'apcc',-1) AS UNSIGNED))+1,3,0))
 				 END
-				)AS accomodationPaymentCancelCode
+				)AS accommodationPaymentCancelCode
 			FROM
 				accomodation_payment_cancel			
 		</selectKey>
@@ -129,15 +95,15 @@
 			,accomodation_payment_cancel_approval
 			,accomodation_payment_cancel_approval_datetime)
 		VALUES 
-			( #{accomodationPaymentCancelCode}
-			 ,#{accomodationPaymentNumber}
+			( #{accommodationPaymentCancelCode}
+			 ,#{accommodationPaymentCode}
 			 ,'id001'
 			 ,(SELECT
 					p.accomodation_reservation_number
 				FROM
 					accomodation_payment AS p
 				WHERE 
-					p.accomodation_payment_number = #{accomodationPaymentNumber};)
+					p.accomodation_payment_number = #{accommodationPaymentCode})
 			 ,NOW()
 			 ,'관리자취소'
 			 ,'Y'
@@ -173,6 +139,17 @@
 			accomodation_payment_cancel_code= #{accommodationPaymentCancelCode};
 	</update>
 	
+	<!-- 숙소 예약내역 삭제 -->
+	<update id="removeReservationList" parameterType="AccommodationReservationList">
+		UPDATE 
+			accomodation_reservation
+		<trim prefix="SET">
+			reservation_delete = 1
+		</trim>
+		WHERE
+			accomodation_reservation_number = #{accommodationReservationCode};
+	</update>
+	
 	<!-- 숙소 예약내역 조회  -->
 	<select id="reservationList" resultType="AccommodationReservationList">
 	SELECT 
@@ -199,7 +176,9 @@
 		LEFT OUTER JOIN
 		accomodation_payment_cancel AS c
 		ON 
-		c.accomodation_reservation_number = r.accomodation_reservation_number;
+		c.accomodation_reservation_number = r.accomodation_reservation_number
+	WHERE
+		r.reservation_delete = 0;
 	</select>
 	
 	<!-- 숙소 문의사항 목록 조회 -->

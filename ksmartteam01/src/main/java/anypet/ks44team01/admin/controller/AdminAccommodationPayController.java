@@ -100,18 +100,33 @@ public class AdminAccommodationPayController {
 		return "/admin/accommodation/category/accommodationCategory";
 	}
 	
+	
 	/**
-	 * 숙소 예약내역, 결제내역, 리뷰내역, 결제취소내역 삭제 
+	 * 숙소 결제취소 
 	 */
-	@GetMapping("/removeReservation")
-	public String removeReservation(String accommodationReservationCode, String accommodationPaymentCode) {
+	@PostMapping("/adminPaymentCancel")
+	public String adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCancel) {
 		
-		accommodationService.removeReservation(accommodationReservationCode, accommodationPaymentCode);
+		accommodationService.adminPaymentCancel(accommodationPaymentCancel);
 		
-		System.out.println("예약내역삭제: " + accommodationReservationCode + accommodationPaymentCode);
+		System.out.println("결제취소: " + accommodationPaymentCancel);
 		
-		return "redirect:/accommodationReservationList";
+		return "redircet:accommodationReservationList";
 	}
+	
+	/**
+	 * 숙소 예약내역 삭제 
+	 */
+	@PostMapping("/removeReservationList")
+	public String removeReservationList(AccommodationReservationList accommodationReservationCode) {
+		
+		accommodationService.removeReservationList(accommodationReservationCode);
+		
+		System.out.println("예약내역삭제: " + accommodationReservationCode);
+		
+		return "redirect:accommodationReservationList";
+	}
+	
 	/**
 	 * 결제취소 승인 
 	 */
@@ -159,7 +174,7 @@ public class AdminAccommodationPayController {
 	public AccommodationPayment getAccommodationPaymnetDetail(@RequestParam(value="accommodationPaymentCode") String accommodationPaymentCode) {
 		
 		AccommodationPayment accommodationPaymentDetail = accommodationService.getAccommodationPayment(accommodationPaymentCode);
-		System.out.println(">>>>>>>>>>"+accommodationPaymentDetail);
+		System.out.println("결제 내역 조회: "+accommodationPaymentDetail);
 		
 		return accommodationPaymentDetail;
 	}

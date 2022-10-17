@@ -18,6 +18,8 @@ public class AccommodationReservationList {
 	private String accommodationPaymentCode;
 	private String accommodationPaymentCancelCode;
 	private String accommodationPaymentCancelApproval;
+	private int reservationDelete;
+	
 	public String getAccommodationReservationCode() {
 		return accommodationReservationCode;
 	}
@@ -114,6 +116,12 @@ public class AccommodationReservationList {
 	public void setAccommodationPaymentCancelApproval(String accommodationPaymentCancelApproval) {
 		this.accommodationPaymentCancelApproval = accommodationPaymentCancelApproval;
 	}
+	public int getReservationDelete() {
+		return reservationDelete;
+	}
+	public void setReservationDelete(int reservationDelete) {
+		this.reservationDelete = reservationDelete;
+	}
 	@Override
 	public String toString() {
 		return "AccommodationReservationList [accommodationReservationCode=" + accommodationReservationCode
@@ -124,10 +132,8 @@ public class AccommodationReservationList {
 				+ ", paymentAmount=" + paymentAmount + ", usingPoint=" + usingPoint + ", totalPaymentPrice="
 				+ totalPaymentPrice + ", accommodationPaymentCode=" + accommodationPaymentCode
 				+ ", accommodationPaymentCancelCode=" + accommodationPaymentCancelCode
-				+ ", accommodationPaymentCancelApproval=" + accommodationPaymentCancelApproval + "]";
+				+ ", accommodationPaymentCancelApproval=" + accommodationPaymentCancelApproval + ", reservationDelete="
+				+ reservationDelete + "]";
 	}
-	
-	
-	
 
 }
