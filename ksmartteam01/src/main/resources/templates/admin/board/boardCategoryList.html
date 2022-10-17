@@ -77,16 +77,17 @@
 													<td th:text="${c.id}"></td>
 													<td th:text="${c.boardCategoryName}"></td>
 													<td th:text="${c.registrationDatetime}"></td>
-													<td>
-														<a th:href="@{/admin/board/modifyBoardCategory(boardCategoryCode=${c.boardCategoryCode})}">
+													<td><a
+														th:href="@{/admin/board/modifyBoardCategory(boardCategoryCode=${c.boardCategoryCode})}">
 															<button type="submit">수정</button>
-														</a>
-													</td>
+													</a></td>
 													<td>
-														<a href="#">
-															<button id="deleteBoardCategoryBtn"
-																type="submit" th:value="${c.boardCategoryCode}">삭제</button>
-														</a>
+														<form th:action="@{/admin/board/deleteBoardCategory}" method="get">
+															<input type="hidden" id="boardCategoryCode"
+																th:value="${c.boardCategoryCode}" name="boardCategoryCode">
+															<button type="submit" id="delete_Btn"
+																class="btn-sm btn-success">삭제</button>
+														</form>
 													</td>
 												</tr>
 											</tbody>
@@ -104,14 +105,14 @@
 			</div>
 		</div>
 	</div>
-<script>
-	/* 삭제 버튼 */
-	$("#deleteBoardCategoryBtn").on("click", function(e){
-	    form.attr("action", "/admin/board/boardCategoryList.html");
-	    form.attr("method", "post");
-	    form.submit();
-	});
-</script>
+	<script>
+		/* 삭제 버튼 */
+		$("#deleteBoardCategoryBtn").on("click", function(e) {
+			form.attr("action", "/admin/board/boardCategoryList.html");
+			form.attr("method", "post");
+			form.submit();
+		});
+	</script>
 
 </th:block>
 </html>
