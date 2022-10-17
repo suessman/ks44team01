@@ -53,7 +53,8 @@
 							<br />
 							<form th:action="@{/admin/accommodation/insertAccommodation}"
 								method="post">
-
+								<input type="hidden" id="accommodationDetailCode"
+											name="accommodationDetailCode" class="form-control ">
 								<div class="item form-group">
 									<label class="col-form-label col-md-3 col-sm-3 label-align"
 										for="roomName">숙소명<span class="">*</span>

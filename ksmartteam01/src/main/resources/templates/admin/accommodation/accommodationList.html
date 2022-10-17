@@ -89,36 +89,36 @@
 			                                            <td th:text=${l.accommodationCategoryDto.accommodationCategoryName}></td>
 			                                            <td th:text=${l.regionDto.regionName}></td>
 			                                            <td th:text=${l.companyMemberDto.companyName}></td>
-			                                            <td th:text=${l.accommodationOptionDto.roomPrice}></td>		                                           
+			                                  		    <td th:text=${l.accommodationOptionDto.roomPrice}></td>                                    
 			                                            <td>
 				                                            <a th:href="@{/admin/accommodation/updateAccommodation(accommodationDetailCode=${l.accommodationDetailCode})}">
 				                                            	<button type="button" class="btn btn-sm btn-primary">수정</button>
 				                                            </a>					                                         	
 				                                         	<div>
 				                                         		<form th:action="@{/admin/accommodation/deleteAccommodation}" method="get">
-				                                         		<input type="hidden" id="accommodationDetailCode" th:value="${l.accommodationDetailCode}" name="accommodationDetailCode">
-			                                         			<button type="submit"  data-toggle="modal" data-target="#deleteConfirm" class="btn btn-sm btn-success" > 삭제</button>
-				                                         		
-				                                         		<!-- Modal -->
-												<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-												  <div class="modal-dialog" role="document">
-												    <div class="modal-content">
-												      <div class="modal-header">
-												        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-												        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												          <span aria-hidden="true">&times;</span>
-												        </button>
-												      </div>
-												      <div class="modal-body">
-												        ...
-												      </div>
-												      <div class="modal-footer">
-												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-												        <button type="button" class="btn btn-primary">Save changes</button>
-												      </div>
-												    </div>
-												  </div>
-												</div>
+					                                         		<input type="hidden" id="accommodationDetailCode" th:value="${l.accommodationDetailCode}" name="accommodationDetailCode">
+				                                         			<button type="submit"  data-toggle="modal" data-target="#deleteConfirm" class="btn btn-sm btn-success" > 삭제</button>
+					                                         		
+					                                         		<!-- Modal -->
+																	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+																	  <div class="modal-dialog" role="document">
+																	    <div class="modal-content">
+																	      <div class="modal-header">
+																	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+																	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	          <span aria-hidden="true">&times;</span>
+																	        </button>
+																	      </div>
+																	      <div class="modal-body">
+																	        ...
+																	      </div>
+																	      <div class="modal-footer">
+																	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																	        <button type="button" class="btn btn-primary">Save changes</button>
+																	      </div>
+																	    </div>
+																	  </div>
+																	</div>
 				                                         		</form>
 				                                         	</div>                                         				                                                                                       	
 			                                            </td>			                                            	                                            
