@@ -87,6 +87,70 @@
 			cc.category_code = #{categoryCode}
 	</select>
 	
+	<!-- 주문 상세 조회 -->
+		<select id="getGoodsOrderDetailByIdAndDatetime" parameterType="String" resultType="map">
+			/* 주문 상세 조회 */
+			SELECT
+				 od.order_detail_number		AS		orderDetailNumber
+				,g.goods_code				AS		goodsCode
+				,g.goods_name				AS		goodsName
+				,g.goods_price				AS		goodsPrice
+				,od.order_quantity			AS		orderQuantity
+				,od.order_price				AS		orderPrice
+				,g.goods_image				AS		goodsImage
+			from
+				goods_order as go
+				inner join 
+				order_detail as od
+				on
+				go.goods_order_code = od.goods_order_code
+				inner join 
+				goods as g
+				on 
+				g.goods_code = od.goods_code
+				inner join
+				member as m
+				on
+				m.id = od.id
+			where
+				m.id = #{memberId}
+				and
+				od.order_resgister_time = #{orderRegisterTime};
+		</select>	
+	
+	<!-- 중분류등록 -->
+		<insert id="goodsMediumCategoryInsert" parameterType="GoodsMediumCategory">
+		<selectKey keyProperty="categoryCodeSub" resultType="String" order="BEFORE">
+			SELECT
+				(CASE 
+				 -- 상품이 없을 경우
+				 WHEN count(ccs.category_code_sub) = 0 THEN 'ccs001'
+				 -- 999개 등록되어 있을 경우
+				 WHEN (Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1) > 999 THEN
+				 	concat('ccs',Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1)
+				 -- 1~999 범위일 경우
+				 ELSE
+					concat('ccs',LPAD(Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1,3,0))	
+				 END) AS goodsCode
+			FROM 
+				company_category_sub AS ccs;
+		</selectKey>
+			INSERT INTO company_category_sub
+			(category_code_sub,
+			 category_code,
+			 id,
+			 category_sub_name,
+			 registration_datetime
+			 )
+			VALUES (
+				 #{categoryCodeSub}
+				,#{categoryCode}
+			  	,#{Id}
+			 	,#{categoryNameSub}
+			 	,Now()
+			   );
+		</insert>
+	
 	<!-- 중분류 수정 -->
 	<update id="goodsMediumCategoryModify" parameterType="GoodsMediumCategory">
 		UPDATE company_category_sub
@@ -147,39 +211,7 @@
 			m.id = cc.id;
 	</select>
 		
-		
-		<!-- 중분류등록 -->
-		<insert id="goodsMediumCategoryInsert" parameterType="GoodsMediumCategory">
-		<selectKey keyProperty="categoryCodeSub" resultType="String" order="BEFORE">
-			SELECT
-				(CASE 
-				 -- 상품이 없을 경우
-				 WHEN count(ccs.category_code_sub) = 0 THEN 'ccs001'
-				 -- 999개 등록되어 있을 경우
-				 WHEN (Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1) > 999 THEN
-				 	concat('ccs',Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1)
-				 -- 1~999 범위일 경우
-				 ELSE
-					concat('ccs',LPAD(Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1,3,0))	
-				 END) AS goodsCode
-			FROM 
-				company_category_sub AS ccs;
-		</selectKey>
-			INSERT INTO company_category_sub
-			(category_code_sub,
-			 category_code,
-			 id,
-			 category_sub_name,
-			 registration_datetime
-			 )
-			VALUES (
-				 #{categoryCodeSub}
-				,#{categoryCode}
-			  	,#{Id}
-			 	,#{categoryNameSub}
-			 	,Now()
-			   );
-		</insert>
+
 		
 	<!-- 배송지 조회를 위한 특정회원 조회 -->
 	<select id="getMemberInfoById" parameterType="String" resultType="Member">
@@ -197,34 +229,6 @@
 			m.id = #{memberId}
 	</select>
 	
-	<!-- 주문 상세 조회 -->
-	<select id="getGoodsOrderDetailList" resultType="GoodsOrderDetail">
-		/* 주문 상세 조회 */
-		SELECT 
-			 god.order_detail_number		AS orderDetail
-			,g.goods_code					AS goodsCode
-			,ccs.category_code_sub			AS categoryCodeSub
-			,m.id							AS id
-			,god.order_quantity				AS orderQuantity
-			,god.order_price				AS orderPrice
-			,god.goods_order_code			AS goodsOrderCode
-			,god.order_resgister_time		AS orderRegisterTime
-			,god.registration_datetime		AS registrationDatetime
-		FROM 
-			order_detail AS god
-			INNER JOIN
-			goods AS g
-			ON
-			god.goods_code = g.goods_code
-			INNER JOIN
-			company_category_sub AS ccs
-			ON
-			god.category_code_sub = ccs.category_code_sub
-			INNER JOIN
-			member AS m
-			ON
-			god.id = m.id;
-	</select>	
 
 		
 		

@@ -21,11 +21,6 @@ public class UserGoodsListController {
 		return "/user/goods/goodsDetail";
 	}
 	
-	@GetMapping("/goodsCartList")
-	public String goodsCartList() {
-		
-		return "/user/goods/goodsCartList";
-	}
 	
 	@GetMapping("/goodsShippingInfoInsert")
 	public String goodsShippingInfoInsert() {
