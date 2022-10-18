@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;500;900&display=swap');
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+@font-face {
+    font-family: 'GmarketSans';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansMedium.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'GmarketSans';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansBold.ttf') format("truetype");
+    font-display: swap;
+} 
+body{
+	position:relative;
+	background-image:url('/img/intro_bg2.jpg'); 
+	background-position:center;
+	width:100%; 
+	height:100vh;
+	background-size:cover; 
+	margin:0;
+	font-family: 'GmarketSans';
+}
+
+.intro-btn{
+	background-color:#fff;
+	border:none; 
+	width:220px;
+	box-shadow:none;
+	border-radius:16px; 
+	padding:8px;
+	font-weight:600;
+	font-size:16px;
+	cursor:pointer;
+}
+
+.flex-column{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	width:100%; 
+	height:100%;
+	background-color:rgba(0,0,0,0.4)
+}
+
+.intro-title{
+	color:#fff;
+	font-size:5rem;
+
+}
+
+.intro-content{
+	color:#fff;
+	font-size:2.5rem;
+	text-align:center;
+}
+
+.body-wrap{
+	position:absolute; 
+	top:0; 
+	left:0; 
+	width:100%; 
+	height:100%;
+	background-color:rgba(0,0,0,0.6)
+}
+
+.release-date{
+	font-size:14px;
+	color:#fff;
+	text-align:center;
+}
+
+.title-font{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-weight:100;
+	font-size:1.5rem;
+}
+
+button.intro-btn:hover{
+background-color:#000;
+color:#fff;
+}
+
+</style>
+</head>
+<body>
+	<div class="body-wrap">
+		<div class="flex-column">
+			<h1 class="intro-title">KS44TEAM01</h1>
+			<h1 class="intro-content">반려동물 토탈 플랫폼 애니펫<br>
+			<span class="release-date">배포버전 v8 / 배포일자 2022.l0.18</span>
+			</h1>
+			<div class="title-font" style="margin-bottom:4rem; color:#fff;">
+				김현진 · 박주현 · 박범준 · 김수영 · 심정민 · 오성준
+			</div>
+			
+			<button type="button" class="intro-btn" onclick="location.href='/user/mainPage'">사용자화면 바로가기</button>
+			<button type="button" class="intro-btn" onclick="location.href='/admin/member/getMemberList'" style="margin-top:40px;">관리자화면 바로가기</button>
+		</div>
+		
+	</div>
+</body>
+</html>
