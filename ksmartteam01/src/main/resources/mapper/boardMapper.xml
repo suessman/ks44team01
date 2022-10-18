@@ -68,6 +68,49 @@
 		WHERE b.board_code = #{boardCode};
 	</select>	
 	
+	<!-- 게시물 등록 -->
+	<insert id="addBoard" parameterType="Board">
+		<selectKey keyProperty="boardCode" resultType="String" order="BEFORE">
+		SELECT 
+			(CASE 
+					WHEN COUNT(board_code) = 0 THEN 'bc001'
+					WHEN MAX(CAST(SUBSTRING_INDEX(board_code, 'bc', -1) AS UNSIGNED)) > 999
+						THEN CONCAT('bc', MAX(CAST(SUBSTRING_INDEX(board_code,'bc',-1) AS UNSIGNED))+1)
+					ELSE CONCAT('bc', LPAD(MAX(CAST(SUBSTRING_INDEX(board_code,'bc',-1) AS UNSIGNED))+1,3,0))
+				END
+			)AS boardCode
+		FROM
+			board
+		</selectKey>							
+		INSERT INTO board
+			(board_code, 
+			 id, 
+			 board_category_code, 
+			 board_title, 
+			 board_contents, 
+			 board_datetime, 
+			 board_image, 
+			 board_hits)
+		VALUES 
+			(#{boardCode}, 
+			 #{id}, 
+			 #{boardCategoryCode}, 
+			 #{boardTitle}, 
+			 #{boardContents}, 
+			 NOW(), 
+			 #{boardImage}, 
+			 #{boardHits})
+	</insert>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="deleteBoard" parameterType="String">
+		DELETE 
+		FROM 
+			board
+		WHERE
+			board_code = #{boardCode};
+	</delete>
+	
 	<!-- 게시판 카테고리 목록 조회 -->
 	<select id="getBoardCategoryList" resultMap="BoardCategoryResultMap" fetchSize="100">
 		SELECT 

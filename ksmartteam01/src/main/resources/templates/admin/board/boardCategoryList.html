@@ -82,9 +82,11 @@
 															<button type="submit">수정</button>
 													</a></td>
 													<td>
-														<form th:action="@{/admin/board/deleteBoardCategory}" method="get">
+														<form th:action="@{/admin/board/deleteBoardCategory}"
+															method="get">
 															<input type="hidden" id="boardCategoryCode"
-																th:value="${c.boardCategoryCode}" name="boardCategoryCode">
+																th:value="${c.boardCategoryCode}"
+																name="boardCategoryCode">
 															<button type="submit" id="delete_Btn"
 																class="btn-sm btn-success">삭제</button>
 														</form>
@@ -108,11 +110,10 @@
 	<script>
 		/* 삭제 버튼 */
 		$("#deleteBoardCategoryBtn").on("click", function(e) {
-			form.attr("action", "/admin/board/boardCategoryList.html");
+			form.attr("action", "/admin/board/boardCategoryList");
 			form.attr("method", "post");
 			form.submit();
 		});
 	</script>
-
 </th:block>
 </html>

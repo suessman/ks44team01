@@ -38,15 +38,18 @@ public class BoardService {
 		return board;
 	}
 	
-	// 게시판 등록
+	// 게시물 등록
 	public void addBoard(Board board) {		
 		boardMapper.addBoard(board);	
 		System.out.println("게시판 카테고리 등록 : " + board);
 	}
 	
-	// 게시판 수정
+	// 게시물 수정
 	
-	// 게시판 삭제	
+	// 게시물 삭제	
+	public void deleteBoard(String boardCode) {				
+		boardMapper.deleteBoard(boardCode);
+	}
 	
 	// 특정 게시판 카테고리 조회
 	public BoardCategory getBoardCategoryInfo(String boardCategoryCode) {	

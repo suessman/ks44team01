@@ -45,76 +45,60 @@
 					</div>
 
 					<div class="x_content">
-						<br/>
-							<form id="demo-form2" data-parsley-validate
-								class="form-horizontal form-label-left" 
-								th:action="@{/admin/board/addBoard}" method="post">
-								<div class="item form-group">
-									<label class="col-form-label col-md-3 col-sm-3 label-align"
-										for="roomName">제목<span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="roomName" required="required"
-											class="form-control" name="boardTitle">
-									</div>
+						<br />
+						<form id="demo-form2" data-parsley-validate
+							class="form-horizontal form-label-left"
+							th:action="@{/admin/board/addBoard}" method="post">
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">제목<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" required="required"
+										class="form-control" name="boardTitle">
 								</div>
-								<div class="item form-group">
-									<label class="col-form-label col-md-3 col-sm-3 label-align"
-										for="roomName">작성자<span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="roomName" readonly required="required"
-											class="form-control" th:value="">
-									</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">작성자<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" readonly required="required"
+										class="form-control">
 								</div>
-								<div class="item form-group">
-									<label class="col-form-label col-md-3 col-sm-3 label-align"
-										for="roomName">작성일<span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 ">
-										<input type="text" id="roomName" readonly required="required"
-											class="form-control">
-									</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="message">내용<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<textarea id="message" required="required" class="form-control"
+										name="message" data-parsley-validation-threshold="10"></textarea>
 								</div>
-								<div class="item form-group">
-									<label class="col-form-label col-md-3 col-sm-3 label-align"
-										for="message">내용<span class="required">*</span>
-									</label>
-									<div class="col-md-6 col-sm-6 ">
-										<textarea id="message" required="required"
-											class="form-control" name="message"
-											data-parsley-validation-threshold="10"
-											></textarea>
-									</div>
-								</div>
-								<div class="ln_solid"></div>
-							</form>
+							</div>
+							<div class="ln_solid"></div>
+							<div class="item form-group" align="center">
+							<div class="col-md-6 col-sm-6 offset-md-3">
+							<!-- 	<button class="btn btn-primary" type="submit">등록</button> -->
+								<a href="/admin/board/boardList"><button
+										class="btn btn-primary" type="button">취소</button></a>
+							</div>
+						</div>
+						</form>
 						<br />
 						<div class="ln_solid"></div>
-						<div style="text-align: center;">
+						<!-- <div style="text-align: center;">
 							<a href="javascript:add_check('/admin/board/boardList')"><button>등록하기</button></a>
+							<button class="btn btn-primary" type="submit">등록</button>
 							<a href="/admin/board/boardList"><button>목록 이동</button></a>
 							<a href="#top"><button>위로 가기</button></a>
-						</div>
+						</div> -->						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	
-	<script th:src="@{/build/js/editor.js}"></script>
-	<!-- jQuery -->
-	<!-- <script th:src="@{/vendors/jquery/dist/jquery.min.js}"></script> -->
-	<!-- Bootstrap -->
-	<!-- <script th:src="@{/vendors/bootstrap/dist/js/bootstrap.bundle.min.js}"></script> -->
-	<!-- bootstrap-wysiwyg -->
-	<script th:src="@{/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js}"></script>
-	<script th:src="@{/vendors/jquery.hotkeys/jquery.hotkeys.js}"></script>
-	<!-- Switchery -->
-	<script th:src="@{/vendors/switchery/dist/switchery.min.js}"></script>
-	<!-- Custom Theme Scripts -->
-	<script th:src="@{/build/js/custom.min.js}"></script>
-	<script>	
+	<!-- <script>	
 			/*글 등록 확인 시작*/
 			function add_check(url){
 				var answer;
@@ -127,6 +111,6 @@
 				}
 			}
 			/*글 등록 확인 끝*/
-		</script>
+		</script> -->
 </th:block>
 </html>
