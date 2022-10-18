@@ -50,7 +50,7 @@
 			<if test="memberName != null and memberName != ''">			
 			   ,name     	= #{memberName}
 			</if>
-			<if test="memberAddress != null and memberAddress != ''">
+			<if test="memberAdress != null and memberAdress != ''">
 			   ,addr     	= #{memberAdress}
 			</if>
 			<if test="memberEmail != null and memberEmail != ''">
@@ -63,5 +63,17 @@
 		WHERE
 		   id = #{memberId};
 	</update>
+	
+	<!-- //(공통 2) 회원 삭제 -->
+	<delete id="removeMember" parameterType="String">
+	/*회원 삭제*/
+	DELETE
+		m
+	FROM
+		member AS m
+	WHERE
+		m.id = #{memberId};
+	</delete>
+	
 	
 </mapper>
