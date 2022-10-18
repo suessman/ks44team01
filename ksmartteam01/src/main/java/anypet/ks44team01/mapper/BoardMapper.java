@@ -26,6 +26,7 @@ public interface BoardMapper {
 	// 게시물 수정
 	
 	// 게시물 삭제
+	public void deleteBoard(String boardCode);
 	
 	// 특정 게시물 카테고리 조회
 	public BoardCategory getBoardCategoryInfo(String boardCategoryCode);
