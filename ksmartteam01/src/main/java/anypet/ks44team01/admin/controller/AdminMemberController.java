@@ -37,10 +37,20 @@ public class AdminMemberController {
 		return "admin/member/searchMember";
 	}
 	//특정 회원 정보 수정
-	/*
-	 * @PostMapping("/searchMember") public String modifyMember(Model model
-	 * ,@RequestParam(value="memberId")String memberId) {
-	 * memberService.modifyMember(memberId); return
-	 * "redirect:/admin/member/getMemberList"; }
-	 */
+	
+	  @PostMapping("/searchMember")
+	  public String modifyMember(Member member) {
+	  memberService.modifyMember(member);
+	  return "redirect:/admin/member/getMemberList"; 
+	  }
+	  //회원삭제
+	  @GetMapping("/removeMember")
+	  public String removeMember(String memberId) {
+		  memberService.removeMember(memberId);
+		return "redirect:/admin/member/getMemberList";
+	  }
+			  
+	  
+	  
+ 
 }

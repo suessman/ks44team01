@@ -15,19 +15,31 @@ public class MemberService {
 	public MemberService(MemberMapper memberMapper) {
 		this.memberMapper = memberMapper;
 	}
-	
+	//회원목록
 	public List<Member> getMemberList(){
 		List<Member> member = memberMapper.getMemberList();
 		return member;
 	}
+	//회원정보
 	public Member getMemberInfoById(String memberId){
 		Member member = memberMapper.getMemberInfoById(memberId);
 		return member;
 	}
+	//회원목록수정
+	  public void modifyMember(Member member) {
+	  
+		  memberMapper.modifyMember(member);
+	  }
+	  public int removeMember(String member) {
+		  int result = memberMapper.removeMember(member);
+		  return result;
+	  }
+
 	/*
-	 * public void modifyMember(String memberId) {
-	 * memberMapper.modifyMember(memberId);
+	 * public void modifyMember(Member member) { // TODO Auto-generated method stub
 	 * 
 	 * }
 	 */
+	
+	 
 }

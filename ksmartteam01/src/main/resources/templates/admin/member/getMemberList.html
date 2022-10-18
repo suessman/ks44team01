@@ -69,6 +69,7 @@
 														<th>회원분류</th>
 														<th>이메일</th>
 														<th>생년월일</th>
+														<th>삭제</th>
 													</tr>
 												</thead>
 												<tbody>
@@ -79,6 +80,14 @@
 															<td th:text=${l.memberLevel}></td>
 															<td th:text=${l.memberEmail}></td>
 															<td th:text=${l.memberBirth}></td>
+															<td>
+																<!-- <th:block th:if="${not #lists.isEmpty(member)}" th:each="l : ${member}"> -->
+																<form th:action="@{/admin/member/removeMember}" method="get" >
+																	<input type="hidden" id="memberId" th:value="${l.memberId}" name="memberId">	
+																	<button type="submit">삭제</button>
+																</form>
+																<!-- </th:block> -->
+															</td>
 														</tr>
 													</th:block>
 												</tbody>

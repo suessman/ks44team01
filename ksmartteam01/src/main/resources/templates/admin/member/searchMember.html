@@ -55,6 +55,10 @@
 								<div class="clearfix"></div>
 							</div>
 							<div class="x_content">
+							<form th:action="@{/admin/member/searchMember}" method="post">
+								<div th:object="${modifyMember}">
+								
+							
 								<div class="row">
 									<div class="col-sm-12">
 										<div class="card-box table-responsive">
@@ -120,9 +124,15 @@
 												<tfoot>
 													<th:block th:if="${not #lists.isEmpty(member)}" th:each="l : ${member}">
 														<tr>
-															<td>															
-																<button type="button" th:onclick="|location.href='@{/admin/member/getMemberList(memberId=${l.memberId})}'|">수정</button>														
-																<button type="button">탈퇴</button>
+															<td>
+																<button type="submit">수정</button>														
+															
+																														
+																<!-- <button type="button" th:onclick="|location.href='@{/admin/member/getMemberList(memberId=${l.memberId})}'|">수정</button> -->														
+															<!-- <form th:action="@{/admin/member/removeMember}" method="get"> -->
+																<!-- <input type="hidden" id="member" th:value="${l.member}">
+ -->																														
+																			
 															</td>
 														</tr>
 													</th:block>
@@ -131,6 +141,8 @@
 										</div>
 									</div>
 								</div>
+								</div>
+								</form>
 							</div>
 						</div>
 					</div>
