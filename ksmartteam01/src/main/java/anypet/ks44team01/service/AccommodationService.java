@@ -43,9 +43,9 @@ public class AccommodationService {
 	// 숙소 결제취소
 	public void adminPaymentCancel(AccommodationPaymentCancel accommodationPaymentCancel) {
 		
+		System.out.println("숙소 결제취소: " + accommodationPaymentCancel);
 		accommodationMapper.adminPaymentCancel(accommodationPaymentCancel);
 		
-		System.out.println("숙소 결제취소: " + accommodationPaymentCancel);
 	}
 	
 	//숙소 결제취소 승인
@@ -89,6 +89,14 @@ public class AccommodationService {
 		return accommodationReservationList;
 	}
 
+	//문의 목록 삭제
+	public int removeInquiry(String accommodationQnaNumber) {
+		
+		int result = accommodationMapper.removeInquiry(accommodationQnaNumber);
+		
+		return result;
+	}
+	
 	//문의 목록
 	public List<AccommodationInquiry> inquiryList(){
 		

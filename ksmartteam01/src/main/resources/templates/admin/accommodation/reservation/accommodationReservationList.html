@@ -291,7 +291,7 @@
 			</div>
 	       	<div class="item form-group">
 	       		<div class="col-md-12 col-sm-6 " align="center">
-		         	<button type="button" class="btn btn-primary paymentCancelBtn" name="accommodationPaymentCode">결제취소</button>
+		         	<button type="submit" class="btn btn-primary paymentCancelBtn">결제취소</button>
 		         	<button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
 	       		</div>
 	       	</div>
@@ -377,6 +377,7 @@
 	/* 결제 모달 */
 	$('.open_modal').click(function() {
 		var accommodationPaymentCode = $(this).text();
+		
 		var request = $.ajax({
 			  url: "/admin/accommodation/accommodationPaymentDetail",
 			  method: "POST",
@@ -385,6 +386,7 @@
 			});
 			 
 			request.done(function( data ) {
+				$('#accommodationPaymentCode').val(data.accommodationPaymentCode);
 				$('#accommodationPaymentTerm').val(data.accommodationPaymentTerm);
 				$('#accommodationPaymentDate').val(data.accommodationPaymentDate);
 				$('#accommodationMothlyPayment').val(data.accommodationMothlyPayment);
@@ -397,6 +399,7 @@
 			request.fail(function( jqXHR, textStatus ) {
 			  alert( "Request failed: " + textStatus );
 			});
+		
         console.log('결제코드', accommodationPaymentCode);
 
     })

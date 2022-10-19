@@ -39,6 +39,9 @@ public interface AccommodationMapper{
 	//예약 목록
 	public List<AccommodationReservationList> reservationList();
 	
+	//문의 목록 삭제
+	public int removeInquiry(String accommodationQnaNumber);
+	
 	//문의 목록
 	public List<AccommodationInquiry> inquiryList();
 	

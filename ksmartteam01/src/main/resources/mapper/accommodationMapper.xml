@@ -72,7 +72,7 @@
 	</select>
 	
 	<!-- 숙소 관리자 결제취소 -->
-	<!-- <insert id="adminPaymentCancel" parameterType="AccommodationPaymentCancel">
+	<insert id="adminPaymentCancel" parameterType="AccommodationPaymentCancel">
 		<selectKey keyProperty="accommodationPaymentCancelCode" resultType="String" order="BEFORE">
  			SELECT 
 				(CASE 
@@ -109,7 +109,7 @@
 			 ,'Y'
 			 ,NOW()
 			 );
-	</insert> -->
+	</insert>
 	
 	<!-- 숙소 결제내역 조회 -->
 	<select id="getAccommodationPayment" resultType="AccommodationPayment">
@@ -181,10 +181,20 @@
 		r.reservation_delete = 0;
 	</select>
 	
+	<!-- 숙소 문의사항 삭제 -->
+	<delete id="removeInquiry" parameterType="String">
+		DELETE
+		FROM
+		 accomodation_QnA
+		WHERE 
+		 accomodation_QnA_number = #{accommodationQnaNumber};
+	</delete>
+	
 	<!-- 숙소 문의사항 목록 조회 -->
 	<select id="inquiryList" resultType="AccommodationInquiry">
 		SELECT
-			 m.company_name								AS companyName
+			q.accomodation_QnA_number					AS accommodationQnaNumber
+			,m.company_name								AS companyName
 			,q.id										AS inquiryId
 			,q.accomodation_QnA_title					AS titleName
 			,q.accomodation_QnA_datetime				AS datetime

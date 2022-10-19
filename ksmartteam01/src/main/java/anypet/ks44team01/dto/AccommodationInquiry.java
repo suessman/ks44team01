@@ -2,6 +2,7 @@ package anypet.ks44team01.dto;
 
 public class AccommodationInquiry {
 
+	private String accommodationQnaNumber;
 	private String companyName;
 	private String inquiryId;
 	private String titleName;
@@ -10,6 +11,14 @@ public class AccommodationInquiry {
 	private String answerDatetime;
 	private String contents;
 	private String answer;
+	private String accommodationQnaSecret;
+	private String accommodationQnaSecretPassword;
+	public String getAccommodationQnaNumber() {
+		return accommodationQnaNumber;
+	}
+	public void setAccommodationQnaNumber(String accommodationQnaNumber) {
+		this.accommodationQnaNumber = accommodationQnaNumber;
+	}
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -58,15 +67,26 @@ public class AccommodationInquiry {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	public String getAccommodationQnaSecret() {
+		return accommodationQnaSecret;
+	}
+	public void setAccommodationQnaSecret(String accommodationQnaSecret) {
+		this.accommodationQnaSecret = accommodationQnaSecret;
+	}
+	public String getAccommodationQnaSecretPassword() {
+		return accommodationQnaSecretPassword;
+	}
+	public void setAccommodationQnaSecretPassword(String accommodationQnaSecretPassword) {
+		this.accommodationQnaSecretPassword = accommodationQnaSecretPassword;
+	}
 	
 	@Override
 	public String toString() {
-		return "AccommodationInquiry [companyName=" + companyName + ", inquiryId=" + inquiryId + ", titleName="
-				+ titleName + ", datetime=" + datetime + ", answerId=" + answerId + ", answerDatetime=" + answerDatetime
-				+ ", contents=" + contents + ", answer=" + answer + "]";
+		return "AccommodationInquiry [accommodationQnaNumber=" + accommodationQnaNumber + ", companyName=" + companyName
+				+ ", inquiryId=" + inquiryId + ", titleName=" + titleName + ", datetime=" + datetime + ", answerId="
+				+ answerId + ", answerDatetime=" + answerDatetime + ", contents=" + contents + ", answer=" + answer
+				+ ", accommodationQnaSecret=" + accommodationQnaSecret + ", accommodationQnaSecretPassword="
+				+ accommodationQnaSecretPassword + "]";
 	}
-	
-	
-	
 	
 }

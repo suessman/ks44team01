@@ -111,7 +111,7 @@ public class AdminAccommodationPayController {
 		
 		System.out.println("결제취소: " + accommodationPaymentCancel);
 		
-		return "redircet:accommodationReservationList";
+		return "redirect:accommodationReservationList";
 	}
 	
 	/**
@@ -190,6 +190,19 @@ public class AdminAccommodationPayController {
 		model.addAttribute("accommodationReservationList", accommodationReservationList);
 		
 		return "/admin/accommodation/reservation/accommodationReservationList";
+	}
+	
+	/**
+	 * 숙소 문의 목록 삭제
+	 * */
+	@PostMapping("/removeInquiry")
+	public String removeInquiry(String accommodationQnaNumber) {
+		
+		accommodationService.removeInquiry(accommodationQnaNumber);
+		
+		System.out.println("숙소 문의목록 삭제 정보: " + accommodationQnaNumber);
+		
+		return "redirect:accommodationInquiryList";
 	}
 	
 	/**
