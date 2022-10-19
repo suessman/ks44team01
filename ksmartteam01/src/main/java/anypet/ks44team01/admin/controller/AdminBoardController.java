@@ -71,9 +71,9 @@ public class AdminBoardController {
 	 * */
 	@GetMapping("/addBoard")
 	public String addBoard(Model model) {
-		List<Board> addBoard = boardService.getBoardList();
+		List<Board> boardList = boardService.getBoardList();
 		model.addAttribute("title", "게시물 등록");
-		model.addAttribute("addBoard", addBoard);
+		model.addAttribute("boardList", boardList);
 		
 		return "/admin/board/addBoard";
 	}
@@ -83,7 +83,7 @@ public class AdminBoardController {
 		System.out.println("게시물 등록 정보: " + board);
 		boardService.addBoard(board);
 		
-		return "redirect:boardList";
+		return "redirect:/admin/board/boardList";
 	}	
 	
 	@GetMapping("/modifyBoard")
@@ -103,6 +103,9 @@ public class AdminBoardController {
 		return "redirect:/admin/board/boardList";
 	}
 	
+	/*
+	 *
+	 * */
 	@GetMapping("/boardCategory")
 	public String boardCategory() {
 		return "/admin/board/boardCategory";
@@ -141,7 +144,7 @@ public class AdminBoardController {
 		System.out.println("게시판 카테고리 등록 정보: " + boardCategory);
 		boardService.addBoardCategory(boardCategory);
 		
-		return "redirect:boardCategoryList";
+		return "redirect:/admin/board/boardCategoryList";
 	}
 	
 	/*
