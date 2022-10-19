@@ -43,7 +43,7 @@ public class BoardService {
 		boardMapper.addBoard(board);	
 		System.out.println("게시판 카테고리 등록 : " + board);
 	}
-	
+		
 	// 게시물 수정
 	
 	// 게시물 삭제	
