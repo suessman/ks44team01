@@ -31,20 +31,29 @@ public class GoodsServiceOsj {
 		System.out.println("goodsService bean 생성");
 	}
 	//사용자
-	//주문 상세 조회(장바구니, 결제페이지)
+	//특정 아이디 특정 주문 상세 조회(장바구니, 결제페이지)
 	public List<Map<String, Object>> getGoodsOrderDetailByIdAndDatetime(String memberId, String orderRegisterTime){
 		
 		List<Map<String, Object>> goodsOrderDetail = goodsMapper.getGoodsOrderDetailByIdAndDatetime(memberId, orderRegisterTime);
 		
 		return goodsOrderDetail;
 	}
-	//카트 수량 수정
-	public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){
-		goodsMapper.modifyCartCount(goodsOrderDetail);
-		
+	//특정 아이디 장바구니 조회
+	public List<Map<String, Object>> getCartById(String memberId){
+		List<Map<String, Object>> cart = goodsMapper.getCartById(memberId);
+		return cart;
 	}
+	//장바구니 -> 주문상세로 insert
+	public void goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail){
+		goodsMapper.goodsOrderDetailInsert(goodsOrderDetail);
+	}
+	//장바구니 수량 수정
+	//public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){
+	//	goodsMapper.modifyCartCount(goodsOrderDetail);
+		
+	//}
 	
-	//상품 결제/주문정보 입력
+	// 상품 결제/주문정보 입력
 		public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
 			
 			int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
