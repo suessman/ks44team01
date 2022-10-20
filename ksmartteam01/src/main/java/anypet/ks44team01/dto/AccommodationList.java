@@ -10,9 +10,16 @@ public class AccommodationList {
 	private String parking;
 	private String registrationDateTime;
 	private String isDel;
+	private String fileGroupIdx;
 	
 	
 	
+	public String getFileGroupIdx() {
+		return fileGroupIdx;
+	}
+	public void setFileGroupIdx(String fileGroupIdx) {
+		this.fileGroupIdx = fileGroupIdx;
+	}
 	public String getIsDel() {
 		return isDel;
 	}
@@ -126,11 +133,9 @@ public class AccommodationList {
 		return "AccommodationList [accommodationDetailCode=" + accommodationDetailCode + ", accommodationCategoryCode="
 				+ accommodationCategoryCode + ", accommodationRegionCode=" + accommodationRegionCode
 				+ ", companyMemberCode=" + companyMemberCode + ", memberId=" + memberId + ", checkInOut=" + checkInOut
-				+ ", parking=" + parking + ", registrationDateTime=" + registrationDateTime
-				+ ", accommodationCategoryDto=" + accommodationCategoryDto + ", regionDto=" + regionDto
-				+ ", companyMemberDto=" + companyMemberDto + ", accommodationOptionDto=" + accommodationOptionDto
-				+ ", accommodationSpecialPriceDto=" + accommodationSpecialPriceDto + "]";
-	}
-	
-	
+				+ ", parking=" + parking + ", registrationDateTime=" + registrationDateTime + ", isDel=" + isDel
+				+ ", fileGroupIdx=" + fileGroupIdx + ", accommodationCategoryDto=" + accommodationCategoryDto
+				+ ", regionDto=" + regionDto + ", companyMemberDto=" + companyMemberDto + ", accommodationOptionDto="
+				+ accommodationOptionDto + ", accommodationSpecialPriceDto=" + accommodationSpecialPriceDto + "]";
+	}	
 }

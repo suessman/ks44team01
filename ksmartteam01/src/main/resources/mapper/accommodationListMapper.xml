@@ -87,8 +87,10 @@
 				, company_member_code
 				, id
 				, check_inout
-				, parking
-				, registration_datetime)
+				, parking				
+				, registration_datetime
+				, is_del
+				, file_group_idx)
 			VALUES
 				(#{accommodationDetailCode}
 				,#{accommodationCategoryCode}
@@ -96,8 +98,11 @@
 				,'cmc003'
 				,'id003'
 				,#{checkInOut}
-				,#{parking}
-				,now())
+				,#{parking}			
+				,now()
+				,0
+				,#{fileGroupIdx})
+				
 	</insert>
 		
 	<select id="getRegionList" resultType="Region">
