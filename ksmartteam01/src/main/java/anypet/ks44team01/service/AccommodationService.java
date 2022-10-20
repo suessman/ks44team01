@@ -88,7 +88,23 @@ public class AccommodationService {
 		
 		return accommodationReservationList;
 	}
-
+	
+	//문의 답변 수정
+	public void modifyInquiry(AccommodationInquiry accommodationInquiry) {
+		
+		accommodationMapper.modifyInquiry(accommodationInquiry);
+		
+		System.out.println("문의 답변 수정" + accommodationInquiry);
+	}
+	
+	//문의목록 답변 조회
+	public AccommodationInquiry inquiryAnswerSelect(String accommodationQnaNumber) {
+		
+		AccommodationInquiry inquiryAnswerSelect = accommodationMapper.inquiryAnswerSelect(accommodationQnaNumber);
+		
+		return inquiryAnswerSelect;
+	}
+	
 	//문의 목록 삭제
 	public int removeInquiry(String accommodationQnaNumber) {
 		

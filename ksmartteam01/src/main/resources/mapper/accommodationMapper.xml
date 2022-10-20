@@ -190,6 +190,30 @@
 		 accomodation_QnA_number = #{accommodationQnaNumber};
 	</delete>
 	
+	<!-- 숙소 문의사항 답변 수정 -->
+	<update id="modifyInquiry" parameterType="AccommodationInquiry">
+		UPDATE accomodation_QnA
+		<trim prefix="SET" prefixOverrides=",">
+			<if test="answer != null and answer != ''">
+				,accomodation_QnA_answer = #{answer}
+			</if>
+			,accomodation_QnA_answer_datetime=NOW()
+		</trim>
+	WHERE 
+		accomodation_QnA_number = #{accommodationQnaNumber};
+	</update>
+	
+	<!-- 숙소 문의사항 답변 조회 -->
+	<select id="inquiryAnswerSelect" resultType="AccommodationInquiry">
+		SELECT 
+			 accomodation_QnA_number	AS accommodationQnaNumber
+			,accomodation_QnA_answer	AS answer
+		FROM 
+			accomodation_QnA
+		WHERE 
+			accomodation_QnA_number = #{accommodationQnaNumber};
+	</select>
+	
 	<!-- 숙소 문의사항 목록 조회 -->
 	<select id="inquiryList" resultType="AccommodationInquiry">
 		SELECT
