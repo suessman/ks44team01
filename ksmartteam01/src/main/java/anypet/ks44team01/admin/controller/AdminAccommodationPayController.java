@@ -193,6 +193,33 @@ public class AdminAccommodationPayController {
 	}
 	
 	/**
+	 * 숙소 문의 답변 수정 
+	 */
+	@PostMapping("/modifyInquiry")
+	public String modifyInquiry(AccommodationInquiry accommodationInquiry) {
+		
+		accommodationService.modifyInquiry(accommodationInquiry);
+		
+		System.out.println("숙소 문의 답변 수정: " + accommodationInquiry);
+		
+		return "redirect:accommodationInquiryList";
+	}
+	
+	/**
+	 * 숙소 문의 답변 조회
+	 * */
+	@PostMapping("/inquiryAnswerSelect")
+	@ResponseBody
+	public AccommodationInquiry inquiryAnswerSelect(@RequestParam(value="accommodationQnaNumber") String accommodationQnaNumber) {
+		
+		AccommodationInquiry inquiryAnswerSelect = accommodationService.inquiryAnswerSelect(accommodationQnaNumber);
+		
+		System.out.println("숙소 문의 답변: " + inquiryAnswerSelect);
+		
+		return inquiryAnswerSelect;
+	}
+	
+	/**
 	 * 숙소 문의 목록 삭제
 	 * */
 	@PostMapping("/removeInquiry")
