@@ -27,7 +27,7 @@ public class UserGoodsPayController {
 	
 	/**
 	 * 상품 주문/결제정보 입력
-	 */
+	
 	@PostMapping("/goodsPay")
 	public String goodsPay(GoodsOrder goodsOrder) {
 		
@@ -35,7 +35,7 @@ public class UserGoodsPayController {
 		
 		return "redirect:/user/goods/goodsOrderListDetail";
 	}
-	
+	 */
 	@GetMapping("/goodsPay")
 	public String goodsPay(Model model){
 		
@@ -65,19 +65,30 @@ public class UserGoodsPayController {
 		
 		String memberId = "id002";
 		
-		String orderRegisterTime = "2022-10-04 00:13:02";
 		
-		List<Map<String,Object>> goodsOrderdetail = goodsService.getGoodsOrderDetailByIdAndDatetime(memberId, orderRegisterTime);
+		List<Map<String,Object>> cart = goodsService.getCartById(memberId);
+		//List<Map<String,Object>> goodsOrderdetail = goodsService.getGoodsOrderDetailByIdAndDatetime(memberId, orderRegisterTime);
 		
-		model.addAttribute("title", "상품중분류목록");
-		model.addAttribute("goodsOrderdetail", goodsOrderdetail);
+		model.addAttribute("title", "장바구니 목록");
+		model.addAttribute("cart", cart );
+		//model.addAttribute("goodsOrderdetail", goodsOrderdetail);
 		
-		System.out.println("goodsOrderdetail->>>" + goodsOrderdetail);
+		//System.out.println("goodsOrderdetail->>>" + goodsOrderdetail);
 		return "/user/goods/goodsCartList";
 	}
 	/**
-	 * 장바구니 수량 수정
+	 * 장바구니 -> 주문상세에 입력
 	 */
+	@PostMapping("/goodsCartList/")
+	public String goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail) {
+		
+		goodsService.goodsOrderDetailInsert(goodsOrderDetail);
+		
+		return "redirect:/user/goods/goodsPay";
+	}
+	/**
+	 * 장바구니 수량 수정
+	 
 	@PostMapping("/goodsCartList/")
 	public String modifyCartCount(GoodsOrderDetail goodsOrderDetail) {
 		
@@ -85,7 +96,7 @@ public class UserGoodsPayController {
 		
 		return "redirect:/user/goods/goodsCartList";
 	}
-	
+	*/
 	/**
 	 * 상품 주문/결제정보 테스트
 	 */

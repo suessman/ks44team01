@@ -28,12 +28,14 @@ public interface GoodsMapperOsj {
 	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
 	//상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
 	public Member getMemberInfoById(String memberId);
-	
 	//상품 결제페이지 특정회원의 아이디와 주문 상세 조회
 	public List<Map<String,Object>> getGoodsOrderDetailByIdAndDatetime(String memberId, String orderRegisterTime);
-	
+	//장바구니 조회
+	public List<Map<String,Object>> getCartById(String memberId);
+	//장바구니->주문상세에 입력
+	public int goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail);
 	//장바구니 수량수정
-	public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
+	//public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
 	
 	//관리자 
 	//상품대분류목록조회
