@@ -81,7 +81,7 @@
 			)AS boardCode
 		FROM
 			board
-		</selectKey>							
+		</selectKey>					
 		INSERT INTO board
 			(board_code, 
 			 id, 
@@ -92,14 +92,14 @@
 			 board_image, 
 			 board_hits)
 		VALUES 
-			(#{boardCode}, 
-			 #{id}, 
-			 #{boardCategoryCode}, 
+			(#{boardCode},
+			 'id001', 
+			 'bcc001',
 			 #{boardTitle}, 
 			 #{boardContents}, 
 			 NOW(), 
 			 #{boardImage}, 
-			 #{boardHits})
+			 #{boardHits});
 	</insert>
 	
 	<!-- 게시물 삭제 -->
