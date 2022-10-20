@@ -37,14 +37,14 @@ public class UserGoodsPayController {
 	}
 	 */
 	@GetMapping("/goodsPay")
-	public String goodsPay(Model model){
+	public String goodsPay(@RequestParam (value="memberId", required = false) String memberId
+										  ,Model model){
 		
-		String memberId = "id002";
 		String orderRegisterTime = "2022-10-04 00:13:02";
 		
 		
 		//배송지 조회를 위한 특정 회원의 정보 조회
-		Member memberInfo = goodsService.getMemberInfoById(memberId);
+		Member memberInfo = goodsService.getMemberInfoById("id002");
 		System.out.println("memberInfo->>>" + memberInfo);
 		
 		//특정 아이디, 특정 주문시간의 주문상세 조회
@@ -97,6 +97,7 @@ public class UserGoodsPayController {
 		return "redirect:/user/goods/goodsCartList";
 	}
 	*/
+	
 	/**
 	 * 상품 주문/결제정보 테스트
 	 */

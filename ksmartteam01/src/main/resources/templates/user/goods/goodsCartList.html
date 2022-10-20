@@ -89,7 +89,7 @@
 	                                        <div class="quantity">
 	                                            <div><!-- class="pro-qty"-->
 	                                            	<button type="button"  class="btn_width quantity_btn plus_btn">+</button><br>
-	                                                <input class="btn_width"  type="text" th:value="${c.cartGoodsQuantity}" ><br>
+	                                                <input class="num_val btn_width"  type="text" th:value="${c.cartGoodsQuantity}" ><br>
 	                                                <button type="button"  class="btn_width quantity_btn minus_btn">-</button>
 	                                            </div>
 	                                            <a class="quantity_modify_btn" data-cartId="${ci.cartId}"></a>
@@ -123,7 +123,7 @@
 	                    <div class="shoping__checkout" style="width:95%">
 	                        <h5>총 합</h5>
 	                        <ul>
-	                            <li>Total <span></span></li>
+	                            <li>Total<span class="TotalPrice"></span></li>
 	                        </ul>
 	                        <button type="submit" class="primary-btn w-100">주문하기</button>
 	                    </div>
@@ -162,6 +162,50 @@
 	    });
 	    </script>
 	    <script>
+	    	document.addEventListener('DOMContentLoaded', function(){
+	    		
+	    		checks = document.querySelectorAll('checks')
+	    		
+	    	});
+	    </script>
+	    
+	    <script>
+	   
+	    let numVal = $('.num_val');//input
+	    let price = $('.shoping__cart__price');
+	   	let checks = $('.checks')
+	    $('.checks').on('click', function total(){
+	    let totalPrice = 0;
+			for(let i = 0; i <= numVal.length; i++){
+	    		let defaultVal = 0;
+	    		if(checks.checked){
+	    			let Val = numVal[i].val();
+	    			defaultVal = (defaultVal + Val);
+	    			totalPrice += (price[i]*defaultVal);
+	    		}
+	    		return totalPrice;
+	    	}
+	    	
+	    	
+		 });
+	   	console.log(totalPrice);
+	   /*  
+	    function total(){
+	    	let goodsPrice = $('.shoping__cart__price').text();
+	    	let quantity = $('input').val();
+	    	let cartTotal = $(".TotalPrice").text(quantity); 
+	    	
+	    	let totalPrice = $('.TotalPrice');
+	    	console.log(totalPrice);
+	    	let numVal = $('.num_val').val();
+	    	console.log(numVal);
+	    	totalPrice.text(numVal);
+	    }
+	    
+	    total(); */
+	   /*  setInterval(total, 500); */
+	    </script>
+	    <script>
 		let trGroup = document.querySelector('#trGroup');
 		let allCheck = document.querySelector('#allCheck');
 		let choiceDel = document.querySelector('#choiceDel');
@@ -190,6 +234,7 @@
 			}
 		});
 	    </script>
+
 	</th:block>
 
 </html>
