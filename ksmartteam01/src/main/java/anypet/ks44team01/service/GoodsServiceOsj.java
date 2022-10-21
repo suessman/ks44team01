@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import anypet.ks44team01.dto.Cart;
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
 import anypet.ks44team01.dto.GoodsOrder;
@@ -44,8 +45,8 @@ public class GoodsServiceOsj {
 		return cart;
 	}
 	//장바구니 -> 주문상세로 insert
-	public void goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail){
-		goodsMapper.goodsOrderDetailInsert(goodsOrderDetail);
+	public void goodsOrderDetailInsert(List<Cart> cart){
+		goodsMapper.goodsOrderDetailInsert(cart);
 	}
 	//장바구니 수량 수정
 	//public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){

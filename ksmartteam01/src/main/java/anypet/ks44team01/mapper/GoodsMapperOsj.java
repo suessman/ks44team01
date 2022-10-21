@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import anypet.ks44team01.dto.Cart;
 import anypet.ks44team01.dto.GoodsLargeCategory;
 import anypet.ks44team01.dto.GoodsMediumCategory;
 import anypet.ks44team01.dto.GoodsOrder;
@@ -33,7 +34,7 @@ public interface GoodsMapperOsj {
 	//장바구니 조회
 	public List<Map<String,Object>> getCartById(String memberId);
 	//장바구니->주문상세에 입력
-	public int goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail);
+	public int goodsOrderDetailInsert(List<Cart> cart);
 	//장바구니 수량수정
 	//public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
 	

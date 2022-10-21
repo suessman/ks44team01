@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import anypet.ks44team01.dto.Cart;
 import anypet.ks44team01.dto.GoodsOrder;
 import anypet.ks44team01.dto.GoodsOrderDetail;
 import anypet.ks44team01.dto.Member;
@@ -80,9 +81,9 @@ public class UserGoodsPayController {
 	 * 장바구니 -> 주문상세에 입력
 	 */
 	@PostMapping("/goodsCartList/")
-	public String goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail) {
+	public String goodsOrderDetailInsert(@RequestParam(value="checks[]", required=false, defaultValue="") List<Cart> cart) {
 		
-		goodsService.goodsOrderDetailInsert(goodsOrderDetail);
+		goodsService.goodsOrderDetailInsert(cart);
 		
 		return "redirect:/user/goods/goodsPay";
 	}
