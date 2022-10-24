@@ -18,12 +18,12 @@ public class MainController {
 	
 	@GetMapping("/admin/login")
 	public String login() {
-		return "/admin/login";
+		return "admin/login";
 	}
 
 	//시작화면
 	@GetMapping("/")
 	public String intro() {
-		return "/user/intro";
+		return "user/intro";
 	}
 }
