@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="anypet.ks44team01.mapper.MemberMapper">
+
+	<!-- id가 BoardMapper의 method name, 메서드를 오버라이딩한다. --> 	
+ 	<!-- resultType 앞에 anypet.ks44team01.dto 적어줘야하지만 application.properties에서 설정 해줘서 안써줘도 된다.-->
+	<resultMap type="Member" id="memberResultMap">
+		<id 	column="id" 		 		 property="memberId"/>
+        <result column="pw" 				 property="memberPw"/>
+        <result column="name" 				 property="memberName"/>
+        <result column="level" 				 property="memberLevel"/>
+        <result column="gender" 			 property="memberGender"/>
+        <result column="addr" 				 property="memberAdress"/>
+        <result column="email" 				 property="memberEmail"/>
+        <result column="phone" 				 property="memberPhone"/>
+        <result column="Date" 				 property="memberDate"/>
+        <result column="birth" 				 property="memberBirth"/>      
+	</resultMap>
+	<!-- 전체 회원 조회 -->
+	<select id="getMemberList" resultMap="memberResultMap">		
+		SELECT
+			m.id
+			,m.name
+			,m.level
+			,m.email
+			,m.birth
+		FROM
+			member AS m;
+	</select>
+	<!-- 특정 회원 조회 -->
+	<select id="getMemberInfoById" parameterType="String" resultMap="memberResultMap">
+		SELECT 
+			m.*
+		FROM
+			member AS m
+		WHERE 
+			m.id = #{memberId}; 
+	</select>
+	
+	<!-- 회원 수정 -->
+	<update id="modifyMember" parameterType="Member">
+		UPDATE member
+		<trim prefix="SET" prefixOverrides=",">		
+			<if test="memberPw != null and memberPw != ''">
+			    pw       	= #{memberPw}
+			</if>
+			<if test="memberName != null and memberName != ''">			
+			   ,name     	= #{memberName}
+			</if>
+			<if test="memberAdress != null and memberAdress != ''">
+			   ,addr     	= #{memberAdress}
+			</if>
+			<if test="memberEmail != null and memberEmail != ''">
+			   ,email    	= #{memberEmail}
+			</if>
+			<if test="memberPhone != null and memberPhone != ''">
+			   ,phone    	= #{memberPhone}
+			</if>
+		</trim>
+		WHERE
+		   id = #{memberId};
+	</update>
+	
+	<!-- //(공통 2) 회원 삭제 -->
+	<delete id="removeMember" parameterType="String">
+	/*회원 삭제*/
+	DELETE
+		m
+	FROM
+		member AS m
+	WHERE
+		m.id = #{memberId};
+	</delete>
+	
+	
+</mapper>

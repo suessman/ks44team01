@@ -11,4 +11,8 @@ public class AccommodationListController {
 	public String insertReservation() {
 		return "/user/accommodation/insertReservation";
 	}
+	@GetMapping("/insertReservationList")
+	public String insertReservationList() {
+		return "/user/accommodation/insertReservationList";
+	}
 }

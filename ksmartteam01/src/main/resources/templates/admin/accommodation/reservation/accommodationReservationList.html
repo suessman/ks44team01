@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+     xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+     layout:decorate="~{layout/adminDefault}">
+   <!-- 사용자 정의 타이틀 설정 -->
+   <th:block layout:fragment="customTitle">
+      <title>숙소예약내역목록</title>
+   </th:block>
+   
+   <th:block layout:fragment="customContents">
+	<div class="right_col" role="main">
+		<div>
+			<div class="page-title">
+				<div class="title_left">
+                	<h3>숙소예약내역목록</h3>
+              	</div>
+            <div class="title_right">
+            	<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                	<div class="input-group">
+                   		<input type="text" class="form-control" placeholder="Search for...">
+                    	<span class="input-group-btn">
+                     		<button class="btn btn-secondary" type="button">검색</button>
+                    	</span>
+                  	</div>
+                </div>
+			</div>
+		</div>
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 ">
+            	<div class="x_panel">
+                	<div>
+                    	<h2>숙소 예약사항 내역</h2>
+                    	<ul class="nav navbar-right panel_toolbox">
+                      		<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      		</li>
+                      		<li class="dropdown">
+                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            		<a class="dropdown-item" href="#">전체목록</a>
+                            		<a class="dropdown-item" href="#">미답변목록</a>
+                          		</div>
+                      		</li>
+                    	</ul>
+                  	</div>
+	        		<div class="x_content">
+				       	<div class="row">
+				       		<div class="col-sm-12">
+				           		<div class="card-box table-responsive">
+				           			<div class="col-sm-10 reservationTable">
+				                	<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+				                		<thead>
+				                			<tr>
+				                				<th>예약번호</th>
+				                				<th>예약자 ID</th>
+				                				<th>숙소상세</th>
+				                				<th>예약날짜</th>	                				
+				                				<th>총결제금액</th>
+				                				<th>사용포인트</th>
+				                				<th>최종결제금액</th>
+				                				<th>결제코드</th>
+				                				<th>삭제</th>
+				                				<th>입실날짜</th>
+				                				<th>퇴실날짜</th>
+				                				<th>인원</th>	
+				                			</tr>
+				                		</thead>
+				                		<tbody>
+				                			<tr th:each="l: ${accommodationReservationList}">
+				                				<td th:text="${l.accommodationReservationCode}"></td>
+				                				<td>
+				                					<a href="#" class="member_info_modal" th:text="${l.id}"></a>
+				                				</td>
+				                				<td>
+				                					<a href="#" class="accommodationInfoModal" th:text="${l.goodsAccommodationOptionCode}"></a>
+				                				</td>
+				                				<td th:text="${l.reservationDatetime}"></td>
+				                				<td th:text="${l.paymentAmount}"></td>			
+				                				<td th:text="${l.usingPoint}"></td>			
+				                				<td th:text="${l.totalPaymentPrice}"></td>
+				                				<td>
+				                					<a href="javascript:void(0);" class="open_modal" th:text="${l.accommodationPaymentCode}"  th:if="${l.accommodationPaymentCancelCode == null}"></a>
+					                				<div>
+					                				<a th:text="결제취소완료" th:value="${l.accommodationPaymentCancelCode}" th:if="${l.accommodationPaymentCancelCode != null and l.accommodationPaymentCancelApproval.toString().equals('Y')}"></a>
+						                				<a style="color: blue;" class="approval_paymentCancel" data-toggle="modal" data-target=".approvalModal" th:text="결제취소요청 " th:if="${l.accommodationPaymentCancelCode != null and l.accommodationPaymentCancelApproval.toString().equals('N')}"></a>
+					                					<input class="approvalInput" type="hidden" th:value="${l.accommodationPaymentCancelCode}" >
+				                					</div>
+				                				</td>
+				                				<td>
+				                					<button type="submit" class="deleteModal" data-toggle="modal" data-target=".delete_Modal" th:value="${l.accommodationReservationCode}">X</button>
+				                				</td>
+				                				<td th:text="${l.checkinDatetime}"></td>
+				                				<td th:text="${l.checkoutDatetime}"></td>
+				                				<td th:text="${l.totalNumber}"></td>
+				                			</tr> 
+				                		</tbody>
+				                	</table>
+				                </div>
+							</div>
+						</div>
+	            	</div>
+                </div>
+                <p>
+                	1. 예약자 ID 클릭 : 예약자 기본정보를 보여준다.
+                	<br/>
+                	2. 숙소상세 클릭 : 숙소 상세정보를 보여준다.
+                	<br/>
+                	3. 결제코드 클릭 : 결제 상세내역을 보여준다. 결제취소된 경우에는 결제취소 텍스트가 나온다. 결제취소요청 클릭 후 승인을 누르면 결제취소완료가 된다.
+                </p>
+     		</div>
+      	</div>
+    	</div>
+	</div>
+
+<!-- 결제취소 모달 -->
+<div class="modal fade bs-example-modal-sm approvalModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">결제취소승인</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<br/>
+        <p>결제취소를 승인하시겠습니까?</p>
+        <br/>
+      </div>
+      <div class="modal-footer">
+      	<form method="post" th:action="@{/admin/accommodation/accommodationApproval}">
+	      	<input type="hidden" class="modalApproval" name="accommodationPaymentCancelCode">
+	        <button type="submit" class="btn btn-primary approvalBtn">승인</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 숙소정보 모달 -->
+<div id="reservationAccommodationInfo" class="modal fade bs-example-modal-lg reservationAccommodationModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">숙소정보</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" >
+			<input type="hidden" id="goodsAccommodationOptionCode" name="goodsAccommodationOptionCode">
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="accommodationCategoryName">숙소종류<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="accommodationCategoryName" required="required" class="form-control" name="accommodationCategoryName" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="companyName">숙소명<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="companyName" required="required" class="form-control" name="companyName" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="accommodationOption">숙소등급<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="accommodationOption" required="required" class="form-control" name="accommodationOption" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="companyPhone" class="col-form-label col-md-4 col-sm-3 label-align">전화번호</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="companyPhone" class="form-control" type="text" name="companyPhone" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="companyAddress" class="col-form-label col-md-4 col-sm-3 label-align">주소</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="companyAddress" class="form-control" type="text" name="companyAddress" readonly="readonly">
+				</div>
+			</div>
+		</form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 회원정보 모달 -->                  
+<div id="ReservationMemberInfo" class="modal fade bs-example-modal-lg ReservationMemberModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">회원정보</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" >
+			<input type="hidden" id="memberId" name="memberId">
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="memberName">이름<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="memberName" required="required" class="form-control" name="memberName" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="memberPhone">전화번호<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="memberPhone" required="required" class="form-control" name="memberPhone" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="memberEmail" class="col-form-label col-md-4 col-sm-3 label-align">이메일</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="memberEmail" class="form-control" type="text" name="memberEmail" readonly="readonly">
+				</div>
+			</div>
+		</form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>      
+
+<!-- 삭제 모달 -->
+<div id="deleteModal" class="modal fade bs-example-modal-sm delete_Modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel2">예약내역삭제</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>예약내역을 삭제하시겠습니까?</p>
+      </div>
+      <div class="modal-footer">
+      	<form method="post" th:action="@{/admin/accommodation/removeReservationList}">
+	      	<input type="hidden" class="deleteValue" name="accommodationReservationCode">
+	        <button type="submit" class="btn btn-primary">삭제</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+	    </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 결제모달 -->
+<div id="modalTest" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+   <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title" id="myModalLabel">결제정보</h4>
+       </div>
+       <div class="modal-body">
+         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post" th:action="@{/admin/accommodation/adminPaymentCancel}">
+			<input type="hidden" id="accommodationPaymentCode" name="accommodationPaymentCode">
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="accommodationPaymentTerm">결제방식<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="accommodationPaymentTerm" required="required" class="form-control" name="accommodationPaymentTerm" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label class="col-form-label col-md-4 col-sm-3 label-align" for="accommodationPaymentDate">결제일자<span class="required">*</span></label>
+				<div class="col-md-8 col-sm-6 ">
+					<input type="text" id="accommodationPaymentDate" required="required" class="form-control" name="accommodationPaymentDate" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="accommodationMonthlyPayment" class="col-form-label col-md-4 col-sm-3 label-align">할부여부</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="accommodationMothlyPayment" class="form-control" type="text" name="accommodationMonthlyPayment" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="accommodationPaymentBank" class="col-form-label col-md-4 col-sm-3 label-align">결제은행</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="accommodationPaymentBank" class="form-control" type="text" name="accommodationPaymentBank" readonly="readonly">
+				</div>
+			</div>
+			<div class="item form-group">
+				<label for="purchasedPoint" class="col-form-label col-md-4 col-sm-3 label-align">구매적립금</label>
+				<div class="col-md-8 col-sm-6 ">
+					<input id="purchasedPoint" class="form-control" type="text" name="purchasedPoint" readonly="readonly">
+				</div>
+			</div>
+	       	<div class="item form-group">
+	       		<div class="col-md-12 col-sm-6 " align="center">
+		         	<button type="submit" class="btn btn-primary paymentCancelBtn">결제취소</button>
+		         	<button type="button" class="btn btn-secondary" data-dismiss="modal">확인</button>
+	       		</div>
+	       	</div>
+			<br/>
+		</form>
+       </div>
+     </div>
+   </div>
+</div>
+ 
+ 
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+<script>
+	/* 삭제 모달 */
+	$('.deleteModal').click(function(){
+		var deleteValue = $(this).val();
+		$('.deleteValue').val(deleteValue);
+		console.log($('.deleteValue').val());
+	})
+	
+	/* 결제 취소 */
+	$('.paymentCancelBtn').click(function(){
+		var paymentCancelBtn = $('.paymentCancelBtn')
+		console.log("paymentCancelBtn: " + paymentCancelBtn.val());
+	});
+
+	/* 결제취소 승인 모달 */
+	$('.approval_paymentCancel').click(function(){
+		var approvalInput = $('.approvalInput').val();
+		console.log(approvalInput);
+		$('.modalApproval').val(approvalInput);
+	});
+
+	
+	/* 숙소정보 모달 */
+	$('.accommodationInfoModal').click(function(){
+		var goodsAccommodationOptionCode = $(this).text();
+		var request = $.ajax({
+			  url: "/admin/accommodation/reservationAccommodationDetailInfo",
+			  method: "POST",
+			  data: { 'goodsAccommodationOptionCode' : goodsAccommodationOptionCode},
+			  dataType: "json"
+			});
+			 
+			request.done(function( data ) {
+				$('#accommodationCategoryName').val(data.accommodationCategory.accommodationCategoryName);
+				$('#companyName').val(data.companyMember.companyName);
+				$('#accommodationOption').val(data.accommodationOption.accommodationOption);
+				$('#companyPhone').val(data.companyMember.companyPhone);
+				$('#companyAddress').val(data.companyMember.companyAddress);
+				$('#reservationAccommodationInfo').modal('show');
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+			console.log('숙소상세코드', goodsAccommodationOptionCode);
+	})
+	
+	/* 회원정보 모달 */
+	$('.member_info_modal').click(function(){
+		var memberId = $(this).text();
+		var request = $.ajax({
+			  url: "/admin/accommodation/accommodationReservationMemberInfo",
+			  method: "POST",
+			  data: { 'memberId' : memberId},
+			  dataType: "json"
+			});
+			 
+			request.done(function( data ) {
+				$('#memberName').val(data.memberName);
+				$('#memberPhone').val(data.memberPhone);
+				$('#memberEmail').val(data.memberEmail);
+				$('#ReservationMemberInfo').modal('show');
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+      	console.log('회원아이디', memberId);
+	})
+	/* 결제 모달 */
+	$('.open_modal').click(function() {
+		var accommodationPaymentCode = $(this).text();
+		
+		var request = $.ajax({
+			  url: "/admin/accommodation/accommodationPaymentDetail",
+			  method: "POST",
+			  data: { 'accommodationPaymentCode' : accommodationPaymentCode},
+			  dataType: "json"
+			});
+			 
+			request.done(function( data ) {
+				$('#accommodationPaymentCode').val(data.accommodationPaymentCode);
+				$('#accommodationPaymentTerm').val(data.accommodationPaymentTerm);
+				$('#accommodationPaymentDate').val(data.accommodationPaymentDate);
+				$('#accommodationMothlyPayment').val(data.accommodationMothlyPayment);
+				$('#accommodationPaymentBank').val(data.accommodationPaymentBank);
+				$('#purchasedPoint').val(data.purchasedPoint);
+				$('.paymentCancelBtn').val(data.accommodationPaymentCode);
+				$('#modalTest').modal('show');
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});
+		
+        console.log('결제코드', accommodationPaymentCode);
+
+    })
+    
+	
+</script>
+
+   </th:block>
+</html> 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/adminDefault}">
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>상품 문의 상세 목록 페이지</title>
+	</th:block>
+
+
+	<th:block layout:fragment="customContents">
+		<div class="right_col" role="main">
+			<div class="">
+				<div class="page-title">
+					<div class="title_left">
+						<h3>
+							상품 문의 상세 목록 페이지
+						</h3>
+					</div>
+	
+					<div class="title_right">
+						<div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search for..."> 
+								<span class="input-group-btn">
+									<button class="btn btn-secondary" type="button">Go!</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class="clearfix"></div>
+	
+				<div class="row">
+					<div class="col-md-12 col-sm-12 ">
+						<div class="x_panel">
+							<div class="x_title">
+								<ul class="nav navbar-right panel_toolbox">
+									<li><a class="collapse-link">
+										<i class="fa fa-chevron-up"></i></a>
+									</li>
+									<li class="dropdown">
+										<a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" role="button" aria-expanded="false">
+											<i class="fa fa-wrench"></i>
+										</a>
+											<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">전체목록</a> 
+												<a class="dropdown-item" href="#">미답변목록</a>
+											</div>
+									</li>
+									<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+							<div class="x_content">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card-box table-responsive">
+											<p class="text-muted font-13 m-b-30">
+												<code></code>
+											</p>
+											<table id="datatable-responsive"
+												class="table table-striped table-bordered dt-responsive nowrap"
+												cellspacing="0" width="100%">
+												<thead>
+													<tr>
+														<th>상품문의번호</th>
+														<th>상품명</th>
+														<th>문의자ID</th>
+														<th>문의제목</th>
+														<th>작성날짜</th>
+														<th>답변자ID</th>
+														<th>답변날짜</th>
+														<th>수정</th>
+														<th>삭제</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Y</td>
+														<td><a href=#>A상품</a></td>
+														<td>id001</td>
+														<td
+															onclick="location.href='/admin/goods/goodsInquiryModifyDetail'">
+															상품유통기한</td>
+														<td>2022-10-01</td>
+														<td>admin01</td>
+														<td>2022-10-02</td>
+														<td>
+															<a href="/admin/goods/goodsModify">
+																<button type="button" class="btn btn-primary">수정</button>
+															</a>
+														</td>
+														<td>
+															<button type="button" class="btn btn-sm btn-success">삭제</button>
+														</td>
+
+													</tr>
+													<tr>
+														<td>N</td>
+														<td><a href=#>B상품</a></td>
+														<td>id002</td>
+														<td
+															onclick="location.href='/admin/goods/goodsInquiryModifyDetail'">
+															입고예정일 확인</td>
+														<td>2022-10-05</td>
+														<td></td>
+														<td></td>
+														<td>
+															<a href="/admin/goods/goodsModify">
+																<button type="button" class="btn btn-primary">수정</button>
+															</a>
+														</td>
+														<td>
+															<button type="button" class="btn btn-sm btn-success">삭제</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</th:block>
+
+</html>

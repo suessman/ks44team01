@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="anypet.ks44team01.mapper.AccommodationListMapper">
+	<resultMap type="AccommodationList" id="accommodationResultMap" >
+		<result column="accomodation_detail_code" 		property="accommodationDetailCode"/>
+		<result column="accomodation_category_name" 	property="accommodationCategoryCode"/>
+		<result column="region_code" 					property="accommodationRegionCode"/>
+		<result column="company_member_code" 			property="companyMemberCode"/>
+		<result column="id" 							property="memberId"/>
+		<result column="check_inout" 					property="checkInOut"/>	
+		
+
+		<!-- 1:1 매핑 -->
+		<association property="accommodationCategoryDto" javaType="AccommodationCategory">
+			<id 	column="accomodation_category_code" 		property="accommodationCategoryCode"/>
+			<result column="accomodation_category_name" 	 	property="accommodationCategoryName"/>			
+		</association>
+		
+		<association property="regionDto" javaType="Region">
+				<id 	column="region_code" 		property="regionCode"/>
+				<result column="region_name" 	 	property="regionName"/>
+		</association>
+			
+		<association property="companyMemberDto" javaType="CompanyMember">
+			<id 	column="company_member_code" 		property="companyMemberCode"/>
+			<result column="company_name" 	 			property="companyName"/>
+		</association>
+		
+		<association property="accommodationOptionDto" javaType="AccommodationOption">
+			<id 	column="goods_accommodation_option_code" 	property="goodsAccommodationOptionCode"/>
+			<result column="room_price" 						property="roomPrice"/>
+		</association>		
+	</resultMap>
+
+	<select id="getAccommodationList" resultMap ="accommodationResultMap">
+		SELECT 
+		d.accomodation_detail_code
+		, c.accomodation_category_name
+		, r.region_name
+		, m.id
+		, m.company_name
+		, d.check_inout
+		, d.parking
+		, d.registration_datetime
+	FROM 
+		accomodation_detail AS d
+		INNER JOIN 
+		accomodation_category AS c
+		ON 
+		d.accomodation_category_code = c.accomodation_category_code
+		INNER JOIN 
+		region AS r
+		on
+		r.region_code = d.region_code
+		INNER JOIN 
+		company_member AS m
+		ON 
+		m.company_member_code = d.company_member_code		
+		WHERE
+		d.is_del = 0;
+	</select>
+	
+	<!--숙소등록 -->	
+	<insert id="addAccommodation" parameterType="AccommodationList">
+ 		<selectKey keyProperty="accommodationDetailCode" resultType="String" order="BEFORE">
+		SELECT
+			(CASE 
+			 -- 상품이 없을 경우
+			 WHEN count(g.accomodation_detail_code) = 0 THEN 'adc001'
+			 -- 999개 등록되어 있을 경우
+			 WHEN (Max(CAST(substring_index(g.accomodation_detail_code,'g',-1) AS UNSIGNED))+1) > 999 THEN
+			 	concat('adc',Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1)
+			 -- 1~999 범위일 경우
+			 ELSE
+				concat('adc',LPAD(Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
+			 END) AS accommodationDetailCode
+		FROM 
+			accomodation_detail AS g;
+  		</selectKey>
+			INSERT INTO accomodation_detail
+				(accomodation_detail_code
+				, accomodation_category_code
+				, region_code
+				, company_member_code
+				, id
+				, check_inout
+				, parking				
+				, registration_datetime
+				, is_del
+				, file_group_idx)
+			VALUES
+				(#{accommodationDetailCode}
+				,#{accommodationCategoryCode}
+				,#{accommodationRegionCode}
+				,'cmc003'
+				,'id003'
+				,#{checkInOut}
+				,#{parking}			
+				,now()
+				,0
+				,#{fileGroupIdx})
+				
+	</insert>
+		
+	<select id="getRegionList" resultType="Region">
+	/*숙소지역조회*/
+	select
+		r.region_code AS regionCode
+		,r.region_name AS regionName
+	FROM
+		region as r;
+	</select>	
+	
+	<select id="getCategoryList" resultType="AccommodationCategory">
+	/*숙소카테고리조회*/
+	select
+		c.accomodation_category_code AS accommodationCategoryCode
+		,c.accomodation_category_name AS accommodationCategoryName
+	FROM
+		accomodation_category as c;
+	</select>
+
+	<!-- 특정 숙소 조회 -->
+	<select id="getAccommodationInfoByCode" parameterType="String" resultType="AccommodationList">
+	/*매개변수 선언 되어있을 경우 파라미터타입 써줘야한다.*/
+	/*특정 숙소 조회*/
+	SELECT
+		d.accomodation_detail_code				AS accommodationDetailCode,
+		d.accomodation_category_code 		    AS accommodationCategoryCode,
+		d.region_code 							AS accommodationRegionCode,
+		d.company_member_code 					AS companyMemberCode,
+		d.id									AS memberId,
+		d.check_inout 							AS checkInOut,
+		d.parking 								AS parking,
+		d.registration_datetime 				AS registrationDateTime
+	FROM
+		accomodation_detail AS d
+	WHERE
+		d.accomodation_detail_code = #{accommodationDetailCode};
+	</select>
+	
+		
+	<!-- 숙소수정 -->
+	<update id="updateAccommodationList" parameterType="AccommodationList">
+	/*쉼표가 뒤에 있으면 suffixOverrides*/
+	UPDATE accomodation_detail
+	<trim prefix="SET" prefixOverrides=",">		
+		<if test="accommodationDetailCode != null and accommodationDetailCode != ''">
+		accomodation_detail_code 		    		= #{accommodationDetailCode}
+		</if>
+		<if test="accommodationCategoryCode != null and accommodationCategoryCode != ''">
+		,accomodation_category_code 				= #{accommodationCategoryCode}
+		</if>
+		<if test="accommodationRegionCode != null and accommodationRegionCode != ''">
+		,region_code 								= #{accommodationRegionCode}
+		</if>
+		<if test="companyMemberCode != null and companyMemberCode != ''">
+		,company_member_code 						= #{companyMemberCode}
+		</if>
+		<if test="memberId != null and memberId != ''">
+		,id 										= 'id003'
+		</if>
+		<if test="checkInOut != null and checkInOut != ''">
+		,check_inout 								= #{checkInOut}
+		</if>
+		<if test="parking != null and parking != ''">
+		,parking 									= #{parking}
+		</if>
+		<if test="registrationDateTime != null and registrationDateTime != ''">
+		,registration_datetime 						= now()
+		</if>
+	</trim>
+	WHERE
+		accomodation_detail_code = #{accommodationDetailCode};
+	</update>
+
+	<select id="getCompanyMember" resultType="CompanyMember">
+	/*company_member조회*/
+	select
+		m.company_member_code AS companyMemberCode
+		,m.company_member_category AS companyMemberCategory
+	FROM
+		company_member as m;
+	</select>
+	
+	<!-- 숙소삭제  -->
+	<update id="deleteAccommodationList" parameterType="String">
+	UPDATE accomodation_detail 
+		SET
+			is_del = 1
+		WHERE 
+			accomodation_detail_code=#{accommodationDetailCode};
+	
+	</update>
+
+</mapper>
+

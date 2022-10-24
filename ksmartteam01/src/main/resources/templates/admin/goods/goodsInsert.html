@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/adminDefault}">
+
+	<!-- 사용자 정의 타이틀 설정 -->
+	<th:block layout:fragment="customTitle">
+		<title>상품등록</title>
+	</th:block>
+	
+	<th:block layout:fragment="customContents">
+				상품등록
+			<style>
+				.ck_warn{						
+				/* 입력란 공란 경고 태그 */
+					display: none;
+				    padding-top: 10px;
+				    text-align: center;
+				    color: #e05757;
+				    font-weight: 300;    
+				}
+			</style>
+			
+					<!-- page content -->
+		<div class="right_col" role="main">
+			<form id="goodsInsertForm" class="goodsInsertForm" th:action="@{/admin/goods/goodsInsert}"
+				method="post">
+				<div class="">
+					<div class="page-title">
+						<div class="title_left">
+							<h3>상품 등록 페이지</h3>
+						</div>
+	
+						<div class="title_right">
+							<div class="col-md-5 col-sm-5  form-group pull-right top_search">
+								<div class="input-group">
+									<input type="text" class="form-control"
+										placeholder="Search for..."> <span
+										class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>insert</h2>
+									<ul class="nav navbar-right panel_toolbox">
+										<li><a class="collapse-link"> <i
+												class="fa fa-chevron-up"></i>
+										</a></li>
+										<li class="dropdown"><a href="#" class="dropdown-toggle"
+											data-toggle="dropdown" role="button" aria-expanded="false">
+												<i class="fa fa-wrench"></i>
+										</a>
+											<div class="dropdown-menu"
+												aria-labelledby="dropdownMenuButton">
+												<a class="dropdown-item" href="#">Settings 1</a> <a
+													class="dropdown-item" href="#">Settings 2</a>
+											</div></li>
+										<li><a class="close-link"> <i class="fa fa-close"></i>
+										</a></li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="col-md-6 col-sm-6 ">
+									<div class="product-image">
+										<!-- <img src="/img/featured/feature-4.jpg" alt="..." /> -->
+										<div class="flieupload-body">
+											<div id='previewId'></div>
+										</div>
+										<input id="goodsImage" name="goodsImage" class="fileSelect"
+											type="file" onchange="previewImage(this,'previewId')">
+									</div>
+	
+									<div class="x_content">
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3" for="goodsName">상품명</label>
+											<div class="col-md-6 col-sm-6 ">
+												<input type="text" id="goodsName" name="goodsName" class="form-control" placeholder="상품명">
+												<span class="ck_warn goodsName">상품명을 입력해주세요.</span>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3">상품 카테고리</label>
+											<div class="col-md-9 col-sm-9 ">
+											
+												<label class="addTitle control-label">대분류</label> 
+												<select class="categoryCode form-control" name="categoryCode">
+													<th:block th:unless="${#lists.isEmpty(goodsCategory)}" th:each="c : ${goodsCategory}">
+														<option th:value="${c.categoryCode}" th:text="${c.categoryName}"></option>
+													</th:block>
+												</select> 
+												
+												
+												<label class="addTitle control-label">중분류</label> 
+												<select class="categoryCodeSub select2_single form-control" name="categoryCodeSub" tabindex="-1" onchange="onChangeEvent();">
+													<th:block th:unless="${#lists.isEmpty(goodsCategorySub)}" th:each="cs : ${goodsCategorySub}">
+														<option th:value="${cs.categoryCodeSub}" th:text="${cs.categorySubName}"></option>
+													</th:block>
+												</select>
+												<span class="ck_warn category">카테고리를 선택해주세요.</span>
+											</div>
+										</div>
+	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsQuantiy">가격</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="text" id="goodsPrice" name="goodsPrice" class="form-control" placeholder="가격">
+												<span class="ck_warn goodsPrice">가격을 입력해주세요.</span>
+											</div>
+										</div>
+	
+										<div class="form-group row ">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsPrice">재고수량</label>
+											<div class="col-md-9 col-sm-9 ">
+												<input type="number" id="goodsQuantiy" name="goodsQuantiy" class="form-control nums" placeholder="수량" step="1">
+												<span class="ck_warn goodsQuantiy">상품 재고를 입력해주세요.</span>
+											</div>
+										</div>
+	
+										<div class="form-group row">
+											<label class="control-label col-md-3 col-sm-3"
+												for="goodsContents">상품 상세 설명<span class="required">*</span>
+											</label>
+											<div class="col-md-9 col-sm-9 ">
+												<textarea id="goodsContents" name="goodsContents" class="form-control" rows="3" placeholder="상품 상세 설명"></textarea>
+												<span class="ck_warn goodsContents">상품 상세 설명을 입력해주세요.</span>
+											</div>
+										</div>
+	
+										<div class="ln_solid"></div>
+										<div class="form-group">
+											<div class="col-md-9 col-sm-9  offset-md-3">
+												<a href="/admin/goods/goodsList">
+													<button type="button" class="btn btn-primary">취소</button>
+												</a>
+												<!-- <button type="reset" class="btn btn-primary">초기화</button> -->
+												<button type="submit" class="btn btn-success">등록</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</th:block>
+<!-- /page content -->
+	<th:block layout:fragment="customTopJs">
+		<script type="text/javascript">
+			$(function(){
+				/* $('#idCheckBtn').click(()=>{					
+				}) */				
+				//MemberController에서 요청에 응답 ??
+				
+				//유효성검사
+				function validationCheck(data){
+					var isValid = true;
+					
+					//유효성검사
+					if(typeof data == 'object'){
+						$.each(data,function(){
+							var inputValue = $(this).val();
+							console.log(inputValue);
+							if(typeof inputValue == 'undefined' || inputValue == null || inputValue == ''){
+								isValid = false;
+								var inputId = $(this).attr('id');
+								var alertMsg = $('label[for="'+ inputId +'"]').text();
+								alert(alertMsg + '입력해주세요');
+								$(this).focus();
+								
+								
+								
+								return false;
+							} 
+						}); //each함수에서 빠져나옴 {input1,input2,input3}
+						console.log('return 후 실행 여부');						
+					}
+					return isValid;
+				}
+		
+				$(document).on('click', '#joinBtn',function(){
+			
+					var inputObj = $('#goodsInsertForm input');
+					console.log(inputObj, 'inputObj');
+					console.log(typeof inputObj);		
+					
+					//유효성검사
+					var isValid = validationCheck(inputObj);					
+					
+					console.log(isValid , '유효성검사 결과');			
+					
+					
+					//유효성검사후
+					if(isValid){$('#goodsInsertForm').submit()}
+				})
+			})
+		</script>
+	</th:block>
+</html>

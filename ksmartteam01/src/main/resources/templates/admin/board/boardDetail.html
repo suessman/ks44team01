@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/adminDefault}">
+<!-- 사용자 정의 타이틀 설정 -->
+<th:block layout:fragment="customTitle">
+	<title>게시물 열람</title>
+</th:block>
+
+<th:block layout:fragment="customContents">
+	<div class="right_col" role="main">
+		<div class="page-title">
+			<div class="title_left">
+				<h3>
+					게시물 관리<small> - 게시물 열람</small>
+				</h3>
+			</div>
+			<div class="title_right">
+				<div class="col-md-5 col-sm-5   form-group pull-right top_search">
+					<div class="input-group">
+						<input type="text" class="form-control"
+							placeholder="Search for..."> <span
+							class="input-group-btn">
+							<button class="btn btn-secondary" type="button">Go!</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>게시물을 열람하고 댓글을 등록, 수정, 삭제하는 페이지</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-expanded="false"><i
+									class="fa fa-wrench"></i></a>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+									<a class="dropdown-item" href="#">Settings 1</a> <a
+										class="dropdown-item" href="#">Settings 2</a>
+								</div></li>
+							<li><a class="close-link"><i class="fa fa-close"></i></a></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<br />
+						<form id="demo-form2" data-parsley-validate
+							class="form-horizontal form-label-left" method="post"
+							th:action="@{/admin/board/boardDetail}"
+							th:object="${boardDetail}">
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">카테고리<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" readonly required="required"
+										class="form-control"
+										th:value="${boardDetail.boardCategory.boardCategoryName}">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">제목<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" readonly required="required"
+										class="form-control" th:value="${boardDetail.boardTitle}">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">작성자<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" readonly required="required"
+										class="form-control" th:value="${boardDetail.id}">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="roomName">작성일<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<input type="text" id="roomName" readonly required="required"
+										class="form-control" th:value="${boardDetail.boardDatetime}">
+								</div>
+							</div>
+							<div class="item form-group">
+								<label class="col-form-label col-md-3 col-sm-3 label-align"
+									for="message">내용<span class="required">*</span>
+								</label>
+								<div class="col-md-6 col-sm-6 ">
+									<textarea id="message" required="required" readonly
+										class="form-control" name="message"
+										data-parsley-validation-threshold="10"
+										th:text="${boardDetail.boardContents}"></textarea>
+								</div>
+							</div>
+							<div class="ln_solid"></div>
+							<!-- 댓글이 들어갈 공간 -->
+							<div class="row">
+								<div class="col-md-6 offset-md-3">
+									<table class="w-100" border="1" bordercolor="#46AA46">
+										<tr>
+											<td><input type="text" id="reply_writer"
+												name="reply_writer" maxlength="10" placeholder="작성자" /> <input
+												type="password" id="reply_password" name="reply_password"
+												style="width: 170px;" maxlength="10" placeholder="패스워드" />
+												<button id="reply_save" name="reply_save">댓글 등록</button></td>
+										</tr>
+										<tr>
+											<td><textarea id="reply_content" name="reply_content"
+													rows="4" cols="100" placeholder="댓글을 입력하세요."></textarea></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="mt-5" style="text-align: center;">
+								<a href="/admin/board/modifyBoard"><button
+										class="btn btn-primary">수정하기</button></a> <a
+									href="javascript:delete_check('/admin/board/boardList')"><button
+										class="btn btn-primary">삭제하기</button></a> <a
+									href="/admin/board/boardList"><button
+										class="btn btn-primary">목록 이동</button></a> <a href="#top"><button
+										class="btn btn-primary">위로 가기</button></a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</th:block>
+</html>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="anypet.ks44team01.mapper.AccommodationMapper">
+	<resultMap 	type="AccommodationCategory" id="accommodationCategory">
+		<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
+		<result	column="id" 						property="accommodationId"/>
+		<result	column="accomodation_category_name" property="accommodationCategoryName"/>
+		<result	column="registration_datetime" 		property="registrationDateTime"/>
+	</resultMap>
+	
+	<resultMap type="AccommodationDetail" id="accommodationDetail">
+		<id		column="accomodation_detail_code" property="accommodationDetailCode"/>
+		
+			<association property="accommodationOption" javaType="AccommodationOption">
+				<id		column="goods_accommodation_option_code" property="goodsAccommodationOptionCode"/>
+				<result	column="accomodation_option" 			 property="accommodationOption"/>
+			</association>
+			
+			<association property="accommodationCategory" javaType="AccommodationCategory">
+				<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
+				<result column="accomodation_category_name" property="accommodationCategoryName"/>
+			</association>
+			
+			<association property="companyMember" javaType="CompanyMember">
+				<id		column="company_member_code" property="companyMemberCode"/>
+				<result column="company_name" 	 	 property="companyName"/>
+				<result column="company_phone" 	 	 property="companyPhone"/>
+				<result column="company_address" 	 property="companyAddress"/>
+			</association>
+	</resultMap>
+	
+	<!-- 숙소정보 조회 -->
+	<select id="getAccommodationDetailInfo" parameterType="String" resultMap="accommodationDetail">
+		SELECT 		
+			 c.accomodation_category_name
+			,m.company_name	
+			,g.accomodation_option				
+			,m.company_phone						
+			,m.company_address		
+		FROM 
+			accomodation_detail AS d
+			INNER JOIN
+			accomodation_category AS c
+			ON
+			d.accomodation_category_code = c.accomodation_category_code
+			INNER JOIN
+			company_member	AS m
+			ON
+			d.company_member_code = m.company_member_code
+			INNER JOIN
+			goods_accomodation_option AS g
+			ON
+			g.accomodation_detail_code = d.accomodation_detail_code
+		WHERE 
+			g.goods_accomodation_option_code = #{goodsAccommodationOptionCode};
+	</select>
+	
+	<!-- 회원정보 조회 -->
+	<select id="getReservaionMemberInfo" resultType="Member">
+		SELECT 
+ 			 m.id				AS memberId
+			,m.name				AS memberName
+			,m.phone			AS memberPhone
+			,m.email			AS memberEmail
+		FROM 
+			member AS m
+		WHERE 
+			m.id = #{memberId};
+	</select>
+	
+	<!-- 숙소 관리자 결제취소 -->
+	<insert id="adminPaymentCancel" parameterType="AccommodationPaymentCancel">
+		<selectKey keyProperty="accommodationPaymentCancelCode" resultType="String" order="BEFORE">
+ 			SELECT 
+				(CASE 
+					WHEN COUNT(accomodation_payment_cancel_code) = 0 THEN 'apcc001'
+					WHEN MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code, 'apcc', -1) AS UNSIGNED)) > 999
+						THEN CONCAT('apcc', MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code,'apcc',-1) AS UNSIGNED))+1)
+					ELSE CONCAT('apcc', LPAD(MAX(CAST(SUBSTRING_INDEX(accomodation_payment_cancel_code,'apcc',-1) AS UNSIGNED))+1,3,0))
+				 END
+				)AS accommodationPaymentCancelCode
+			FROM
+				accomodation_payment_cancel			
+		</selectKey>
+		INSERT INTO accomodation_payment_cancel
+			(accomodation_payment_cancel_code 
+			,accomodation_payment_number
+			,id
+			,accomodation_reservation_number 
+			,accomodation_payment_cancel_datetime 
+			,accomodation_payment_cancel_reason
+			,accomodation_payment_cancel_approval
+			,accomodation_payment_cancel_approval_datetime)
+		VALUES 
+			( #{accommodationPaymentCancelCode}
+			 ,#{accommodationPaymentCode}
+			 ,'id001'
+			 ,(SELECT
+					p.accomodation_reservation_number
+				FROM
+					accomodation_payment AS p
+				WHERE 
+					p.accomodation_payment_number = #{accommodationPaymentCode})
+			 ,NOW()
+			 ,'관리자취소'
+			 ,'Y'
+			 ,NOW()
+			 );
+	</insert>
+	
+	<!-- 숙소 결제내역 조회 -->
+	<select id="getAccommodationPayment" resultType="AccommodationPayment">
+		SELECT 
+			 p.accomodation_payment_number			AS accommodationPaymentCode		
+			,p.accomodation_reservation_number 		AS accommodationReservationNumber		
+			,p.personal_member_code					AS personalMemberCode								
+			,p.accomodation_payment_term			AS accommodationPaymentTerm		 	
+			,p.accomodation_payment_date			AS accommodationPaymentDate
+			,p.accomodation_mothly_payment			AS accommodationMothlyPayment
+			,p.accomodation_payment_bank			AS accommodationPaymentBank
+			,p.purchased_point						AS purchasedPoint
+		FROM 
+			accomodation_payment AS p
+		WHERE
+			p.accomodation_payment_number = #{accommodationPaymentCode};
+	</select>
+	
+	<!-- 숙소 결제취소 승인 -->
+	<update id="updatePaymentCancel" parameterType="AccommodationPaymentCancel">
+		UPDATE 
+			accomodation_payment_cancel
+		<trim prefix="SET">
+			accomodation_payment_cancel_approval ='Y'
+		</trim>
+		WHERE 
+			accomodation_payment_cancel_code= #{accommodationPaymentCancelCode};
+	</update>
+	
+	<!-- 숙소 예약내역 삭제 -->
+	<update id="removeReservationList" parameterType="AccommodationReservationList">
+		UPDATE 
+			accomodation_reservation
+		<trim prefix="SET">
+			reservation_delete = 1
+		</trim>
+		WHERE
+			accomodation_reservation_number = #{accommodationReservationCode};
+	</update>
+	
+	<!-- 숙소 예약내역 조회  -->
+	<select id="reservationList" resultType="AccommodationReservationList">
+	SELECT 
+		 r.accomodation_reservation_number 		AS accommodationReservationCode
+		,r.accomodation_detail_code				AS accommodationDetailCode
+		,r.goods_accomodation_option_code		AS goodsAccommodationOptionCode
+		,r.id 									AS id
+		,r.accomodation_date 					AS reservationDatetime					
+		,r.checkin_date 						AS checkinDatetime		
+		,r.checkout_date 						AS checkoutDatetime				
+		,r.reservation_people 					AS totalNumber	
+		,r.payment_amount						AS paymentAmount	
+		,r.using_point 							AS usingPoint							
+		,r.total_payment_price 					AS totalPaymentPrice
+		,p.accomodation_payment_number			AS accommodationPaymentCode
+		,c.accomodation_payment_cancel_code		AS accommodationPaymentCancelCode
+		,c.accomodation_payment_cancel_approval	AS accommodationPaymentCancelApproval								
+	FROM
+		accomodation_reservation AS r
+		LEFT OUTER JOIN
+		accomodation_payment AS p
+		ON 
+		r.accomodation_reservation_number = p.accomodation_reservation_number
+		LEFT OUTER JOIN
+		accomodation_payment_cancel AS c
+		ON 
+		c.accomodation_reservation_number = r.accomodation_reservation_number
+	WHERE
+		r.reservation_delete = 0;
+	</select>
+	
+	<!-- 숙소 문의사항 삭제 -->
+	<delete id="removeInquiry" parameterType="String">
+		DELETE
+		FROM
+		 accomodation_QnA
+		WHERE 
+		 accomodation_QnA_number = #{accommodationQnaNumber};
+	</delete>
+	
+	<!-- 숙소 문의사항 답변 수정 -->
+	<update id="modifyInquiry" parameterType="AccommodationInquiry">
+		UPDATE accomodation_QnA
+		<trim prefix="SET" prefixOverrides=",">
+			<if test="answer != null and answer != ''">
+				,accomodation_QnA_answer = #{answer}
+			</if>
+			,accomodation_QnA_answer_datetime=NOW()
+		</trim>
+	WHERE 
+		accomodation_QnA_number = #{accommodationQnaNumber};
+	</update>
+	
+	<!-- 숙소 문의사항 답변 조회 -->
+	<select id="inquiryAnswerSelect" resultType="AccommodationInquiry">
+		SELECT 
+			 accomodation_QnA_number	AS accommodationQnaNumber
+			,accomodation_QnA_answer	AS answer
+		FROM 
+			accomodation_QnA
+		WHERE 
+			accomodation_QnA_number = #{accommodationQnaNumber};
+	</select>
+	
+	<!-- 숙소 문의사항 목록 조회 -->
+	<select id="inquiryList" resultType="AccommodationInquiry">
+		SELECT
+			q.accomodation_QnA_number					AS accommodationQnaNumber
+			,m.company_name								AS companyName
+			,q.id										AS inquiryId
+			,q.accomodation_QnA_title					AS titleName
+			,q.accomodation_QnA_datetime				AS datetime
+			,d.id										AS answerId
+			,q.accomodation_QnA_answer_datetime			AS answerDatetime
+			,q.accomodation_QnA_contents				AS contents
+			,q.accomodation_QnA_answer					AS answer
+			,q.accomodation_QnA_number					AS inquiryCode
+		FROM
+			accomodation_QnA AS q
+			INNER JOIN
+			accomodation_detail AS d
+			ON 
+			q.accomodation_detail_code = d.accomodation_detail_code
+			INNER JOIN
+			company_member AS m
+			ON
+			d.company_member_code = m.company_member_code;
+	</select>
+	
+	<!-- 특정 숙소 카테고리 조회  -->
+	<select id="getCategoryInfo" resultMap="accommodationCategory" parameterType="String">
+		SELECT 
+			 accomodation_category_code 
+			,id
+			,accomodation_category_name 
+			,registration_datetime
+		FROM
+			accomodation_category
+		WHERE 
+			accomodation_category_code = #{accommodationCategoryCode};
+	</select>	
+	
+	<!-- 숙소 카테고리 삭제 -->
+	<delete id="removeCategory" parameterType="String">
+		DELETE 
+		FROM 
+			accomodation_category
+		WHERE
+			accomodation_category_code = #{accommodationCategoryCode};
+	</delete>
+	
+	<!-- 숙소 카테고리 수정 -->
+	<update id="updateCategory" parameterType="AccommodationCategory">
+		UPDATE accomodation_category
+		<trim prefix="SET">
+			<if test="accommodationCategoryName != null and accommodationCategoryName != ''">
+				accomodation_category_name	= #{accommodationCategoryName}
+			</if>
+		</trim>
+		WHERE
+			accomodation_category_code= #{accommodationCategoryCode};
+	</update>
+	
+	<!-- 숙소 카테고리 등록 -->
+	<insert id="insertCategory" parameterType="AccommodationCategory">
+		<selectKey keyProperty="accommodationCategoryCode" resultType="String" order="BEFORE">
+ 			SELECT 
+				(CASE 
+					WHEN COUNT(c.accomodation_category_code) = 0 THEN 'acc001'
+					WHEN MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code, 'acc', -1) AS UNSIGNED)) > 999
+						THEN CONCAT('acc', MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'acc',-1) AS UNSIGNED))+1)
+					ELSE CONCAT('acc', LPAD(MAX(CAST(SUBSTRING_INDEX(c.accomodation_category_code,'acc',-1) AS UNSIGNED))+1,3,0))
+				 END
+				)AS accommodationCategoryCode
+			FROM
+				accomodation_category AS c			
+		</selectKey>	
+		INSERT INTO accomodation_category
+			(accomodation_category_code, 
+			 id, 
+			 accomodation_category_name, 
+			 registration_datetime)
+		VALUES 
+			(#{accommodationCategoryCode}, 
+			 'id001', 
+			 #{accommodationCategoryName}, 
+			 NOW());
+	</insert>
+	
+	<!-- 숙소 카테고리 목록 조회 -->
+	<select id="categoryList" resultMap="accommodationCategory">
+		SELECT 
+			accomodation_category_code, 
+			id, 
+			accomodation_category_name, 
+			registration_datetime
+		FROM 
+			accomodation_category;
+	</select>
+  </mapper>
