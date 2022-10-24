@@ -11,7 +11,7 @@ public class MainController {
 		return"main";
 	}
 	
-	@GetMapping("index")
+	@GetMapping("/index")
 	public String home(Model model) {
 		return"admin/index";
 	}
