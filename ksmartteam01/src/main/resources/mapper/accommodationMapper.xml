@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="anypet.ks44team01.mapper.AccommodationMapper">
+  <mapper namespace="anypet.ksmartteam01.mapper.AccommodationMapper">
 	<resultMap 	type="AccommodationCategory" id="accommodationCategory">
 		<id		column="accomodation_category_code" property="accommodationCategoryCode"/>
 		<result	column="id" 						property="accommodationId"/>
