@@ -45,8 +45,8 @@ public class GoodsServiceOsj {
 		return cart;
 	}
 	//장바구니 -> 주문상세로 insert
-	public void goodsOrderDetailInsert(List<Cart> cart){
-		goodsMapper.goodsOrderDetailInsert(cart);
+	public void goodsOrderDetailAdd(List<Cart> cart){
+		goodsMapper.goodsOrderDetailAdd(cart);
 	}
 	//장바구니 수량 수정
 	//public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){
@@ -55,9 +55,9 @@ public class GoodsServiceOsj {
 	//}
 	
 	// 상품 결제/주문정보 입력
-		public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
+		public void goodsPaymentInfoAdd(GoodsOrder goodsOrder){
 			
-			int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
+			int result = goodsMapper.goodsPaymentInfoAdd(goodsOrder);
 			
 			System.out.println("상품 결제/주문정보 조회: " + result);
 		}
@@ -82,9 +82,9 @@ public class GoodsServiceOsj {
 	}
 	
 	//상품대분류등록
-	public void goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
+	public void goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory) {
 		
-		int result = goodsMapper.goodsLargeCategoryInsert(goodsLargeCategory);
+		int result = goodsMapper.goodsLargeCategoryAdd(goodsLargeCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
@@ -111,9 +111,9 @@ public class GoodsServiceOsj {
 	}
 	
 	//상품중분류등록
-	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+	public void goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
 		
-		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
+		int result = goodsMapper.goodsMediumCategoryAdd(goodsMediumCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}

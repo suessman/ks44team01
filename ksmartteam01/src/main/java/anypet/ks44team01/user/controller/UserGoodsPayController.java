@@ -32,7 +32,7 @@ public class UserGoodsPayController {
 	@PostMapping("/goodsPay")
 	public String goodsPay(GoodsOrder goodsOrder) {
 		
-		goodsService.goodsPaymentInfoInsert(goodsOrder);
+		goodsService.goodsPaymentInfoAdd(goodsOrder);
 		
 		return "redirect:/user/goods/goodsOrderListDetail";
 	}
@@ -81,9 +81,9 @@ public class UserGoodsPayController {
 	 * 장바구니 -> 주문상세에 입력
 	 */
 	@PostMapping("/goodsCartList/")
-	public String goodsOrderDetailInsert(@RequestParam(value="checks[]", required=false, defaultValue="") List<Cart> cart) {
+	public String goodsOrderDetailAdd(@RequestParam(value="checks[]", required=false, defaultValue="") List<Cart> cart) {
 		
-		goodsService.goodsOrderDetailInsert(cart);
+		goodsService.goodsOrderDetailAdd(cart);
 		
 		return "redirect:/user/goods/goodsPay";
 	}

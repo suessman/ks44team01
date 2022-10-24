@@ -26,7 +26,7 @@ public interface GoodsMapperOsj {
 	
 	//사용자
 	//상품 결제/주문정보 입력
-	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
+	public int goodsPaymentInfoAdd(GoodsOrder goodsOrder);
 	//상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
 	public Member getMemberInfoById(String memberId);
 	//상품 결제페이지 특정회원의 아이디와 주문 상세 조회
@@ -34,7 +34,7 @@ public interface GoodsMapperOsj {
 	//장바구니 조회
 	public List<Map<String,Object>> getCartById(String memberId);
 	//장바구니->주문상세에 입력
-	public int goodsOrderDetailInsert(List<Cart> cart);
+	public int goodsOrderDetailAdd(List<Cart> cart);
 	//장바구니 수량수정
 	//public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
 	
@@ -42,7 +42,7 @@ public interface GoodsMapperOsj {
 	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList();
 	//상품대분류등록
-	public int goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory);
+	public int goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory);
 	//상품대분류수정
 	public int goodsLargeCategoryModify(GoodsLargeCategory goodsLargeCategory);
 	//특정대분류정보조회
@@ -52,7 +52,7 @@ public interface GoodsMapperOsj {
 	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList();
 	//상품중분류등록
-	public int goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory);
+	public int goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory);
 	//상품중분류수정
 	public int goodsMediumCategoryModify(GoodsMediumCategory goodsMediumCategory);
 	//특정중분류정보조회

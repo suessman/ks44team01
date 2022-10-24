@@ -55,14 +55,14 @@ public class AdminGoodsPayController {
 		 * 상품 대분류 등록
 		 */	
 		@GetMapping("/goodsLargeCategoryInsert")
-		public String goodsLargeCategoryInsertForm() {
+		public String goodsLargeCategoryAdd() {
 			
 			return "/admin/goods/goodsLargeCategoryInsert";
 		}
 		@PostMapping("/goodsLargeCategoryInsert")
-		public String goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
+		public String goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory) {
 			
-			goodsService.goodsLargeCategoryInsert(goodsLargeCategory);
+			goodsService.goodsLargeCategoryAdd(goodsLargeCategory);
 			
 			return "redirect:/admin/goods/goodsLargeCategoryList";
 		}
@@ -116,14 +116,14 @@ public class AdminGoodsPayController {
 		 * 상품 중분류 등록
 		 */	
 		@GetMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsertForm() {
+		public String goodsMediumCategoryAdd() {
 			
 			return "/admin/goods/goodsMediumCategoryInsert";
 		}
-		@PostMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+		@PostMapping("/goodsMediumCategoryAdd")
+		public String goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
 			
-			goodsService.goodsMediumCategoryInsert(goodsMediumCategory);
+			goodsService.goodsMediumCategoryAdd(goodsMediumCategory);
 			
 			return "redirect:/admin/goods/goodsMediumCategoryList";
 		}
