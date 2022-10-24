@@ -1,4 +1,4 @@
-package anypet.ksmartteam01;
+package anypet.ks44team01;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
