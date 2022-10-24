@@ -14,7 +14,6 @@ import anypet.ks44team01.dto.AccommodationList;
 import anypet.ks44team01.dto.CompanyMember;
 import anypet.ks44team01.dto.Region;
 import anypet.ks44team01.service.AccommodationListService;
-import anypet.ks44team01.service.FileService;
 
 
 
@@ -24,11 +23,9 @@ public class AdminAccommodationListController {
 	
 	
 	private AccommodationListService accommodationListService;
-	private FileService fileService;
 	
-	public AdminAccommodationListController(AccommodationListService accommodationListService, FileService fileService) {
+	public AdminAccommodationListController(AccommodationListService accommodationListService) {
 		this.accommodationListService = accommodationListService;
-		this.fileService = fileService;		
 	}
 	
 	
