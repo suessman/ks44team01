@@ -54,17 +54,17 @@ public class AdminGoodsPayController {
 		/**
 		 * 상품 대분류 등록
 		 */	
-		@GetMapping("/goodsLargeCategoryInsert")
+		@GetMapping("/goodsLargeCategoryAdd")
 		public String goodsLargeCategoryAdd() {
 			
-			return "/admin/goods/goodsLargeCategoryInsert";
+			return "/admin/goods/goodsLargeCategoryAdd";
 		}
-		@PostMapping("/goodsLargeCategoryInsert")
+		@PostMapping("/goodsLargeCategoryAdd")
 		public String goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory) {
 			
 			goodsService.goodsLargeCategoryAdd(goodsLargeCategory);
 			
-			return "redirect:/admin/goods/goodsLargeCategoryList";
+			return "redirect:/admin/goods/goodsLargeCategoryAdd";
 		}
 		
 		/**
@@ -115,7 +115,7 @@ public class AdminGoodsPayController {
 		/**
 		 * 상품 중분류 등록
 		 */	
-		@GetMapping("/goodsMediumCategoryInsert")
+		@GetMapping("/goodsMediumCategoryAdd")
 		public String goodsMediumCategoryAdd() {
 			
 			return "/admin/goods/goodsMediumCategoryInsert";
