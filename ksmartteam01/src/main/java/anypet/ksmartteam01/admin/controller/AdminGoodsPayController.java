@@ -56,7 +56,7 @@ public class AdminGoodsPayController {
 		 */	
 		@GetMapping("/goodsLargeCategoryAdd")
 		public String goodsLargeCategoryAdd() {
-			
+				
 			return "/admin/goods/goodsLargeCategoryAdd";
 		}
 		@PostMapping("/goodsLargeCategoryAdd")
@@ -81,7 +81,7 @@ public class AdminGoodsPayController {
 			
 			return "redirect:/admin/goods/goodsMediumCategoryList";
 		}
-		//ajax 활용
+		//ajax 활용 상품 대분류 선택 셀렉트 박스
 		@GetMapping("/getLargeCategoryList")
 		@ResponseBody
 			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
