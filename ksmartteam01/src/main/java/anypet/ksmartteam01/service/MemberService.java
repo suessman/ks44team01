@@ -34,6 +34,10 @@ public class MemberService {
 		  int result = memberMapper.removeMember(member);
 		  return result;
 	  }
+	public void addMember(Member member) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	/*
 	 * public void modifyMember(Member member) { // TODO Auto-generated method stub
