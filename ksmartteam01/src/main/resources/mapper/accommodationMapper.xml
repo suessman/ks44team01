@@ -155,16 +155,16 @@
 	SELECT 
 		 r.accommodation_reservation_number 		AS accommodationReservationCode
 		,r.accommodation_detail_code				AS accommodationDetailCode
-		,r.goods_accommodation_option_code		AS goodsAccommodationOptionCode
-		,r.id 									AS id
-		,r.accommodation_date 					AS reservationDatetime					
-		,r.checkin_date 						AS checkinDatetime		
-		,r.checkout_date 						AS checkoutDatetime				
-		,r.reservation_people 					AS totalNumber	
-		,r.payment_amount						AS paymentAmount	
-		,r.using_point 							AS usingPoint							
-		,r.total_payment_price 					AS totalPaymentPrice
-		,p.accommodation_payment_number			AS accommodationPaymentCode
+		,r.goods_accommodation_option_code			AS goodsAccommodationOptionCode
+		,r.id 										AS id
+		,r.accommodation_date 						AS reservationDatetime					
+		,r.checkin_date 							AS checkinDatetime		
+		,r.checkout_date 							AS checkoutDatetime				
+		,r.reservation_people 						AS totalNumber	
+		,r.payment_amount							AS paymentAmount	
+		,r.using_point 								AS usingPoint							
+		,r.total_payment_price 						AS totalPaymentPrice
+		,p.accommodation_payment_number				AS accommodationPaymentCode
 		,c.accommodation_payment_cancel_code		AS accommodationPaymentCancelCode
 		,c.accommodation_payment_cancel_approval	AS accommodationPaymentCancelApproval								
 	FROM
