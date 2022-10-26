@@ -51,12 +51,12 @@
 				                    	<thead>
 				                        	<tr>
 				                          		<th>답변여부</th>
+					                          	<th>수정 및 삭제</th>
 				                          		<th>숙소명</th>
 				                         		<th>문의자ID</th>
 				                          		<th>문의제목</th>
 				                          		<th>문의내용</th>
 					                          	<th>작성날짜</th>
-					                          	<th></th>
 					                          	<th>답변자ID</th>
 					                          	<th>답변내용</th>
 					                          	<th>답변날짜</th>
@@ -68,16 +68,16 @@
 				                          			<div th:if="${l.answer == null}" style="color: blue;">미답변</div>
 				                          			<div th:unless="${l.answer == null}">답변완료</div>
 				                          		</td>
-				                          		<td th:text="${l.companyName}"></td>
-				                          		<td th:text="${l.inquiryId}"></td>
-					                          	<td th:text="${l.titleName}"></td>
-					                          	<td th:text="${l.contents}"></td>
-					                          	<td th:text="${l.datetime}"></td>
 					                          	<td>
 							                    	<button class="accomModifyBtn" type="button" th:if="${l.answer != null}" th:value="${l.accommodationQnaNumber}">수정</button>
 							                    	<button class="accomModifyBtn" type="button" th:unless="${l.answer != null}" th:value="${l.accommodationQnaNumber}">등록</button>
 						                        	<button class="accomDeleteBtn" th:value="${l.accommodationQnaNumber}" type="button" data-toggle="modal" data-target="#exampleModal">삭제</button>
 					                          	</td>
+				                          		<td th:text="${l.companyName}"></td>
+				                          		<td th:text="${l.inquiryId}"></td>
+					                          	<td th:text="${l.titleName}"></td>
+					                          	<td th:text="${l.contents}"></td>
+					                          	<td th:text="${l.datetime}"></td>
 					                          	<td>
 					                          		<div th:if="${l.answer != null}" th:text="${l.answerId}"></div>
 					                          	</td>
