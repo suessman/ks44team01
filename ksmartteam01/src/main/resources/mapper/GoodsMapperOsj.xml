@@ -23,7 +23,7 @@
 		</select>
 		
 		<!-- 대분류등록 -->
-		<insert id="goodsLargeCategoryInsert" parameterType="GoodsLargeCategory">
+		<insert id="goodsLargeCategoryAdd" parameterType="GoodsLargeCategory">
 		<selectKey keyProperty="categoryCode" resultType="String" order="BEFORE">
 			SELECT
 				(CASE 
@@ -89,7 +89,7 @@
 	
 	
 	<!--중분류등록-->
-		<insert id="goodsMediumCategoryInsert" parameterType="GoodsMediumCategory">
+		<insert id="goodsMediumCategoryAdd" parameterType="GoodsMediumCategory">
 			<selectKey keyProperty="categoryCodeSub" resultType="String" order="BEFORE">
 				SELECT
 					(CASE 

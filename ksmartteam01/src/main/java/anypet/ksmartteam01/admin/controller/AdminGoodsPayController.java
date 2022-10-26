@@ -64,7 +64,34 @@ public class AdminGoodsPayController {
 			
 			goodsService.goodsLargeCategoryAdd(goodsLargeCategory);
 			
-			return "redirect:/admin/goods/goodsLargeCategoryAdd";
+			return "redirect:/admin/goods/goodsLargeCategoryList";
+		}
+		/**
+		 * 상품 중분류 등록
+		 */	
+		@GetMapping("/goodsMediumCategoryAdd")
+		public String goodsMediumCategoryAdd() {
+			
+			return "/admin/goods/goodsMediumCategoryAdd";
+		}
+		@PostMapping("/goodsMediumCategoryAdd")
+		public String goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
+			
+			goodsService.goodsMediumCategoryAdd(goodsMediumCategory);
+			
+			return "redirect:/admin/goods/goodsMediumCategoryList";
+		}
+		//ajax 활용
+		@GetMapping("/getLargeCategoryList")
+		@ResponseBody
+			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
+							
+			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
+							
+			model.addAttribute("title", "상품대분류목록");
+			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
+							
+			return goodsLargeCategoryList;
 		}
 		
 		/**
@@ -112,33 +139,7 @@ public class AdminGoodsPayController {
 			return "/admin/goods/goodsMediumCategoryModify";
 		}
 		
-		/**
-		 * 상품 중분류 등록
-		 */	
-		@GetMapping("/goodsMediumCategoryAdd")
-		public String goodsMediumCategoryAdd() {
-			
-			return "/admin/goods/goodsMediumCategoryInsert";
-		}
-		@PostMapping("/goodsMediumCategoryAdd")
-		public String goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
-			
-			goodsService.goodsMediumCategoryAdd(goodsMediumCategory);
-			
-			return "redirect:/admin/goods/goodsMediumCategoryList";
-		}
-		//ajax 활용
-		@GetMapping("/getLargeCategoryList")
-		@ResponseBody
-			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
-							
-			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
-							
-			model.addAttribute("title", "상품대분류목록");
-			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
-							
-			return goodsLargeCategoryList;
-		}
+		
 		
 
 
