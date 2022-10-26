@@ -14,15 +14,15 @@ import anypet.ksmartteam01.dto.GoodsMediumCategory;
 import anypet.ksmartteam01.dto.GoodsOrder;
 import anypet.ksmartteam01.dto.GoodsOrderDetail;
 import anypet.ksmartteam01.dto.Member;
-import anypet.ksmartteam01.mapper.GoodsMapperOsj;
+import anypet.ksmartteam01.mapper.GoodsMapperPay;
 
 @Service
 @Transactional
-public class GoodsServiceOsj {
+public class GoodsServicePay {
 	
-	private final GoodsMapperOsj goodsMapper;
+	private final GoodsMapperPay goodsMapper;
 	
-	public GoodsServiceOsj(GoodsMapperOsj goodsMapper) {
+	public GoodsServicePay(GoodsMapperPay goodsMapper) {
 		this.goodsMapper = goodsMapper;
 
 	}
@@ -101,6 +101,13 @@ public class GoodsServiceOsj {
 		
 		return goodsLargeCategory;
 	}
+	//상품 대분류 삭제
+	public int removeGoodsLargeCategory(String goodsLargeCategoryCode) {
+		
+		int result = goodsMapper.removeGoodsLargeCategory(goodsLargeCategoryCode);
+		
+		return result;
+	}
 	
 	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList(){
@@ -129,6 +136,13 @@ public class GoodsServiceOsj {
 		GoodsMediumCategory goodsMediumCategory = goodsMapper.getMediumCategoryInfoByCategoryCodeSub(categoryCodeSub);
 		
 		return goodsMediumCategory;
+	}
+	//상품 중분류 삭제
+	public int removeGoodsMediumCategory(String goodsMediumCategoryCode) {
+		
+		int result = goodsMapper.removeGoodsMediumCategory(goodsMediumCategoryCode);
+		
+		return result;
 	}
 	
 	

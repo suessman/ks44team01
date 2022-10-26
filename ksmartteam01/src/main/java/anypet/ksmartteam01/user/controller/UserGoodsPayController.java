@@ -14,15 +14,15 @@ import anypet.ksmartteam01.dto.Cart;
 import anypet.ksmartteam01.dto.GoodsOrder;
 import anypet.ksmartteam01.dto.GoodsOrderDetail;
 import anypet.ksmartteam01.dto.Member;
-import anypet.ksmartteam01.service.GoodsServiceOsj;
+import anypet.ksmartteam01.service.GoodsServicePay;
 
 @Controller
 @RequestMapping("/user/goods")
 public class UserGoodsPayController {
 	
-	private final GoodsServiceOsj goodsService;
+	private final GoodsServicePay goodsService;
 	
-	public UserGoodsPayController(GoodsServiceOsj goodsService) {
+	public UserGoodsPayController(GoodsServicePay goodsService) {
 		this.goodsService = goodsService;
 	}
 	

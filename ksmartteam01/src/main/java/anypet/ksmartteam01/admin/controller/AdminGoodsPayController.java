@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import anypet.ksmartteam01.dto.GoodsLargeCategory;
 import anypet.ksmartteam01.dto.GoodsMediumCategory;
-import anypet.ksmartteam01.service.GoodsServiceOsj;
+import anypet.ksmartteam01.service.GoodsServicePay;
 
 @Controller
 @RequestMapping("/admin/goods")
 public class AdminGoodsPayController {
 	
-		private final GoodsServiceOsj goodsService;
+		private final GoodsServicePay goodsService;
 		
-		public AdminGoodsPayController(GoodsServiceOsj goodsService) {
+		public AdminGoodsPayController(GoodsServicePay goodsService) {
 			this.goodsService = goodsService;
 		}
 
@@ -139,7 +139,32 @@ public class AdminGoodsPayController {
 			return "/admin/goods/goodsMediumCategoryModify";
 		}
 		
+		/**
+		 * 숙소 대분류 카테고리 삭제
+		 * */
+		@GetMapping("/deleteGoodsLargeCategory")
+		public String removeGoodsLargeCategory(@RequestParam(name="categoryCode") String goodsLargeCategoryCode) {
 		
+			goodsService.removeGoodsLargeCategory(goodsLargeCategoryCode);
+			
+			System.out.println("카테고리 삭제 정보: " + goodsLargeCategoryCode);
+			
+			return "redirect:/admin/goods/goodsLargeCategoryList";
+		}
+		
+		/**
+		 * 숙소 중분류 카테고리 삭제
+		 * */
+		@GetMapping("/deleteGoodsMediumCategory")
+		public String removeGoodsMediumCategory(@RequestParam(name="categoryCodeSub")String goodsMediumCategoryCode) {
+		
+			goodsService.removeGoodsMediumCategory(goodsMediumCategoryCode);
+			
+			System.out.println("카테고리 삭제 정보: " + goodsMediumCategoryCode);
+			
+			return "redirect:/admin/goods/goodsMediumCategoryList";
+		}
+
 		
 
 
