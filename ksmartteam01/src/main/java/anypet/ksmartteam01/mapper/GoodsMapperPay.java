@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import anypet.ksmartteam01.dto.Cart;
 import anypet.ksmartteam01.dto.GoodsLargeCategory;
 import anypet.ksmartteam01.dto.GoodsMediumCategory;
 import anypet.ksmartteam01.dto.GoodsOrder;
@@ -12,7 +13,7 @@ import anypet.ksmartteam01.dto.GoodsOrderDetail;
 import anypet.ksmartteam01.dto.Member;
 
 @Mapper
-public interface GoodsMapperOsj {
+public interface GoodsMapperPay {
 	
 	//Mybatis 매핑XML에 기재된 SQL을 호출하기 위한 인터페이스이다. Mybatis3.0부터 생겼다.
 	//Mapper -> dao 역할
@@ -25,15 +26,17 @@ public interface GoodsMapperOsj {
 	
 	//사용자
 	//상품 결제/주문정보 입력
-	public int goodsPaymentInfoInsert(GoodsOrder goodsOrder);
+	public int goodsPaymentInfoAdd(GoodsOrder goodsOrder);
 	//상품 결제페이지 배송지 조회를 위한 특정회원 정보 조회
 	public Member getMemberInfoById(String memberId);
 	//상품 결제페이지 특정회원의 아이디와 주문 상세 조회
 	public List<Map<String,Object>> getGoodsOrderDetailByIdAndDatetime(String memberId, String orderRegisterTime);
 	//장바구니 조회
 	public List<Map<String,Object>> getCartById(String memberId);
-	//장바구니->주문상세에 입력
-	public int goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail);
+	//장바구니->주문상세에 입력(선택된 상품)
+	public int goodsOrderDetailAdd(List<Cart> cart);
+	//장바구니->주문상세에 입력(코드)
+	public int goodsOrderDetailAddGoodsOrderCode(List<Cart> cart);  
 	//장바구니 수량수정
 	//public int modifyCartCount(GoodsOrderDetail goodsOrderDetail);
 	
@@ -41,19 +44,22 @@ public interface GoodsMapperOsj {
 	//상품대분류목록조회
 	public List<GoodsLargeCategory> getGoodsLargeCategoryList();
 	//상품대분류등록
-	public int goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory);
+	public int goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory);
 	//상품대분류수정
 	public int goodsLargeCategoryModify(GoodsLargeCategory goodsLargeCategory);
 	//특정대분류정보조회
 	public GoodsLargeCategory getLargeCategoryInfoByCategoryCode(String categoryCode);
-	
+	//대분류 삭제
+	public int removeGoodsLargeCategory(String goodsLargeCategoryCode);
 	
 	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList();
 	//상품중분류등록
-	public int goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory);
+	public int goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory);
 	//상품중분류수정
 	public int goodsMediumCategoryModify(GoodsMediumCategory goodsMediumCategory);
 	//특정중분류정보조회
 	public GoodsMediumCategory getMediumCategoryInfoByCategoryCodeSub(String categoryCodeSub);
+	//중분류 삭제
+	public int removeGoodsMediumCategory(String goodsMediumCategoryCode);
 }

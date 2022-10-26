@@ -8,20 +8,21 @@ import javax.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import anypet.ksmartteam01.dto.Cart;
 import anypet.ksmartteam01.dto.GoodsLargeCategory;
 import anypet.ksmartteam01.dto.GoodsMediumCategory;
 import anypet.ksmartteam01.dto.GoodsOrder;
 import anypet.ksmartteam01.dto.GoodsOrderDetail;
 import anypet.ksmartteam01.dto.Member;
-import anypet.ksmartteam01.mapper.GoodsMapperOsj;
+import anypet.ksmartteam01.mapper.GoodsMapperPay;
 
 @Service
 @Transactional
-public class GoodsServiceOsj {
+public class GoodsServicePay {
 	
-	private final GoodsMapperOsj goodsMapper;
+	private final GoodsMapperPay goodsMapper;
 	
-	public GoodsServiceOsj(GoodsMapperOsj goodsMapper) {
+	public GoodsServicePay(GoodsMapperPay goodsMapper) {
 		this.goodsMapper = goodsMapper;
 
 	}
@@ -44,8 +45,8 @@ public class GoodsServiceOsj {
 		return cart;
 	}
 	//장바구니 -> 주문상세로 insert
-	public void goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail){
-		goodsMapper.goodsOrderDetailInsert(goodsOrderDetail);
+	public void goodsOrderDetailAdd(List<Cart> cart){
+		goodsMapper.goodsOrderDetailAdd(cart);
 	}
 	//장바구니 수량 수정
 	//public void modifyCartCount(GoodsOrderDetail goodsOrderDetail){
@@ -54,9 +55,9 @@ public class GoodsServiceOsj {
 	//}
 	
 	// 상품 결제/주문정보 입력
-		public void goodsPaymentInfoInsert(GoodsOrder goodsOrder){
+		public void goodsPaymentInfoAdd(GoodsOrder goodsOrder){
 			
-			int result = goodsMapper.goodsPaymentInfoInsert(goodsOrder);
+			int result = goodsMapper.goodsPaymentInfoAdd(goodsOrder);
 			
 			System.out.println("상품 결제/주문정보 조회: " + result);
 		}
@@ -81,9 +82,9 @@ public class GoodsServiceOsj {
 	}
 	
 	//상품대분류등록
-	public void goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
+	public void goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory) {
 		
-		int result = goodsMapper.goodsLargeCategoryInsert(goodsLargeCategory);
+		int result = goodsMapper.goodsLargeCategoryAdd(goodsLargeCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
@@ -100,6 +101,13 @@ public class GoodsServiceOsj {
 		
 		return goodsLargeCategory;
 	}
+	//상품 대분류 삭제
+	public int removeGoodsLargeCategory(String goodsLargeCategoryCode) {
+		
+		int result = goodsMapper.removeGoodsLargeCategory(goodsLargeCategoryCode);
+		
+		return result;
+	}
 	
 	//상품중분류목록조회
 	public List<GoodsMediumCategory> getGoodsMediumCategoryList(){
@@ -110,9 +118,9 @@ public class GoodsServiceOsj {
 	}
 	
 	//상품중분류등록
-	public void goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+	public void goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
 		
-		int result = goodsMapper.goodsMediumCategoryInsert(goodsMediumCategory);
+		int result = goodsMapper.goodsMediumCategoryAdd(goodsMediumCategory);
 		
 		System.out.println("회원가입 결과 : " + result);
 	}
@@ -128,6 +136,13 @@ public class GoodsServiceOsj {
 		GoodsMediumCategory goodsMediumCategory = goodsMapper.getMediumCategoryInfoByCategoryCodeSub(categoryCodeSub);
 		
 		return goodsMediumCategory;
+	}
+	//상품 중분류 삭제
+	public int removeGoodsMediumCategory(String goodsMediumCategoryCode) {
+		
+		int result = goodsMapper.removeGoodsMediumCategory(goodsMediumCategoryCode);
+		
+		return result;
 	}
 	
 	

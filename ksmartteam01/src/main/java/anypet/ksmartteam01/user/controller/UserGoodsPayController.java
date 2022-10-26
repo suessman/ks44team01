@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import anypet.ksmartteam01.dto.Cart;
 import anypet.ksmartteam01.dto.GoodsOrder;
 import anypet.ksmartteam01.dto.GoodsOrderDetail;
 import anypet.ksmartteam01.dto.Member;
-import anypet.ksmartteam01.service.GoodsServiceOsj;
+import anypet.ksmartteam01.service.GoodsServicePay;
 
 @Controller
 @RequestMapping("/user/goods")
 public class UserGoodsPayController {
 	
-	private final GoodsServiceOsj goodsService;
+	private final GoodsServicePay goodsService;
 	
-	public UserGoodsPayController(GoodsServiceOsj goodsService) {
+	public UserGoodsPayController(GoodsServicePay goodsService) {
 		this.goodsService = goodsService;
 	}
 	
@@ -31,7 +32,7 @@ public class UserGoodsPayController {
 	@PostMapping("/goodsPay")
 	public String goodsPay(GoodsOrder goodsOrder) {
 		
-		goodsService.goodsPaymentInfoInsert(goodsOrder);
+		goodsService.goodsPaymentInfoAdd(goodsOrder);
 		
 		return "redirect:/user/goods/goodsOrderListDetail";
 	}
@@ -80,9 +81,9 @@ public class UserGoodsPayController {
 	 * 장바구니 -> 주문상세에 입력
 	 */
 	@PostMapping("/goodsCartList/")
-	public String goodsOrderDetailInsert(GoodsOrderDetail goodsOrderDetail) {
+	public String goodsOrderDetailAdd(@RequestParam(value="checks[]", required=false, defaultValue="") List<Cart> cart) {
 		
-		goodsService.goodsOrderDetailInsert(goodsOrderDetail);
+		goodsService.goodsOrderDetailAdd(cart);
 		
 		return "redirect:/user/goods/goodsPay";
 	}

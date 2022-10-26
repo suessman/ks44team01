@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import anypet.ksmartteam01.dto.GoodsLargeCategory;
 import anypet.ksmartteam01.dto.GoodsMediumCategory;
-import anypet.ksmartteam01.service.GoodsServiceOsj;
+import anypet.ksmartteam01.service.GoodsServicePay;
 
 @Controller
 @RequestMapping("/admin/goods")
 public class AdminGoodsPayController {
 	
-		private final GoodsServiceOsj goodsService;
+		private final GoodsServicePay goodsService;
 		
-		public AdminGoodsPayController(GoodsServiceOsj goodsService) {
+		public AdminGoodsPayController(GoodsServicePay goodsService) {
 			this.goodsService = goodsService;
 		}
 
@@ -54,17 +54,44 @@ public class AdminGoodsPayController {
 		/**
 		 * 상품 대분류 등록
 		 */	
-		@GetMapping("/goodsLargeCategoryInsert")
-		public String goodsLargeCategoryInsertForm() {
-			
-			return "/admin/goods/goodsLargeCategoryInsert";
+		@GetMapping("/goodsLargeCategoryAdd")
+		public String goodsLargeCategoryAdd() {
+				
+			return "/admin/goods/goodsLargeCategoryAdd";
 		}
-		@PostMapping("/goodsLargeCategoryInsert")
-		public String goodsLargeCategoryInsert(GoodsLargeCategory goodsLargeCategory) {
+		@PostMapping("/goodsLargeCategoryAdd")
+		public String goodsLargeCategoryAdd(GoodsLargeCategory goodsLargeCategory) {
 			
-			goodsService.goodsLargeCategoryInsert(goodsLargeCategory);
+			goodsService.goodsLargeCategoryAdd(goodsLargeCategory);
 			
 			return "redirect:/admin/goods/goodsLargeCategoryList";
+		}
+		/**
+		 * 상품 중분류 등록
+		 */	
+		@GetMapping("/goodsMediumCategoryAdd")
+		public String goodsMediumCategoryAdd() {
+			
+			return "/admin/goods/goodsMediumCategoryAdd";
+		}
+		@PostMapping("/goodsMediumCategoryAdd")
+		public String goodsMediumCategoryAdd(GoodsMediumCategory goodsMediumCategory) {
+			
+			goodsService.goodsMediumCategoryAdd(goodsMediumCategory);
+			
+			return "redirect:/admin/goods/goodsMediumCategoryList";
+		}
+		//ajax 활용 상품 대분류 선택 셀렉트 박스
+		@GetMapping("/getLargeCategoryList")
+		@ResponseBody
+			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
+							
+			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
+							
+			model.addAttribute("title", "상품대분류목록");
+			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
+							
+			return goodsLargeCategoryList;
 		}
 		
 		/**
@@ -113,32 +140,31 @@ public class AdminGoodsPayController {
 		}
 		
 		/**
-		 * 상품 중분류 등록
-		 */	
-		@GetMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsertForm() {
+		 * 숙소 대분류 카테고리 삭제
+		 * */
+		@GetMapping("/deleteGoodsLargeCategory")
+		public String removeGoodsLargeCategory(@RequestParam(name="categoryCode") String goodsLargeCategoryCode) {
+		
+			goodsService.removeGoodsLargeCategory(goodsLargeCategoryCode);
 			
-			return "/admin/goods/goodsMediumCategoryInsert";
+			System.out.println("카테고리 삭제 정보: " + goodsLargeCategoryCode);
+			
+			return "redirect:/admin/goods/goodsLargeCategoryList";
 		}
-		@PostMapping("/goodsMediumCategoryInsert")
-		public String goodsMediumCategoryInsert(GoodsMediumCategory goodsMediumCategory) {
+		
+		/**
+		 * 숙소 중분류 카테고리 삭제
+		 * */
+		@GetMapping("/deleteGoodsMediumCategory")
+		public String removeGoodsMediumCategory(@RequestParam(name="categoryCodeSub")String goodsMediumCategoryCode) {
+		
+			goodsService.removeGoodsMediumCategory(goodsMediumCategoryCode);
 			
-			goodsService.goodsMediumCategoryInsert(goodsMediumCategory);
+			System.out.println("카테고리 삭제 정보: " + goodsMediumCategoryCode);
 			
 			return "redirect:/admin/goods/goodsMediumCategoryList";
 		}
-		//ajax 활용
-		@GetMapping("/getLargeCategoryList")
-		@ResponseBody
-			public List<GoodsLargeCategory> getLargeCategoryList(Model model) {
-							
-			List<GoodsLargeCategory> goodsLargeCategoryList = goodsService.getGoodsLargeCategoryList();
-							
-			model.addAttribute("title", "상품대분류목록");
-			model.addAttribute("goodsLargeCategoryList", goodsLargeCategoryList);
-							
-			return goodsLargeCategoryList;
-		}
+
 		
 
 
