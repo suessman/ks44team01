@@ -48,4 +48,12 @@ public class UserMypageController {
 	public String accommodationDetail() {
 		return "/user/mypage/modifyMemberInformation";
 	}
+	
+	/**
+	 * 상품상세 페이지
+	 */
+	@GetMapping("/goodsDetail")
+	public String goodsDetail() {
+		return "/user/mypage/goodsDetail";
+	}
 }
