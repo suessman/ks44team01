@@ -48,17 +48,17 @@ public class AdminBoardController {
 	}
 	
 	/*
-	 * 특정 게시물 상세 조회
+	 * 특정 게시물 조회
 	 * @param model
 	 * @return
 	 * */
 	@GetMapping("/boardDetail")
 	public String getBoardDetail(@RequestParam(value="boardCode", required = false) String boardCode
 			  					 ,Model model) {
-		Board boardDetail = boardService.getBoardDetailByCode(boardCode);
+		Board boardDetail = boardService.getBoardInfo(boardCode);
         
-		log.info("게시판 상세 내용 ::: {}",boardDetail);
-		model.addAttribute("title", "특정 게시물 상세 내용");
+		log.info("특정 게시물 조회 ::: {}", boardDetail);
+		model.addAttribute("title", "특정 게시물 조회");
 		model.addAttribute("boardDetail", boardDetail);
 		
 		return "/admin/board/boardDetail";
@@ -72,6 +72,7 @@ public class AdminBoardController {
 	@GetMapping("/addBoard")
 	public String addBoard(Model model) {
 		List<Board> boardList = boardService.getBoardList();
+		
 		model.addAttribute("title", "게시물 등록");
 		model.addAttribute("boardList", boardList);
 		
@@ -86,9 +87,28 @@ public class AdminBoardController {
 		return "redirect:/admin/board/boardList";
 	}	
 	
+	/*
+	 * 게시물 수정
+	 * @param model
+	 * @return
+	 * */
 	@GetMapping("/modifyBoard")
-	public String modifyBoard() {
+	public String modifyBoard(@RequestParam(value="boardCode", required = false) String boardCode, Model model) {
+		//특정 게시물 정보
+		Board boardInfo = boardService.getBoardInfo(boardCode);			
+		List<Board> boardList = boardService.getBoardList();
+		model.addAttribute("boardInfo", boardInfo);
+		model.addAttribute("boardList", boardList);
+		
 		return "/admin/board/modifyBoard";
+	}
+	
+	@PostMapping("/modifyBoard")
+	public String modifyBoard(Board board) {
+		System.out.println("게시물 수정 정보: " + board);
+		boardService.modifyBoard(board);
+		
+		return "redirect:/admin/board/boardList";
 	}
 	
 	/*
