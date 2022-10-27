@@ -10,7 +10,7 @@
 	<th:block layout:fragment="customCss">
 	    <!-- Google Font -->
 	    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
-	    <!-- Css Styles -->
+	    <!-- Css Styles 
 	    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 	    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
 	    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
@@ -18,7 +18,23 @@
 	    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
 	    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
 	    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-	    <link rel="stylesheet" href="css/style.css" type="text/css">
+	    <link rel="stylesheet" href="css/style.css" type="text/css">-->
+	    <style>
+	    	.btn_width{
+	    	width:40%;
+	    	text-align: center;
+	    	}
+	    	button{
+	    	border: none;
+	    	}
+	    	.shoping__checkout{
+	    	margin: auto;
+	    	margin-top: 30px;
+	    	}
+	    	.mt{
+	    	margin-top: 30px;
+	    	}
+	    </style>
 	</th:block>
 	
 	<th:block layout:fragment="customContents">
@@ -43,78 +59,83 @@
 
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                    	<from>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th class="shoping__product">상품</th>
-                                    <th>가격</th>
-                                    <th>수량</th>
-                                    <th>총합</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:if="${not #lists.isEmpty(goodsOrderdetail)}" th:each="god : ${goodsOrderdetail}">
-                                    <td class="shoping__cart__item">
-                                        <img style="width:200px;" th:src="@{${god.goodsImage}}" alt="">
-                                        <h5 th:text="${god.goodsName}"></h5>
-                                    </td>
-                                    <td class="shoping__cart__price" th:text="${god.goodsPrice}">
-                                      	
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div><!-- class="pro-qty"-->
-                                            	<button style="width:15px" class="quantity_btn plus_btn">+</button>
-                                                <input style="width:30%" type="text" th:value="${god.orderQuantity}">
-                                                <button style="width:15px" class="quantity_btn minus_btn">-</button>
-                                            </div>
-                                            <a class="quantity_modify_btn" data-cartId="${ci.cartId}">변경</a>
-                                        </div>
-                                    </td>
-                                    <td class="shoping__cart__total" th:text="${god.orderPrice}">
-                                      	
-                                    </td>
-                                    <td class="shoping__cart__item__close">
-                                        <span class="icon_close"></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        </from>
-                    </div>
-                </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a th:href="@{/user/goods/goodsListUser}" class="primary-btn cart-btn">쇼핑계속하기</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                        	    장바구니 업데이트</a>
-                    </div>
-                </div>
-                <div style="float:right;" class="col-lg-6">
-                                   <div class="shoping__checkout">
-                        <h5>총 합</h5>
-                        <ul>
-                            <li>Total <span></span></li>
-                        </ul>
-                        <a th:href="@{/user/goods/goodsPay}" class="primary-btn">주문하기</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- 	<form th:action="@{/user/goods/goodsPay}" method="post">-->
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <div class="shoping__cart__table">
+	                        <table>
+	                            <thead>
+	                                <tr>
+	                                	<th><input type="checkbox" id="allCheck" style="margin-right: 20px;"></th>
+	                                    <th class="shoping__product">상품</th>
+	                                    <th>가격</th>
+	                                    <th>수량</th>
+	                                    <th>총합</th>
+	                                    <th></th>
+	                                </tr>
+	                            </thead>
+	                            <tbody id="trGroup">
+	                                <tr th:if="${not #lists.isEmpty(cart)}" th:each="c : ${cart}">
+	                                    <td><input checked="checked" type="checkbox" class="checks" style="margin-right: 20px;"></td>
+	                                    <td class="shoping__cart__item">
+	                                        <img style="width:200px;" th:src="@{${c.goodsImage}}" alt="">
+	                                        <h5 th:text="${c.goodsName}"></h5>
+	                                    </td>
+	                                    <td class="shoping__cart__price" th:text="${c.goodsPrice}">
+	                                      	
+	                                    </td>
+	                                    <td class="shoping__cart__quantity">
+	                                        <div class="quantity">
+	                                            <div><!-- class="pro-qty"-->
+	                                            	<button type="button"  class="btn_width quantity_btn plus_btn">+</button><br>
+	                                                <input class="num_val btn_width"  type="text" th:value="${c.cartGoodsQuantity}" ><br>
+	                                                <button type="button"  class="btn_width quantity_btn minus_btn">-</button>
+	                                            </div>
+	                                            <a class="quantity_modify_btn" data-cartId="${ci.cartId}"></a>
+	                                        </div>
+	                                    </td>
+	                                    <td class="shoping__cart__total" th:text="${c.cartTotalPrice}">
+	                                      	
+	                                    </td>
+	                                    <td class="shoping__cart__item__close">
+	                                        <span class="icon_close"></span>
+	                                    </td>
+	                                </tr>
+	                            </tbody>
+	                        </table>
+	                        <div>
+	                    	
+	                        <button type="button" id="choiceDel" class="primary-btn cart-btn cart-btn-right" style="margin-top:30px;, align-self: center;">선택한 상품 제거</button>
+	                    	</div>
+	                    </div>
+	                </div>
+	
+	            </div>
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <div class="shoping__cart__btns">
+	                        <a th:href="@{/user/goods/goodsListUser}" class="primary-btn cart-btn mt">쇼핑계속하기</a>
+	                        <button type="button" class="primary-btn cart-btn cart-btn-right mt" style="display:none;" >장바구니 업데이트</button>
+	                    </div>
+	                </div>
+	                <div style="float:right;" class="w-100"> <!-- class="col-lg-6" -->
+	                    <div class="shoping__checkout" style="width:95%">
+	                        <h5>총 합</h5>
+	                        <ul>
+	                            <li>Total<span class="TotalPrice"></span></li>
+	                        </ul>
+	                        <button type="submit" class="primary-btn w-100">주문하기</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	   <!-- </form>-->
     </section>
     <!-- Shoping Cart Section End -->
 	</th:block>
 	<th:block  layout:fragment="customFootJs">
-	    <!-- Js Plugins -->
+	   <!--  Js Plugins 
 	    <script src="js/jquery-3.3.1.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
 	    <script src="js/jquery.nice-select.min.js"></script>
@@ -122,20 +143,123 @@
 	    <script src="js/jquery.slicknav.js"></script>
 	    <script src="js/mixitup.min.js"></script>
 	    <script src="js/owl.carousel.min.js"></script>
-	    <script src="js/main.js"></script>
-	    <script>
+	    <script src="js/main.js"></script>-->
+	    <script> 
 	    /* 수량버튼 */
 	    $(".plus_btn").on("click", function(){
+	    	let goodsPrice = $(this).parents('tr').find('.shoping__cart__price').text();
 	    	let quantity = $(this).parent("div").find("input").val();
 	    	$(this).parent("div").find("input").val(++quantity);
+	    	$(this).parents('tr').find('.shoping__cart__total').text((goodsPrice * quantity));
 	    });
 	    $(".minus_btn").on("click", function(){
+	    	let goodsPrice = $(this).parents('tr').find('.shoping__cart__price').text();
 	    	let quantity = $(this).parent("div").find("input").val();
 	    	if(quantity > 1){
 	    		$(this).parent("div").find("input").val(--quantity);		
 	    	}
+	    	$(this).parents("tr").find(".shoping__cart__total").text((goodsPrice * quantity));		
 	    });
 	    </script>
+
+	    
+	    <script>
+	    function itemSum(){
+	    	let str = "";
+	    	let sum = 0;
+	    	let count = $(".checks").length;
+	    	for(let i = 0; i < count; i++){
+	    		if($(".checks")[i].checked == true){
+	    			sum += parseInt($(".checks")[i].value);
+	    		}
+	    	}
+	    	$(".TotalPrice").text(sum + "원");
+	    	
+	    }
+	   
+/* 	    let numVal = $('.num_val');//input
+	    let price = $('.shoping__cart__price');
+	   	let checks = $('.checks')
+	    function total(){
+	    let totalPrice = 0;
+			for(let i = 0; i <= numVal.length; i++){
+	    		let defaultVal = 0;
+	    		if(checks.checked){
+	    			let Val = numVal[i].val();
+	    			defaultVal = (defaultVal + Val);
+	    			totalPrice += (price[i]*defaultVal);
+	    		}
+	    		return totalPrice;
+	    	}
+	    	
+	    	
+		 }
+	   	console.log(totalPrice); */
+	   /*  
+	    function total(){
+	    	let goodsPrice = $('.shoping__cart__price').text();
+	    	let quantity = $('input').val();
+	    	let cartTotal = $(".TotalPrice").text(quantity); 
+	    	
+	    	let totalPrice = $('.TotalPrice');
+	    	console.log(totalPrice);
+	    	let numVal = $('.num_val').val();
+	    	console.log(numVal);
+	    	totalPrice.text(numVal);
+	    }
+	    
+	    total(); */
+	   /*  setInterval(total, 500); */
+	    </script>
+	    <script>
+		let trGroup = document.querySelector('#trGroup');
+		let allCheck = document.querySelector('#allCheck');
+		let choiceDel = document.querySelector('#choiceDel');
+		
+		trGroup.addEventListener('click', function (e){	
+			if(e.target.classList.contains('rowAdd')){
+				let tr = this.querySelector('tr').cloneNode(true);		
+				this.appendChild(tr);
+			}	
+		});	
+
+		/*동적 생성된 대상들은(바인딩은) 이벤트 안에서 다시 검색해주어야 함*/
+		allCheck.addEventListener('click', function(){
+			let checks = document.querySelectorAll('.checks');	
+			for(let check of checks){
+				check.checked = this.checked;
+			}
+		});
+		
+		choiceDel.addEventListener('click', function(){
+			let checks = document.querySelectorAll('.checks');	
+			for(let check of checks){	
+				if(check.checked){
+				check.parentElement.parentElement.remove();
+				}
+			}
+		});
+	    </script>
+	    <script>
+	    
+	    </script>
+	    <script>
+	  
+	 $.ajax({
+	    	url: "전송 페이지"(action url),
+	    	type: "전송 방식"(get, post),
+	    	data: "전송할 데이터",
+	    	dataType: "요청한 데이터 형식"("html", "xml", "json", "text", "json"),
+	    	success: function(data){
+	    		//전송에 성공하면 실행될 코드;
+	    	},
+	    	error: function(){
+	    		//전송에 실패하면 실행될 코드;
+	    	}
+	    });
+ 	
+	    </script>
+
 	</th:block>
 
 </html>

@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="anypet.ks44team01.mapper.BoardMapper">
+<mapper namespace="anypet.ksmartteam01.mapper.BoardMapper">
 	<!-- id가 BoardMapper의 method name, 메서드를 오버라이딩한다. --> 	
  	<!-- resultType 앞에 anypet.ks44team01.dto 적어줘야하지만 application.properties에서 설정 해줘서 안써줘도 된다.-->
 	<resultMap type="Board" id="BoardResultMap">			
