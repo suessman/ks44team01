@@ -102,7 +102,7 @@
 														<th:block th:if="${not #lists.isEmpty(boardList)}"
 															th:each="b : ${boardList}">
 															<tr
-																th:onclick="|location.href='@{/admin/board/boardDetail(boardCode=${b.boardCode})}'|">
+																th:onclick="|location.href='@{/#}'|">
 																<td><input type="checkbox" id="check-all"></td>
 																<td th:text="${b.boardCode}"></td>
 																<td th:text="${b.boardCategory.boardCategoryName}"></td>
@@ -110,8 +110,10 @@
 																<td th:text="${b.id}"></td>
 																<td th:text="${b.boardDatetime}"></td>
 																<td th:text="${b.boardHits}"></td>
-																<td><a href="/admin/board/modifyBoard"><button
-																			type="button" class="btn-sm btn-success">수정</button></a></td>
+																<td><a
+																	th:href="@{/#}"><button
+																			type="submit" id="modify_Btn"
+																			class="btn-sm btn-success">수정</button></a></td>
 																<td>
 																	<form th:action="@{/admin/board/deleteBoard}"
 																		method="get">
