@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="anypet.ksmartteam01.mapper.GoodsMapperPay">
+		<resultMap type="GoodsLargeCategory" id="goodsResultMap">
+		<id 	column="category_code"				property="categoryCode"/>
+		<result column="category_name"				property="categoryName"/>
+		<result column="registration_datetime"		property="registrationDatetime"/>
+		<result column="id"							property="Id"/>
+		</resultMap>
+		
+		<!-- 대분류목록조회 -->
+		<select id="getGoodsLargeCategoryList" resultMap="goodsResultMap" fetchSize="100">
+			/* 대분류목록조회 */
+			SELECT 
+				category_code, 
+				category_name,
+				id,
+				registration_datetime
+			FROM 
+				company_category;
+		</select>
+		
+		<!-- 대분류등록 -->
+		<insert id="goodsLargeCategoryAdd" parameterType="GoodsLargeCategory">
+		<selectKey keyProperty="categoryCode" resultType="String" order="BEFORE">
+			SELECT
+				(CASE 
+				 -- 상품이 없을 경우
+				 WHEN count(cc.category_code) = 0 THEN 'cc001'
+				 -- 999개 등록되어 있을 경우
+				 WHEN (Max(CAST(substring_index(cc.category_code,'cc',-1) AS UNSIGNED))+1) > 999 THEN
+				 	concat('cc',Max(CAST(substring_index(cc.category_code,'cc',-1) AS UNSIGNED))+1)
+				 -- 1~999 범위일 경우
+				 ELSE
+					concat('cc',LPAD(Max(CAST(substring_index(cc.category_code,'cc',-1) AS UNSIGNED))+1,3,0))	
+				 END) AS goodsCode
+			FROM 
+				company_category AS cc;
+		</selectKey>
+			INSERT INTO company_category
+			(category_code,
+			 category_name,
+			 registration_datetime,
+			 id)
+			VALUES (
+				 #{categoryCode}
+			 	,#{categoryName}
+			 	,Now()
+			  	,#{Id}
+			   );
+		</insert>
+		
+	<!-- 대분류 수정 -->
+	<update id="goodsLargeCategoryModify" parameterType="GoodsLargeCategory">
+		UPDATE company_category
+		<trim prefix="SET" prefixOverrides=",">		
+			<if test="categoryName != null and categoryName != ''">
+			    category_name       	= #{categoryName}
+			</if>
+			<if test="Id != null and Id != ''">
+			   ,id     					= #{Id}
+			</if>
+			   ,registration_datetime    = now()
+			
+		</trim>
+		WHERE
+		   category_code = #{categoryCode};
+	</update>
+
+	<!-- 특정대분류조회 -->
+	<select id="getLargeCategoryInfoByCategoryCode" parameterType="String" resultType="GoodsLargeCategory">
+		/* 특정대분류조회 */
+		SELECT 
+			 cc.category_code					AS		categoryCode
+			,cc.category_name					AS		categoryName
+			,m.id								AS		Id
+			,cc.registration_datetime			AS		registrationDatetime
+		FROM 
+			company_category AS cc
+			INNER JOIN
+			member AS m
+			ON
+			m.id = cc.id
+		WHERE
+			cc.category_code = #{categoryCode}
+	</select>
+	
+	
+	<!--중분류등록-->
+		<insert id="goodsMediumCategoryAdd" parameterType="GoodsMediumCategory">
+			<selectKey keyProperty="categoryCodeSub" resultType="String" order="BEFORE">
+				SELECT
+					(CASE 
+					 -- 상품이 없을 경우
+					 WHEN count(ccs.category_code_sub) = 0 THEN 'ccs001'
+					 -- 999개 등록되어 있을 경우
+					 WHEN (Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1) > 999 THEN
+					 	concat('ccs',Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1)
+					 -- 1~999 범위일 경우
+					 ELSE
+						concat('ccs',LPAD(Max(CAST(substring_index(ccs.category_code_sub,'ccs',-1) AS UNSIGNED))+1,3,0))	
+					 END) AS goodsCode
+				FROM 
+					company_category_sub AS ccs;
+			</selectKey>
+			INSERT INTO company_category_sub
+			(category_code_sub,
+			 category_code,
+			 id,
+			 category_sub_name,
+			 registration_datetime
+			 )
+			VALUES (
+				 #{categoryCodeSub}
+				,#{categoryCode}
+			  	,#{Id}
+			 	,#{categoryNameSub}
+			 	,Now()
+			   );
+		</insert>
+	
+	<!-- 중분류 수정 -->
+		<update id="goodsMediumCategoryModify" parameterType="GoodsMediumCategory">
+			UPDATE company_category_sub
+			<trim prefix="SET" prefixOverrides=",">	
+				<if test="categoryCode != null and categoryCode != ''">
+				    category_code      			= #{categoryCode}
+				</if>	
+				<if test="categoryNameSub != null and categoryNameSub != ''">
+				   ,category_sub_name       	= #{categoryNameSub}
+				</if>
+				<if test="Id != null and Id != ''">
+				   ,id     						= #{Id}
+				</if>
+				   ,registration_datetime 		= now()
+			</trim>
+			WHERE
+			   category_code_sub = #{categoryCodeSub};
+		</update>
+
+	<!-- 특정중분류조회 -->
+		<select id="getMediumCategoryInfoByCategoryCodeSub" parameterType="String" resultType="GoodsMediumCategory">
+			/* 특정중분류조회 */
+			SELECT 
+				 ccs.category_code_sub				AS		categoryCodeSub
+				,cc.category_code					AS		categoryCode
+				,ccs.category_sub_name				AS		categoryNameSub
+				,ccs.id								AS		Id
+				,ccs.registration_datetime			AS		registrationDatetime
+			FROM 
+				company_category_sub AS ccs
+				INNER JOIN
+				company_category AS cc
+				ON
+				ccs.category_code = cc.category_code
+			WHERE
+				ccs.category_code_sub = #{categoryCodeSub}
+		</select>
+
+	
+	<!-- 중분류목록조회 -->
+		<select id="getGoodsMediumCategoryList" resultType="GoodsMediumCategory">
+			/* 중분류목록조회 */
+			SELECT 
+				ccs.category_code_sub				as		categoryCodeSub
+				,cc.category_code                   as		categoryCode
+				,ccs.category_sub_name				as		categoryNameSub
+				,m.id								as		Id
+				,cc.registration_datetime			as		registrationDatetime
+			FROM 
+				company_category_sub AS ccs
+				INNER JOIN
+				company_category AS cc
+				ON
+				ccs.category_code = cc.category_code
+				INNER JOIN
+				member AS m
+				ON
+				m.id = cc.id;
+		</select>
+		
+
+		
+	<!-- 배송지 조회를 위한 특정회원 조회 -->
+		<select id="getMemberInfoById" parameterType="String" resultType="Member">
+			/* 배송지 조회를 위한 특정회원 조회 */
+			SELECT 
+				m.id 					AS	memberId
+				,m.NAME					AS	memberName
+				,m.level				AS	memberLevel
+				,m.addr					AS	memberAdress
+				,m.phone				AS	memberPhone
+	
+			FROM
+			 	member AS m
+			WHERE
+				m.id = #{memberId}
+		</select>
+		
+		<!-- 주문 상세 조회 -->
+		<select id="getGoodsOrderDetailByIdAndDatetime" parameterType="String" resultType="map">
+			/* 주문 상세 조회 */
+			SELECT
+				 od.order_detail_number		AS		orderDetailNumber
+				,g.goods_code				AS		goodsCode
+				,g.goods_name				AS		goodsName
+				,g.goods_price				AS		goodsPrice
+				,od.order_quantity			AS		orderQuantity
+				,od.order_price				AS		orderPrice
+				,g.goods_image				AS		goodsImage
+			from
+				goods_order as go
+				inner join 
+				order_detail as od
+				on
+				go.goods_order_code = od.goods_order_code
+				inner join 
+				goods as g
+				on 
+				g.goods_code = od.goods_code
+				inner join
+				member as m
+				on
+				m.id = od.id
+			where
+				m.id = #{memberId}
+				and
+				od.order_resgister_time = #{orderRegisterTime};
+		</select>	
+		<!-- 특정아이디 장바구니 목록 조회 -->
+		<select id="getCartById" parameterType="String" resultType="map">
+			/* 장바구니 목록 조회 */
+			SELECT
+			  	c.cart_List_code				AS		cartListCode
+			 	,m.id							AS		Id
+			 	,g.goods_code					AS		goodsCode
+			 	,g.goods_image					AS		goodsImage
+ 				,g.goods_price					AS		goodsPrice
+ 				,g.goods_name					AS		goodsName
+			 	,c.cart_goods_quantity			AS		cartGoodsQuantity
+			 	,c.cart_total_price				AS		cartTotalPrice
+			 	,c.cart_registration_datetime	AS		cartRegistrationDatetime
+			FROM
+				cart AS c
+				INNER join
+				goods AS g
+				on
+				c.goods_code = g.goods_code
+				INNER Join
+				member AS m
+				on
+				m.id = c.id
+			WHERE
+				m.id = #{memberId}
+
+		</select>	
+		<!-- 상품 대분류 삭제 -->
+		<delete id="removeGoodsLargeCategory" parameterType="String">
+			DELETE 
+			FROM 
+				company_category
+			WHERE
+				category_code = #{categoryCode};
+		</delete>
+		<!-- 상품 중분류 삭제 -->
+		<delete id="removeGoodsMediumCategory" parameterType="String">
+			DELETE 
+			FROM 
+				company_category_sub
+			WHERE
+				category_code_sub = #{categoryCodeSub};
+		</delete>
+		
+</mapper>

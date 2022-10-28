@@ -77,7 +77,7 @@
 	                            </thead>
 	                            <tbody id="trGroup">
 	                                <tr th:if="${not #lists.isEmpty(cart)}" th:each="c : ${cart}">
-	                                    <td><input type="checkbox" class="checks" style="margin-right: 20px;"></td>
+	                                    <td><input checked="checked" type="checkbox" class="checks" style="margin-right: 20px;"></td>
 	                                    <td class="shoping__cart__item">
 	                                        <img style="width:200px;" th:src="@{${c.goodsImage}}" alt="">
 	                                        <h5 th:text="${c.goodsName}"></h5>
@@ -121,9 +121,9 @@
 	                </div>
 	                <div style="float:right;" class="w-100"> <!-- class="col-lg-6" -->
 	                    <div class="shoping__checkout" style="width:95%">
-	                        <h5>총 합</h5>
+	                        <h5></h5>
 	                        <ul>
-	                            <li>Total<span class="TotalPrice"></span></li>
+	                            <li><span class="TotalPrice"></span></li>
 	                        </ul>
 	                        <button type="submit" class="primary-btn w-100">주문하기</button>
 	                    </div>
@@ -161,20 +161,26 @@
 	    	$(this).parents("tr").find(".shoping__cart__total").text((goodsPrice * quantity));		
 	    });
 	    </script>
-	    <script>
-	    	document.addEventListener('DOMContentLoaded', function(){
-	    		
-	    		checks = document.querySelectorAll('checks')
-	    		
-	    	});
-	    </script>
+
 	    
 	    <script>
+	    function itemSum(){
+	    	let str = "";
+	    	let sum = 0;
+	    	let count = $(".checks").length;
+	    	for(let i = 0; i < count; i++){
+	    		if($(".checks")[i].checked == true){
+	    			sum += parseInt($(".checks")[i].value);
+	    		}
+	    	}
+	    	$(".TotalPrice").text(sum + "원");
+	    	
+	    }
 	   
-	    let numVal = $('.num_val');//input
+/* 	    let numVal = $('.num_val');//input
 	    let price = $('.shoping__cart__price');
 	   	let checks = $('.checks')
-	    $('.checks').on('click', function total(){
+	    function total(){
 	    let totalPrice = 0;
 			for(let i = 0; i <= numVal.length; i++){
 	    		let defaultVal = 0;
@@ -187,8 +193,8 @@
 	    	}
 	    	
 	    	
-		 });
-	   	console.log(totalPrice);
+		 }
+	   	console.log(totalPrice); */
 	   /*  
 	    function total(){
 	    	let goodsPrice = $('.shoping__cart__price').text();
@@ -233,6 +239,25 @@
 				}
 			}
 		});
+	    </script>
+	    <script>
+	    
+	    </script>
+	    <script>
+	  
+	 $.ajax({
+	    	url: "전송 페이지"(action url),
+	    	type: "전송 방식"(get, post),
+	    	data: "전송할 데이터",
+	    	dataType: "요청한 데이터 형식"("html", "xml", "json", "text", "json"),
+	    	success: function(data){
+	    		//전송에 성공하면 실행될 코드;
+	    	},
+	    	error: function(){
+	    		//전송에 실패하면 실행될 코드;
+	    	}
+	    });
+ 	
 	    </script>
 
 	</th:block>
