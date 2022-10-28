@@ -5,8 +5,8 @@
   
   <mapper namespace="anypet.ksmartteam01.mapper.AccommodationListMapper">
 	<resultMap type="AccommodationList" id="accommodationResultMap" >
-		<result column="accomodation_detail_code" 		property="accommodationDetailCode"/>
-		<result column="accomodation_category_name" 	property="accommodationCategoryCode"/>
+		<result column="accommodation_detail_code" 		property="accommodationDetailCode"/>
+		<result column="accommodation_category_name" 	property="accommodationCategoryCode"/>
 		<result column="region_code" 					property="accommodationRegionCode"/>
 		<result column="company_member_code" 			property="companyMemberCode"/>
 		<result column="id" 							property="memberId"/>
@@ -15,8 +15,8 @@
 
 		<!-- 1:1 매핑 -->
 		<association property="accommodationCategoryDto" javaType="AccommodationCategory">
-			<id 	column="accomodation_category_code" 		property="accommodationCategoryCode"/>
-			<result column="accomodation_category_name" 	 	property="accommodationCategoryName"/>			
+			<id 	column="accommodation_category_code" 		property="accommodationCategoryCode"/>
+			<result column="accommodation_category_name" 	 	property="accommodationCategoryName"/>			
 		</association>
 		
 		<association property="regionDto" javaType="Region">
@@ -37,8 +37,8 @@
 
 	<select id="getAccommodationList" resultMap ="accommodationResultMap">
 		SELECT 
-		d.accomodation_detail_code
-		, c.accomodation_category_name
+		d.accommodation_detail_code
+		, c.accommodation_category_name
 		, r.region_name
 		, m.id
 		, m.company_name
@@ -46,11 +46,11 @@
 		, d.parking
 		, d.registration_datetime
 	FROM 
-		accomodation_detail AS d
+		accommodation_detail AS d
 		INNER JOIN 
-		accomodation_category AS c
+		accommodation_category AS c
 		ON 
-		d.accomodation_category_code = c.accomodation_category_code
+		d.accommodation_category_code = c.accommodation_category_code
 		INNER JOIN 
 		region AS r
 		on
@@ -69,20 +69,20 @@
 		SELECT
 			(CASE 
 			 -- 상품이 없을 경우
-			 WHEN count(g.accomodation_detail_code) = 0 THEN 'adc001'
+			 WHEN count(g.accommodation_detail_code) = 0 THEN 'adc001'
 			 -- 999개 등록되어 있을 경우
-			 WHEN (Max(CAST(substring_index(g.accomodation_detail_code,'g',-1) AS UNSIGNED))+1) > 999 THEN
-			 	concat('adc',Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1)
+			 WHEN (Max(CAST(substring_index(g.accommodation_detail_code,'g',-1) AS UNSIGNED))+1) > 999 THEN
+			 	concat('adc',Max(CAST(substring_index(g.accommodation_detail_code,'adc',-1) AS UNSIGNED))+1)
 			 -- 1~999 범위일 경우
 			 ELSE
-				concat('adc',LPAD(Max(CAST(substring_index(g.accomodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
+				concat('adc',LPAD(Max(CAST(substring_index(g.accommodation_detail_code,'adc',-1) AS UNSIGNED))+1,3,0))	
 			 END) AS accommodationDetailCode
 		FROM 
-			accomodation_detail AS g;
+			accommodation_detail AS g;
   		</selectKey>
-			INSERT INTO accomodation_detail
-				(accomodation_detail_code
-				, accomodation_category_code
+			INSERT INTO accommodation_detail
+				(accommodation_detail_code
+				, accommodation_category_code
 				, region_code
 				, company_member_code
 				, id
@@ -117,10 +117,10 @@
 	<select id="getCategoryList" resultType="AccommodationCategory">
 	/*숙소카테고리조회*/
 	select
-		c.accomodation_category_code AS accommodationCategoryCode
-		,c.accomodation_category_name AS accommodationCategoryName
+		c.accommodation_category_code AS accommodationCategoryCode
+		,c.accommodation_category_name AS accommodationCategoryName
 	FROM
-		accomodation_category as c;
+		accommodation_category as c;
 	</select>
 
 	<!-- 특정 숙소 조회 -->
@@ -128,8 +128,8 @@
 	/*매개변수 선언 되어있을 경우 파라미터타입 써줘야한다.*/
 	/*특정 숙소 조회*/
 	SELECT
-		d.accomodation_detail_code				AS accommodationDetailCode,
-		d.accomodation_category_code 		    AS accommodationCategoryCode,
+		d.accommodation_detail_code				AS accommodationDetailCode,
+		d.accommodation_category_code 		    AS accommodationCategoryCode,
 		d.region_code 							AS accommodationRegionCode,
 		d.company_member_code 					AS companyMemberCode,
 		d.id									AS memberId,
@@ -137,22 +137,22 @@
 		d.parking 								AS parking,
 		d.registration_datetime 				AS registrationDateTime
 	FROM
-		accomodation_detail AS d
+		accommodation_detail AS d
 	WHERE
-		d.accomodation_detail_code = #{accommodationDetailCode};
+		d.accommodation_detail_code = #{accommodationDetailCode};
 	</select>
 	
 		
 	<!-- 숙소수정 -->
 	<update id="updateAccommodationList" parameterType="AccommodationList">
 	/*쉼표가 뒤에 있으면 suffixOverrides*/
-	UPDATE accomodation_detail
+	UPDATE accommodation_detail
 	<trim prefix="SET" prefixOverrides=",">		
 		<if test="accommodationDetailCode != null and accommodationDetailCode != ''">
-		accomodation_detail_code 		    		= #{accommodationDetailCode}
+		accommodation_detail_code 		    		= #{accommodationDetailCode}
 		</if>
 		<if test="accommodationCategoryCode != null and accommodationCategoryCode != ''">
-		,accomodation_category_code 				= #{accommodationCategoryCode}
+		,accommodation_category_code 				= #{accommodationCategoryCode}
 		</if>
 		<if test="accommodationRegionCode != null and accommodationRegionCode != ''">
 		,region_code 								= #{accommodationRegionCode}
@@ -174,7 +174,7 @@
 		</if>
 	</trim>
 	WHERE
-		accomodation_detail_code = #{accommodationDetailCode};
+		accommodation_detail_code = #{accommodationDetailCode};
 	</update>
 
 	<select id="getCompanyMember" resultType="CompanyMember">
@@ -188,11 +188,11 @@
 	
 	<!-- 숙소삭제  -->
 	<update id="deleteAccommodationList" parameterType="String">
-	UPDATE accomodation_detail 
+	UPDATE accommodation_detail 
 		SET
 			is_del = 1
 		WHERE 
-			accomodation_detail_code=#{accommodationDetailCode};
+			accommodation_detail_code=#{accommodationDetailCode};
 	
 	</update>
 
